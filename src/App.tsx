@@ -1,26 +1,21 @@
 import * as React from 'react';
-import logo from './logo.svg';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { withAddons } from './components/hoc/addons/addons';
+import { Home } from './pages/home';
+import { Blog } from './pages/blog/blog';
+import { Article } from './pages/blog/article';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<Switch>
+			<Route exact path="/" component={Home}/>
+			<Route path="/blog/:id" component={Article}/>
+			<Route path="/blog/" component={Blog}/>
+			<Route path="/projects"/>
+			<Route path="/projects/:id"/>
+		</Switch>
+	);
 }
 
-export default App;
+export default withAddons(App);
