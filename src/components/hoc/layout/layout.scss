@@ -1,0 +1,47 @@
+.navbar {
+    background: #202022;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    height: 4rem;
+    padding: 0 1rem 0 1rem;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.navitem {
+    cursor: pointer;
+    width: 100px;
+}
+
+.homeIcon {
+    margin-right: auto;
+    text-align: left;
+    width: 100%;
+}
+
+.mobile-nav {
+    position: absolute;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 1em 0 1em 0;
+    top: 5em;
+    right: 1rem;
+    border-radius: 5%;
+    background-color: orange;
+}
+
+.mobile-nav-item {
+    display: flex;
+    height: 100%;
+    padding: 1em;
+    // justify-content: flex-end;
+}
+
+.mobile-nav-item:hover {
+    background: cornflowerblue;
+}

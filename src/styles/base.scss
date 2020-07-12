@@ -1,5 +1,15 @@
+@import './theme-controller.scss';
+.base {
+	height: 100vh;
+    width: 100%;
+	@include themed() {
+		background: t('bg');
+		color: t('text');
+	}
+}
+
+
 @import url('https://fonts.googleapis.com/css?family=Rubik');
-@import './color-themes.scss';
 body {
 	margin: 0;
 	padding: 0;
@@ -7,3 +17,4 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
