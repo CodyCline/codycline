@@ -1,9 +1,10 @@
 import * as React from 'react';
+import './card.css';
 
 export const Card = () => {
     return (
-        <div>
-            Home Page
+        <div className="card">
+            
         </div>
     )
 }
