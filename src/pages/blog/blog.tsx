@@ -8,15 +8,28 @@ export const Blog = () => {
             <Row align="center" style={{height: "200px"}}></Row>
             <Row justify="center">
                 <Col sm={12}>
-                    <Strip/>
+                    <Strip 
+                        title="Testing" 
+                        date="12-22-2021" 
+                        readTime={12} 
+                        description="Testing lorem impsum dolor ipsut do"
+                        imageUrl="https://via.placeholder.com/150x150"
+                    />
+                    <div style={{height: "50px"}}/>
                 </Col>
                 <Col sm={12}>
-                    <Strip/>
+                    <Strip 
+                        title="hello" 
+                        date="12-22-2021" 
+                        readTime={12} 
+                        description="Lorem impsem dolor ipsut impsem dolor ipsut" 
+                        imageUrl="https://via.placeholder.com/150x150"
+                    />
+                    <div style={{height: "50px"}}/>
                 </Col>
                 <Col sm={12}>
                 </Col>
                 <Col sm={12}>
-                    <Strip/>
                 </Col>
             </Row>
             <Row align="center" style={{height: "200px"}}></Row>
