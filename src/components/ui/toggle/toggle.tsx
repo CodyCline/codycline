@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import "./toggle.scss";
+import { SunIcon, MoonIcon } from '@primer/octicons-react';
+import './toggle.scss';
 
 export const ThemeToggle = () => {
     const [toggled, toggleTheme] = useState<boolean>(false);
@@ -10,9 +11,9 @@ export const ThemeToggle = () => {
         <span className="toggle-background">
             {
                 toggled?
-                <span style={{color: "#4C6EF5"}} onClick={onClick}>Moon</span>
+                <span style={{color: "#4C6EF5"}} onClick={onClick}><MoonIcon size="medium"/></span>
                 :
-                <span style={{color: "#FFF700"}} onClick={onClick}>Sun</span>
+                <span style={{color: "#FFF700"}} onClick={onClick}><SunIcon size="medium"/></span>
             }
         </span>
     )

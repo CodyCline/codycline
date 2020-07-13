@@ -1,6 +1,6 @@
 @import './theme-controller.scss';
 .base {
-	height: 100vh;
+	height: calc(100vh + 100%);
     width: 100%;
 	@include themed() {
 		background: t('bg');
