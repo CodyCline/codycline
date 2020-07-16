@@ -1,12 +1,13 @@
 .strip {
     height: 150px;
-    width: 700px;
+    width: 800px;
     margin: auto;
     background: #202022;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    overflow: hidden;
     transition: 0.5s;
 }
 
@@ -26,18 +27,13 @@
 
 .strip-meta {
     display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
     flex-direction: row;
     justify-content: space-between;
 }
 
 
 @media (max-width: 750px) {
-    .strip {
-        flex-direction: column;
-        width: 80%;
-        height: 100%;
-    }
-    .strip-spacer {
-        width: 0;
-    }
+    
 }

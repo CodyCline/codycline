@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Row, Col, Visible } from 'react-grid-system';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './strip.scss';
-import { ClockIcon, BookIcon } from '@primer/octicons-react';
+
 
 
 export const Strip = ({ title, description, imageUrl, date, readTime }: any) => {
@@ -12,15 +12,15 @@ export const Strip = ({ title, description, imageUrl, date, readTime }: any) => 
             <div className="strip-spacer"/>
             <div className="strip-secondary">
                 <div className="strip-text">
-                    <h3 className="strip-text">{title}</h3>
+                    <h2 className="strip-text">{title}</h2>
                     <p>{description}</p>
                 </div>
                 <div className="strip-meta">
                     <span>
-                        <ClockIcon/> {date}
+                        <FontAwesomeIcon icon={["fab", "clock"]}/> {date}
                     </span>
                     <span>
-                        <BookIcon/>{readTime} minute read
+                        <FontAwesomeIcon icon={["far", "book-alt"]}/>{readTime} minute read
                     </span>
                 </div>
             </div>

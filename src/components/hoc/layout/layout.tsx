@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useHistory, NavLink, useLocation } from 'react-router-dom';
 import cx from 'classnames';
 import { ThemeToggle } from '../../ui/toggle/toggle';
 import './layout.scss';
@@ -8,7 +9,7 @@ export const Layout = ({ children }: any) => {
     return (
         <div className={cx("theme--" + theme)}>
             <div className="base">
-                <Navbar />
+                <NavBar />
                 {children}
             </div>
         </div>
@@ -24,7 +25,7 @@ export const Footer = () => {
     )
 }
 
-export const Navbar = () => {
+export const NavBar = () => {
     const [isMobile, setMobileView] = React.useState<boolean>(false);
     const [isOpen, setOpen] = React.useState<boolean>(false);
     const handleResize = (mediaQuery: any) => {
@@ -52,43 +53,52 @@ export const Navbar = () => {
     }
     return (
         <nav className="navbar">
-            <Navitem className="homeIcon"><h2>Cody Cline</h2></Navitem>
+            <NavItem link="/" className="homeIcon"><h1>Cody Cline</h1></NavItem>
             {isMobile ?
-                <Navitem>
+                <NavItem notActive>
                     <button onClick={toggleMenu}>...</button>
                     {isOpen ?
-                        <MobileNav />
+                        <MobileMenu />
                         : null
                     }
-                </Navitem>
+                </NavItem>
                 :
                 <React.Fragment>
-                    <Navitem>Blog</Navitem>
-                    <Navitem>Projects</Navitem>
-                    <Navitem>Contact</Navitem>
-                    <Navitem>
+                    <NavItem link="/blog">
+                        Blog
+                    </NavItem>
+                    <NavItem link="/projects">Projects</NavItem>
+                    <NavItem link="/contact">Contact</NavItem>
+                    <NavItem notActive>
                         <ThemeToggle />
-                    </Navitem>
+                    </NavItem>
                 </React.Fragment>
             }
         </nav>
     )
 }
 
-const MobileNav = () => {
+const MobileMenu = () => {
     return (
         <ul className="mobile-nav">
-            <Navitem className="mobile-nav-item">Blog</Navitem>
-            <Navitem className="mobile-nav-item">Contact</Navitem>
-            <Navitem className="mobile-nav-item">Projects</Navitem>
-            <Navitem className="mobile-nav-item">
+            <NavItem link="/blog" className="mobile-nav-item">Blog</NavItem>
+            <NavItem link="/contact" className="mobile-nav-item"> Contact </NavItem>
+            <NavItem link="/projects" className="mobile-nav-item">Projects</NavItem>
+            <NavItem notActive className="mobile-nav-item">
                 <ThemeToggle />
-            </Navitem>
+            </NavItem>
         </ul>
     )
 }
 
 
-const Navitem = ({ children, className }: any) => (
-    <li className={cx("navitem", className)}>{children}</li>
-)
+const NavItem = ({ children, link, notActive, className }: any) => {
+    return (
+        <li className={cx("navitem",  className)}>
+            <NavLink activeClassName="navitem-active" to={notActive? "#" : link}>
+                <h3 style={{fontSize: "18px"}}>{children}</h3>
+            </NavLink>
+            
+        </li>
+    );
+};

@@ -6,6 +6,7 @@ import { Home } from './pages/home/home';
 import { Blog } from './pages/blog/blog';
 import { Article } from './pages/blog/article';
 import { Projects } from './pages/projects/projects';
+import { Post } from './pages/projects/view';
 
 
 function App() {
@@ -15,8 +16,8 @@ function App() {
 				<Route exact path="/" component={Home} />
 				<Route path="/blog/:id" component={Article} />
 				<Route path="/blog/" component={Blog} />
+				<Route path="/projects/:id" component={Post} />
 				<Route path="/projects" component={Projects}/>
-				<Route path="/projects/:id" />
 			</Switch>
 		</Layout>
 	);

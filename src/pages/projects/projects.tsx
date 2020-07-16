@@ -5,18 +5,17 @@ import { Card } from '../../components/ui/card/card';
 export const Projects = () => {
     return (
         <Container fluid>
-            <Row align="center" style={{height: "100px"}}></Row>
             <Row justify="center">
-                <Col sm={6} md={4} lg={2.5} xl={2.5}>
+                <Col style={{padding: "50px 0 50px 0"}} sm={6} md={4} lg={2.5} xl={2.5}>
+                    <Card description="Cards are used to apply a container around a related groupinsdsdddasdasdasdasdsad..." />
+                </Col>
+                <Col style={{padding: "50px 0 50px 0"}}  sm={6} md={4} lg={2.5} xl={2.5}>
+                    <Card description="Cards are used to apply a containe" />
+                </Col>
+                <Col style={{padding: "50px 0 50px 0"}}  sm={6} md={4} lg={2.5} xl={2.5}>
                     <Card />
                 </Col>
-                <Col sm={6} md={4} lg={2.5} xl={2.5}>
-                    <Card />
-                </Col>
-                <Col sm={6} md={4} lg={2.5} xl={2.5}>
-                    <Card />
-                </Col>
-                <Col sm={6} md={4} lg={2.5} xl={2.5}>
+                <Col style={{padding: "50px 0 50px 0"}}  sm={6} md={4} lg={2.5} xl={2.5}>
                     <Card />
                 </Col>
             </Row>
