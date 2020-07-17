@@ -19,7 +19,6 @@ a, a:visited, a:active {
 
 
 body {
-	background-color: #151515;
 	font: normal 20px 'Rubik', sans-serif;
 	letter-spacing: 0.09rem;
 	color: #fff;
@@ -33,26 +32,6 @@ body {
 
 /* Get rid of unessecary spacing */
 blockquote p { 
-	margin-top: 0px; 
-	margin-bottom: 0px; 
+	margin: 0; 
 }
-
-::-webkit-scrollbar {
-	width: 0.25rem;
-}
-::-webkit-scrollbar:horizontal {
-	width: 0.25rem;
-	height: 10px;
-}
-  
-::-webkit-scrollbar-track {
-	background: inherit;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: #88f; 
-	border-radius: 10px;
-}
-
 
