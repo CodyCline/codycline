@@ -53,7 +53,7 @@ export const NavBar = () => {
     }
     return (
         <nav className="navbar">
-            <NavItem link="/" className="homeIcon"><h1>Cody Cline</h1></NavItem>
+            <NavItem link="/" className="homeIcon">Cody Cline</NavItem>
             {isMobile ?
                 <NavItem notActive>
                     <button onClick={toggleMenu}>...</button>
@@ -96,7 +96,7 @@ const NavItem = ({ children, link, notActive, className }: any) => {
     return (
         <li className={cx("navitem",  className)}>
             <NavLink activeClassName="navitem-active" to={notActive? "#" : link}>
-                <h3 style={{fontSize: "18px"}}>{children}</h3>
+                <h3 style={{fontSize: "20px"}}>{children}</h3>
             </NavLink>
             
         </li>

@@ -11,15 +11,15 @@ export const Panel = ({ title, description, imageUrl, date, readTime }: any) => 
             <img src={imageUrl} className="panel-image" />
             <div className="panel-secondary">
                 <div className="panel-text">
-                    <h2 className="panel-text">{title}</h2>
+                    <h3 className="panel-text">{title}</h3>
                     <p>{description}</p>
                 </div>
                 <div className="panel-meta">
                     <span>
-                        <FontAwesomeIcon icon={["fab", "clock"]}/> {date}
+                        <FontAwesomeIcon icon={["far", "clock"]}/> {date}
                     </span>
                     <span>
-                        <FontAwesomeIcon icon={["far", "book-alt"]}/>{readTime} minute read
+                        <FontAwesomeIcon icon={["fas", "book"]}/>{readTime} minute read
                     </span>
                 </div>
             </div>
