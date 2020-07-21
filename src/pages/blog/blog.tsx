@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { SelectTag } from '../../components/ui/tags/tags';
 import { Container, Row, Col } from 'react-grid-system';
 import { Panel } from '../../components/panel/panel';
 import { useHistory } from 'react-router-dom';
@@ -32,15 +33,14 @@ export const Blog = () => {
     ])
     return (
         <Container fluid>
-            <Row>
+            <div style={{height: "50px"}}/>
+            <Row >
                 <Col xs={0} sm={2} md={3} lg={3} />
-                <Col xs={12} sm={8} md={6} lg={6}>
+                <Col style={{background: "#212223"}} xs={12} sm={8} md={6} lg={6}>
                     <h2 style={{ marginLeft: "10px" }}>Blog</h2>
                     <Row style={{ margin: "auto" }}>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Python</span>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Rust</span>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Docker</span>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>AWS</span>
+                        <SelectTag isActive>Python</SelectTag>
+                        <SelectTag >Python</SelectTag>
                     </Row>
                 </Col>
                 <Col xs={0} sm={2} md={3} lg={3} />

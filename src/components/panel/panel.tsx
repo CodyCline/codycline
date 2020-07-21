@@ -15,9 +15,9 @@ export const Panel = ({ title, description, imageUrl, date, readTime, onClick }:
                     <p className="panel-text">{description}</p>
                     <p><FontAwesomeIcon icon={["far", "clock"]} /> {date}</p>
                     <p>
-                        <span style={{margin: "10px", background: "#CCC", padding: "3.33px", borderRadius: "10px"}}>Python</span>
-                        <span style={{margin: "10px", background: "#CCC", padding: "3.33px", borderRadius: "10px"}}>Python</span>
-                        <span style={{margin: "10px", background: "#CCC", padding: "3.33px", borderRadius: "10px"}}>Python</span>
+                        <span style={{color: "#0f0f0f", margin: "10px", background: "#cfcfcf", padding: "3.33px", borderRadius: "10px"}}>Python</span>
+                        <span style={{color: "#0f0f0f", margin: "10px", background: "#cfcfcf", padding: "3.33px", borderRadius: "10px"}}>Python</span>
+                        <span style={{color: "#0f0f0f", margin: "10px", background: "#cfcfcf", padding: "3.33px", borderRadius: "10px"}}>Python</span>
                     </p>
                 </div>
             </div>

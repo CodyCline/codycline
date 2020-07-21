@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container, Row, Col } from 'react-grid-system';
 import { Card } from '../../components/ui/card/card';
+import { SelectTag } from '../../components/ui/tags/tags';
 
 export const Projects = () => {
     const history = useHistory();
@@ -29,15 +30,16 @@ export const Projects = () => {
 
     return (
         <Container fluid>
+            <div style={{height: "50px"}}/>
             <Row>
                 <Col xs={0} sm={0} md={3} lg={3} />
-                <Col xs={12} sm={12} md={6} lg={6}>
-                    <h2 style={{ marginLeft: "10px" }}>Blog</h2>
-                    <Row>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Python</span>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Rust</span>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Docker</span>
-                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>AWS</span>
+                <Col style={{background: "#212223"}} xs={12} sm={12} md={6} lg={6}>
+                    <h2 style={{ marginLeft: "10px" }}>Projects</h2>
+                    <Row style={{ margin: "auto" }}>
+                        <SelectTag isActive>All</SelectTag>
+                        <SelectTag>Web</SelectTag>
+                        <SelectTag>Mobile</SelectTag>
+                        <SelectTag>Desktop</SelectTag>
                     </Row>
                 </Col>
                 <Col xs={0} sm={0} md={3} lg={3} />
