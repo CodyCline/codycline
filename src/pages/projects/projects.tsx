@@ -15,7 +15,12 @@ export const Projects = () => {
             id: "id",
             title: "Test Project",
             description: "Lorem ipsum dolor ipsut lorem ipsem"
-        }
+        },
+        {
+            id: "id",
+            title: "Test Project",
+            description: "Lorem ipsum dolor ipsut lorem ipsem"
+        },
     ]);
 
     function navigate(url: string) {
@@ -25,15 +30,17 @@ export const Projects = () => {
     return (
         <Container fluid>
             <Row>
-                <Col xs={0} sm={0} md={2} lg={1} />
-                <Col xs={12} sm={12} md={10} lg={10}>
-                    <h2 style={{ marginLeft: "10px" }}>Portfolio</h2>
-                    <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>All</span>
-                    <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Open Source</span>
-                    <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Web</span>
-                    <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Mobile</span>
+                <Col xs={0} sm={0} md={3} lg={3} />
+                <Col xs={12} sm={12} md={6} lg={6}>
+                    <h2 style={{ marginLeft: "10px" }}>Blog</h2>
+                    <Row>
+                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Python</span>
+                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Rust</span>
+                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>Docker</span>
+                        <span style={{ margin: "10px", padding: "3px 6px 3px 6px", borderRadius: "10px", border: "1px solid #CCC" }}>AWS</span>
+                    </Row>
                 </Col>
-                <Col xs={0} sm={0} md={2} lg={1} />
+                <Col xs={0} sm={0} md={3} lg={3} />
             </Row>
             <Row justify="center">
                 {data.map((project: any) => (

@@ -5,25 +5,22 @@ import './panel.scss';
 
 
 
-export const Panel = ({ title, description, imageUrl, date, readTime }: any) => {
+export const Panel = ({ title, description, imageUrl, date, readTime, onClick }: any) => {
     return (
-        <div className="panel">
+        <div className="panel" onClick={onClick}>
             <img src={imageUrl} className="panel-image" />
             <div className="panel-secondary">
-                <div className="panel-text">
+                <div>
                     <h3 className="panel-text">{title}</h3>
-                    <p>{description}</p>
-                </div>
-                <div className="panel-meta">
-                    <span>
-                        <FontAwesomeIcon icon={["far", "clock"]}/> {date}
-                    </span>
-                    <span>
-                        <FontAwesomeIcon icon={["fas", "book"]}/>{readTime} minute read
-                    </span>
+                    <p className="panel-text">{description}</p>
+                    <p><FontAwesomeIcon icon={["far", "clock"]} /> {date}</p>
+                    <p>
+                        <span style={{margin: "10px", background: "#CCC", padding: "3.33px", borderRadius: "10px"}}>Python</span>
+                        <span style={{margin: "10px", background: "#CCC", padding: "3.33px", borderRadius: "10px"}}>Python</span>
+                        <span style={{margin: "10px", background: "#CCC", padding: "3.33px", borderRadius: "10px"}}>Python</span>
+                    </p>
                 </div>
             </div>
-
         </div>
     );
 }
