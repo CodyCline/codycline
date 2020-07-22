@@ -8,6 +8,7 @@ import { Article } from './pages/blog/article';
 import { Projects } from './pages/projects/projects';
 import { Post } from './pages/projects/view';
 
+const NotFound = () => (<div>Not Found</div>)
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/blog/" component={Blog} />
 				<Route path="/projects/:id" component={Post} />
 				<Route path="/projects" component={Projects}/>
+				<Route path="/notfound" component={NotFound}/>
 			</Switch>
 		</Layout>
 	);

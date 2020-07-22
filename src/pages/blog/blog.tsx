@@ -29,6 +29,10 @@ export const Blog = () => {
             banner: "https://picsum.photos/seed/picsum/200/300",
             date: "2020-03-18",
             read_time: 12,
+            tags: [
+                "Python",
+                "JavaScript",
+            ],
         },
     ])
     return (
@@ -50,12 +54,13 @@ export const Blog = () => {
                 {data.map((article: any) => (
                     <Col key={article.id} sm={12} lg={12}>
                         <Panel
-                            onClick={() => navigate(article.id)}
+                            link={`blog/${article.id}`}
                             title={article.title}
                             description={article.description}
                             date={article.date}
                             readTime={article.read_time}
                             imageUrl={article.banner}
+                            tags={article.tags}
                         />
                         <div style={{ height: "50px" }} />
                     </Col>

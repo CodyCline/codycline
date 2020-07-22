@@ -29,7 +29,12 @@
 }
 
 .card-image {
-    max-height: 200px;
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    opacity: 1;
+	object-position: center 40%;
+    height: 200px;
     border-radius: 6.4px 6.4px 0 0;
 }
 

@@ -9,16 +9,19 @@ export const Projects = () => {
     const [data, setData] = React.useState<any>([
         {
             id: "id",
-            title: "Test Project",
+            type: "desktop",
+            title: "Test Desktop",
             description: "Lorem ipsum dolor ipsut lorem ipsem"
         },
         {
             id: "id",
-            title: "Test Project",
+            type: "desktop",
+            title: "Test Desktop 2",
             description: "Lorem ipsum dolor ipsut lorem ipsem"
         },
         {
             id: "id",
+            type: "web",
             title: "Test Project",
             description: "Lorem ipsum dolor ipsut lorem ipsem"
         },
@@ -26,6 +29,12 @@ export const Projects = () => {
 
     function navigate(url: string) {
         history.push("/projects/" + url);
+    }
+
+    function filter(tag: any) {
+        return data.filter((i:any) => {
+            return i.type === tag
+        })
     }
 
     return (
@@ -36,8 +45,8 @@ export const Projects = () => {
                 <Col style={{background: "#212223"}} xs={12} sm={12} md={6} lg={6}>
                     <h2 style={{ marginLeft: "10px" }}>Projects</h2>
                     <Row style={{ margin: "auto" }}>
-                        <SelectTag isActive>All</SelectTag>
-                        <SelectTag>Web</SelectTag>
+                        <SelectTag onClick={() => filter("web")}isActive>All</SelectTag>
+                        <SelectTag onClick={() => filter("web")}>Web</SelectTag>
                         <SelectTag>Mobile</SelectTag>
                         <SelectTag>Desktop</SelectTag>
                     </Row>
