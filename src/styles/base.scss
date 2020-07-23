@@ -1,11 +1,4 @@
 @import './theme-controller.scss';
-.base {
-    width: 100%;
-	@include themed() {
-		background: t('bg');
-		color: t('text');
-	}
-}
 
 .cover-image {
 	display: block;
@@ -27,6 +20,11 @@ a, a:visited, a:active {
 
 
 body {
+	width: 100%;
+	@include themed() {
+		background: t('bg');
+		color: t('text');
+	}
 	font: normal 20px 'Rubik', sans-serif;
 	letter-spacing: 0.09rem;
 	color: #fff;

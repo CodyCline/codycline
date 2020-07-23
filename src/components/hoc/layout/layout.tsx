@@ -5,13 +5,11 @@ import { ThemeToggle } from '../../ui/toggle/toggle';
 import './layout.scss';
 
 export const Layout = ({ children }: any) => {
-    const [theme, setTheme] = React.useState<string>("dark");
     return (
-        <div className={cx("theme--" + theme)}>
-            <div className="base">
-                <NavBar />
-                {children}
-            </div>
+        <div>
+            <NavBar />
+            {children}
+            <Footer/>
         </div>
         
     );
@@ -20,7 +18,7 @@ export const Layout = ({ children }: any) => {
 
 export const Footer = () => {
     return (
-        <footer>
+        <footer className="footer">
             Home Page
         </footer>
     )

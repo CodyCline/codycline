@@ -19,6 +19,22 @@ export const Projects = () => {
             id: "id",
             type: "desktop",
             title: "Test Desktop 2",
+            description: "Lorem ipsum dolor ipsut asda asd asasd asdas  lorem ipsem",
+            githubUrl: "https://github.com",
+            liveUrl: "https://example.com"
+        },
+        {
+            id: "id",
+            type: "web",
+            title: "Test Project",
+            description: "Lorem ipsum dolor ipsut lorem ipsem",
+            githubUrl: "https://github.com",
+            liveUrl: "https://example.com"
+        },
+        {
+            id: "id",
+            type: "web",
+            title: "Test Project",
             description: "Lorem ipsum dolor ipsut lorem ipsem",
             githubUrl: "https://github.com",
             liveUrl: "https://example.com"
@@ -45,7 +61,7 @@ export const Projects = () => {
 
     return (
         <React.Fragment>
-            <div style={{ background: "#212223", display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+            <div style={{ background: "#212223", display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 <h2 style={{ marginLeft: "10px" }}>Projects</h2>
                 <div style={{ margin: "auto" }}>
                     <SelectTag onClick={() => filter("web")} isActive>All</SelectTag>
@@ -54,9 +70,10 @@ export const Projects = () => {
                     <SelectTag>Desktop</SelectTag>
                 </div>
             </div>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "80%", margin: "auto" }}>
                 {data.map((project: any) => (
                     <Card
+                        title={project.title}
                         onClick={() => navigate(project.id)}
                         description={project.description}
                         githubUrl={project.githubUrl}
