@@ -7,7 +7,7 @@ export const ThemeToggle = () => {
     const [theme, setTheme] = React.useState<string>("dark");
     const [toggled, toggleTheme] = useState<boolean>(false);
     React.useEffect(() => {
-        document.documentElement.className = "theme--" + theme
+        document.documentElement.className = `theme--${theme}`
     })
     const onClick = (mode:string) => {
         toggleTheme(!toggled);

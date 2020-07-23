@@ -37,13 +37,12 @@ export const Blog = () => {
     ])
     return (
         <React.Fragment>
-            <div>
-            <h2 style={{ marginLeft: "10px" }}>Blog</h2>
-                <p>
-                    <SelectTag isActive>Python</SelectTag>
-                    <SelectTag >Python</SelectTag>
-                </p>
+            <div style={{height: "5vh"}}/>
+            <div style={{margin: "auto", textAlign:"center", width: "30vh", display:"grid", placeItems:"center"}}>
+                <h2 >Blog</h2>
+                <hr style={{width: "30vh", border: "3px dashed yellow"}}/>
             </div>
+            <div style={{height: "10vh"}}/>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {data.map((article: any) => (
                     <Panel
@@ -58,6 +57,7 @@ export const Blog = () => {
                     />
                 ))}
             </div>
+            <div style={{height: "30vh"}}/>
         </React.Fragment>
     );
 }

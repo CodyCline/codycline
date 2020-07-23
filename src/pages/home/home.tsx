@@ -8,7 +8,7 @@ export const Home = () => {
             backgroundImage: "linear-gradient(#2c2c30 0.75px,transparent 0), linear-gradient(90deg,#2c2c30 0.75px,transparent 0), linear-gradient(transparent 0.75px,#171819 0,#171819 0.75px,transparent 0)",
             backgroundSize: "100px 100px",
         }}>
-            <div style={{height: "150px"}}/>
+            <div style={{height: "30vh"}}/>
             <div style={{
                 border: "5px solid",
                 borderImageSlice: "1",
@@ -21,7 +21,7 @@ export const Home = () => {
                 <h1 style={{ margin: 0, fontSize: "50px" }}>Hello, I'm Cody Cline.</h1>
                 <p>Software Developer based in greater Seattle, WA. </p>
             </div>
-            <div style={{ height: "200px" }} />
+            <div style={{height: "60vh"}}/>
         </div>
     );
 }

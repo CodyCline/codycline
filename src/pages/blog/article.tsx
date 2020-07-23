@@ -44,6 +44,7 @@ export const Article = () => {
     }
     return (
         <React.Fragment>
+            <div style={{height: "10vh"}}/>
             <Row nogutter justify="center">
                 <Col sm={12} lg={12} md={12} xl={12}>
                     <img className="cover-image" src={articleData.cover} />

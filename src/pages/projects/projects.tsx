@@ -6,6 +6,7 @@ import { SelectTag } from '../../components/ui/tags/tags';
 
 export const Projects = () => {
     const history = useHistory();
+    const [selectedFilter, setFilter] = React.useState<any>("all");
     const [data, setData] = React.useState<any>([
         {
             id: "id",
@@ -61,15 +62,18 @@ export const Projects = () => {
 
     return (
         <React.Fragment>
-            <div style={{ background: "#212223", display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                <h2 style={{ marginLeft: "10px" }}>Projects</h2>
-                <div style={{ margin: "auto" }}>
-                    <SelectTag onClick={() => filter("web")} isActive>All</SelectTag>
-                    <SelectTag onClick={() => filter("web")}>Web</SelectTag>
-                    <SelectTag>Mobile</SelectTag>
-                    <SelectTag>Desktop</SelectTag>
-                </div>
+            <div style={{ height: "5vh" }} />
+            <div style={{ margin: "auto", textAlign: "center", width: "30vh", display: "grid", placeItems: "center" }}>
+                <h2 >Projects</h2>
+                <hr style={{ width: "30vh", border: "3px dashed yellow" }} />
             </div>
+            <p style={{ textAlign: "center", }}>
+                <SelectTag onClick={() => filter("web")} isActive>All</SelectTag>
+                <SelectTag onClick={() => filter("web")}>Web</SelectTag>
+                <SelectTag>Mobile</SelectTag>
+                <SelectTag>Desktop</SelectTag>
+            </p>
+            <div style={{ height: "5vh" }} />
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "80%", margin: "auto" }}>
                 {data.map((project: any) => (
                     <Card

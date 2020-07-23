@@ -1,7 +1,7 @@
 .panel {
     height: 200px;
     width: 750px;
-    margin: 25px;
+    margin: 1em auto;
     padding: 1.25em;
     background: #212223;
     display: flex;
@@ -26,13 +26,11 @@
 
 .panel-text {
     text-overflow: ellipsis;
-    color: #CCC;
+    color: #ccc;
 }
 
 .panel-secondary {
     width: 500px;
-}
-.panel-header {
 }
 
 .panel-tag {
