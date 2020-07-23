@@ -19,7 +19,7 @@ function App() {
 				<Route path="/blog/" component={Blog} />
 				<Route path="/projects/:id" component={Post} />
 				<Route path="/projects" component={Projects}/>
-				<Route path="/notfound" component={NotFound}/>
+				<Route component={NotFound}/>
 			</Switch>
 		</Layout>
 	);

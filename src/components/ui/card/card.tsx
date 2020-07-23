@@ -8,13 +8,21 @@ export const Card = ({ title, description, imageUrl, githubUrl, liveUrl, onClick
             <img className="card-image" alt="card-img" src="https://via.placeholder.com/300/000000/FFFFFF/?text=Placeholder" />
             <hr className="card-divider" />
             <ul className="card-meta">
-                <li><h3 style={{ margin: 0, paddingBottom: "5px" }}>Hello</h3></li>
-                <li>{description}</li>
+                <li><h4 style={{ margin: 0, paddingBottom: "5px" }}>Hello</h4></li>
+                <li style={{color: "#CCC"}}>{description}</li>
             </ul>
             <ul className="card-icon-bar">
                 {/* Icons */}
-                <li style={{ fontSize: "1.25rem" }}><FontAwesomeIcon icon={["fab", "github"]} /></li>
-                <li style={{ fontSize: "1.25rem" }}><FontAwesomeIcon icon={["fas", "link"]} /></li>
+                {githubUrl && 
+                    <a href={githubUrl} className="card-icon">
+                        <FontAwesomeIcon icon={["fab", "github"]} />
+                    </a>
+                }
+                {liveUrl && 
+                    <a href={liveUrl} className="card-icon">
+                        <FontAwesomeIcon icon={["fas", "link"]} />
+                    </a>
+                }
             </ul>
         </div>
     )

@@ -13,9 +13,9 @@ export const Panel = ({ title, description, imageUrl, date, readTime, onClick, t
             <img src={imageUrl} className="panel-image" />
             <div className="panel-secondary">
                 <div>
-                    <h3 className="panel-text">{title}</h3>
+                    <h3 className="panel-header">{title}</h3>
                     <p className="panel-text">{description}</p>
-                    <p><FontAwesomeIcon icon={["far", "clock"]} /> {date}</p>
+                    <p className="panel-text"><FontAwesomeIcon icon={["far", "clock"]} /> {date}</p>
                     <p>
                         {tags.map((tag:any) => {
                             return <PanelTag>{tag}</PanelTag>

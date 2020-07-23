@@ -11,19 +11,25 @@ export const Projects = () => {
             id: "id",
             type: "desktop",
             title: "Test Desktop",
-            description: "Lorem ipsum dolor ipsut lorem ipsem"
+            description: "Lorem ipsum dolor ipsut lorem ipsem",
+            githubUrl: "https://github.com",
+            liveUrl: "https://example.com"
         },
         {
             id: "id",
             type: "desktop",
             title: "Test Desktop 2",
-            description: "Lorem ipsum dolor ipsut lorem ipsem"
+            description: "Lorem ipsum dolor ipsut lorem ipsem",
+            githubUrl: "https://github.com",
+            liveUrl: "https://example.com"
         },
         {
             id: "id",
             type: "web",
             title: "Test Project",
-            description: "Lorem ipsum dolor ipsut lorem ipsem"
+            description: "Lorem ipsum dolor ipsut lorem ipsem",
+            githubUrl: "https://github.com",
+            liveUrl: "https://example.com"
         },
     ]);
 
@@ -59,6 +65,8 @@ export const Projects = () => {
                         <Card
                             onClick={() => navigate(project.id)}
                             description={project.description}
+                            githubUrl={project.githubUrl}
+                            liveUrl={project.liveUrl}
                         />
                     </Col>
                 ))}
