@@ -36,37 +36,28 @@ export const Blog = () => {
         },
     ])
     return (
-        <Container fluid>
-            <div style={{height: "50px"}}/>
-            <Row >
-                <Col xs={0} sm={2} md={3} lg={3} />
-                <Col style={{background: "#212223"}} xs={12} sm={8} md={6} lg={6}>
-                    <h2 style={{ marginLeft: "10px" }}>Blog</h2>
-                    <Row style={{ margin: "auto" }}>
-                        <SelectTag isActive>Python</SelectTag>
-                        <SelectTag >Python</SelectTag>
-                    </Row>
-                </Col>
-                <Col xs={0} sm={2} md={3} lg={3} />
-            </Row>
-            <div style={{ height: "50px" }} />
-            <Row justify="center">
+        <React.Fragment>
+            <div>
+            <h2 style={{ marginLeft: "10px" }}>Blog</h2>
+                <p>
+                    <SelectTag isActive>Python</SelectTag>
+                    <SelectTag >Python</SelectTag>
+                </p>
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {data.map((article: any) => (
-                    <Col key={article.id} sm={12} lg={12}>
-                        <Panel
-                            link={`blog/${article.id}`}
-                            title={article.title}
-                            description={article.description}
-                            date={article.date}
-                            readTime={article.read_time}
-                            imageUrl={article.banner}
-                            tags={article.tags}
-                        />
-                        <div style={{ height: "50px" }} />
-                    </Col>
+                    <Panel
+                        key={article.id}
+                        link={`blog/${article.id}`}
+                        title={article.title}
+                        description={article.description}
+                        date={article.date}
+                        readTime={article.read_time}
+                        imageUrl={article.banner}
+                        tags={article.tags}
+                    />
                 ))}
-            </Row>
-            <div style={{ height: "200px" }} />
-        </Container>
+            </div>
+        </React.Fragment>
     );
 }

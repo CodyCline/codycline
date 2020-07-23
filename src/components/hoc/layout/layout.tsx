@@ -13,15 +13,16 @@ export const Layout = ({ children }: any) => {
                 {children}
             </div>
         </div>
+        
     );
 }
 
 
 export const Footer = () => {
     return (
-        <div>
+        <footer>
             Home Page
-        </div>
+        </footer>
     )
 }
 

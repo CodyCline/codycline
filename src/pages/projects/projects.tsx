@@ -38,39 +38,32 @@ export const Projects = () => {
     }
 
     function filter(tag: any) {
-        return data.filter((i:any) => {
+        return data.filter((i: any) => {
             return i.type === tag
         })
     }
 
     return (
-        <Container fluid>
-            <div style={{height: "50px"}}/>
-            <Row>
-                <Col xs={0} sm={0} md={3} lg={3} />
-                <Col style={{background: "#212223"}} xs={12} sm={12} md={6} lg={6}>
-                    <h2 style={{ marginLeft: "10px" }}>Projects</h2>
-                    <Row style={{ margin: "auto" }}>
-                        <SelectTag onClick={() => filter("web")}isActive>All</SelectTag>
-                        <SelectTag onClick={() => filter("web")}>Web</SelectTag>
-                        <SelectTag>Mobile</SelectTag>
-                        <SelectTag>Desktop</SelectTag>
-                    </Row>
-                </Col>
-                <Col xs={0} sm={0} md={3} lg={3} />
-            </Row>
-            <Row justify="center">
+        <React.Fragment>
+            <div style={{ background: "#212223", display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+                <h2 style={{ marginLeft: "10px" }}>Projects</h2>
+                <div style={{ margin: "auto" }}>
+                    <SelectTag onClick={() => filter("web")} isActive>All</SelectTag>
+                    <SelectTag onClick={() => filter("web")}>Web</SelectTag>
+                    <SelectTag>Mobile</SelectTag>
+                    <SelectTag>Desktop</SelectTag>
+                </div>
+            </div>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {data.map((project: any) => (
-                    <Col key={project.id} style={{ padding: "50px 0 50px 0" }} sm={6} md={4} lg={2.5} xl={2.5}>
-                        <Card
-                            onClick={() => navigate(project.id)}
-                            description={project.description}
-                            githubUrl={project.githubUrl}
-                            liveUrl={project.liveUrl}
-                        />
-                    </Col>
+                    <Card
+                        onClick={() => navigate(project.id)}
+                        description={project.description}
+                        githubUrl={project.githubUrl}
+                        liveUrl={project.liveUrl}
+                    />
                 ))}
-            </Row>
-        </Container>
+            </div>
+        </React.Fragment>
     );
 }

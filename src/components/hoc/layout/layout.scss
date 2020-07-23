@@ -12,6 +12,7 @@
     justify-content: center;
 }
 
+
 .navitem {
     cursor: pointer;
     width: 100px;
@@ -52,3 +53,10 @@
 .navitem-active {
     color: yellow;
 }
+
+
+.layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
