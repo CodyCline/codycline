@@ -9,6 +9,7 @@ export const Layout = ({ children }: any) => {
         <div>
             <NavBar />
             {children}
+            <div style={{height: "30vh"}}/>
             <Footer/>
         </div>
         
@@ -63,11 +64,8 @@ export const NavBar = () => {
                 </NavItem>
                 :
                 <React.Fragment>
-                    <NavItem link="/blog">
-                        Blog
-                    </NavItem>
+                    <NavItem link="/blog"> Blog </NavItem>
                     <NavItem link="/projects">Projects</NavItem>
-                    <NavItem link="/contact">Contact</NavItem>
                     <NavItem notActive>
                         <ThemeToggle />
                     </NavItem>

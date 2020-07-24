@@ -14,7 +14,7 @@ export const Blog = () => {
             id: "f8a8f738-5f5a-43e6-bfd1-faaa93e11d47",
             title: "Testing Project",
             description: "Testing lsaasd saasfsaf asfas asfasf asdsa orem impsuym dolor ipsut dolor imseeed ads aa",
-            banner: "https://picsum.photos/seed/picsum/200/300",
+            banner: "https://images.unsplash.com/photo-1574701427671-519298cac091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80",
             date: "2020-03-18",
             tags: [
                 "Python",
@@ -26,7 +26,7 @@ export const Blog = () => {
             id: "5d42dd7d-4b85-416e-92b5-6f83cb87fd4c",
             title: "Testing Project",
             description: "Testing lorem impsuym dolor ipsut dolor imseeed ads aa",
-            banner: "https://picsum.photos/seed/picsum/200/300",
+            banner: "https://images.unsplash.com/photo-1574701427671-519298cac091?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80",
             date: "2020-03-18",
             read_time: 12,
             tags: [
@@ -38,11 +38,16 @@ export const Blog = () => {
     return (
         <React.Fragment>
             <div style={{height: "5vh"}}/>
-            <div style={{margin: "auto", textAlign:"center", width: "30vh", display:"grid", placeItems:"center"}}>
-                <h2 >Blog</h2>
-                <hr style={{width: "30vh", border: "3px dashed yellow"}}/>
+            <div style={{
+                display: "flex",
+                flexDirection: "column",
+                padding: "2rem",
+                alignItems: "center",
+            }}>
+                <h2 >Projects</h2>
+                <hr style={{ width: "30vh", border: "3px dashed yellow" }} />
             </div>
-            <div style={{height: "10vh"}}/>
+            <div style={{height: "2vh"}}/>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                 {data.map((article: any) => (
                     <Panel

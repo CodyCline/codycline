@@ -25,6 +25,8 @@ export const Home = () => {
                     <SocialIcon link="https://github.com" icon={["fab", "github"]}></SocialIcon>
                     <SocialIcon link="https://stackoverflow.com" icon={["fab", "stack-overflow"]}></SocialIcon>
                     <SocialIcon link="https://linkedin.com" icon={["fab", "linkedin"]}></SocialIcon>
+                    <SocialIcon link="https://codepen.com" icon={["fab", "codepen"]}></SocialIcon>
+                    <SocialIcon link="https://example.com" icon={["far", "envelope"]}></SocialIcon>
                 </SocialBar>
             </div>
             <div style={{ height: "60vh" }} />

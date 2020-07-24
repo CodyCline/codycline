@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Row, Col } from 'react-grid-system';
 import { MarkdownWrapper } from '../../components/hoc/markdown/markdown';
-
+import { PanelTag } from '../../components/panel/panel';
 
 
 const articleBody = `
@@ -24,6 +23,8 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 | ----------- | ----------- |
 | Header      | Title       |
 | Paragraph   | Text        |
+
+
 `;
 
 export const Article = () => {
@@ -45,16 +46,19 @@ export const Article = () => {
     return (
         <React.Fragment>
             <div style={{ height: "10vh" }} />
-            <div>
-                <img className="cover-image" src={articleData.cover} />
-            </div>
-            <div style={{display: "flex", flexWrap:"wrap", margin: "auto", width: "60%"}}>
-                <h1>{articleData.title}</h1>
+            <img className="cover-image" src={articleData.cover} />
+            <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "flex-start", margin: "auto", width: "65%" }}>
+                <h1 style={{ fontSize: "50px" }}>{articleData.title}</h1>
                 <p>{articleData.date}</p>
-                <hr />
+                <hr style={{ width: "100%" }} />
                 <MarkdownWrapper>
                     {articleData.body}
                 </MarkdownWrapper>
+                <div className="bottom-tags" >
+                    {articleData.tags.map((tag: any) => {
+                        return (<PanelTag>{tag}</PanelTag>);
+                    })}
+                </div>
             </div>
         </React.Fragment>
     )

@@ -27,7 +27,7 @@ export const Panel = ({ title, description, imageUrl, date, readTime, onClick, t
     );
 }
 
-const PanelTag = ({children, onClick} : any) => (
+export const PanelTag = ({children, onClick} : any) => (
     <Link to={"/tags/" + children}>
         <span className="panel-tag">{children}</span>
     </Link>
