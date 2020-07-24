@@ -44,27 +44,18 @@ export const Article = () => {
     }
     return (
         <React.Fragment>
-            <div style={{height: "10vh"}}/>
-            <Row nogutter justify="center">
-                <Col sm={12} lg={12} md={12} xl={12}>
-                    <img className="cover-image" src={articleData.cover} />
-                </Col>
-            </Row>
-            <Container fluid>
-                <div style={{ height: "75px" }} />
-                <Row justify="center">
-                    <Col sm={2.25} />
-                    <Col sm={7.5}>
-                        <h1>{articleData.title}</h1>
-                        <p>{articleData.date}</p>
-                        <hr />
-                        <MarkdownWrapper>
-                            {articleData.body}
-                        </MarkdownWrapper>
-                    </Col>
-                    <Col sm={2.25} />
-                </Row>
-            </Container>
+            <div style={{ height: "10vh" }} />
+            <div>
+                <img className="cover-image" src={articleData.cover} />
+            </div>
+            <div style={{display: "flex", flexWrap:"wrap", margin: "auto", width: "60%"}}>
+                <h1>{articleData.title}</h1>
+                <p>{articleData.date}</p>
+                <hr />
+                <MarkdownWrapper>
+                    {articleData.body}
+                </MarkdownWrapper>
+            </div>
         </React.Fragment>
     )
 }

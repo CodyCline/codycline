@@ -63,22 +63,30 @@ export const Projects = () => {
     return (
         <React.Fragment>
             <div style={{ height: "5vh" }} />
-            <div style={{ margin: "auto", textAlign: "center", width: "30vh", display: "grid", placeItems: "center" }}>
+            <div style={{ display: "flex", flexDirection:"column", flexWrap: "wrap", justifyContent: "center" }}>
                 <h2 >Projects</h2>
-                <hr style={{ width: "30vh", border: "3px dashed yellow" }} />
+                <hr style={{ border: "3px dashed yellow" }} />
+                <ul
+                    style={{ listStyle: "none", margin: 0 }}
+                >
+                    <li>
+                        <SelectTag onClick={() => filter("web")} isActive>All</SelectTag>
+                    </li>
+                    <li>
+                        <SelectTag onClick={() => filter("web")} >Web</SelectTag>
+                        <SelectTag onClick={() => filter("web")} >Open-Source</SelectTag>
+                        <SelectTag onClick={() => filter("web")} >Mobile</SelectTag>
+                    </li>
+                </ul>
             </div>
-            <p style={{ textAlign: "center", }}>
-                <SelectTag onClick={() => filter("web")} isActive>All</SelectTag>
-                <SelectTag onClick={() => filter("web")}>Web</SelectTag>
-                <SelectTag>Mobile</SelectTag>
-                <SelectTag>Desktop</SelectTag>
-            </p>
+            <div style={{ margin: "auto", textAlign: "center", width: "80%", display: "grid", placeItems: "center", height: "100%" }}>
+            </div>
             <div style={{ height: "5vh" }} />
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "80%", margin: "auto" }}>
                 {data.map((project: any) => (
                     <Card
                         title={project.title}
-                        onClick={() => navigate(project.id)}
+                        link={"/projects/" + project.id}
                         description={project.description}
                         githubUrl={project.githubUrl}
                         liveUrl={project.liveUrl}
