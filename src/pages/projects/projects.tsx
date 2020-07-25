@@ -50,11 +50,13 @@ export const Projects = () => {
     const [category, setCategory] = React.useState<any>("all");
     const [data, setData] = React.useState<any>(projects);
 
+    const filterOptions = data.filter(
+        (project:any) => 
+            category === "all" ? project : project.type === category
+    )
+
     function filter(tag: any) {
-        console.log("Test", tag);
         setCategory(tag);
-
-
     }
 
     return (
@@ -100,24 +102,22 @@ export const Projects = () => {
             </div>
             <div style={{ height: "5vh" }} />
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "90%", margin: "auto" }}>
-                {data.filter((project: any) => {
-                    return (category === "all" ? project : project.type === category)
-                }).map((project: any) => {
-                    console.log("project", project)
-                    return (
-                        project == null ?
+                {
+                    filterOptions.length > 0 ? (
+                        filterOptions.map((project:any) => {
+                            return    <Card
+                                key={project.id}
+                                title={project.title}
+                                link={`/projects/${project.id}`}
+                                description={project.description}
+                                githubUrl={project.githubUrl}
+                                liveUrl={project.liveUrl}
+                            />
+                        })
+                    ) : (
                         <h3>Nothing here yet, check back soon</h3>
-                        :
-                        <Card
-                            key={project.id}
-                            title={project.title}
-                            link={`/projects/${project.id}`}
-                            description={project.description}
-                            githubUrl={project.githubUrl}
-                            liveUrl={project.liveUrl}
-                        />
                     )
-                })}
+                    }
             </div>
             <div style={{ height: "30vh" }} />
         </React.Fragment>
