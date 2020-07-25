@@ -37,15 +37,14 @@ export const Blog = () => {
     ])
     return (
         <React.Fragment>
-            <div style={{height: "5vh"}}/>
             <div style={{
                 display: "flex",
                 flexDirection: "column",
                 padding: "2rem",
                 alignItems: "center",
             }}>
-                <h2 >Projects</h2>
-                <hr style={{ width: "30vh", border: "3px dashed yellow" }} />
+                <h2>Blog</h2>
+                <hr style={{ border: 0, borderRadius: "1rem", width: "30vh", height: "0.5rem", background: "linear-gradient(to right, rgba(108,16,209,1), rgba(0,212,255,1))" }} />
             </div>
             <div style={{height: "2vh"}}/>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>

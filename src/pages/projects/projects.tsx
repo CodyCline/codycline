@@ -1,68 +1,64 @@
 import * as React from 'react';
 import { Card } from '../../components/ui/card/card';
 import { SelectTag } from '../../components/ui/tags/tags';
-import { debug } from 'console';
+
+const projects: object[] = [
+    {
+        id: "12611c16-e822-4991-a43f-f161e21a8deb",
+        type: "desktop",
+        title: "Test Desktop",
+        description: "Lorem ipsum dolor ipsut lorem ipsem",
+        githubUrl: "https://github.com",
+        liveUrl: "https://example.com"
+    },
+    {
+        id: "a9c5489c-b602-4c6f-b8a5-b5a27dae3dcb",
+        type: "desktop",
+        title: "Test Desktop 2",
+        description: "Lorem ipsum dolor ipsut asda asd asasd asdas  lorem ipsem",
+        githubUrl: "https://github.com",
+        liveUrl: "https://example.com"
+    },
+    {
+        id: "a5dae4de-f0de-46d0-bed1-8bf5f0cfacc0",
+        type: "web",
+        title: "Test Project",
+        description: "Lorem ipsum dolor ipsut lorem ipsem",
+        githubUrl: "https://github.com",
+        liveUrl: "https://example.com"
+    },
+    {
+        id: "80ec4ecb-afa3-4284-9691-17394b7dbada",
+        type: "web",
+        title: "Test Project",
+        description: "Lorem ipsum dolor ipsut lorem ipsem",
+        githubUrl: "https://github.com",
+        liveUrl: "https://example.com"
+    },
+    {
+        id: "b4a85e1d-e9b1-43d2-a8e8-78d1f2110a11",
+        type: "web",
+        title: "Test Project",
+        description: "Lorem ipsum dolor ipsut lorem ipsem",
+        githubUrl: "https://github.com",
+        liveUrl: "https://example.com"
+    },
+]
+
 
 export const Projects = () => {
-    const [selectedFilter, setFilter] = React.useState<any>("all");
-    const [data, setData] = React.useState<any>([
-        {
-            id: "12611c16-e822-4991-a43f-f161e21a8deb",
-            type: "desktop",
-            title: "Test Desktop",
-            description: "Lorem ipsum dolor ipsut lorem ipsem",
-            githubUrl: "https://github.com",
-            liveUrl: "https://example.com"
-        },
-        {
-            id: "a9c5489c-b602-4c6f-b8a5-b5a27dae3dcb",
-            type: "desktop",
-            title: "Test Desktop 2",
-            description: "Lorem ipsum dolor ipsut asda asd asasd asdas  lorem ipsem",
-            githubUrl: "https://github.com",
-            liveUrl: "https://example.com"
-        },
-        {
-            id: "a9c5489c-b602-4c6f-b8a5-b5a27dae3dcb",
-            type: "web",
-            title: "Test Project",
-            description: "Lorem ipsum dolor ipsut lorem ipsem",
-            githubUrl: "https://github.com",
-            liveUrl: "https://example.com"
-        },
-        {
-            id: "a9c5489c-b602-4c6f-b8a5-b5a27dae3dcb",
-            type: "web",
-            title: "Test Project",
-            description: "Lorem ipsum dolor ipsut lorem ipsem",
-            githubUrl: "https://github.com",
-            liveUrl: "https://example.com"
-        },
-        {
-            id: "b4a85e1d-e9b1-43d2-a8e8-78d1f2110a11",
-            type: "web",
-            title: "Test Project",
-            description: "Lorem ipsum dolor ipsut lorem ipsem",
-            githubUrl: "https://github.com",
-            liveUrl: "https://example.com"
-        },
-    ]);
-
-    function debugReduce() {
-        data.reduce((project: any) => {
-            return project.id == data[0]["id"]
-        })
-    }
+    const [category, setCategory] = React.useState<any>("all");
+    const [data, setData] = React.useState<any>(projects);
 
     function filter(tag: any) {
-        return data.filter((i: any) => {
-            return i.type === tag
-        })
+        console.log("Test", tag);
+        setCategory(tag);
+
+
     }
 
     return (
         <React.Fragment>
-            {console.log(debugReduce())}
             <div style={{
                 display: "flex",
                 flexDirection: "column",
@@ -70,10 +66,9 @@ export const Projects = () => {
                 alignItems: "center",
             }}>
                 <h2 >Projects</h2>
-                <hr style={{ width: "30vh", border: "3px dashed yellow" }} />
+                <hr style={{ border: 0, borderRadius: "1rem", width: "30vh", height: "0.5rem", background: "linear-gradient(to right, rgba(108,16,209,1), rgba(0,212,255,1))" }} />
                 <div style={{ height: "2.5vh" }} />
                 <ul
-
                     style={{
                         width: "100%",
                         margin: "auto",
@@ -87,32 +82,44 @@ export const Projects = () => {
                     }}
                 >
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("web")} isActive>All</SelectTag>
+                        <SelectTag onClick={() => filter("all")} isActive={category === "all"}>All</SelectTag>
                     </li>
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("web")} >Web</SelectTag>
+                        <SelectTag onClick={() => filter("web")} isActive={category === "web"}>Web</SelectTag>
                     </li>
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("web")} >Open-Source</SelectTag>
+                        <SelectTag onClick={() => filter("open_source")} isActive={category === "open_source"}>Open-Source</SelectTag>
                     </li>
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("web")} >Mobile</SelectTag>
+                        <SelectTag onClick={() => filter("mobile")} isActive={category === "mobile"}>Mobile</SelectTag>
+                    </li>
+                    <li style={{ padding: "1rem" }}>
+                        <SelectTag onClick={() => filter("desktop")} isActive={category === "desktop"}>Desktop</SelectTag>
                     </li>
                 </ul>
             </div>
             <div style={{ height: "5vh" }} />
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "80%", margin: "auto" }}>
-                {data.map((project: any) => (
-                    <Card
-                        key={project.id}
-                        title={project.title}
-                        link={`/projects/${project.id}`}
-                        description={project.description}
-                        githubUrl={project.githubUrl}
-                        liveUrl={project.liveUrl}
-                    />
-                ))}
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "90%", margin: "auto" }}>
+                {data.filter((project: any) => {
+                    return (category === "all" ? project : project.type === category)
+                }).map((project: any) => {
+                    console.log("project", project)
+                    return (
+                        project == null ?
+                        <h3>Nothing here yet, check back soon</h3>
+                        :
+                        <Card
+                            key={project.id}
+                            title={project.title}
+                            link={`/projects/${project.id}`}
+                            description={project.description}
+                            githubUrl={project.githubUrl}
+                            liveUrl={project.liveUrl}
+                        />
+                    )
+                })}
             </div>
+            <div style={{ height: "30vh" }} />
         </React.Fragment>
     );
 }

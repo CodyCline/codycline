@@ -13,7 +13,7 @@ export const Card = ({ style, link, title, description, imageUrl, githubUrl, liv
                     <li><h4 style={{ margin: 0, paddingBottom: "5px" }}>{title}</h4></li>
                     <li style={{ color: "#CCC" }}>{description}</li>
                 </ul>
-
+                </Link>
                 <ul className="card-icon-bar">
                     {/* Icons */}
                     {githubUrl &&
@@ -37,7 +37,6 @@ export const Card = ({ style, link, title, description, imageUrl, githubUrl, liv
                         </a>
                     }
                 </ul>
-            </Link>
         </div>
     )
 }

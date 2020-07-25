@@ -9,7 +9,6 @@ export const Layout = ({ children }: any) => {
         <div>
             <NavBar />
             {children}
-            <div style={{height: "30vh"}}/>
             <Footer/>
         </div>
         

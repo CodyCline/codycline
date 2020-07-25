@@ -37,7 +37,7 @@ export const Post = () => {
             <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "flex-start", margin: "auto", width: "65%" }}>
                 <h1 style={{ fontSize: "50px" }}>{projectData.title}</h1>
                 <p>{projectData.date}</p>
-                <hr style={{ width: "100%" }} />
+                <hr style={{ border: 0, borderRadius: "1rem", width: "100%", height: "0.25rem", background: "linear-gradient(to right, rgba(108,16,209,1), rgba(0,212,255,1))" }} />
                 <MarkdownWrapper>
                     {projectData.body}
                 </MarkdownWrapper>
@@ -48,6 +48,7 @@ export const Post = () => {
                     })}
                 </div>
             </div>
+            <div style={{height: "30vh"}}/>
         </React.Fragment>
     )
 }
