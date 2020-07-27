@@ -15,7 +15,7 @@ const projects: object[] = [
         id: "a9c5489c-b602-4c6f-b8a5-b5a27dae3dcb",
         type: "desktop",
         title: "Test Desktop 2",
-        description: "Lorem ipsum dolor ipsut asda asd asasd asdas  lorem ipsem",
+        description: "Lorem ipsum dolor ipsut asda",
         githubUrl: "https://github.com",
         liveUrl: "https://example.com"
     },
@@ -55,10 +55,6 @@ export const Projects = () => {
             category === "all" ? project : project.type === category
     )
 
-    function filter(tag: any) {
-        setCategory(tag);
-    }
-
     return (
         <React.Fragment>
             <div style={{
@@ -68,7 +64,7 @@ export const Projects = () => {
                 alignItems: "center",
             }}>
                 <h2 >Projects</h2>
-                <hr style={{ border: 0, borderRadius: "1rem", width: "30vh", height: "0.5rem", background: "linear-gradient(to right, rgba(108,16,209,1), rgba(0,212,255,1))" }} />
+                <hr style={{ border: 0, borderRadius: "1rem", width: "30vh", height: "0.25rem", background: "linear-gradient(to right, rgba(108,16,209,1), rgba(0,212,255,1))" }} />
                 <div style={{ height: "2.5vh" }} />
                 <ul
                     style={{
@@ -84,19 +80,19 @@ export const Projects = () => {
                     }}
                 >
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("all")} isActive={category === "all"}>All</SelectTag>
+                        <SelectTag onClick={() => setCategory("all")} isActive={category === "all"}>All</SelectTag>
                     </li>
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("web")} isActive={category === "web"}>Web</SelectTag>
+                        <SelectTag onClick={() => setCategory("web")} isActive={category === "web"}>Web</SelectTag>
                     </li>
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("open_source")} isActive={category === "open_source"}>Open-Source</SelectTag>
+                        <SelectTag onClick={() => setCategory("open_source")} isActive={category === "open_source"}>Open-Source</SelectTag>
                     </li>
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("mobile")} isActive={category === "mobile"}>Mobile</SelectTag>
+                        <SelectTag onClick={() => setCategory("mobile")} isActive={category === "mobile"}>Mobile</SelectTag>
                     </li>
                     <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => filter("desktop")} isActive={category === "desktop"}>Desktop</SelectTag>
+                        <SelectTag onClick={() => setCategory("desktop")} isActive={category === "desktop"}>Desktop</SelectTag>
                     </li>
                 </ul>
             </div>
@@ -105,7 +101,7 @@ export const Projects = () => {
                 {
                     filterOptions.length > 0 ? (
                         filterOptions.map((project:any) => {
-                            return    <Card
+                            return <Card
                                 key={project.id}
                                 title={project.title}
                                 link={`/projects/${project.id}`}
@@ -115,7 +111,9 @@ export const Projects = () => {
                             />
                         })
                     ) : (
-                        <h3>Nothing here yet, check back soon</h3>
+                        <div style={{height: "30vh"}}>
+                            <h3>Nothing here yet, check back soon</h3>
+                        </div>
                     )
                     }
             </div>

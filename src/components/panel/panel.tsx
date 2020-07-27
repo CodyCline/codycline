@@ -16,8 +16,8 @@ export const Panel = ({ title, description, imageUrl, date, readTime, onClick, t
                     <p className="panel-text">{description}</p>
                     <p className="panel-text"><FontAwesomeIcon icon={["far", "clock"]} /> {date}</p>
                     <p>
-                        {tags.map((tag:any) => {
-                            return <PanelTag>{tag}</PanelTag>
+                        {tags.map((tag:any, inc:number) => {
+                            return <PanelTag key={inc}>{tag}</PanelTag>
                         })}
                     </p>
                 </div>
