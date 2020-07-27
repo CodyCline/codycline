@@ -1,55 +1,12 @@
 import * as React from 'react';
 import { Card } from '../../components/ui/card/card';
 import { SelectTag } from '../../components/ui/tags/tags';
-
-const projects: object[] = [
-    {
-        id: "12611c16-e822-4991-a43f-f161e21a8deb",
-        type: "desktop",
-        title: "Test Desktop",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com"
-    },
-    {
-        id: "a9c5489c-b602-4c6f-b8a5-b5a27dae3dcb",
-        type: "desktop",
-        title: "Test Desktop 2",
-        description: "Lorem ipsum dolor ipsut asda",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com"
-    },
-    {
-        id: "a5dae4de-f0de-46d0-bed1-8bf5f0cfacc0",
-        type: "web",
-        title: "Test Project",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com"
-    },
-    {
-        id: "80ec4ecb-afa3-4284-9691-17394b7dbada",
-        type: "web",
-        title: "Test Project",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com"
-    },
-    {
-        id: "b4a85e1d-e9b1-43d2-a8e8-78d1f2110a11",
-        type: "web",
-        title: "Test Project",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com"
-    },
-]
-
+import { projectData } from '../../appdata/projectData';
 
 export const Projects = () => {
     const [category, setCategory] = React.useState<any>("all");
-    const [data, setData] = React.useState<any>(projects);
-
+    const [data, setData] = React.useState<any>(projectData);
+    
     const filterOptions = data.filter(
         (project:any) => 
             category === "all" ? project : project.type === category
@@ -115,7 +72,7 @@ export const Projects = () => {
                             <h3>Nothing here yet, check back soon</h3>
                         </div>
                     )
-                    }
+                }
             </div>
             <div style={{ height: "30vh" }} />
         </React.Fragment>

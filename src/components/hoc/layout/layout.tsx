@@ -11,9 +11,9 @@ export const Layout = ({ children }: any) => {
         <div>
             <NavBar />
             {children}
-            <Footer/>
+            <Footer />
         </div>
-        
+
     );
 }
 
@@ -58,8 +58,8 @@ export const NavBar = () => {
             <NavItem link="/" className="homeIcon"><h1>Cody Cline</h1></NavItem>
             {isMobile ?
                 <li ref={ref} className="navitem">
-                    <span style={{cursor: "pointer", fontSize: "1.5rem"}} onClick={()=>setIsComponentVisible(!isComponentVisible)} className="toggleicon"><FontAwesomeIcon icon={["far", "compass"]}/></span>
-                    {isComponentVisible && <MobileMenu/>}
+                    <span style={{ cursor: "pointer", fontSize: "1.5rem" }} onClick={() => setIsComponentVisible(!isComponentVisible)} className="toggleicon"><FontAwesomeIcon icon={["far", "compass"]} /></span>
+                    {isComponentVisible && <MobileMenu />}
                 </li>
                 :
                 <React.Fragment>
@@ -74,7 +74,7 @@ export const NavBar = () => {
     )
 }
 
-const MobileMenu = ({onClick}:any) => {
+const MobileMenu = ({ onClick }: any) => {
     return (
         <ul onClick={onClick} className="mobile-nav">
             <NavItem link="/blog" className="mobile-nav-item">Blog</NavItem>
@@ -90,11 +90,9 @@ const MobileMenu = ({onClick}:any) => {
 
 const NavItem = ({ children, link, notActive, className }: any) => {
     return (
-        // <li className={cx("navitem", className)}>
-            <NavLink className={cx("navitem", className)} activeClassName="navitem-active" to={notActive ? "#" : link}>
-                {children}
-            </NavLink>
+        <NavLink className={cx("navitem", className)} activeClassName="navitem-active" to={notActive ? "#" : link}>
+            {children}
+        </NavLink>
 
-        // </li>
     );
 };
