@@ -21,3 +21,13 @@
         color: invert(t("text"));
     }
 }
+
+.tag {
+    font-size: 16px;
+    @include themed {
+        border: 1px solid t("border");
+    }
+    margin: 6px;
+    padding: 2px 8px 2px 8px;
+    border-radius: 6px;
+}

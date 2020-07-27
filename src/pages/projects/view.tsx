@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { MarkdownWrapper } from '../../components/hoc/markdown/markdown';
-import { PanelTag } from '../../components/panel/panel';
+import { MarkdownWrapper } from '../../utils/markdown';
+import { Tag } from '../../components/ui/tags/tags';
 import { useParams } from 'react-router-dom';
 import { projectData } from '../../appdata/projectData'; 
 import { Divider } from '../../components/ui/divider/divider';
@@ -31,7 +31,7 @@ export const Post = () => {
                         <div style={{ height: "4rem" }} />
                         <div style={{ display: "flex", flexWrap: "wrap", }} className="bottom-tags" >
                             {state.tags.map((tag: any) => {
-                                return (<PanelTag>{tag}</PanelTag>);
+                                return (<Tag>{tag}</Tag>);
                             })}
                         </div>
                     </div>

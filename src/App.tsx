@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { withAddons } from './components/hoc/addons/addons';
-import { Layout } from './components/hoc/layout/layout';
+import { withAddons } from './utils/addons';
+import { Layout } from './components/layout/layout';
 import { Home } from './pages/home/home';
 import { Blog } from './pages/blog/blog';
 import { Article } from './pages/blog/article';

@@ -3,7 +3,9 @@
     display: grid;
     place-items: center;
     background-size: 100px 100px;
-    background-image: linear-gradient(#2c2c30 0.75px,transparent 0), linear-gradient(90deg,#2c2c30 0.75px,transparent 0), linear-gradient(transparent 0.75px,#171819 0,#171819 0.75px,transparent 0)
+    @include themed () {
+        background-image: linear-gradient(t("fg") 0.75px,transparent 0), linear-gradient(90deg,t("fg") 0.75px,transparent 0), linear-gradient(transparent 0.75px,#171819 0,#171819 0.75px,transparent 0)
+    }
 }
 
 .center-card {

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
-import { ThemeToggle } from '../../ui/toggle/toggle';
+import { ThemeToggle } from '../ui/toggle/toggle';
 import './layout.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useComponentVisible } from '../../../utils/useComponentVisible';
-import WaFlag from '../../../assets/images/wa.png';
-import UsFlag from '../../../assets/images/us.png';
+import { useComponentVisible } from '../../utils/useComponentVisible';
+import WaFlag from '../../assets/images/wa.png';
+import UsFlag from '../../assets/images/us.png';
 
 export const Layout = ({ children }: any) => {
     return (

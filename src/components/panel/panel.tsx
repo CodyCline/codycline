@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { Tag } from '../ui/tags/tags';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './panel.scss';
 
@@ -17,7 +18,7 @@ export const Panel = ({ title, description, imageUrl, date, readTime, onClick, t
                     <p className="panel-text"><FontAwesomeIcon icon={["far", "clock"]} /> {date}</p>
                     <p>
                         {tags.map((tag:any, inc:number) => {
-                            return <PanelTag key={inc}>{tag}</PanelTag>
+                            return <Tag key={inc}>{tag}</Tag>
                         })}
                     </p>
                 </div>
@@ -27,8 +28,3 @@ export const Panel = ({ title, description, imageUrl, date, readTime, onClick, t
     );
 }
 
-export const PanelTag = ({children, onClick} : any) => (
-    <Link to={"/tags/" + children}>
-        <span className="panel-tag">{children}</span>
-    </Link>
-);

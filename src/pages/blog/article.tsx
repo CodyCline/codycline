@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { MarkdownWrapper } from '../../components/hoc/markdown/markdown';
-import { PanelTag } from '../../components/panel/panel';
+import { MarkdownWrapper } from '../../utils/markdown';
+import { Tag } from '../../components/ui/tags/tags';
 import { articleData } from '../../appdata/articleData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Divider } from '../../components/ui/divider/divider';
@@ -41,7 +41,7 @@ export const Article = () => {
                         <div style={{ height: "4rem" }} />
                         <div style={{ display: "flex", flexWrap: "wrap", }} className="bottom-tags" >
                             {state.tags.map((tag: any) => {
-                                return (<PanelTag>{tag}</PanelTag>);
+                                return (<Tag>{tag}</Tag>);
                             })}
                         </div>
                     </div>

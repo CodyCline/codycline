@@ -1,4 +1,4 @@
-@import '../../../styles/base.scss';
+@import '../../styles/base.scss';
 .navbar {
     @include themed () {
         background: t('fg');
