@@ -4,23 +4,31 @@ import { Tag } from '../../components/ui/tags/tags';
 import { useParams } from 'react-router-dom';
 import { projectData } from '../../appdata/projectData'; 
 import { Divider } from '../../components/ui/divider/divider';
+import { Spacer } from '../../components/ui/spacer/spacer';
 
 export const Post = () => {
     const { id } = useParams();
-    const [loaded, setLoadState] = React.useState(false);
+    const [loadState, setLoadState] = React.useState({
+        loaded: false,
+        error: false,
+    });
     const [state, setState] = React.useState<any>();
     React.useEffect(() => {
-        const currentProject = projectData.filter((project: any) => {
+        const currentArticle = projectData.filter((project: any) => {
             return project.id === id;
         });
-        setState(currentProject[0]);
-        setLoadState(true);
-    }, []);
+        if (currentArticle.length < 1) {
+            setLoadState({...loadState, error: true})
+        } else {
+            setState(currentArticle[0]);
+            setLoadState({...loadState, loaded:true});
+        }
+    }, [id]);
     return (
         <React.Fragment>
-            {loaded ?
+            {loadState.loaded && !loadState.error ?
                 <React.Fragment>
-                    <img className="cover-image" src={state.cover} />
+                    <img className="cover-image" src={state.cover} alt="banner.jpg"/>
                     <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "flex-start", margin: "auto", width: "65%" }}>
                         <h1 className="big-header">{state.title}</h1>
                         <p>{state.date}</p>
@@ -39,8 +47,7 @@ export const Post = () => {
                 : "loading"
         
             }
-
-            <div style={{ height: "30vh" }} />
+            <Spacer height={30} units="vh"/>
         </React.Fragment>
     )
     

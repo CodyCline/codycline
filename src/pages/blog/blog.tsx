@@ -1,15 +1,10 @@
 import * as React from 'react';
 import { Panel } from '../../components/panel/panel';
-import { useHistory } from 'react-router-dom';
 import { articleData } from '../../appdata/articleData'
 import { Divider } from '../../components/ui/divider/divider';
 
 export const Blog = () => {
-    const history = useHistory();
-    function navigate(url: string) {
-        history.push("/blog/" + url);
-    }
-    const [data, setData] = React.useState(articleData)
+    const [data] = React.useState(articleData)
     return (
         <React.Fragment>
             <div style={{

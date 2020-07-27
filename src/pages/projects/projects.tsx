@@ -7,7 +7,7 @@ import { Spacer } from '../../components/ui/spacer/spacer';
 
 export const Projects = () => {
     const [category, setCategory] = React.useState<any>("all");
-    const [data, setData] = React.useState<any>(projectData);
+    const [data] = React.useState<any>(projectData);
     
     const categories : string [] = [
         "all",

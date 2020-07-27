@@ -5,6 +5,7 @@ import { Tag } from '../../components/ui/tags/tags';
 import { articleData } from '../../appdata/articleData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Divider } from '../../components/ui/divider/divider';
+import { Spacer } from '../../components/ui/spacer/spacer';
 
 
 export const Article = () => {
@@ -24,13 +25,13 @@ export const Article = () => {
             setState(currentArticle[0]);
             setLoadState({...loadState, loaded:true});
         }
-    }, []);
+    }, [id]);
     return (
         <React.Fragment>
             <div style={{ height: "10vh" }} />
             {loadState.loaded && !loadState.error ?
                 <React.Fragment>
-                    <img className="cover-image" src={state.cover} />
+                    <img className="cover-image" src={state.cover} alt="banner.jpg" />
                     <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "flex-start", margin: "auto", width: "65%" }}>
                         <h1 style={{ fontSize: "50px" }}>{state.title}</h1>
                         <p><FontAwesomeIcon icon={["fas", "book"]}/>{state.date}</p>
@@ -44,13 +45,12 @@ export const Article = () => {
                                 return (<Tag>{tag}</Tag>);
                             })}
                         </div>
+                        <Spacer height={30} units="vh"/>
                     </div>
                 </React.Fragment>
                 : "loading"
         
             }
-
-            <div style={{ height: "30vh" }} />
         </React.Fragment>
     )
 }

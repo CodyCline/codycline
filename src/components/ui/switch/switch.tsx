@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './toggle.scss';
 
-export const ThemeToggle = () => {
+export const ThemeSwitch = () => {
 
     const [theme, setTheme] = React.useState<string>("light");
     const [toggled, toggleTheme] = useState<boolean>(false);

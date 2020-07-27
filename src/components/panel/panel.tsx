@@ -6,11 +6,11 @@ import './panel.scss';
 
 
 
-export const Panel = ({ title, description, imageUrl, date, readTime, onClick, tags, link}: any) => {
+export const Panel = ({ title, description, imageUrl, date, onClick, tags, link}: any) => {
     return (
         <Link to={link}>
         <div className="panel" onClick={onClick}>
-            <img src={imageUrl} className="panel-image" />
+            <img alt="thumbnail.jpg" src={imageUrl} className="panel-image" />
             <div className="panel-secondary">
                 <div>
                     <h3 className="panel-header">{title}</h3>

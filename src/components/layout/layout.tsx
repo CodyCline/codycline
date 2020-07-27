@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
 import cx from 'classnames';
-import { ThemeToggle } from '../ui/toggle/toggle';
-import './layout.scss';
+import { NavLink } from 'react-router-dom';
+import { ThemeSwitch } from '../ui/switch/switch';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useComponentVisible } from '../../utils/useComponentVisible';
+import './layout.scss';
 import WaFlag from '../../assets/images/wa.png';
 import UsFlag from '../../assets/images/us.png';
 
@@ -29,8 +29,8 @@ export const Footer = () => {
                 {currentYear}
             </li>
             <li className="footer-item">
-                <img style={{height: "50px", width: "50px"}} src={WaFlag}/>
-                <img style={{height: "50px", width: "50px"}} src={UsFlag}/>
+                <img className="footer-icon" alt="waflag.png" src={WaFlag}/>
+                <img className="footer-icon" alt="usflag.png" src={UsFlag}/>
             </li>
         </footer>
     )
@@ -43,14 +43,14 @@ export const NavBar = () => {
         setIsComponentVisible
     } = useComponentVisible(false);
     const [isMobile, setMobileView] = React.useState<boolean>(false);
-    const handleResize = (mediaQuery: any) => {
+    const handleResize = React.useCallback((mediaQuery:any) => {
         if (mediaQuery.matches) {
             setMobileView(true);
         } else {
             setMobileView(false);
             setIsComponentVisible(false);
         }
-    }
+    }, [setIsComponentVisible]);
 
     React.useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 700px)");
@@ -62,7 +62,7 @@ export const NavBar = () => {
         return () => {
             mediaQuery.removeListener(handleResize);
         }
-    });
+    }, [handleResize]);
     return (
         <nav className="navbar">
             <NavItem link="/" className="homeIcon"><h1>Cody Cline</h1></NavItem>
@@ -76,7 +76,7 @@ export const NavBar = () => {
                     <NavItem link="/blog"> Blog </NavItem>
                     <NavItem link="/projects">Projects</NavItem>
                     <NavItem notActive>
-                        <ThemeToggle />
+                        <ThemeSwitch />
                     </NavItem>
                 </React.Fragment>
             }
@@ -91,7 +91,7 @@ const MobileMenu = ({ onClick }: any) => {
             <NavItem link="/contact" className="mobile-nav-item"> Contact </NavItem>
             <NavItem link="/projects" className="mobile-nav-item">Projects</NavItem>
             <NavItem notActive className="mobile-nav-item">
-                <ThemeToggle />
+                <ThemeSwitch />
             </NavItem>
         </ul>
     )
