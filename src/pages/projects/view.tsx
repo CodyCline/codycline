@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MarkdownWrapper } from '../../utils/markdown';
 import { Tag } from '../../components/ui/tags/tags';
 import { useParams } from 'react-router-dom';
-import { projectData } from '../../appdata/projectData'; 
+import { projectData } from '../../data/projectData'; 
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
 

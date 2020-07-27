@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Panel } from '../../components/panel/panel';
-import { articleData } from '../../appdata/articleData'
+import { articleData } from '../../data/articleData'
 import { Divider } from '../../components/ui/divider/divider';
 
 export const Blog = () => {

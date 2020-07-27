@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card } from '../../components/ui/card/card';
 import { SelectTag } from '../../components/ui/tags/tags';
-import { projectData } from '../../appdata/projectData';
+import { projectData } from '../../data/projectData';
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
 
