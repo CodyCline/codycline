@@ -1,6 +1,10 @@
+@import '../../../styles/base.scss';
+
 .select-tag {
     padding: 6px 12px 6px 12px;
-    border: 1.5px solid #ccc;
+    @include themed() {
+        border: 1.5px solid t("border");
+    }
     border-radius: 25px;
     margin: .25rem;
     transition: 0.25s ease-out;
@@ -11,7 +15,9 @@
 }
 
 .active-tag {
-    background: #f0f0f0;
-    border: 1.5px solid #f0f0f0;
-    color: #212223;
+    @include themed() {
+        border: 1.5px solid transparent;
+        background: invert(t("bg"));
+        color: invert(t("text"));
+    }
 }

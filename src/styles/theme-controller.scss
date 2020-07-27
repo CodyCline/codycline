@@ -1,13 +1,29 @@
 
+$primary: #6C10D1;
+$secondary: #00D4FF;
+$caution: #FFCC00;
+$warning: #FF6700;
+
+
 //themes
 $themes: (
 	dark: (
 		bg: #171819,
-		text: #FFF,
+		fg: #212223,
+		text: #D8D8D8,
+		border: #CCC,
+		hr: linear-gradient(to right, $primary, $secondary),
+		main-color: $primary,
+		secondary-color: $secondary
 	),
 	light: (
-		bg: #D7D7D7,
-		text: #151515,
+		bg: #D8D8D8,
+		fg: #B5B7BB,
+		text: #171819,
+		border: #000,
+		hr: linear-gradient(to right, $warning, $caution),
+		main-color: $warning,
+		secondary-color: $caution,
 	),
 	
 );

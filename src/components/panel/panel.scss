@@ -1,9 +1,13 @@
+@import "../../styles/base.scss";
+
 .panel {
     height: 200px;
     width: 750px;
     margin: 1em auto;
     padding: 1.25em;
-    background: #212223;
+    @include themed () {
+        background: t("fg");
+    }
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -26,7 +30,9 @@
 
 .panel-text {
     text-overflow: ellipsis;
-    color: #ccc;
+    @include themed() {
+        // color: t("")
+    }
 }
 
 .panel-secondary {
@@ -35,7 +41,9 @@
 
 .panel-tag {
     font-size: 16px;
-    border: 1px solid #ccc;
+    @include themed {
+        border: 1px solid t("border");
+    }
     margin: 6px;
     padding: 2px 8px 2px 8px;
     border-radius: 6px;

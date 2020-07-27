@@ -1,0 +1,11 @@
+@import '../../../styles/base.scss';
+
+.divider {
+    border:0;
+    border-radius: 1rem;
+    width: inherit;
+    height: 0.25rem;
+    @include themed() {
+		background: t('hr');
+	}
+}

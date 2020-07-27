@@ -52,7 +52,7 @@ export const NavBar = () => {
         return () => {
             mediaQuery.removeListener(handleResize);
         }
-    }, []);
+    });
     return (
         <nav className="navbar">
             <NavItem link="/" className="homeIcon"><h1>Cody Cline</h1></NavItem>

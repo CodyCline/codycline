@@ -4,7 +4,7 @@ import './toggle.scss';
 
 export const ThemeToggle = () => {
 
-    const [theme, setTheme] = React.useState<string>("dark");
+    const [theme, setTheme] = React.useState<string>("light");
     const [toggled, toggleTheme] = useState<boolean>(false);
     React.useEffect(() => {
         document.documentElement.className = `theme--${theme}`
@@ -17,9 +17,9 @@ export const ThemeToggle = () => {
         <span className="toggle-background">
             {
                 toggled?
-                <span style={{color: "#4C6EF5"}} onClick={() => onClick("light")}><FontAwesomeIcon icon={["far", "moon"]}/></span>
+                <span style={{color: "#0B6EFD"}} onClick={() => onClick("light")}><FontAwesomeIcon style={{fontSize: "1.75rem"}} icon={["far", "moon"]}/></span>
                 :
-                <span style={{color: "#FFF700"}} onClick={() => onClick("dark")}><FontAwesomeIcon icon={["fas", "sun"]}/></span>
+                <span style={{color: "#FFCC00"}} onClick={() => onClick("dark")}><FontAwesomeIcon style={{fontSize: "1.75rem"}} icon={["fas", "sun"]}/></span>
             }
         </span>
     )

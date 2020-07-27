@@ -1,5 +1,8 @@
+@import '../../../styles/base.scss';
 .navbar {
-    background: #212223;
+    @include themed () {
+        background: t('fg');
+    }
     margin: 0;
     padding: 0;
     list-style: none;
@@ -37,7 +40,9 @@
     right: 1rem;
     border-radius: 5%;
     z-index: 99;
-    background-color: #212223;
+    @include themed () {
+        background: t('fg');
+    }
 }
 
 .mobile-nav-item {

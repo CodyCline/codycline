@@ -2,11 +2,20 @@ import * as React from 'react';
 import { Card } from '../../components/ui/card/card';
 import { SelectTag } from '../../components/ui/tags/tags';
 import { projectData } from '../../appdata/projectData';
+import { Divider } from '../../components/ui/divider/divider';
 
 export const Projects = () => {
     const [category, setCategory] = React.useState<any>("all");
     const [data, setData] = React.useState<any>(projectData);
     
+    const categories : string [] = [
+        "all",
+        "web",
+        "open-source",
+        "mobile",
+        "desktop",
+    ]
+
     const filterOptions = data.filter(
         (project:any) => 
             category === "all" ? project : project.type === category
@@ -21,7 +30,7 @@ export const Projects = () => {
                 alignItems: "center",
             }}>
                 <h2 >Projects</h2>
-                <hr style={{ border: 0, borderRadius: "1rem", width: "30vh", height: "0.25rem", background: "linear-gradient(to right, rgba(108,16,209,1), rgba(0,212,255,1))" }} />
+                <Divider style={{width:"30vh"}}/>
                 <div style={{ height: "2.5vh" }} />
                 <ul
                     style={{
@@ -36,21 +45,16 @@ export const Projects = () => {
                         alignItems: "center",
                     }}
                 >
-                    <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => setCategory("all")} isActive={category === "all"}>All</SelectTag>
-                    </li>
-                    <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => setCategory("web")} isActive={category === "web"}>Web</SelectTag>
-                    </li>
-                    <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => setCategory("open_source")} isActive={category === "open_source"}>Open-Source</SelectTag>
-                    </li>
-                    <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => setCategory("mobile")} isActive={category === "mobile"}>Mobile</SelectTag>
-                    </li>
-                    <li style={{ padding: "1rem" }}>
-                        <SelectTag onClick={() => setCategory("desktop")} isActive={category === "desktop"}>Desktop</SelectTag>
-                    </li>
+                    {categories.map((c:string, inc:number) => (
+                        <li key={inc} style={{ padding: "1rem" }}>
+                            <SelectTag 
+                                onClick={() => setCategory(c)} 
+                                isActive={category === c}
+                            >
+                                {c}
+                            </SelectTag>
+                        </li>
+                    ))}
                 </ul>
             </div>
             <div style={{ height: "5vh" }} />
@@ -61,6 +65,7 @@ export const Projects = () => {
                             return <Card
                                 key={project.id}
                                 title={project.title}
+                                banner={project.banner}
                                 link={`/projects/${project.id}`}
                                 description={project.description}
                                 githubUrl={project.githubUrl}

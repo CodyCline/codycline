@@ -14,7 +14,7 @@ export const Post = () => {
         });
         setState(currentProject[0]);
         setLoadState(true);
-    })
+    }, []);
     return (
         <React.Fragment>
             <div style={{ height: "10vh" }} />
