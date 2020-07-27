@@ -3,6 +3,7 @@ import { Card } from '../../components/ui/card/card';
 import { SelectTag } from '../../components/ui/tags/tags';
 import { projectData } from '../../appdata/projectData';
 import { Divider } from '../../components/ui/divider/divider';
+import { Spacer } from '../../components/ui/spacer/spacer';
 
 export const Projects = () => {
     const [category, setCategory] = React.useState<any>("all");
@@ -31,7 +32,7 @@ export const Projects = () => {
             }}>
                 <h2 >Projects</h2>
                 <Divider style={{width:"30vh"}}/>
-                <div style={{ height: "2.5vh" }} />
+                <Spacer height={2.5} units="vh"/>
                 <ul
                     style={{
                         width: "100%",
@@ -57,7 +58,7 @@ export const Projects = () => {
                     ))}
                 </ul>
             </div>
-            <div style={{ height: "5vh" }} />
+            <Spacer height={5} units="vh"/>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "90%", margin: "auto" }}>
                 {
                     filterOptions.length > 0 ? (
@@ -79,7 +80,7 @@ export const Projects = () => {
                     )
                 }
             </div>
-            <div style={{ height: "30vh" }} />
+            <Spacer height={30} units="vh"/>
         </React.Fragment>
     );
 }

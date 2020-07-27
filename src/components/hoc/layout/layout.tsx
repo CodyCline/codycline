@@ -5,6 +5,8 @@ import { ThemeToggle } from '../../ui/toggle/toggle';
 import './layout.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useComponentVisible } from '../../../utils/useComponentVisible';
+import WaFlag from '../../../assets/images/wa.png';
+import UsFlag from '../../../assets/images/us.png';
 
 export const Layout = ({ children }: any) => {
     return (
@@ -19,9 +21,17 @@ export const Layout = ({ children }: any) => {
 
 
 export const Footer = () => {
+    const date: Date = new Date();
+    const currentYear = date.getFullYear();
     return (
         <footer className="footer">
-            Home Page
+            <li className="footer-item">
+                {currentYear}
+            </li>
+            <li className="footer-item">
+                <img style={{height: "50px", width: "50px"}} src={WaFlag}/>
+                <img style={{height: "50px", width: "50px"}} src={UsFlag}/>
+            </li>
         </footer>
     )
 }

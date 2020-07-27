@@ -3,6 +3,7 @@ import { MarkdownWrapper } from '../../components/hoc/markdown/markdown';
 import { PanelTag } from '../../components/panel/panel';
 import { useParams } from 'react-router-dom';
 import { projectData } from '../../appdata/projectData'; 
+import { Divider } from '../../components/ui/divider/divider';
 
 export const Post = () => {
     const { id } = useParams();
@@ -17,14 +18,13 @@ export const Post = () => {
     }, []);
     return (
         <React.Fragment>
-            <div style={{ height: "10vh" }} />
             {loaded ?
                 <React.Fragment>
                     <img className="cover-image" src={state.cover} />
                     <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "flex-start", margin: "auto", width: "65%" }}>
-                        <h1 style={{ fontSize: "50px" }}>{state.title}</h1>
+                        <h1 className="big-header">{state.title}</h1>
                         <p>{state.date}</p>
-                        <hr style={{ border: 0, borderRadius: "1rem", width: "100%", height: "0.25rem", background: "linear-gradient(to right, rgba(108,16,209,1), rgba(0,212,255,1))" }} />
+                        <Divider style={{width: "100%"}}/>
                         <MarkdownWrapper>
                             {state.body}
                         </MarkdownWrapper>
