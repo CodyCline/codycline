@@ -11,18 +11,13 @@ This is not \`code\`
 | Test | user | data |
 | value | x | as
 
-<CodeBlock language="rust" filename="hello.rs">
-impl Server {
-    fn boo () {
-        println!("BOO");
-    }
-}
 
+> Quote a famous person here 
 
-
-</CodeBlock>
-
-
+Nope 
+<Spoiler title="hello">
+World
+</Spoiler>
 
 Select the output text, right click, select inspection to view the HTML string converted from Markdown.
 

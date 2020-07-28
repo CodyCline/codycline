@@ -1,5 +1,10 @@
 @import '../../styles/index.scss';
 
+.codeblock {
+    overflow-x: scroll;
+}
+
+
 .toolBar {
     display: flex;
     flex-direction: row;

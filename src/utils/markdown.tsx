@@ -1,6 +1,9 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import { CodeBlock, InlineCode } from '../components/codeblock/codeblock';
+import { Spoiler } from '../components/spoiler/spoiler';
+import { BlockQuote } from '../components/blockquote/blockquote';
+
 
 //Import and register components for markdown use
 const paragraph = ({children}: any) => {
@@ -19,6 +22,8 @@ export const MarkdownWrapper = ({children} :any) => {
                     //For now use native component due to bug in jsx parser
                     code: InlineCode,
                     CodeBlock: CodeBlock,
+                    blockquote: BlockQuote,
+                    Spoiler: Spoiler
                 }
             }}
         />

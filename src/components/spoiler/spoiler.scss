@@ -1,0 +1,29 @@
+@import '../../styles/index.scss';
+
+.spoiler {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    @include themed () { 
+        background: t("fg");
+    }
+    width: 100%;
+    height: auto;
+}
+
+.spoiler-header {
+    @include themed () { 
+        background: t("main-color");
+    }
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    justify-content: space-between;
+    padding: 10px 25px 10px 25px;
+    list-style: none;
+    margin: 0;
+}
+
+.spoiler-body {
+    padding: 25px;
+}

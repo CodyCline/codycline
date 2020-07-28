@@ -42,8 +42,8 @@ export const Article = () => {
                         </MarkdownWrapper>
                         <Spacer height={5} units="vh"/>
                         <div className="article-bottom-tags" >
-                            {state.tags.map((tag: any) => {
-                                return (<Tag>{tag}</Tag>);
+                            {state.tags.map((tag: any, inc:number) => {
+                                return (<Tag key={inc}>{tag}</Tag>);
                             })}
                         </div>
                         <Spacer height={30} units="vh"/>
