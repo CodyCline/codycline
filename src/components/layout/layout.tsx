@@ -37,18 +37,19 @@ export const NavBar = () => {
     }, [handleResize]);
     return (
         <nav className="navbar">
-            <NavItem link="/" className="homeIcon"><h1>Cody Cline</h1></NavItem>
-            {isMobile ?
-                <MobileMenu/>
-                :
+            <NavItem link="/" className="homeIcon">
+                <h1>CC</h1>
+            </NavItem>
+            {!isMobile &&
                 <React.Fragment>
                     <NavItem link="/blog"> Blog </NavItem>
                     <NavItem link="/projects">Projects</NavItem>
-                    <NavItem notActive>
-                        <ThemeSwitch />
-                    </NavItem>
                 </React.Fragment>
             }
+            <NavItem notActive>
+                <ThemeSwitch />
+            </NavItem>
+            {isMobile && <MobileMenu />}
         </nav>
     )
 }

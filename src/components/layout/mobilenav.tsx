@@ -37,9 +37,6 @@ export const MobileMenu = ({ onClick }: any) => {
                     <NavItem link="/blog" className="mobile-nav-item">Blog</NavItem>
                     <NavItem link="/contact" className="mobile-nav-item"> Contact </NavItem>
                     <NavItem link="/projects" className="mobile-nav-item">Projects</NavItem>
-                    <NavItem notActive className="mobile-nav-item">
-                        <ThemeSwitch />
-                    </NavItem>
                 </ul>
                 : null
             }

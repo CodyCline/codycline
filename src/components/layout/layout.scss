@@ -17,8 +17,8 @@
 
 
 .navitem {
-    width: 20vh;
-    padding: 0 1rem 0 2rem;
+    width: 15vh;
+    padding: 0 1rem 0 1rem;
 }
 
 .navitem h1 {
@@ -38,10 +38,12 @@
     padding: 1em 0 1em 0;
     top: 5em;
     right: 1rem;
-    border-radius: 5%;
     z-index: 99;
+    border: 3px solid;
+    border-image-slice: 1;
     @include themed () {
-        background: t('fg');
+        background: t("fg");
+        border-image-source: linear-gradient(90deg, t("main-color") 35%, t("secondary-color") 100%);
     }
 }
 
