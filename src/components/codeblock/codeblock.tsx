@@ -9,22 +9,22 @@ import './prism.css';
 
 
 const languagesToLoad : any[] = [
-    'markup',
-    'python',
-    'javascript',
-    'css', 
-    'php', 
-    'cpp', 
-    'rust', 
-    'typescript',
-    'crystal',
+    "markup",
+    "python",
+    "javascript",
+    "css", 
+    "php", 
+    "cpp", 
+    "rust", 
+    "typescript",
+    "crystal",
     
 ];
 const pluginsToLoad : any[] = [
-    'line-numbers',
-    'match-braces',
-    'highlight-keywords',
-    'file-highlight',
+    "line-numbers",
+    "match-braces",
+    "highlight-keywords",
+    "file-highlight",
 ];
 
 export const CodeBlock = ({children, language, filename}:any) => {
@@ -33,14 +33,13 @@ export const CodeBlock = ({children, language, filename}:any) => {
         copied: false,
         fileExtension: "default",
     });
-
     const codeRef = React.useRef<any>()
     const toolTipRef = React.useRef<any>();
     React.useEffect(() => {
         //Not the cleanest solution but loadLanguages is broken
         const languageLoader = getLoader(components, languagesToLoad);
         const pluginLoader = getLoader(components, pluginsToLoad);
-        languageLoader.load(async (lang:any) => {
+        languageLoader.load((lang:any) => {
             require(`prismjs/components/prism-${lang}.min.js`);
         });
         pluginLoader.load((plugin:any) => {
@@ -51,12 +50,12 @@ export const CodeBlock = ({children, language, filename}:any) => {
 
     function copyCode () {return;}
 
-    const followCursor = (event: any) => {
+    function followCursor (event: any) {
         const element = toolTipRef.current;
         if(element) {            
             const x: number = event.clientX, y : number = event.clientY;
-            element.style.top = (y - 5) + 'px';
-            element.style.left = (x - 132.5) + 'px';
+            element.style.top = (y - 5) + "px";
+            element.style.left = (x - 132.5) + "px";
         }
     }
 
@@ -74,9 +73,9 @@ export const CodeBlock = ({children, language, filename}:any) => {
                 background: "#1b1e1f",
                 borderBottomLeftRadius: 0,
                 borderBottomRightRadius: 0,
-            }} className={cx("match-braces", "line-numbers")}>
-                <code ref={codeRef} className={`language-${language} rainbow-braces`}>
-                    {children.trim()}
+            }} className={cx(`language-${language}`, "match-braces", "line-numbers")}>
+                <code ref={codeRef} className={cx(`language-${language}`, "rainbow-braces")}>
+                    {children}
                 </code>            
             </pre>            
             <ul className="toolBar">
@@ -89,9 +88,16 @@ export const CodeBlock = ({children, language, filename}:any) => {
                     onMouseMove={(event) => followCursor(event)}
                 >
                     <FontAwesomeIcon icon={["far", "clipboard"]}/>
-                    { state.toolTipVisible? <span ref={toolTipRef} className="copyToolTip">{state.copied? "Copied! ⚡": "Click to copy"}</span> : null }
+                    { state.toolTipVisible && <span ref={toolTipRef} className="copyToolTip">{state.copied? "Copied! ⚡": "Click to copy"}</span>}
                 </li>
             </ul>
         </React.Fragment>
     );
 };
+
+
+export const InlineCode = ({children}) => {
+    return (
+        <code className="inline-code">{children}</code>
+    )
+}

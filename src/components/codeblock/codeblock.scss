@@ -1,3 +1,5 @@
+@import '../../styles/index.scss';
+
 .toolBar {
     display: flex;
     flex-direction: row;
@@ -29,4 +31,10 @@
     position:fixed;
     background: #340bb4;
     overflow: hidden;
+}
+
+.inline-code {
+    background: #33a72c;
+    border-radius: 5px;
+    padding: 0 0.5rem 0 0.5rem;
 }

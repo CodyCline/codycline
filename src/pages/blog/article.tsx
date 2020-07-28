@@ -6,7 +6,6 @@ import { articleData } from '../../data/articleData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
-import { CodeBlock } from '../../components/codeblock/codeblock';
 
 
 export const Article = () => {
@@ -27,20 +26,16 @@ export const Article = () => {
             setLoadState({...loadState, loaded:true});
         }
     }, [id]);
+
     return (
         <React.Fragment>
             {loadState.loaded && !loadState.error ?
                 <React.Fragment>
                     <img className="article-cover-image" src={state.cover} alt="banner.jpg" />
-                    <Spacer height={4} units="vh"/>
+                    <Spacer height={5} units="vh"/>
                     <div className="article-container">
-                        
                         <h1 className="big-header">{state.title}</h1>
-                        <p>
-                            <FontAwesomeIcon icon={["fas", "clock"]}/>
-                            <span className="article-date">{state.date}</span>
-                        </p>
-                        <CodeBlock/>
+                        <p> Published {state.date} </p>
                         <Divider style={{width: "100%"}}/>
                         <MarkdownWrapper>
                             {state.body}

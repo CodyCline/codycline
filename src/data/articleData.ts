@@ -6,13 +6,31 @@ Blogging:
 
 #Test
 
+This is not \`code\`
+
 | Test | user | data |
 | value | x | as
+
+<CodeBlock language="rust" filename="hello.rs">
+impl Server {
+    fn boo () {
+        println!("BOO");
+    }
+}
+
+
+
+</CodeBlock>
+
+
 
 Select the output text, right click, select inspection to view the HTML string converted from Markdown.
 
 
 `);
+
+
+
 
 
 export const articleData = [
