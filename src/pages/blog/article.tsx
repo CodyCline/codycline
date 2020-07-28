@@ -28,19 +28,23 @@ export const Article = () => {
     }, [id]);
     return (
         <React.Fragment>
-            <div style={{ height: "10vh" }} />
             {loadState.loaded && !loadState.error ?
                 <React.Fragment>
-                    <img className="cover-image" src={state.cover} alt="banner.jpg" />
-                    <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "flex-start", margin: "auto", width: "65%" }}>
-                        <h1 style={{ fontSize: "50px" }}>{state.title}</h1>
-                        <p><FontAwesomeIcon icon={["fas", "book"]}/>{state.date}</p>
+                    <img className="article-cover-image" src={state.cover} alt="banner.jpg" />
+                    <Spacer height={4} units="vh"/>
+                    <div className="article-container">
+                        
+                        <h1 className="big-header">{state.title}</h1>
+                        <p>
+                            <FontAwesomeIcon icon={["fas", "clock"]}/>
+                            <span className="article-date">{state.date}</span>
+                        </p>
                         <Divider style={{width: "100%"}}/>
                         <MarkdownWrapper>
                             {state.body}
                         </MarkdownWrapper>
-                        <div style={{ height: "4rem" }} />
-                        <div style={{ display: "flex", flexWrap: "wrap", }} className="bottom-tags" >
+                        <Spacer height={5} units="vh"/>
+                        <div className="article-bottom-tags" >
                             {state.tags.map((tag: any) => {
                                 return (<Tag>{tag}</Tag>);
                             })}

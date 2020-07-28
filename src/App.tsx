@@ -8,7 +8,7 @@ import { Article } from './pages/blog/article';
 import { Projects } from './pages/projects/projects';
 import { Post } from './pages/projects/view';
 import { NotFound } from './pages/notfound/notfound';
-import { Meta } from './pages/blog/meta/meta';
+import { Meta } from './pages/meta/meta';
 
 
 function App() {

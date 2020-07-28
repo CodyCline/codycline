@@ -28,26 +28,28 @@ export const Post = () => {
         <React.Fragment>
             {loadState.loaded && !loadState.error ?
                 <React.Fragment>
-                    <img className="cover-image" src={state.cover} alt="banner.jpg"/>
-                    <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", alignItems: "flex-start", margin: "auto", width: "65%" }}>
+                    <img className="article-cover-image" src={state.cover} alt="banner.jpg" />
+                    <div className="article-container">
                         <h1 className="big-header">{state.title}</h1>
-                        <p>{state.date}</p>
+                        <p>
+                            <span className="article-date">{state.date}</span>
+                        </p>
                         <Divider style={{width: "100%"}}/>
                         <MarkdownWrapper>
                             {state.body}
                         </MarkdownWrapper>
-                        <div style={{ height: "4rem" }} />
-                        <div style={{ display: "flex", flexWrap: "wrap", }} className="bottom-tags" >
+                        <Spacer height={5} units="vh"/>
+                        <div className="article-bottom-tags" >
                             {state.tags.map((tag: any) => {
                                 return (<Tag>{tag}</Tag>);
                             })}
                         </div>
+                        <Spacer height={30} units="vh"/>
                     </div>
                 </React.Fragment>
                 : "loading"
         
             }
-            <Spacer height={30} units="vh"/>
         </React.Fragment>
     )
     

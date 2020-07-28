@@ -1,15 +1,5 @@
 @import './theme-controller.scss';
 
-.cover-image {
-	display: block;
-    object-fit: cover;
-    width: 100%;
-    height: 30vh;
-    opacity: 1;
-	object-position: center 40%;
-}
-
-
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 
 a, a:visited, a:active {
@@ -26,13 +16,11 @@ body {
 		color: t('text');
 	}
 	font: normal 20px 'Rubik', sans-serif;
-	letter-spacing: 0.09rem;
+	letter-spacing: 0.08rem;
 	color: #fff;
 	height: 100%;
   	margin: 0;
 	padding: 0;
-	margin-block-start: 0;
-	margin-block-end: 0;
 	box-sizing: border-box;	  
 	transition: 0.5s ease-in;
 }
