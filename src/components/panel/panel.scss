@@ -20,6 +20,11 @@
 .panel:hover {
     cursor: pointer;
     transform: scale(1.05);
+    border: 2px solid;
+    border-image-slice: 1;
+    @include themed () { 
+        border-image-source: linear-gradient(90deg, t("main-color") 35%, t("secondary-color")  100%);   
+    }
 }
 
 .panel-image {

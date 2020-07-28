@@ -39,7 +39,7 @@
     top: 5em;
     right: 1rem;
     z-index: 99;
-    border: 3px solid;
+    border: 2px solid;
     border-image-slice: 1;
     @include themed () {
         background: t("fg");

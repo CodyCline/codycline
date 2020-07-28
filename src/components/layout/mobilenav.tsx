@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { NavItem } from './layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { ThemeSwitch } from '../ui/switch/switch';
-
-
 
 export const MobileMenu = ({ onClick }: any) => {
     const [visible, setVisible] = React.useState(false);
@@ -35,7 +32,6 @@ export const MobileMenu = ({ onClick }: any) => {
             {visible ?
                 <ul onClick={onClick} className="mobile-nav">
                     <NavItem link="/blog" className="mobile-nav-item">Blog</NavItem>
-                    <NavItem link="/contact" className="mobile-nav-item"> Contact </NavItem>
                     <NavItem link="/projects" className="mobile-nav-item">Projects</NavItem>
                 </ul>
                 : null

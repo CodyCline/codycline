@@ -19,3 +19,34 @@
     width: 60%;
     text-align: center;
 }
+
+.project-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+}
+
+.project-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+
+.project-tag-container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+}
+
+.project-tag {
+    padding: 1rem;
+}

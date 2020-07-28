@@ -1,9 +1,10 @@
 import * as React from 'react';
 
-export const NotFound = ({}) => {
+
+export const Meta = () => {
     return (
         <div style={{height: "85vh", display:"grid", placeItems:"center", textAlign:"center"}}>
-            <h2>Nothing here yet check back soon</h2>
+            <h2>Working on this check back soon</h2>
         </div>
     )
 }

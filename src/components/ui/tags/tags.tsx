@@ -10,7 +10,7 @@ export const SelectTag = ({children, isActive, onClick}: any) => {
 }
 
 export const Tag = ({children, onClick} : any) => (
-    <Link to={"/tags/" + children}>
+    <Link to={"/meta/" + children}>
         <span className="tag">{children}</span>
     </Link>
 );

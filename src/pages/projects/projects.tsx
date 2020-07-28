@@ -24,34 +24,14 @@ export const Projects = () => {
 
     return (
         <React.Fragment>
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                padding: "2rem",
-                alignItems: "center",
-            }}>
+            <div className="project-container">
                 <h2 >Projects</h2>
                 <Divider style={{width:"30vh"}}/>
                 <Spacer height={2.5} units="vh"/>
-                <ul
-                    style={{
-                        width: "100%",
-                        margin: "auto",
-                        display: "flex",
-                        padding: 0,
-                        justifyContent: "center",
-                        flexWrap: "wrap",
-                        listStyle: "none",
-                        flexDirection: "row",
-                        alignItems: "center",
-                    }}
-                >
+                <ul className="project-tag-container">
                     {categories.map((c:string, inc:number) => (
-                        <li key={inc} style={{ padding: "1rem" }}>
-                            <SelectTag 
-                                onClick={() => setCategory(c)} 
-                                isActive={category === c}
-                            >
+                        <li className="project-tag" key={inc} style={{ padding: "1rem" }}>
+                            <SelectTag onClick={() => setCategory(c)} isActive={category === c} >
                                 {c}
                             </SelectTag>
                         </li>
@@ -59,7 +39,7 @@ export const Projects = () => {
                 </ul>
             </div>
             <Spacer height={5} units="vh"/>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", width: "90%", margin: "auto" }}>
+            <div className="project-page">
                 {
                     filterOptions.length > 0 ? (
                         filterOptions.map((project:any) => {
