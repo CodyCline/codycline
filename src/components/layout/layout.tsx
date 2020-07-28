@@ -20,11 +20,24 @@ export const Layout = ({ children }: any) => {
 
 export const NavBar = () => {
     const [isMobile, setMobileView] = React.useState<boolean>(false);
+    const [isDark, setDarkMode] = React.useState<boolean>(true);
     const handleResize = React.useCallback((mediaQuery: any) => {
         mediaQuery.matches ? setMobileView(true) : setMobileView(false);
     }, [setMobileView]);
 
+    function changeTheme () {
+        console.log("clicked");
+        if(isDark) {
+            document.documentElement.className = "theme--light";
+            setDarkMode(false);
+        } else {
+            document.documentElement.className = "theme--dark";
+            setDarkMode(true);
+        }
+    }
+
     React.useEffect(() => {
+        document.documentElement.className = "theme--dark";
         const mediaQuery = window.matchMedia("(max-width: 700px)");
         //For initial state
         if (mediaQuery.matches) {
@@ -45,7 +58,7 @@ export const NavBar = () => {
                     <NavItem link="/blog"> Blog </NavItem>
                     <NavItem link="/projects">Projects</NavItem>
                     <NavItem notActive>
-                        <ThemeSwitch />
+                        <ThemeSwitch onChange={changeTheme}/>
                     </NavItem>
                 </React.Fragment>
             }
