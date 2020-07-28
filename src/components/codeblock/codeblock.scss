@@ -1,0 +1,32 @@
+.toolBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    background: #2a2e30;
+    padding: 10px 35px 10px 35px;
+    margin: 0;
+    list-style: none;
+    font-size: 1rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.copyIcon {
+    cursor: pointer;
+}
+
+.copyToolTip {
+    padding: 0.25rem;
+    border-radius: 5px;
+    position: fixed;
+    background: #2A2E30;
+}
+
+
+.copyIcon:hover span {
+    padding: 0.25rem;
+    border-radius: 5px;
+    position:fixed;
+    background: #340bb4;
+    overflow: hidden;
+}

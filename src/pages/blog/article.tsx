@@ -6,6 +6,7 @@ import { articleData } from '../../data/articleData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
+import { CodeBlock } from '../../components/codeblock/codeblock';
 
 
 export const Article = () => {
@@ -39,6 +40,7 @@ export const Article = () => {
                             <FontAwesomeIcon icon={["fas", "clock"]}/>
                             <span className="article-date">{state.date}</span>
                         </p>
+                        <CodeBlock/>
                         <Divider style={{width: "100%"}}/>
                         <MarkdownWrapper>
                             {state.body}
