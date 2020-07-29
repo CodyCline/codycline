@@ -1,11 +1,9 @@
 @import './theme-controller.scss';
-
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 
 a, a:visited, a:active {
 	text-decoration: none;
 	color: inherit;
-
 }
 
 
@@ -36,3 +34,8 @@ blockquote {
 	margin-block-start: 0;
     margin-block-end: 0;
 }
+
+
+
+::-moz-selection { background: #b3d4fc; }
+::selection { background: #b3d4fc; }

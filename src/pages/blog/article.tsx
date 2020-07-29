@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { MarkdownWrapper } from '../../utils/markdown';
 import { Tag } from '../../components/ui/tags/tags';
 import { articleData } from '../../data/articleData';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
 

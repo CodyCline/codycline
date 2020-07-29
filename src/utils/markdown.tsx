@@ -3,7 +3,7 @@ import Markdown from 'markdown-to-jsx';
 import { CodeBlock, InlineCode } from '../components/codeblock/codeblock';
 import { Spoiler } from '../components/spoiler/spoiler';
 import { BlockQuote } from '../components/blockquote/blockquote';
-
+import { Divider } from '../components/ui/divider/divider';
 
 //Import and register components for markdown use
 const paragraph = ({children}: any) => {
@@ -23,7 +23,8 @@ export const MarkdownWrapper = ({children} :any) => {
                     code: InlineCode,
                     CodeBlock: CodeBlock,
                     blockquote: BlockQuote,
-                    Spoiler: Spoiler
+                    Spoiler: Spoiler,
+                    hr: Divider,
                 }
             }}
         />

@@ -1,9 +1,11 @@
 @import '../../styles/index.scss';
 
-.codeblock {
+.codeblock-override {
+    @include themed () {
+        background: t("fg");
+    }
     overflow-x: scroll;
 }
-
 
 .toolBar {
     display: flex;
@@ -13,7 +15,6 @@
     padding: 10px 35px 10px 35px;
     margin: 0;
     list-style: none;
-    font-size: 1rem;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -39,7 +40,10 @@
 }
 
 .inline-code {
-    background: #33a72c;
+    @include themed () {
+        color : t("code");
+        background : t("fg");
+    }
     border-radius: 5px;
     padding: 0 0.5rem 0 0.5rem;
 }

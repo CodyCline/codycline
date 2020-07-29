@@ -9,7 +9,7 @@ export const Spoiler = ({ children, title }) => {
         toggleSpoiler(!toggled);
     }
     return (
-        <div className="spoiler">
+        <React.Fragment>
             <ul onClick={onToggle} role="navigation" className="spoiler-header">
                 <li>{title}</li>
                 <li>
@@ -23,6 +23,6 @@ export const Spoiler = ({ children, title }) => {
                     {children}
                 </div>
             }
-        </div>
+        </React.Fragment>
     );
 }

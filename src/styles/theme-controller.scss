@@ -14,7 +14,8 @@ $themes: (
 		border: #CCC,
 		hr: linear-gradient(to right, $primary, $secondary),
 		main-color: $primary,
-		secondary-color: $secondary
+		secondary-color: $secondary,
+		code: #9a6dd7,
 	),
 	light: (
 		bg: #D8D8D8,
@@ -24,6 +25,7 @@ $themes: (
 		hr: linear-gradient(to right, $warning, $caution),
 		main-color: $warning,
 		secondary-color: $caution,
+		code: #FF6700,
 	),
 	
 );

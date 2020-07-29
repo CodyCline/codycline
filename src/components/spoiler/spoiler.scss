@@ -26,4 +26,9 @@
 
 .spoiler-body {
     padding: 25px;
+    @include themed () { 
+        background: t("fg");
+    }
+    width: inherit;
+    height: auto;
 }

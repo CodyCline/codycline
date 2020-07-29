@@ -6,7 +6,7 @@ Blogging:
 
 #Test
 
-This is not \`code\`
+This is great \`code\`
 
 | Test | user | data |
 | value | x | as
@@ -15,9 +15,29 @@ This is not \`code\`
 > Quote a famous person here 
 
 Nope 
+
 <Spoiler title="hello">
 World
 </Spoiler>
+
+#hello
+
+---
+
+With this in mind, there seems to be..
+
+<CodeBlock language="ts">
+class Internet extends World () {
+    constructor () {
+        this.protocol = "ip"
+    }
+    serve_forever () {
+        console.log("Serving forever");
+    }
+} 
+const network = new Internet();
+network.serve_forever();
+</CodeBlock>
 
 Select the output text, right click, select inspection to view the HTML string converted from Markdown.
 

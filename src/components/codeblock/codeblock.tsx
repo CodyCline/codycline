@@ -50,7 +50,6 @@ export const CodeBlock = ({ children, language, filename }: any) => {
 
     async function copyCode() {
         await navigator.clipboard.writeText(codeRef.current.innerText);
-
     }
 
     function followCursor(event: any) {
@@ -63,20 +62,19 @@ export const CodeBlock = ({ children, language, filename }: any) => {
     }
 
     const toggleToolTip = () => {
-        setState((prevState: any) => ({
-            ...prevState,
-            toolTipVisible: !prevState.toolTipVisible,
-        }))
+        setState({
+            ...state,
+            toolTipVisible: !state.toolTipVisible,
+        });
     }
 
     return (
         <React.Fragment>
             <pre style={{
                 margin: 0,
-                background: "#1b1e1f",
                 borderBottomLeftRadius: 0,
                 borderBottomRightRadius: 0,
-            }} className={cx("match-braces", "line-numbers")}>
+            }} className={cx("match-braces", "line-numbers" , "codeblock-override")}>
                 <code ref={codeRef} className={cx(`language-${language}`, "rainbow-braces")}>
                     {children}
                 </code>
