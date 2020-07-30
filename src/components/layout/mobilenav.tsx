@@ -35,7 +35,7 @@ export const MobileMenu = ({ onClick }: any) => {
                     <NavItem link="/projects" className="mobile-nav-item">Projects</NavItem>
 
                     <a style={{margin: 0, padding: "1em"}} target="_blank" rel="noopener noreferrer" href="https://airtable.com/shrbrGZaBd2SPr9Sj" className="card-icon">
-                        Contact
+                        Contact 
                     </a>
                 </ul>
                 : null
