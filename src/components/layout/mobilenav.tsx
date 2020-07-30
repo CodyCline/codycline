@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const MobileMenu = ({ onClick }: any) => {
     const [visible, setVisible] = React.useState(false);
     const ref = React.useRef<any>(null);
-    
+
     function toggle() {
         setVisible(!visible);
     }
-    const handleClickOutside = (event:any) => {
+    const handleClickOutside = (event: any) => {
         if (ref.current && !ref.current.contains(event.target)) {
             setVisible(false);
         }
@@ -33,6 +33,10 @@ export const MobileMenu = ({ onClick }: any) => {
                 <ul onClick={onClick} className="mobile-nav">
                     <NavItem link="/blog" className="mobile-nav-item">Blog</NavItem>
                     <NavItem link="/projects" className="mobile-nav-item">Projects</NavItem>
+
+                    <a style={{margin: 0, padding: "1em"}} target="_blank" rel="noopener noreferrer" href="https://airtable.com/shrbrGZaBd2SPr9Sj" className="card-icon">
+                        Contact
+                    </a>
                 </ul>
                 : null
             }

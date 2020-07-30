@@ -44,6 +44,9 @@ export const NavBar = () => {
                 <React.Fragment>
                     <NavItem link="/blog"> Blog </NavItem>
                     <NavItem link="/projects">Projects</NavItem>
+                    <a target="_blank" rel="noopener noreferrer" href="https://airtable.com/shrbrGZaBd2SPr9Sj" className="card-icon">
+                        Contact
+                    </a>
                 </React.Fragment>
             }
             <NavItem notActive>

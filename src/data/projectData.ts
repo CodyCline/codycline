@@ -1,62 +1,22 @@
+import PayPal from '../assets/images/paypal.jpg';
+
+const projectOneBody = (`
+Working on this check back soon
+
+`);
+
+
 export const projectData = [
     {
         id: "12611c16-e822-4991-a43f-f161e21a8deb",
-        type: "desktop",
-        title: "DDD",
-        banner: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com",
-        tags: ["javascript", "python"],
-        body: "#HEllo",
-        cover: "https://via.placeholder.com/300/000000/FFFFFF/?text=Placeholder"
-    },
-    {
-        id: "a9c5489c-b602-4c6f-b8a5-b5a27dae3dcb",
-        type: "desktop",
-        banner: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-        title: "Test Desktop 2",
-        description: "Lorem ipsum dolor ipsut asda",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com",
-        tags: ["javascript", "python"],
-        body: "#HEllo",
-        cover: "https://via.placeholder.com/300/000000/FFFFFF/?text=Placeholder"
-    },
-    {
-        id: "a5dae4de-f0de-46d0-bed1-8bf5f0cfacc0",
-        type: "web",
-        title: "Test Project",
-        banner: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com",
-        tags: ["javascript", "python"],
-        body: "#HEllo",
-        cover: "https://via.placeholder.com/300/000000/FFFFFF/?text=Placeholder"
-    },
-    {
-        id: "80ec4ecb-afa3-4284-9691-17394b7dbada",
-        type: "web",
-        title: "Test Project",
-        banner: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com",
-        tags: ["javascript", "python"],
-        body: "#HEllo",
-        cover: "https://via.placeholder.com/300/000000/FFFFFF/?text=Placeholder"
-    },
-    {
-        id: "b4a85e1d-e9b1-43d2-a8e8-78d1f2110a11",
-        type: "web",
-        title: "Test Project",
-        banner: "https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
-        description: "Lorem ipsum dolor ipsut lorem ipsem",
-        githubUrl: "https://github.com",
-        liveUrl: "https://example.com",
-        tags: ["javascript", "python"],
-        body: "#HEllo",
-        cover: "https://via.placeholder.com/300/000000/FFFFFF/?text=Placeholder"
+        type: "open-source",
+        title: "PayPal React",
+        banner: PayPal,
+        description: "React.js wrapper for PayPal buttons",
+        githubUrl: "https://github.com/CodyCline/paypal-react",
+        liveUrl: "https://npmjs.com/package/paypal-button-react",
+        tags: ["javascript", "react", "python"],
+        body: projectOneBody,
+        cover: PayPal
     },
 ]
