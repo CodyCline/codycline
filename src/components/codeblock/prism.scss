@@ -1,23 +1,21 @@
-/* PrismJS 1.20.0
-https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript&plugins=line-numbers+file-highlight+highlight-keywords+normalize-whitespace+toolbar+copy-to-clipboard+match-braces */
-/**
- * okaidia theme for JavaScript, CSS and HTML
- * Loosely based on Monokai textmate theme by http://www.monokai.nl/
- * @author ocodia
- */
+// Prismjs dark vscode theme
 
 @import '../../styles/index.scss';
 
 pre[class*="language-"],
 code[class*="language-"] {
-	color: #d4d4d4;
+	@include themed () {
+		color: t("block-color");
+	}
 	text-shadow: none;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	font-size: 24px;
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
+	word-wrap: normal;
 	line-height: 1.5;
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
@@ -26,6 +24,13 @@ code[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+	
+}
+
+
+pre[class*="language-"] {
+	padding: 1em;
+	overflow: auto;
 }
 
 pre[class*="language-"]::selection,
@@ -41,12 +46,7 @@ code[class*="language-"]::selection {
 	}
 }
 
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
-	background: #1e1e1e;
-}
+
 
 :not(pre) > code[class*="language-"] {
 	padding: .1em .3em;
@@ -65,11 +65,16 @@ pre[class*="language-"] {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: #6a9955;
+	@include themed () {
+		color: t("cdata")
+	}
+	
 }
 
 .token.punctuation {
-	color: #d4d4d4;
+	@include themed () {
+		color: t("punctuation")
+	}
 }
 
 .token.property,
@@ -79,7 +84,9 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: #b5cea8;
+	@include themed () {
+		color: t("deleted")
+	}
 }
 
 .token.selector,
@@ -89,6 +96,9 @@ pre[class*="language-"] {
 .token.builtin,
 .token.inserted {
 	color: #ce9178;
+	@include themed () {
+		color: t("token-inserted")
+	}
 }
 
 .token.operator,
@@ -96,24 +106,32 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-	color: #d4d4d4;
-	background: #1e1e1e;
+	@include themed () {
+		color: t("token-string")
+	}
+	// background: #1e1e1e;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: #c586c0;
+	@include themed () {
+		color: t("token-keyword")
+	}
 }
 
 .token.function {
-	color: #dcdcaa;
+	@include themed () {
+		color: t("token-function")
+	}
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-	color: #d16969;
+	@include themed () {
+		color: t("token-var")
+	}
 }
 
 .token.important,
@@ -126,19 +144,27 @@ pre[class*="language-"] {
 }
 
 .token.constant {
-	color: #9CDCFE;
+	@include themed () {
+		color: t("token-constant")
+	}
 }
 
 .token.class-name {
-	color: #4EC9B0;
+	@include themed () {
+		color: t("token-class-name")
+	}
 }
 
 .token.parameter {
-	color: #9CDCFE;
+	@include themed () {
+		color: t("token-parameter")
+	}
 }
 
 .token.interpolation {
-	color: #9CDCFE;
+	@include themed () {
+		color: t("token-interpolation")
+	}
 }
 
 .token.punctuation.interpolation-punctuation {
@@ -146,48 +172,68 @@ pre[class*="language-"] {
 }
 
 .token.boolean {
-	color: #569cd6;
+	@include themed () {
+		color: t("token-boolean");
+	}
 }
 
 .token.property {
-	color: #9cdcfe;
+	@include themed () {
+		color: t("token-property");
+	}
 }
 
 .token.selector {
-	color: #d7ba7d;
+	@include themed () {
+		color: t("token-selector");
+	}
 }
 
 .token.tag {
-	color: #569cd6;
+	@include themed () {
+		color: t("token-tag");
+	}
 }
 
 .token.attr-name {
-	color: #9cdcfe;
+	@include themed () {
+		color: t("token-attr-name");
+	}
 }
 
 .token.attr-value {
-	color: #ce9178;
+	@include themed () {
+		color: t("token-attr-name");
+	}
 }
 
 .token.entity {
-	color: #4ec9b0;
+	@include themed () {
+		color: t("token-entity");
+	}
 	cursor: unset;
 }
 
 .token.namespace {
-	color: #4ec9b0;
+	@include themed () {
+		color: t("token-namespace");
+	}
 }
 /*********************************************************
 * Language Specific
 */
 pre[class*="language-javascript"],
 code[class*="language-javascript"] {
-	color: #4ec9b0;
+	@include themed () {
+		color: t("lang-javascript");
+	}
 }
 
 pre[class*="language-css"],
 code[class*="language-css"] {
-	color: #CE9178;
+	@include themed () {
+		color: t("lang-css");
+	}
 }
 
 pre[class*="language-html"],
@@ -229,9 +275,6 @@ pre[class*="language-"] > code[class*="language-"] {
 
 
 //Prism plugin css below
-
-
-
 pre[class*="language-"].line-numbers {
 	position: relative;
 	padding-left: 3.8em;
@@ -276,24 +319,32 @@ pre[class*="language-"].line-numbers > code {
 .rainbow-braces .token.punctuation.brace-level-1,
 .rainbow-braces .token.punctuation.brace-level-5,
 .rainbow-braces .token.punctuation.brace-level-9 {
-	color: #e50;
+	@include themed () {
+		color: t("bracket-pair-1-5-9");
+	}
 	opacity: 1;
 }
 .rainbow-braces .token.punctuation.brace-level-2,
 .rainbow-braces .token.punctuation.brace-level-6,
 .rainbow-braces .token.punctuation.brace-level-10 {
-	color: #0b3;
+	@include themed () {
+		color: t("bracket-pair-2-6-10");
+	}
 	opacity: 1;
 }
 .rainbow-braces .token.punctuation.brace-level-3,
 .rainbow-braces .token.punctuation.brace-level-7,
 .rainbow-braces .token.punctuation.brace-level-11 {
-	color: #26f;
+	@include themed () {
+		color: t("bracket-pair-3-7-11");
+	}
 	opacity: 1;
 }
 .rainbow-braces .token.punctuation.brace-level-4,
 .rainbow-braces .token.punctuation.brace-level-8,
 .rainbow-braces .token.punctuation.brace-level-12 {
-	color: #e0e;
+	@include themed () {
+		color: t("bracket-pair-4-8-12");
+	}
 	opacity: 1;
 }

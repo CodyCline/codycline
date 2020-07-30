@@ -52,21 +52,7 @@ export const CodeBlock = ({ children, language, filename }: any) => {
         await navigator.clipboard.writeText(codeRef.current.innerText);
     }
 
-    function followCursor(event: any) {
-        const element = toolTipRef.current;
-        if (element) {
-            const x: number = event.clientX, y: number = event.clientY;
-            element.style.top = (y - 5) + "px";
-            element.style.left = (x - 132.5) + "px";
-        }
-    }
 
-    const toggleToolTip = () => {
-        setState({
-            ...state,
-            toolTipVisible: !state.toolTipVisible,
-        });
-    }
 
     return (
         <React.Fragment>
@@ -84,12 +70,8 @@ export const CodeBlock = ({ children, language, filename }: any) => {
                 <li
                     className="copyIcon"
                     onClick={copyCode}
-                    onMouseLeave={toggleToolTip}
-                    onMouseEnter={toggleToolTip}
-                    onMouseMove={(event) => followCursor(event)}
                 >
                     <FontAwesomeIcon icon={["far", "clipboard"]} />
-                    {state.toolTipVisible && <span ref={toolTipRef} className="copyToolTip">{state.copied ? "Copied! ⚡" : "Click to copy"}</span>}
                 </li>
             </ul>
         </React.Fragment>

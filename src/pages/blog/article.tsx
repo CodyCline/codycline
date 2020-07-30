@@ -5,7 +5,7 @@ import { Tag } from '../../components/ui/tags/tags';
 import { articleData } from '../../data/articleData';
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
-
+import {CodeBlock} from '../../components/codeblock/codeblock';
 
 export const Article = () => {
     const { id } = useParams();
@@ -19,10 +19,10 @@ export const Article = () => {
             return article.id === id;
         });
         if (currentArticle.length < 1) {
-            setLoadState({...loadState, error: true})
+            setLoadState({ ...loadState, error: true })
         } else {
             setState(currentArticle[0]);
-            setLoadState({...loadState, loaded:true});
+            setLoadState({ ...loadState, loaded: true });
         }
     }, [id]);
 
@@ -31,25 +31,25 @@ export const Article = () => {
             {loadState.loaded && !loadState.error ?
                 <React.Fragment>
                     <img className="article-cover-image" src={state.cover} alt="banner.jpg" />
-                    <Spacer height={5} units="vh"/>
+                    <Spacer height={5} units="vh" />
                     <div className="article-container">
                         <h1 className="big-header">{state.title}</h1>
                         <p> Published {state.date} </p>
-                        <Divider style={{width: "100%"}}/>
+                        <Divider style={{ width: "100%" }} />
                         <MarkdownWrapper>
                             {state.body}
                         </MarkdownWrapper>
-                        <Spacer height={5} units="vh"/>
+                        <Spacer height={5} units="vh" />
                         <div className="article-bottom-tags" >
-                            {state.tags.map((tag: any, inc:number) => {
+                            {state.tags.map((tag: any, inc: number) => {
                                 return (<Tag key={inc}>{tag}</Tag>);
                             })}
                         </div>
-                        <Spacer height={30} units="vh"/>
+                        <Spacer height={30} units="vh" />
                     </div>
                 </React.Fragment>
                 : "loading"
-        
+
             }
         </React.Fragment>
     )

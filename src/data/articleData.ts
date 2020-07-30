@@ -26,17 +26,16 @@ World
 
 With this in mind, there seems to be..
 
-<CodeBlock language="ts">
-class Internet extends World () {
-    constructor () {
-        this.protocol = "ip"
+<CodeBlock language="javascript">
+() => {
+    () => {
+        () => {
+            () => {
+                {{{()}}}
+            }
+        }
     }
-    serve_forever () {
-        console.log("Serving forever");
-    }
-} 
-const network = new Internet();
-network.serve_forever();
+}
 </CodeBlock>
 
 Select the output text, right click, select inspection to view the HTML string converted from Markdown.

@@ -2,16 +2,31 @@
 
 .codeblock-override {
     @include themed () {
-        background: t("fg");
+        background: t("block-background");
     }
-    overflow-x: scroll;
 }
+
+.codeblock-override::-webkit-scrollbar {
+    background: inherit;
+    height: 8px;
+}
+
+.codeblock-override::-webkit-scrollbar-thumb {
+    @include themed () {
+        background: t("main-color");
+    }
+    border-radius: 5px;
+    
+}
+
 
 .toolBar {
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
-    background: #2a2e30;
+    @include themed () {
+        background: t("block-toolbar")
+    }
     padding: 10px 35px 10px 35px;
     margin: 0;
     list-style: none;
