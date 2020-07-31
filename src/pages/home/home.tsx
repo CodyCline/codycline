@@ -9,7 +9,7 @@ export const Home = () => {
             <div style={{ height: "20vh" }} />
             <div className="center-card">
                 <h1 className="big-header">Hello, I'm Cody Cline.</h1>
-                <p>Software Developer based in greater Seattle, WA. Welcome to my blog and portfolio. Open to full-time and freelance oppurtunities</p>
+                <p>Software Developer based in greater Seattle, WA. Welcome to my blog and portfolio. Open to full-time and freelance oppurtunities.</p>
                 <SocialBar>
                     <SocialIcon link="https://github.com/CodyCline" icon={["fab", "github"]}></SocialIcon>
                     <SocialIcon link="https://stackoverflow.com/users/10183827/cody-cline" icon={["fab", "stack-overflow"]}></SocialIcon>
