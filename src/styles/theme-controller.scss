@@ -14,7 +14,8 @@ $themes: (
 		hr: linear-gradient(to right, $primary, $secondary),
 		main-color: $primary,
 		secondary-color: $secondary,
-		code: #9a6dd7,
+        code: #9a6dd7,
+        inline-code-bg: #212223,
 
 		//Vscode dark
 		block-color: #d4d4d4,
@@ -60,7 +61,8 @@ $themes: (
 		hr: linear-gradient(to right, $warning, $caution),
 		main-color: $warning,
 		secondary-color: $caution,
-		code: #FF6700,
+        code: #FF6700,
+        inline-code-bg: #FFFFFF,
 
 		//Vscode light
 		block-color: #393A34,

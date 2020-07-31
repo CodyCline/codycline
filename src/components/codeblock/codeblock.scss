@@ -57,7 +57,7 @@
 .inline-code {
     @include themed () {
         color : t("code");
-        background : t("fg");
+        background : t("inline-code-bg");
     }
     border-radius: 5px;
     padding: 0 0.5rem 0 0.5rem;

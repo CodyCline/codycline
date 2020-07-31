@@ -18,6 +18,9 @@ const languagesToLoad: any[] = [
     "rust",
     "typescript",
     "crystal",
+    "jsx",
+    "tsx",
+    "json"
 
 ];
 const pluginsToLoad: any[] = [

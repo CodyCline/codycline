@@ -1,0 +1,7 @@
+@import '../../../styles/index.scss';
+
+.link {
+    @include themed () {
+        color: t("code");
+    }
+}

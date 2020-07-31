@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SocialBar, SocialIcon } from '../../components/socialbar/socialbar';
 import '../pages.scss';
-
+import { Link } from '../../components/ui/link/link';
 
 export const Home = () => {
     return (
