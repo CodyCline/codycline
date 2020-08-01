@@ -532,6 +532,8 @@ The final message output is this json data
 }
 </CodeBlock>
 
+That's it for the foobar challenge! It was very complex and challenging but ultimately worth it to grind through the problem.
+
 `);
 
 
@@ -544,7 +546,7 @@ export const articleData = [
         title: "Tackling the Google Foobar Challenge",
         description: "A comprehensive walkthrough of Google's secret code challenge",
         banner: FooBar,
-        date: "2020-03-18",
+        date: "2020-06-28",
         cover: FooBar,
         tags: [
             "Python",
