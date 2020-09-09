@@ -1,6 +1,7 @@
 import * as React from 'react';
+import * as types from '../../types/data';
 import { Panel } from '../../components/panel/panel';
-import { articleData } from '../../data/articleData'
+import { articleData } from '../../data/articledata'
 import { Divider } from '../../components/ui/divider/divider';
 
 export const Blog = () => {
@@ -18,10 +19,10 @@ export const Blog = () => {
             </div>
             <div style={{height: "2vh"}}/>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-                {data.map((article: any) => (
+                {data.map((article: types.Article) => (
                     <Panel
                         key={article.id}
-                        link={`blog/${article.id}`}
+                        link={`blog/${article.id}/${article.slug}`}
                         title={article.title}
                         description={article.description}
                         date={article.date}

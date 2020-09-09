@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Card } from '../../components/ui/card/card';
 import { SelectTag } from '../../components/ui/tags/tags';
-import { projectData } from '../../data/projectData';
+import { projectData } from '../../data/projectdata';
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
 
@@ -47,7 +47,7 @@ export const Projects = () => {
                                 key={project.id}
                                 title={project.title}
                                 banner={project.banner}
-                                link={`/projects/${project.id}`}
+                                link={`/projects/${project.id}/${project.slug}`}
                                 description={project.description}
                                 githubUrl={project.githubUrl}
                                 liveUrl={project.liveUrl}

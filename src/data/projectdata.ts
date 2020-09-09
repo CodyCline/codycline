@@ -10,16 +10,15 @@ change properties on the smart button. Such as, currency, intent (capture or sav
 There are other implementations out there, however, not all of them are using the latest version of PayPal' library.
 
 ## Solution
-I wrote a very simple Reactjs component which takes the messy hassle of integrating 
+I wrote a very simple Reactjs component which takes the hassle and time of integrating 
 PayPal into your app. The library can be found on [github](https://github.com/CodyCline/paypal-react) and [npm for download](https://www.npmjs.com/package/paypal-button-react)
-
-
 `);
 
 
 export const projectData = [
     {
         id: "12611c16-e822-4991-a43f-f161e21a8deb",
+        slug: "react-paypal-module",
         type: "open-source",
         title: "PayPal React",
         banner: PayPal,

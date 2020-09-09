@@ -2,10 +2,10 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import { MarkdownWrapper } from '../../utils/markdown';
 import { Tag } from '../../components/ui/tags/tags';
-import { articleData } from '../../data/articleData';
+import { articleData } from '../../data/articledata';
 import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
-import {CodeBlock} from '../../components/codeblock/codeblock';
+import { CodeBlock } from '../../components/codeblock/codeblock';
 
 export const Article = () => {
     const { id } = useParams();
@@ -25,6 +25,13 @@ export const Article = () => {
             setLoadState({ ...loadState, loaded: true });
         }
     }, [id]);
+    const code = `
+    const App = () => {
+        return (
+            <Confused/>
+        )
+    }
+    `
 
     return (
         <React.Fragment>
@@ -36,9 +43,7 @@ export const Article = () => {
                         <h1 className="big-header">{state.title}</h1>
                         <p> Published {state.date} </p>
                         <Divider style={{ width: "100%" }} />
-                        <MarkdownWrapper>
-                            {state.body}
-                        </MarkdownWrapper>
+                        <MarkdownWrapper text={state.body}/>
                         <Spacer height={5} units="vh" />
                         <div className="article-bottom-tags" >
                             {state.tags.map((tag: any, inc: number) => {
@@ -47,6 +52,7 @@ export const Article = () => {
                         </div>
                         <Spacer height={30} units="vh" />
                     </div>
+                    
                 </React.Fragment>
                 : "loading"
 

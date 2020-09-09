@@ -8,22 +8,23 @@ import { Link } from '../components/ui/link/link';
 
 
 //Import and register components for markdown use
-const paragraph = ({children}: any) => {
+const Paragraph = ({children}: any) => {
     return (
         <p style={{fontSize: "25px", lineHeight: "2rem", marginBlockStart: "1em", marginBlockEnd: "1em"}}>{children}</p>
     );
 }
 
-export const MarkdownWrapper = ({children} :any) => {
+export const MarkdownWrapper = ({text} :any) => {
     return (
         <Markdown
-            children={children}
+            children={text}
             options={{
+                forceBlock: true,
                 overrides: {
                     a: {
                         component: Link,
                     },
-                    p: paragraph,
+                    p: Paragraph,
                     //For now use native component due to bug in jsx parser
                     code: InlineCode,
                     CodeBlock: CodeBlock,

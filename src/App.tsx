@@ -16,9 +16,9 @@ function App() {
 		<Layout>
 			<Switch>
 				<Route exact path="/" component={Home} />
-				<Route path="/blog/:id" component={Article} />
+				<Route path="/blog/:id/:slug" component={Article} />
 				<Route path="/blog/" component={Blog} />
-				<Route path="/projects/:id" component={Post} />
+				<Route path="/projects/:id/:slug" component={Post} />
 				<Route path="/projects" component={Projects}/>
 				<Route path="/meta/:id" component={Meta}/>
 				<Route path="/meta/" component={Meta}/>
