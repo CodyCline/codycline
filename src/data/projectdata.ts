@@ -1,17 +1,23 @@
 import PayPal from '../assets/images/paypal.jpg';
-
+import Question from '../assets/images/question.jpg';
 const projectOneBody = (`
 ## Problem
 PayPal has released a new version of JavaScript library called the [Smart Button Library](https://developer.paypal.com/docs/checkout/) which allows you to accept payments on your website. 
 However, a problem I ran into with several clients was integrating this into their website. 
 
-I usually ended up writing the same exact integration code to make it work. Additionally, it's very hard to dynamically
-change properties on the smart button. Such as, currency, intent (capture or save for later) because the new library calls these parameters within the URL.
-There are other implementations out there, however, not all of them are using the latest version of PayPal' library.
+Usually, the same exact integration code was written to make everything work. Additionally,it's very hard to dynamically change properties such as currency.
+There are other implementations out there, however, not all of them are consistently using latest version of PayPal' library.
 
 ## Solution
 I wrote a very simple Reactjs component which takes the hassle and time of integrating 
-PayPal into your app. The library can be found on [github](https://github.com/CodyCline/paypal-react) and [npm for download](https://www.npmjs.com/package/paypal-button-react)
+PayPal into your app. The library can be found on [github](https://github.com/CodyCline/paypal-react) and [npm for install](https://www.npmjs.com/package/paypal-button-react) in your project.
+Go build something!
+`);
+
+const projectTwoBody = (`
+Random maps is a project which generates unique and random geo coordinates on Google Maps.
+
+
 `);
 
 
@@ -23,10 +29,22 @@ export const projectData = [
         title: "PayPal React",
         banner: PayPal,
         description: "React.js wrapper for PayPal buttons",
-        githubUrl: "https://github.com/CodyCline/paypal-react",
+        githubUrl: "https://github.com/codycline/paypal-react",
         liveUrl: "https://npmjs.com/package/paypal-button-react",
         tags: ["javascript", "react", "typescript"],
         body: projectOneBody,
         cover: PayPal
     },
+    {
+        id: "70535c07-10bb-4be5-891a-da1c68e4180b",
+        slug: "random-maps",
+        type: "web",
+        title: "Random Maps",
+        description: "Generate random locations on google maps",
+        banner: Question,
+        githubUrl: "https://github.com/codycline/random_maps",
+        tags: ["javascript", "react", "python"],
+        cover: Question,
+        body: projectTwoBody
+    }
 ]

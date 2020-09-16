@@ -7,7 +7,7 @@ import { Divider } from '../../components/ui/divider/divider';
 import { Spacer } from '../../components/ui/spacer/spacer';
 
 export const Post = () => {
-    const { id } = useParams();
+    const { id }:any = useParams();
     const [loadState, setLoadState] = React.useState({
         loaded: false,
         error: false,
@@ -35,9 +35,7 @@ export const Post = () => {
                             <span className="article-date">{state.date}</span>
                         </p>
                         <Divider style={{width: "100%"}}/>
-                        <MarkdownWrapper>
-                            {state.body}
-                        </MarkdownWrapper>
+                        <MarkdownWrapper text={state.body}/>
                         <Spacer height={5} units="vh"/>
                         <div className="article-bottom-tags" >
                             {state.tags.map((tag: any) => {

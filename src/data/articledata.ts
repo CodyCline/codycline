@@ -633,7 +633,7 @@ Install the dependencies we need
 Now we can start creating our app. Lets create our google maps component which mainly just passes its props down. You can add theming to the map here as well.
 
 <CodeBlock language="jsx" filename="map.js">
-import * as React from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { MapTheme } from './theme'; 
 const GoogleMap = ({
@@ -667,14 +667,13 @@ const GoogleMap = ({
 Next we create the marker component which displays coordinates of the user and a random location on the map.
 
 <CodeBlock language="jsx" filename="marker.js">
-import * as React from 'react';
+import React from 'react';
 export const Marker = ({ color, name }) => {
 	return (
 		\`<React.Fragment>
-			<div className="pin bounce"
+			<div
 				style={{ backgroundColor: "#CCC", cursor: "pointer", borderRadius: "50%" }}
-				title={name}
-			/>
+			>{name}</div>
 		</React.Fragment>\`
 	);
 };
@@ -688,13 +687,13 @@ We need three things pieces of business logic for the app to function
 - Another button to call our server and generate a random location.
 
 <CodeBlock language="jsx" filename="app.js">
-import * as React from 'react';
+import React from 'react';
 import axios from 'axios';
 import { GoogleMap } from './components/map/map';
 import { Marker } from './components/marker/marker';
 import './App.css';
 class App extends React.Component {
-	state: any = {
+	state = {
 		userLocation: { lat: 39.828175, lng: -98.5795 }, //Geographic Center of the United States
 		randomLocation: null,
 		range: 10000, //Min max 10k 999k
@@ -703,7 +702,7 @@ class App extends React.Component {
 		mapInstance: null,
 		mapApi: null,
 	}
-	apiHasLoaded(map: any, maps: any) {
+	apiHasLoaded(map, maps) {
 		this.setState({
 			mapApiLoaded: true,
 			mapInstance: map,
@@ -822,7 +821,7 @@ class App extends React.Component {
 export default App;
 </CodeBlock>
 
-There, now we have a minimum functioning app that works very similar to Randonatica.
+There, now we have an app that works very similar to Randonatica.
 I got a little carried away and made a fully functioning prototype app which has all kinds of neat
 features like driving directions, search-by-address, etc. The link to the repo is [located here.](https://github.com/CodyCline/random_maps)
 A deployed demo is coming soon!

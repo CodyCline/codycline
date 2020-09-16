@@ -8,7 +8,7 @@ import { Spacer } from '../../components/ui/spacer/spacer';
 import { CodeBlock } from '../../components/codeblock/codeblock';
 
 export const Article = () => {
-    const { id } = useParams();
+    const { id }:any = useParams();
     const [loadState, setLoadState] = React.useState({
         loaded: false,
         error: false,
@@ -25,14 +25,6 @@ export const Article = () => {
             setLoadState({ ...loadState, loaded: true });
         }
     }, [id]);
-    const code = `
-    const App = () => {
-        return (
-            <Confused/>
-        )
-    }
-    `
-
     return (
         <React.Fragment>
             {loadState.loaded && !loadState.error ?
