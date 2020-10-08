@@ -7,22 +7,52 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './codeblock.scss';
 import './prism.scss';
 
-
-const languagesToLoad: any[] = [
+const languagesToLoad: string[] = [
     "markup",
     "python",
+    "go",
+    "regex",
+    "arduino",
     "javascript",
     "css",
     "php",
     "cpp",
+    "c",
+    "nasm",
+    "java",
     "rust",
     "typescript",
     "crystal",
     "jsx",
     "tsx",
-    "json"
-
+    "json",
+    "graphql",
+    "bash",
+    "shell",
+    "cs",
+    "dotnet",
+    "cmake",
+    "docker",
+    "dockerfile",
+    "fortran",
+    "gitignore",
+    "npmignore",
+    "makefile",
+    "matlab",
+    "nginx",
+    "objc",
+    "php",
+    "powershell",
+    "puppet",
+    "regex",
+    "scss",
+    "sql",
+    "toml",
+    "typescript",
+    "wasm",
+    "yaml"
 ];
+
 const pluginsToLoad: any[] = [
     "line-numbers",
     "match-braces",
@@ -30,20 +60,18 @@ const pluginsToLoad: any[] = [
     "file-highlight",
 ];
 
-export const CodeBlock = ({ children, language, filename }: any) => {
-    const [state, setState] = React.useState<any>({
-        toolTipVisible: false,
-        copied: false,
-        fileExtension: "default",
-    });
-    const codeRef = React.useRef<any>()
-    const toolTipRef = React.useRef<any>();
+export const CodeBlock = (props: any) => {
+    const [error, setError] = React.useState<boolean>(false);
+    const [isCopied, setIsCopied] = React.useState<string>("copy");
+    const codeRef = React.useRef<HTMLPreElement>(null);
+    const language = props.className.split("language-").join("");
     React.useEffect(() => {
         //Not the cleanest solution but loadLanguages is broken
         const languageLoader = getLoader(components, languagesToLoad);
         const pluginLoader = getLoader(components, pluginsToLoad);
-        languageLoader.load((lang: any) => {
-            require(`prismjs/components/prism-${lang}.min.js`);
+        //Todo handle errors
+        languageLoader.load((language:string) => {
+            require(`prismjs/components/prism-${language || `clike`}.min.js`);
         });
         pluginLoader.load((plugin: any) => {
             require(`prismjs/plugins/${plugin}/prism-${plugin}.min.js`);
@@ -51,39 +79,41 @@ export const CodeBlock = ({ children, language, filename }: any) => {
         Prism.highlightAll();
     });
 
-    async function copyCode() {
-        await navigator.clipboard.writeText(codeRef.current.innerText);
+    function copyCode() {
+        if (codeRef.current) {
+            navigator.clipboard.writeText(codeRef.current.innerText);
+            setIsCopied("copied!");
+        }
     }
 
-
-
     return (
-        <React.Fragment>
+        <section style={{ margin: "1em 0 1em 0" }}>
             <pre style={{
                 margin: 0,
-                borderBottomLeftRadius: 0,
-                borderBottomRightRadius: 0,
-            }} className={cx("match-braces", "line-numbers" , "codeblock-override")}>
-                <code ref={codeRef} className={cx(`language-${language}`, "rainbow-braces")}>
-                    {children}
+                borderTopLeftRadius: "10px",
+                borderTopRightRadius: "10px",
+            }} className={cx("match-braces", "line-numbers")}>
+                <code ref={codeRef} className={cx(props.className, "rainbow-braces")}>
+                    {props.children}
                 </code>
             </pre>
-            <ul className="toolBar">
-                <li>{filename}</li>
+            <ul className="tool__bar">
                 <li
-                    className="copyIcon"
+                    className="copy__icon"
                     onClick={copyCode}
                 >
-                    <FontAwesomeIcon icon={["far", "clipboard"]} />
+                    <p style={{ margin: 0, borderRadius: "5px" }}>
+                        {isCopied}<FontAwesomeIcon style={{ marginLeft: "5px" }} icon={["far", "copy"]}/>
+                    </p>
                 </li>
             </ul>
-        </React.Fragment>
+        </section>
     );
 };
 
 
-export const InlineCode = ({ children }) => {
+export const InlineCode = ({ children }: any) => {
     return (
-        <code className="inline-code">{children}</code>
+        <code className="inline">{children}</code>
     )
 }

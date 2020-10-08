@@ -1,44 +1,27 @@
 @import '../../styles/index.scss';
 
-.codeblock-override {
-    @include themed () {
-        background: t("block-background");
-    }
-}
-
-.codeblock-override::-webkit-scrollbar {
-    background: inherit;
-    height: 8px;
-}
-
-.codeblock-override::-webkit-scrollbar-thumb {
-    @include themed () {
-        background: t("main-color");
-    }
-    border-radius: 5px;
-    
-}
 
 
-.toolBar {
+
+.tool__bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between; 
     @include themed () {
         background: t("block-toolbar")
     }
-    padding: 10px 35px 10px 35px;
+    padding: 5px 35px 5px 35px;
     margin: 0;
     list-style: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-.copyIcon {
+.copy__icon {
     cursor: pointer;
 }
 
-.copyToolTip {
+.copy__tool__tip {
     padding: 0.25rem;
     border-radius: 5px;
     position: fixed;
@@ -46,7 +29,7 @@
 }
 
 
-.copyIcon:hover span {
+.copy__icon:hover span {
     padding: 0.25rem;
     border-radius: 5px;
     position:fixed;
@@ -54,11 +37,13 @@
     overflow: hidden;
 }
 
-.inline-code {
+.inline {
     @include themed () {
         color : t("code");
         background : t("inline-code-bg");
     }
+    white-space: nowrap;
     border-radius: 5px;
     padding: 0 0.5rem 0 0.5rem;
+    margin: 0 0.5rem 0 0.5rem;
 }

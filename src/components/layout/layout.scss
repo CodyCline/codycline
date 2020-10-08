@@ -16,60 +16,80 @@
 }
 
 
-.navitem {
-    width: 15vh;
+.nav__item {
     padding: 0 1rem 0 1rem;
+    width: 15vh;
 }
 
-.navitem h1 {
+.nav__item h1 {
     margin: 0;
+    width: 100%;
 }
 
-.homeIcon {
+.home__icon {
     margin-right: auto;
     text-align: left;
     width: 100%;
 }
 
-.mobile-nav {
-    position: absolute;
+.mobile__nav {
+    position: fixed;
     overflow-x: hidden;
     margin: 0;
-    padding: 1em 0 1em 0;
-    top: 5em;
-    right: 1rem;
+    padding: 1em 0 0 0;
+    width: 100%;
+    height: 100%;
+    top: 50%;
     z-index: 99;
-    border: 2px solid;
-    border-image-slice: 1;
+    border-radius: 20px;
     @include themed () {
         background: t("fg");
-        border-image-source: linear-gradient(90deg, t("main-color") 35%, t("secondary-color") 100%);
     }
 }
 
-.mobile-nav-item {
+.mobile__nav__icon {
+    margin-right: 1em;
+}
+
+.mobile__nav h4 {
+    margin: 0;
+}
+
+.mobile__bg {
+    background-color: #00000066; 
+    z-index: 1; 
+    min-height: 100vh;
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    overflow: auto; 
+    
+}
+
+.mobile__nav__item {
     display: flex;
-    height: 100%;
+    width: 100%;
+    margin: 0;
     padding: 1em;
 }
 
-.mobile-nav-toggle {
+.mobile__nav__toggle {
     cursor: pointer;
     font-size: 1.5rem;
 
 }
 
-.mobile-nav-item:hover {
+.mobile__nav__item:hover {
     background: #0B6EFD;
     cursor: pointer;
 }
 
 
-
-
-.navitem-active {
+.nav__item__active {
     @include themed () {
-        color: t("main-color");
+        color: t("secondary-color");
     }
 }
 
@@ -93,7 +113,7 @@
     }
 }
 
-.footer-icon {
+.footer__icon {
     height: 40px;
     width: 40px;
 }

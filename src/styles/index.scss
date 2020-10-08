@@ -1,18 +1,20 @@
-@import './theme-controller.scss';
-@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import "./controller.scss";
+@import "./pages.scss";
+@import url("https://fonts.googleapis.com/css?family=Rubik|Lato");
 
 a, a:visited, a:active {
 	text-decoration: none;
 	color: inherit;
+	box-shadow: none;
 }
 
 
 body {
 	@include themed() {
-		background: t('bg');
-		color: t('text');
+		background: t("bg");
+		color: t("text");
 	}
-	font: normal 20px 'Rubik', sans-serif;
+	font: normal 20px "Lato", sans-serif;
 	letter-spacing: 0.08rem;
 	color: #fff;
 	width: 100%;
@@ -20,14 +22,16 @@ body {
   	margin: 0;
 	padding: 0;
 	box-sizing: border-box;	  
-	transition: 0.5s ease-in;
 	
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Rubik", sans-serif;
+}
 
-.big-header {
+
+.big__header {
 	font-size: 50px;
-	margin: 0;
 }
 
 blockquote {

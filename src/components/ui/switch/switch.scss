@@ -1,9 +1,13 @@
 @import "../../../styles/index.scss";
 
-.theme-dark-icon {
+.icon {
+    cursor: pointer;
+}
+
+.icon--dark {
     color: #0B6EFD;
 }
 
-.theme-light-icon {
+.icon--light {
     color: #FFCC00;
 }

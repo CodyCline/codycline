@@ -3,24 +3,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './switch.scss';
 
 export const ThemeSwitch = () => {
+    if (typeof window !== `undefined`) {
+        const currentTheme = (window.localStorage.getItem("theme__preference")) || "dark"
+        const [toggled, toggleButton] = useState<boolean>(false);
+        React.useEffect(() => {
+            document.documentElement.className = `theme--${currentTheme}`
+        })
+        const onClick = (mode: "dark" | "light") => {
+            window.localStorage.setItem("theme__preference", mode)
+            toggleButton(!toggled);
+        }
+        return (
+            <React.Fragment>
+                {
+                    toggled ?
+                        <p className="icon icon--dark" onClick={() => onClick("dark")}><FontAwesomeIcon style={{ fontSize: "1.75rem" }} icon={["far", "moon"]} /></p>
+                        :
+                        <p className="icon icon--light" onClick={() => onClick("light")}><FontAwesomeIcon style={{ fontSize: "1.75rem" }} icon={["fas", "lightbulb"]} /></p>
+                }
+            </React.Fragment>
+        )
+    }
+    return <React.Fragment></React.Fragment>
+}
 
-    const [theme, setTheme] = React.useState<string>("dark");
-    const [toggled, toggleTheme] = useState<boolean>(false);
-    React.useEffect(() => {
-        document.documentElement.className = `theme--${theme}`
-    }, [theme])
-    const onClick = (mode:string) => {
-        toggleTheme(!toggled);
-        setTheme(mode);
+
+export const CheckBox = () => {
+    const [isToggled, toggleInput] = React.useState<boolean>(false);
+    const toggle = () => {
+        toggleInput(!isToggled);
     }
     return (
-        <span className="theme-switch">
-            {
-                toggled?
-                <span className="theme-dark-icon" onClick={() => onClick("dark")}><FontAwesomeIcon style={{fontSize: "1.75rem"}} icon={["far", "moon"]}/></span>
-                :
-                <span className="theme-light-icon" onClick={() => onClick("light")}><FontAwesomeIcon style={{fontSize: "1.75rem"}} icon={["fas", "bolt"]}/></span>
-            }
-        </span>
+        <input aria-label="checkbox" type="checkbox" checked={isToggled} onChange={toggle} />
     )
 }

@@ -1,19 +1,22 @@
-import * as React from 'react';
+import React from 'react';
 import cx from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'gatsby'
 import { MobileMenu } from './mobilenav'
 import { Footer } from './footer';
+import { Offline } from '../ui/offline/offline';
 import { ThemeSwitch } from '../ui/switch/switch';
 import './layout.scss';
+import logo from '../../assets/logo.jpg';
 
 
 export const Layout = ({ children }: any) => {
     return (
-        <div>
+        <React.Fragment>
             <NavBar />
             {children}
             <Footer />
-        </div>
+            <Offline />
+        </React.Fragment>
 
     );
 }
@@ -25,33 +28,33 @@ export const NavBar = () => {
     }, [setMobileView]);
 
     React.useEffect(() => {
-        const mediaQuery = window.matchMedia("(max-width: 700px)");
-        //For initial state
-        if (mediaQuery.matches) {
-            setMobileView(true);
-        }
-        mediaQuery.addListener(handleResize);
-        return () => {
-            mediaQuery.removeListener(handleResize);
+        if (typeof window !== `undefined`) {
+            const mediaQuery = window.matchMedia("(max-width: 700px)");
+            //For initial state
+            if (mediaQuery.matches) {
+                setMobileView(true);
+            }
+            mediaQuery.addEventListener("change", handleResize)
+            return () => {
+                mediaQuery.removeEventListener("change", handleResize);
+            }
         }
     }, [handleResize]);
     return (
         <nav className="navbar">
-            <NavItem link="/" className="homeIcon">
-                <h1>CC</h1>
+            <NavItem link="/" className="home__icon">
+                <img style={{ height: "50px", width: "70px" }} src={logo} alt="logo.png" />
             </NavItem>
             {!isMobile &&
                 <React.Fragment>
                     <NavItem link="/blog"> Blog </NavItem>
                     <NavItem link="/projects">Projects</NavItem>
-                    <a target="_blank" rel="noopener noreferrer" href="https://airtable.com/shrbrGZaBd2SPr9Sj" className="card-icon">
-                        Contact
-                    </a>
+                    <NavItem link="/contact">Contact</NavItem>
                 </React.Fragment>
             }
-            <NavItem notActive>
+            <li className="nav__item">
                 <ThemeSwitch />
-            </NavItem>
+            </li>
             {isMobile && <MobileMenu />}
         </nav>
     )
@@ -60,9 +63,9 @@ export const NavBar = () => {
 
 export const NavItem = ({ children, link, notActive, className }: any) => {
     return (
-        <NavLink className={cx("navitem", className)} activeClassName="navitem-active" to={notActive ? "#" : link}>
+        <Link className={cx("nav__item", className)} activeClassName="nav__item__active" to={notActive ? "#" : link}>
             {children}
-        </NavLink>
+        </Link>
 
     );
 };

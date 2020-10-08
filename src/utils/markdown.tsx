@@ -1,38 +1,33 @@
-import * as React from 'react';
-import Markdown from 'markdown-to-jsx';
-import { CodeBlock, InlineCode } from '../components/codeblock/codeblock';
+import * as React from "react";
+import { MDXProvider } from "@mdx-js/react";
+import { CodeBlock, InlineCode } from "../components/codeblock/codeblock"
+import { Quote } from '../components/quote/quote';
 import { Spoiler } from '../components/spoiler/spoiler';
-import { BlockQuote } from '../components/blockquote/blockquote';
-import { Divider } from '../components/ui/divider/divider';
+import { Divider } from "../components/ui/divider/divider";
 import { Link } from '../components/ui/link/link';
+import { CheckBox } from '../components/ui/switch/switch';
 
-
-//Import and register components for markdown use
-const Paragraph = ({children}: any) => {
-    return (
-        <p style={{fontSize: "25px", lineHeight: "2rem", marginBlockStart: "1em", marginBlockEnd: "1em"}}>{children}</p>
-    );
+interface IProps {
+    children: React.ReactNode,
 }
 
-export const MarkdownWrapper = ({text} :any) => {
+export const Markdown = ({children}:IProps) => {
     return (
-        <Markdown
-            children={text}
-            options={{
-                forceBlock: true,
-                overrides: {
-                    a: {
-                        component: Link,
-                    },
-                    p: Paragraph,
-                    //For now use native component due to bug in jsx parser
-                    code: InlineCode,
-                    CodeBlock: CodeBlock,
-                    blockquote: BlockQuote,
-                    Spoiler: Spoiler,
-                    hr: Divider,
-                }
+        
+        <MDXProvider
+            components={{
+                pre: CodeBlock,
+                code: InlineCode,
+                hr: Divider,
+                blockquote: Quote,
+                a: Link,
+                input: CheckBox,
+                //Custom non-native components
+                Spoiler: Spoiler,
+
             }}
-        />
+        >
+            {children}
+        </MDXProvider>
     )
 }

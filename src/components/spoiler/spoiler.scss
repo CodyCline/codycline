@@ -1,5 +1,5 @@
 @import '../../styles/index.scss';
-
+$thickness: 4px;
 .spoiler {
     display: flex;
     flex-direction: column;
@@ -11,9 +11,11 @@
     height: auto;
 }
 
-.spoiler-header {
+.spoiler__header {
     @include themed () { 
-        background: t("main-color");
+        color: t("main-color");
+        border: 2px solid #CCC;
+        border-left: $thickness solid t("main-color");
     }
     display: flex;
     flex-direction: row;
@@ -24,10 +26,12 @@
     margin: 0;
 }
 
-.spoiler-body {
+.spoiler__body {
     padding: 25px;
-    @include themed () { 
-        background: t("fg");
+    border-bottom: 2px solid #CCC;
+    border-right: 2px solid #CCC;
+    @include themed () {
+        border-left: $thickness solid t("main-color");
     }
     width: inherit;
     height: auto;

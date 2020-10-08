@@ -1,0 +1,126 @@
+$caution: #7114EA;
+// also #603888
+$warning: #4379FF;
+$primary: #FFCC00;
+$secondary: #FF6700;
+
+
+//themes
+$themes: (
+	dark: (
+        bg: #151617,
+        fg: #2a2e30,
+		text: #D8D8D8,
+		border: #FCFCFC,
+		hr: linear-gradient(to right, $primary, $secondary),
+		main-color: $primary,
+		secondary-color: $secondary,
+        code:  #c586c0,
+        inline-code-bg: #212223,
+
+		//Vscode dark
+		block-color: #d4d4d4,
+		block-background: #1e1e1e,
+		block-toolbar: #2a2e30,
+        cdata: #6a9955,
+        punctuation: #d4d4d4,
+        deleted: #b5cea8,
+        token-inserted: #ce9178,
+        token-string: #d4d4d4,
+        token-keyword: #c586c0,
+        token-function: #dcdcaa,
+        token-var: #d16969,
+        token-constant: #9cdcfe,
+        token-classname: #4EC9B0,
+        token-parameter: #9CDCFE,
+        token-interpolation: #9CDCFE,
+        token-interpolation-punctiation: #569cd6,
+        token-boolean: #569cd6,
+        token-property: #9cdcfe,
+        token-selector: #d7ba7d,
+        token-tag: #569cd6,
+        token-attr-name: #9cdcfe,
+        token-attr-value: #CE9178,
+        token-entity: #4EC9B0,
+        token-namespace: #4EC9B0,
+        lang-javascript: #4EC9B0,
+        lang-css: #CE9178,
+        lang-html: #D4D4D4,
+        lang-html-punctuation: #808080,
+        bracket-pair-1-5-9: gold,
+        bracket-pair-2-6-10: orchid,
+        bracket-pair-3-7-11: lightskyblue,
+        bracket-pair-4-8-12: gold,
+	),
+	light: (
+		bg: #F2f2f2,
+		fg: #d3d3d3,
+		text: #171819,
+		border: #000,
+		hr: linear-gradient(to right, $warning, $caution),
+		main-color: $warning,
+		secondary-color: $caution,
+        code:  #00009F,
+        inline-code-bg: #FFFFFF,
+
+		//Vscode light
+		block-color: #393A34,
+		block-background: #FFFFFF,
+		block-toolbar: #d3d3d3,
+        cdata: #008000,
+        punctuation: #393A34,
+        deleted: #9a050f,
+        token-inserted: #800000,
+        token-string: #A31515,
+        token-keyword: #00009F,
+        token-function: #393A34,
+        token-var: #36acaa,
+        token-constant: #36acaa,
+        token-classname: #2B91AF,
+        token-parameter: #36acaa,
+        token-interpolation: #36acaa,
+        token-interpolation-punctuation: #36acaa,
+        token-boolean: #36acaa,
+        token-property: #9a050f,
+        token-selector: #800000,
+        token-tag: #9a050f,
+        token-attr-name: #ff0000,
+        token-attr-value: #0000ff,
+        token-entity: #FF0000,
+        token-namespace: #9a050f,
+        //lang-javascript: ,
+        lang-css: #0000FF,
+        // lang-html:,
+        // lang-html-punctuation:,
+        bracket-pair-1-5-9:#000000,
+        bracket-pair-2-6-10:#000000,
+        bracket-pair-3-7-11:#000000,
+        bracket-pair-4-8-12:#000000,
+	),
+	
+);
+
+@mixin themed() {
+	@each $theme, $map in $themes {
+		.theme--#{$theme} & {
+			$theme-map: () !global;
+			@each $key, $submap in $map {
+				$value: map-get(map-get($themes, $theme), "#{$key}");
+				$theme-map: map-merge(
+					$theme-map,
+					(
+						$key: $value,
+					)
+				) !global;
+			}
+			@content;
+			$theme-map: null !global;
+		}
+	}
+}
+
+@function t($key) {
+	@return map-get($theme-map, $key);
+}
+
+

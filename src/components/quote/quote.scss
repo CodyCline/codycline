@@ -1,0 +1,16 @@
+@import "../../styles/index.scss";
+
+.quote {
+    border-left: 5px solid;
+    border-image-slice: 1;
+    @include themed() {
+        background: t("fg");
+        border-image-source: linear-gradient(0deg, t("main-color") 25%, t("secondary-color") 100%);
+    }
+    overflow: hidden;
+    background: #1b1e1f;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0.1rem 1rem 0.1rem 1rem;
+    width: inherit;
+}

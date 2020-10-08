@@ -1,15 +1,16 @@
 // Prismjs dark vscode theme
 
-@import '../../styles/index.scss';
+@import "../../styles/index.scss";
 
 pre[class*="language-"],
 code[class*="language-"] {
-	@include themed () {
+	@include themed() {
 		color: t("block-color");
+		background: t("block-background");
 	}
 	text-shadow: none;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 24px;
+	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+	font-size: 1em;
 	direction: ltr;
 	text-align: left;
 	white-space: pre;
@@ -24,9 +25,7 @@ code[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
-	
 }
-
 
 pre[class*="language-"] {
 	padding: 1em;
@@ -46,34 +45,28 @@ code[class*="language-"]::selection {
 	}
 }
 
-
-
 :not(pre) > code[class*="language-"] {
-	padding: .1em .3em;
-	border-radius: .3em;
+	padding: 0.1em 0.3em;
+	border-radius: 0.3em;
 	color: #db4c69;
 	background: #f9f2f4;
 }
 /*********************************************************
 * Tokens
 */
-.namespace {
-	opacity: .7;
-}
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	@include themed () {
-		color: t("cdata")
+	@include themed() {
+		color: t("cdata");
 	}
-	
 }
 
 .token.punctuation {
-	@include themed () {
-		color: t("punctuation")
+	@include themed() {
+		color: t("punctuation");
 	}
 }
 
@@ -84,8 +77,8 @@ code[class*="language-"]::selection {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	@include themed () {
-		color: t("deleted")
+	@include themed() {
+		color: t("deleted");
 	}
 }
 
@@ -96,8 +89,8 @@ code[class*="language-"]::selection {
 .token.builtin,
 .token.inserted {
 	color: #ce9178;
-	@include themed () {
-		color: t("token-inserted")
+	@include themed() {
+		color: t("token-inserted");
 	}
 }
 
@@ -106,31 +99,30 @@ code[class*="language-"]::selection {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-	@include themed () {
-		color: t("token-string")
+	@include themed() {
+		color: t("token-string");
 	}
-	// background: #1e1e1e;
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	@include themed () {
-		color: t("token-keyword")
+	@include themed() {
+		color: t("token-keyword");
 	}
 }
 
 .token.function {
-	@include themed () {
-		color: t("token-function")
+	@include themed() {
+		color: t("token-function");
 	}
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-	@include themed () {
-		color: t("token-var")
+	@include themed() {
+		color: t("token-var");
 	}
 }
 
@@ -144,26 +136,26 @@ code[class*="language-"]::selection {
 }
 
 .token.constant {
-	@include themed () {
-		color: t("token-constant")
+	@include themed() {
+		color: t("token-constant");
 	}
 }
 
 .token.class-name {
-	@include themed () {
-		color: t("token-class-name")
+	@include themed() {
+		color: t("token-class-name");
 	}
 }
 
 .token.parameter {
-	@include themed () {
-		color: t("token-parameter")
+	@include themed() {
+		color: t("token-parameter");
 	}
 }
 
 .token.interpolation {
-	@include themed () {
-		color: t("token-interpolation")
+	@include themed() {
+		color: t("token-interpolation");
 	}
 }
 
@@ -172,50 +164,50 @@ code[class*="language-"]::selection {
 }
 
 .token.boolean {
-	@include themed () {
+	@include themed() {
 		color: t("token-boolean");
 	}
 }
 
 .token.property {
-	@include themed () {
+	@include themed() {
 		color: t("token-property");
 	}
 }
 
 .token.selector {
-	@include themed () {
+	@include themed() {
 		color: t("token-selector");
 	}
 }
 
 .token.tag {
-	@include themed () {
+	@include themed() {
 		color: t("token-tag");
 	}
 }
 
 .token.attr-name {
-	@include themed () {
+	@include themed() {
 		color: t("token-attr-name");
 	}
 }
 
 .token.attr-value {
-	@include themed () {
+	@include themed() {
 		color: t("token-attr-name");
 	}
 }
 
 .token.entity {
-	@include themed () {
+	@include themed() {
 		color: t("token-entity");
 	}
 	cursor: unset;
 }
 
 .token.namespace {
-	@include themed () {
+	@include themed() {
 		color: t("token-namespace");
 	}
 }
@@ -224,14 +216,14 @@ code[class*="language-"]::selection {
 */
 pre[class*="language-javascript"],
 code[class*="language-javascript"] {
-	@include themed () {
+	@include themed() {
 		color: t("lang-javascript");
 	}
 }
 
 pre[class*="language-css"],
 code[class*="language-css"] {
-	@include themed () {
+	@include themed() {
 		color: t("lang-css");
 	}
 }
@@ -269,10 +261,6 @@ pre[class*="language-"] > code[class*="language-"] {
 	line-height: inherit;
 	white-space: pre;
 }
-
-
-
-
 
 //Prism plugin css below
 pre[class*="language-"].line-numbers {
@@ -315,11 +303,10 @@ pre[class*="language-"].line-numbers > code {
 	text-align: right;
 }
 
-
 .rainbow-braces .token.punctuation.brace-level-1,
 .rainbow-braces .token.punctuation.brace-level-5,
 .rainbow-braces .token.punctuation.brace-level-9 {
-	@include themed () {
+	@include themed() {
 		color: t("bracket-pair-1-5-9");
 	}
 	opacity: 1;
@@ -327,7 +314,7 @@ pre[class*="language-"].line-numbers > code {
 .rainbow-braces .token.punctuation.brace-level-2,
 .rainbow-braces .token.punctuation.brace-level-6,
 .rainbow-braces .token.punctuation.brace-level-10 {
-	@include themed () {
+	@include themed() {
 		color: t("bracket-pair-2-6-10");
 	}
 	opacity: 1;
@@ -335,7 +322,7 @@ pre[class*="language-"].line-numbers > code {
 .rainbow-braces .token.punctuation.brace-level-3,
 .rainbow-braces .token.punctuation.brace-level-7,
 .rainbow-braces .token.punctuation.brace-level-11 {
-	@include themed () {
+	@include themed() {
 		color: t("bracket-pair-3-7-11");
 	}
 	opacity: 1;
@@ -343,7 +330,7 @@ pre[class*="language-"].line-numbers > code {
 .rainbow-braces .token.punctuation.brace-level-4,
 .rainbow-braces .token.punctuation.brace-level-8,
 .rainbow-braces .token.punctuation.brace-level-12 {
-	@include themed () {
+	@include themed() {
 		color: t("bracket-pair-4-8-12");
 	}
 	opacity: 1;

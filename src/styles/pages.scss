@@ -1,0 +1,76 @@
+.grid__lines {
+    display: grid;
+    place-items: center;
+    background-size: 75px 75px;
+    @include themed() {
+        background-image: linear-gradient(t("fg") 1px, transparent 0),
+            linear-gradient(90deg, t("fg") 1px, transparent 0),
+            linear-gradient(transparent 1px, #171819 0, #171819 1px, transparent 0);
+    }
+}
+
+.center__card {
+    border: 5px solid;
+    border-image-slice: 1;
+    @include themed {
+        background: t("fg");
+        border-image-source: linear-gradient(90deg, t("main-color") 35%, t("secondary-color") 100%);
+    }
+    padding: 3em;
+    width: 60%;
+    text-align: center;
+}
+
+.project__container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    align-items: center;
+}
+
+.project__page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+
+.project__tag__container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    flex-direction: row;
+    align-items: center;
+}
+
+.project__tag {
+    padding: 1rem;
+}
+
+.article__container {
+    margin: auto;
+    width: 65%;
+}
+
+.article__date {
+    margin: 1rem;
+}
+
+.article__cover__image {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+    opacity: 1;
+    object-position: center 40%;
+}
+
+.article__bottom__tags {
+    display: flex;
+    flex-wrap: wrap;
+}

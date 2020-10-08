@@ -1,33 +1,20 @@
-@import '../../../styles/index.scss';
+@import "../../../styles/index.scss";
 
-.select-tag {
-    padding: 6px 12px 6px 12px;
-    @include themed() {
-        border: 1.5px solid t("border");
-    }
-    border-radius: 25px;
-    margin: .25rem;
-    transition: 0.25s ease-out;
+.meta {
+    margin: 4px 6px 4px 6px;
 }
 
-.select-tag:hover {
-    cursor: pointer;
-}
-
-.active-tag {
-    @include themed() {
-        border: 1.5px solid transparent;
-        background: invert(t("bg"));
-        color: invert(t("text"));
-    }
-}
-
-.meta-tag {
-    font-size: 16px;
+.meta__tag {
+    font-size: 1.25rem;
     @include themed {
         border: 1px solid t("border");
     }
-    margin: 6px;
-    padding: 2px 8px 2px 8px;
+    padding: 2px 10px 2px 8px;
     border-radius: 6px;
+    text-align: center;
+}
+
+.external__tag {
+    font-size: 1.5rem;
+    padding: 0 12px 0 12px;
 }

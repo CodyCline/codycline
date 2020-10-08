@@ -1,30 +1,33 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'gatsby';
 import { Tag } from '../ui/tags/tags';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './panel.scss';
 
 
 
-export const Panel = ({ title, description, imageUrl, date, onClick, tags, link}: any) => {
+export const Panel = ({ children, title, description, imageUrl, onClick, tags, link }: any) => {
     return (
-        <Link to={link}>
-        <div className="panel" onClick={onClick}>
-            <img alt="thumbnail.jpg" src={imageUrl} className="panel-image" />
-            <div className="panel-secondary">
-                <div>
-                    <h3 className="panel-header">{title}</h3>
-                    <p className="panel-text">{description}</p>
-                    <p className="panel-text"><FontAwesomeIcon icon={["far", "clock"]} /> {date}</p>
-                    <p>
-                        {tags.map((tag:any, inc:number) => {
-                            return <Tag key={inc}>{tag}</Tag>
-                        })}
-                    </p>
-                </div>
+        <article className="panel" onClick={onClick}>
+            <div>
+            <Link to={link}>
+                <img alt="thumb.jpg" src={imageUrl} className="panel__image" />
+            </Link>
             </div>
-        </div>
-        </Link>
+            <div className="panel-secondary">
+                <h3 className="panel-header">
+                    <Link to={link}>
+                        {title}
+                    </Link>
+                </h3>
+                <p>
+                    <Link to={link}>{description}</Link>
+                </p>
+                <p className="panel__links">
+                    {children}
+                </p>
+            </div>
+        </article>
     );
 }
 

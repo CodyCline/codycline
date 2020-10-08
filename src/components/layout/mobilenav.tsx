@@ -1,44 +1,45 @@
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { NavItem } from './layout';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const MobileMenu = ({ onClick }: any) => {
+export const MobileMenu = () => {
     const [visible, setVisible] = React.useState(false);
-    const ref = React.useRef<any>(null);
 
     function toggle() {
         setVisible(!visible);
     }
-    const handleClickOutside = (event: any) => {
-        if (ref.current && !ref.current.contains(event.target)) {
-            setVisible(false);
-        }
-    };
-
-    React.useEffect(() => {
-        document.addEventListener("click", handleClickOutside, true)
-        return () => {
-            document.removeEventListener("click", handleClickOutside, true);
-        }
-    })
-
     return (
         <React.Fragment>
-            <li ref={ref} className="navitem" >
+            <li className="navitem" >
                 <span className="mobile-nav-toggle" onClick={toggle}>
-                    <FontAwesomeIcon icon={["far", "compass"]} />
+                    <FontAwesomeIcon icon={["fas", "bars"]} />
                 </span>
             </li>
-            {visible ?
-                <ul onClick={onClick} className="mobile-nav">
-                    <NavItem link="/blog" className="mobile-nav-item">Blog</NavItem>
-                    <NavItem link="/projects" className="mobile-nav-item">Projects</NavItem>
-
-                    <a style={{margin: 0, padding: "1em"}} target="_blank" rel="noopener noreferrer" href="https://airtable.com/shrbrGZaBd2SPr9Sj" className="card-icon">
-                        Contact 
-                    </a>
-                </ul>
-                : null
+            {visible &&
+                ReactDOM.createPortal(
+                    <div onClick={toggle} className="mobile-bg">
+                        <ul className="mobile-nav">
+                            <NavItem link="/" className="mobile-nav-item">
+                                <FontAwesomeIcon className="mobile-nav-icon" icon={["fas", "home"]}/>
+                                <h4>Home</h4>
+                            </NavItem>
+                            <NavItem link="/blog" className="mobile-nav-item">
+                                <FontAwesomeIcon className="mobile-nav-icon" icon={["far", "newspaper"]}/>
+                                <h4>Blog</h4>
+                            </NavItem>
+                            <NavItem link="/projects" className="mobile-nav-item">
+                                <FontAwesomeIcon className="mobile-nav-icon" icon={["fas", "cube"]}/>
+                                <h4>Projects</h4>
+                            </NavItem>
+                            <NavItem link="/contact" className="mobile-nav-item">
+                                <FontAwesomeIcon className="mobile-nav-icon" icon={["far", "envelope"]}/>
+                                <h4>Contact </h4>
+                            </NavItem>
+                        </ul>
+                    </div>,
+                    document.body  
+                )
             }
         </React.Fragment>
     )
