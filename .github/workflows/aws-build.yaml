@@ -19,14 +19,17 @@ jobs:
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
       # Set up gatsby and build it
       - name: Install dependencies and build site.
-        run: npm install && npm run build
+        run: npm install && npm run build 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Rename old build folder then copy new one over.
         run: |
           aws s3 mv s3://${BUCKET}/build s3://${BUCKET}/${FOLDER} --recursive
           aws s3 cp public/ s3://${BUCKET}/build --acl public-read --recursive
         env:
           BUCKET: codycline.com
-          FOLDER: build_${{ date +%F-%H:%M:%S }}
+          FOLDER: build_${{ steps.date.outputs.date }}
       - name: Invalidate current cloudfront distribution
         run: |
           aws cloudfront create-invalidation 
