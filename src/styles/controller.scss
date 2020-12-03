@@ -1,15 +1,17 @@
 $caution: #7114EA;
 // also #603888
 $warning: #4379FF;
-$primary: #FFCC00;
-$secondary: #FF6700;
+$primary: 	#3FA0EF;
+$secondary: 	#1A74E2;
 
+$reddish: #d41714;
+$bluish: #21b9b9;
 
 //themes
 $themes: (
 	dark: (
         bg: #151617,
-        fg: #2a2e30,
+        fg: 	#1F2123,
 		text: #D8D8D8,
 		border: #FCFCFC,
 		hr: linear-gradient(to right, $primary, $secondary),

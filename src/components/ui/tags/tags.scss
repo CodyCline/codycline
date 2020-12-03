@@ -2,15 +2,18 @@
 
 .meta {
     margin: 4px 6px 4px 6px;
+    @include themed {
+        border: 1px solid t("border");
+    }
+    border-radius: 12px;
+    padding: 2px 10px 2px 10px;
+    font-size: 1.25rem;
+
 }
 
 .meta__tag {
     font-size: 1.25rem;
-    @include themed {
-        border: 1px solid t("border");
-    }
-    padding: 2px 10px 2px 8px;
-    border-radius: 6px;
+    margin: 5px;
     text-align: center;
 }
 

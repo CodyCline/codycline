@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const MetaTag = ({ children, link }: any) => (
     <Link className="meta" to={link}>
+        <FontAwesomeIcon icon={["fab", "github"]}/>
         <span className="meta__tag">
             {children && children.toLowerCase()}
         </span>

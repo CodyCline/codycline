@@ -6,11 +6,43 @@ import { Layout } from "../components/layout/layout"
 import SEO from "../utils/seo"
 import { withAddons } from "../utils/withAddons";
 import { Divider } from "../components/ui/divider/divider";
+import { FunTable } from "../components/ui/table/table";
 
 const BlogPostTemplate = ({ data, pageContext }: any) => {
 	const post = data.mdx
 	const siteTitle = data.site.siteMetadata.title
 	const { previous, next } = pageContext;
+	const columns = React.useMemo(
+		() => [
+					{
+						Header: 'First Name',
+						accessor: 'firstName',
+					},
+					{
+						Header: 'Last Name',
+						accessor: 'lastName',
+					},
+					{
+						Header: 'Age',
+						accessor: 'age',
+						width: 50,
+					},
+					{
+						Header: 'Visits',
+						accessor: 'visits',
+						width: 60,
+					},
+					{
+						Header: 'Status',
+						accessor: 'status',
+					},
+					{
+						Header: 'Profile Progress',
+						accessor: 'progress',
+					},
+		],
+		[]
+	)
 	return (
 		<Layout>
 			<SEO
@@ -34,6 +66,15 @@ const BlogPostTemplate = ({ data, pageContext }: any) => {
 					lineHeight: `28px`,
 					letterSpacing: `-0.003em`
 				}}>
+					<div className="styler">
+						<FunTable columns={columns} data={[{
+							firstName: "WOrd",
+							lastName: " Sasfas",
+							visits: "Hello world",
+							progress: false,
+							status: "Single"
+						}]}></FunTable>
+					</div>
 					<Markdown>
 						<MDXRenderer>
 							{post.body}

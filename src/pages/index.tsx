@@ -5,6 +5,7 @@ import SEO from "../utils/seo";
 import { withAddons } from '../utils/withAddons';
 import { SocialBar, SocialIcon } from "../components/socialbar/socialbar";
 import '../styles/index.scss';
+import { FunTable } from "../components/ui/table/table";
 
 const Index = ({}: any) => {
 	return (

@@ -14,23 +14,23 @@ tags:
 ### TL;DR
 Repo with full answers, explanations (work in progress) is located [here](https://github.com/CodyCline/google_foobar_answers).
 
-Some time ago, I had the oppurtunity of going through the Google Foobar Challenge.
-For those of you who don't know, its a secret, invite-only programming challenge created by Google that you participate using your web browser.
+Some time ago, I had the opportunity of going through the Google Foobar Challenge.
+For those of you who are unfamiliar with this, it's a semi-secret, invite-only programming challenge created by Google. 
+
+The objective is to test you with 5 distinct levels of algorithm challenges. 
+Each challenge increases in difficulty as it progreses.
 
 The location of their app is [here](https://foobar.withgoogle.com). 
 
-It's main objective is to test developers with 5 distinct levels of algorithm challenges. 
-Each challenge increases in difficulty as it progreses, 
+If you reach the end of level three, you may submit contact information and be connected to a Google Recruiter to discuss potential career prospects at the company.
 
-If you reach the end of level three, you may submit contact information and be connected to a Google Recruiter to discuss career prospects within the company.
-
-*For now, all of my answers are in python, however, there are other github repositories with the Java answers.*
+*All of my answers are written in Python, however, there are other github repositories with the Java answers.*
 
 It's unclear what you have to specifically do to get selected by the Google Foobar challenge; the general consensus 
-is that you need to be searching a lot of programming related queries. I got selected when searching "testing in the cloud". It's probably different for everyone.
+is that you need to be searching a lot of programming related queries. I got selected when searching "testing in the cloud" -- it's probably different for everyone.
 
-Without further delay, lets start! 
 
+Without further delay, lets start our step-by-step walthrough! 
 
 # Challenge 1 
 
@@ -39,8 +39,9 @@ Without further delay, lets start!
 ## Braille Translation
 
 The first challenge involves you translating plain text into braille. However, this braille is a little different,
-the bumps of braille are represented as ones and blank space is represented as zeroes.
+the bumps of braille are represented as ones and blank space is represented as zeroes. You also need to handle the edge case of capital letters by adding `000001` in front of the letter. 
 
+This implementation uses a dictionary which maps the alphabet to their binary format. Next, it loops through a given string, such as `balloon` checks if each character is uppercase 
 
 ```python
 alphabet = { 
@@ -61,7 +62,7 @@ def answer(plaintext):
     for char in plaintext:
         if char.isupper(): #If its uppercase add the prefix
             output=output + "000001"
-        #Lower is used to escape caps characters so they aren't looked up in the list
+        #Lowercase the char to excape the capital
         output += alphabet[char.lower()] 
     return output
 ```

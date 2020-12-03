@@ -14,7 +14,7 @@ const BlogIndex = ({ data }: any) => {
 		<Layout >
 			<SEO title="All blog posts" />
 			<div className="project__container">
-				<h2>Blog Posts</h2>
+				<h2 className="no-margin">Blog Posts</h2>
 				<Divider style={{ width: "30vh" }} />
 				{posts.map((post: any) => {
 					const title = post.node.frontmatter.title || post.node.fields.slug;
@@ -46,7 +46,7 @@ const BlogIndex = ({ data }: any) => {
 export default withAddons(BlogIndex)
 
 export const pageQuery = graphql`
-query {
+query AllBlogPosts {
 	site {
 		siteMetadata {
 			title
@@ -71,6 +71,4 @@ query {
 	  	}
 	}
 }
-  
-  
 `

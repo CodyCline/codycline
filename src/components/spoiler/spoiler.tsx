@@ -20,7 +20,7 @@ export const Spoiler = ({ children, title }: types.SpoilerProps) => {
                 </li>
             </ul>
             {toggled &&
-                <div className="spoiler-body">
+                <div className="spoiler__body">
                     {children}
                 </div>
             }

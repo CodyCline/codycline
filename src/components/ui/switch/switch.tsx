@@ -24,16 +24,16 @@ export const ThemeSwitch = () => {
             </React.Fragment>
         )
     }
-    return <React.Fragment></React.Fragment>
+    return <React.Fragment/>
 }
 
 
-export const CheckBox = () => {
-    const [isToggled, toggleInput] = React.useState<boolean>(false);
+export const CheckBox = ({checked}:any) => {
+    const [isToggled, toggleInput] = React.useState<boolean>(checked);
     const toggle = () => {
         toggleInput(!isToggled);
     }
     return (
-        <input aria-label="checkbox" type="checkbox" checked={isToggled} onChange={toggle} />
+        <input disabled={checked} aria-label="checkbox" type="checkbox" checked={isToggled} onChange={toggle} />
     )
 }

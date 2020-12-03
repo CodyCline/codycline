@@ -6,6 +6,8 @@ import { Spoiler } from '../components/spoiler/spoiler';
 import { Divider } from "../components/ui/divider/divider";
 import { Link } from '../components/ui/link/link';
 import { CheckBox } from '../components/ui/switch/switch';
+import { Deleted } from '../components/ui/typography/typography';
+import { Table, TableHead, TableHeaderCell, TableBody, TableRow, TableCell } from '../components/ui/table/table';
 
 interface IProps {
     children: React.ReactNode,
@@ -22,9 +24,15 @@ export const Markdown = ({children}:IProps) => {
                 blockquote: Quote,
                 a: Link,
                 input: CheckBox,
+                table: Table,
+                thead: TableHead,
+                tr: TableRow,
+                th: TableHeaderCell,
+                tbody: TableBody,
+                td: TableCell,
+                del: Deleted,
                 //Custom non-native components
                 Spoiler: Spoiler,
-
             }}
         >
             {children}

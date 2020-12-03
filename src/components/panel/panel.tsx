@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { Tag } from '../ui/tags/tags';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './panel.scss';
 
 

@@ -1,5 +1,6 @@
 @import '../../styles/index.scss';
 $thickness: 4px;
+
 .spoiler {
     display: flex;
     flex-direction: column;
@@ -28,9 +29,10 @@ $thickness: 4px;
 
 .spoiler__body {
     padding: 25px;
-    border-bottom: 2px solid #CCC;
     border-right: 2px solid #CCC;
+    border-bottom: 2px solid #CCC;
     @include themed () {
+        background: t("fg");
         border-left: $thickness solid t("main-color");
     }
     width: inherit;

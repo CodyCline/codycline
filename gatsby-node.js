@@ -7,7 +7,7 @@ const createMetaPages = require(`./create-meta-pages`);
 
 exports.createPages = async ({ graphql, actions }) => {
 	const { createPage } = actions
-	
+
 	const result = await graphql(`{
 		blog: allMdx(
 			filter: {fileAbsolutePath: {glob: "**/blog/**/*.md"}}
@@ -57,7 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
 	if (result.errors) {
 		throw result.errors
 	}
-	
+
 	const blogPosts = result.data.blog.edges;
 	const projectPosts = result.data.projects.edges;
 	const metaPosts = result.data.meta.group;
@@ -89,3 +89,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 	}
 }
 
+// exports.createSchemaCustomization = ({ actions, schema }) => {
+// 	const { createTypes } = actions
+// 	const typeDefs = [
+// 		schema.buildObjectType({
+// 			name: "AllBlogPosts",
+// 			fields: {
+// 				site: {
+// 					siteMetaData: {
+// 						title: "String"
+// 					}
+// 				},
+// 				// receivedSwag: {
+// 				// 	type: "Boolean",
+// 				// 	resolve: source => source.receivedSwag || false,
+// 				// },
+// 			},
+// 			interfaces: ["Node"],
+// 		}),
+// 	]
+// 	createTypes(typeDefs)
+// }

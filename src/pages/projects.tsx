@@ -14,7 +14,7 @@ const ProjectIndex = ({ data }: any) => {
 		<Layout>
 			<SEO title="All projects" />
 			<div className="project__container">
-				<h2>Projects</h2>
+				<h2 className="no-margin">Projects</h2>
 				<Divider style={{ width: "30vh" }} />
 				<div className="project__page">
 					{posts.map((project: any) => {

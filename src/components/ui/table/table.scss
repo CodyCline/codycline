@@ -1,0 +1,121 @@
+@import "../../../styles/index.scss";
+
+.table__container {
+    @include themed() {
+        background: t("fg");
+        border: 0.25px solid t("border");
+    }
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.table {
+    border-collapse: collapse;
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    @include themed() {
+        background: t("bg");
+    }
+}
+
+.table__head {
+    @include themed() {
+        background: t("fg");
+    }
+    margin: 0;
+    text-align: left;
+    padding: 0.5rem;
+}
+
+.table__body {
+    padding: 1rem;
+    margin: 0;
+}
+
+.table__header__cell {
+    padding: 5px 10px;
+    border-right: 0.15px solid #ccc;
+    cursor: pointer;
+}
+
+.table__cell {
+    padding: 5px 10px;
+    @include themed() {
+        border: 0.15px solid t("border");
+    }
+}
+
+.table__cell:focus {
+    @include themed() {
+        outline: 4px solid $primary;
+    }
+}
+
+.table__cell > image {
+    width: 25px;
+    height: 25px;
+    border: 1px solid green;
+}
+
+.styler {
+    .table {
+        display: inline-block;
+        width: 100%;
+        border-spacing: 0;
+        border-radius: 10px;
+        border: 1px solid #CCCCCC;
+        @include themed () {
+            background: t("fg");
+        }
+        .tr {
+            :last-child {
+                .td {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        .th {
+            user-select: none;
+            font-weight: bold;
+            @include themed {
+                background: t("bg");
+            }
+            
+        }
+
+        .th, .td {
+            // white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+            padding: 0.5rem;
+            border-bottom: 1px solid #CCCCCC;
+            border-right: 1px solid #CCCCCC;
+            position: relative;
+            :last-child {
+                border-right: 0;
+            }
+
+            .resizer:not(.th) {
+                display: inline-block;
+                width: 10px;
+                height: 100%;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translateX(50%);
+                z-index: 99;
+                touch-action: none;
+            }
+            .resizer:hover {
+                background: $primary;
+            }
+        }
+
+        .td:focus {
+            outline: 3px solid $primary;
+        }
+    }
+}

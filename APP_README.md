@@ -45,10 +45,10 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 1.  **`/src`**: Contains all of the code related to the front-end presentation of the site (the browser).
     1.  **`/assets`**: Static files such as logos, fonts, pictures.
-    2. **`/components`**: Core part of the project which contains components that make up the website.
+    2. **`/components`**: Core part of the project which contain elements that make up the website.
     3. **`/pages`**: Individual static pages such as index or contact.
     4. **`/styles`**: CSS and Sass modules which define color schemes, variables for the whole project.
-    5. **`/templates`**: Dynamic pages such as blog posts.
+    5. **`/templates`**: Defines dynamic pages such as blog posts.
     6. **`/types`**: Typescript definitions for all components.
     7. **`/utils`**: Miscellaneous or higher-order-functions (HOC).
 
