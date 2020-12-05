@@ -1,92 +1,64 @@
 @import "../../../styles/index.scss";
 
-.table__container {
-    @include themed() {
-        background: t("fg");
-        border: 0.25px solid t("border");
-    }
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-
-.table {
-    border-collapse: collapse;
-    display: block;
-    overflow-x: scroll;
-    white-space: nowrap;
-    @include themed() {
+.table::-webkit-scrollbar-track {
+    @include themed () {
         background: t("bg");
     }
+    overflow: hidden;
 }
 
-.table__head {
-    @include themed() {
-        background: t("fg");
-    }
-    margin: 0;
-    text-align: left;
-    padding: 0.5rem;
+.table::-webkit-scrollbar {
+    height: 8px;
 }
 
-.table__body {
-    padding: 1rem;
-    margin: 0;
-}
-
-.table__header__cell {
-    padding: 5px 10px;
-    border-right: 0.15px solid #ccc;
-    cursor: pointer;
-}
-
-.table__cell {
-    padding: 5px 10px;
-    @include themed() {
-        border: 0.15px solid t("border");
+.table::-webkit-scrollbar-thumb {
+    @include themed () {
+        background: $secondary;
     }
 }
 
-.table__cell:focus {
-    @include themed() {
-        outline: 4px solid $primary;
-    }
-}
 
-.table__cell > image {
-    width: 25px;
-    height: 25px;
-    border: 1px solid green;
-}
 
-.styler {
+.table__container {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
     .table {
-        display: inline-block;
+        display: block;
         width: 100%;
         border-spacing: 0;
-        border-radius: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
         border: 1px solid #CCCCCC;
+        display: block;
+        overflow-x: scroll;
+        white-space: nowrap;
         @include themed () {
-            background: t("fg");
+            background: t("bg");
         }
-        .tr {
+        .table__row {
             :last-child {
-                .td {
+                .table__cell {
                     border-bottom: 0;
                 }
             }
         }
 
-        .th {
+        .table__row:hover { 
+            @include themed () {
+                background: t("fg");
+            }
+        }
+
+        .table__head__cell {
             user-select: none;
             font-weight: bold;
             @include themed {
-                background: t("bg");
+                background: t("fg");
             }
             
         }
 
-        .th, .td {
-            // white-space: nowrap;
+        .table__head__cell, .table__cell {
             overflow: hidden;
             text-overflow: ellipsis;
             margin: 0;
@@ -97,7 +69,7 @@
             :last-child {
                 border-right: 0;
             }
-
+        
             .resizer:not(.th) {
                 display: inline-block;
                 width: 10px;
@@ -114,8 +86,9 @@
             }
         }
 
-        .td:focus {
+        .table__cell:focus {
             outline: 3px solid $primary;
         }
     }
+
 }

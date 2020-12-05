@@ -53,8 +53,8 @@ Lorem ipsum dolor ipsut
 | Header | Title | HTML is reall cool | Test |
 | Paragraph | Text | nulkl | Test |
 | Header | Title is also really cool! | HTML is reall cool | Test |
-| Header | Title | HTML is reall cool |  Test |
-| Header | Title | HTML is reall cool |  Test |
+| Header | Title | HTML is reall cool |  [link](https://example.com) |
+| Header | Title | HTML is reall cool |  `code` |
 
 Run this `pip install flask, flask-cors`
 

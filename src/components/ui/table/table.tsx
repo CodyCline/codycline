@@ -6,58 +6,13 @@ import cx from 'classnames';
 
 export const Table = (props: any) => {
     return (
-        <div className="table__container">
-            <table className="table">
-                {props.children}
-            </table>
+        <div className="table">
+            {props.children}
         </div>
     )
 }
 
-export const TableHead = ({ children }) => {
-    return (
-        <thead className="table__head">
-            {children}
-        </thead>
-    )
-}
-
-export const TableBody = ({ children }) => {
-    return (
-        <tbody className="table__body">{children}</tbody>
-    );
-}
-
-export const TableRow = ({ children }) => {
-    return (
-        <tr className="table__row">{children}</tr>
-    );
-}
-
-export const TableHeaderCell = ({ children }) => {
-    const [width, setWidth] = React.useState<number>(150);
-    const resize = (event: any) => {
-        // set the element's new position:
-        console.log(event);
-        // element.style.top = (element.offsetTop - pos2) + "px";
-        setWidth(width + 25);
-    }
-    return (
-        <React.Fragment>
-            <th
-                style={{ width: `${width}px` }}
-                onDragOver={event => resize(event)}
-                className="table__header__cell"
-            >
-                {children}
-            </th>
-
-        </React.Fragment>
-    );
-}
-
-
-export const TableCell = ({ children }) => {
+export const TableCell = ({ children, tabIndex }) => {
     const cellRef = React.useRef<any>();
     const copy = () => {
         if (cellRef.current) {
@@ -66,22 +21,53 @@ export const TableCell = ({ children }) => {
         }
     }
     return (
-        <td ref={cellRef} onDoubleClick={copy} tabIndex={-1} className="table__cell">{children}</td>
+        <div ref={cellRef} onDoubleClick={copy} tabIndex={tabIndex} className="table__cell">{children}</div>
     );
 }
 
-export const FunTableBody = (props: any) => {
 
-}
+export const TableContainer = (props) => {
 
-export function FunTable({ columns, data }) {
-    
+    //Represents the head and body portion of markdown table
+    const theadData = props.children[0].props.children.props.children;
+    const tableCellData = props.children[1].props.children;
+
+    //Format head of markdown table from jsx to json
+    const columns = React.useMemo(
+        () => (
+            React.Children.map(theadData, (child: any) => {
+                return ({
+                    Header: (child.props.children),
+                    accessor: (child.props.children).toLowerCase(),
+                });
+            })
+        ),
+        []);
+
+    //Format body of markdown table from jsx to json
+    const getCellData = () => {
+        const cells: object[] = []
+        React.Children.map(tableCellData, (child) => {
+            const { children } = child.props;
+            const row = {};
+            children.map((cell, idx) => {
+                const parent = (theadData[idx].props.children).toLowerCase();
+                row[parent] = cell.props.children;
+            });
+            cells.push(row);
+        });
+        return cells;
+    }
     const defaultColumn = React.useMemo(
         () => ({
-            minWidth: 50,
             width: 200,
+            minWidth: 50,
+            maxWidth: 1000,
         }),
-    []);
+        []);
+
+    //Init table cell data
+    const data = getCellData();
 
     const {
         getTableProps,
@@ -99,45 +85,48 @@ export function FunTable({ columns, data }) {
         useResizeColumns
     )
 
+
     return (
-        <React.Fragment>
-            <div>
-                <div {...getTableProps()} className="table">
-                    <div>
-                        {headerGroups.map(headerGroup => (
-                            <div {...headerGroup.getHeaderGroupProps()} className="tr">
-                                {headerGroup.headers.map(column => (
-                                    <div {...column.getHeaderProps()} className="th">
-                                        {column.render('Header')}
-                                        <div
-                                            {...column.getResizerProps()}
-                                            className={cx(["resizer", column.isResizing && "isResizing"])}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                    
-                    {/* Body elements */}
-                    <div {...getTableBodyProps()}>
-                        {rows.map((row) => {
-                            prepareRow(row)
-                            return (
-                                <div {...row.getRowProps()} className="tr">
-                                    {row.cells.map((cell, id) => {
-                                        return (
-                                            <div tabIndex={id} {...cell.getCellProps()} className="td">
-                                                {cell.render("Cell")}
-                                            </div>
-                                        )
-                                    })}
+        <div className="table__container">
+            <Table {...getTableProps()}>
+                <div>
+                    {/* Table Header groups thead */}
+                    {headerGroups.map(headerRow => (
+                        <div {...headerRow.getHeaderGroupProps()} className="table__row">
+
+                            {headerRow.headers.map(headerCell => (
+                                <div {...headerCell.getHeaderProps()} className="table__head__cell">
+                                    {headerCell.render("Header")}
+                                    <div
+                                        {...headerCell.getResizerProps()}
+                                        className={cx(["resizer", headerCell.isResizing && "isResizing"])}
+                                    />
                                 </div>
-                            )
-                        })}
-                    </div>
+                            ))}
+                        </div>
+                    ))}
                 </div>
-            </div>
-        </React.Fragment>
-    )
+
+                {/* Body elements tbody */}
+                <div {...getTableBodyProps()}>
+                    {rows.map((row) => {
+                        prepareRow(row)
+                        return (
+                            // Table rows
+                            <div {...row.getRowProps()} className="table__row">
+                                {/* Table cells */}
+                                {row.cells.map((cell, id) => {
+                                    return (
+                                        <div tabIndex={id} className="table__cell" {...cell.getCellProps()}>
+                                            {cell.render("Cell")}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )
+                    })}
+                </div>
+            </Table>
+        </div>
+    );
 }
