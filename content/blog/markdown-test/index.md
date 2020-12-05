@@ -10,7 +10,7 @@ tags:
 - react
 ---
 
-Some markdown plain text
+Some markdown plain text :rocket:
 
 ~~This statement is true?~~
 

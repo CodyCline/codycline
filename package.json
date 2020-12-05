@@ -45,6 +45,7 @@
     "react-helmet": "^5.2.1",
     "react-table": "^7.6.2",
     "react-typography": "^0.16.19",
+    "remark-emoji": "^2.1.0",
     "typescript": "^4.0.2",
     "typography": "^0.16.19"
   },

@@ -15,6 +15,7 @@ $thickness: 4px;
 .spoiler__header {
     @include themed () { 
         color: t("main-color");
+        background: t("fg");
         border: 2px solid #CCC;
         border-left: $thickness solid t("main-color");
     }
@@ -24,6 +25,7 @@ $thickness: 4px;
     justify-content: space-between;
     padding: 10px 25px 10px 25px;
     list-style: none;
+    font-weight: bold;
     margin: 0;
 }
 
@@ -32,7 +34,7 @@ $thickness: 4px;
     border-right: 2px solid #CCC;
     border-bottom: 2px solid #CCC;
     @include themed () {
-        background: t("fg");
+        background: t("bg");
         border-left: $thickness solid t("main-color");
     }
     width: inherit;

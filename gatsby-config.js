@@ -1,3 +1,5 @@
+const emoji = require(`remark-emoji`);
+
 module.exports = {
 	siteMetadata: {
 		title: `Cody Cline`,
@@ -35,6 +37,7 @@ module.exports = {
 			resolve: `gatsby-plugin-mdx`,
 			options: {
 				extensions: [`.mdx`, `.md`],
+				remarkPlugins: [emoji],
 				gatsbyRemarkPlugins: [
 					{
 						resolve: `gatsby-remark-images`,

@@ -4,7 +4,7 @@
     @include themed () {
         background: t("bg");
     }
-    overflow: hidden;
+    border: 1px solid #CCC;
 }
 
 .table::-webkit-scrollbar {
@@ -13,7 +13,7 @@
 
 .table::-webkit-scrollbar-thumb {
     @include themed () {
-        background: $secondary;
+        background: t("main-color");
     }
 }
 
