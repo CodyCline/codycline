@@ -21,12 +21,12 @@ $thickness: 4px;
     }
     display: flex;
     flex-direction: row;
-    cursor: pointer;
     justify-content: space-between;
     padding: 10px 25px 10px 25px;
     list-style: none;
     font-weight: bold;
     margin: 0;
+    cursor: pointer;
 }
 
 .spoiler__body {

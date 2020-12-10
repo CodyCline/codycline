@@ -1,10 +1,7 @@
 @import "../../../styles/index.scss";
 
 .table::-webkit-scrollbar-track {
-    @include themed () {
-        background: t("bg");
-    }
-    border: 1px solid #CCC;
+    background: #FCFCFC;
 }
 
 .table::-webkit-scrollbar {
@@ -26,21 +23,15 @@
         display: block;
         width: 100%;
         border-spacing: 0;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        border: 1px solid #CCCCCC;
+        border: 2px solid #CCCCCC;
         display: block;
         overflow-x: scroll;
         white-space: nowrap;
         @include themed () {
             background: t("bg");
         }
-        .table__row {
-            :last-child {
-                .table__cell {
-                    border-bottom: 0;
-                }
-            }
+        .table__row:last-child .table__cell {
+            border-bottom: 0;
         }
 
         .table__row:hover { 
@@ -88,6 +79,7 @@
 
         .table__cell:focus {
             outline: 3px solid $primary;
+            z-index: 999;
         }
     }
 
