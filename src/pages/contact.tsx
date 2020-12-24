@@ -1,7 +1,7 @@
 import React from "react";
 import { Layout } from "../components/layout/layout";
 import SEO from "../utils/seo";
-import { withAddons } from '../utils/withAddons';
+import { withAddons } from '../utils/with-addons';
 import { Divider } from "../components/ui/divider/divider";
 import '../styles/index.scss';
 

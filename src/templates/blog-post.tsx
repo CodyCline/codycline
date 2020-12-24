@@ -4,7 +4,7 @@ import { Markdown } from '../utils/markdown'
 import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import { Layout } from "../components/layout/layout"
 import SEO from "../utils/seo"
-import { withAddons } from "../utils/withAddons";
+import { withAddons } from "../utils/with-addons";
 import { Divider } from "../components/ui/divider/divider";
 
 const BlogPostTemplate = ({ data, pageContext }: any) => {

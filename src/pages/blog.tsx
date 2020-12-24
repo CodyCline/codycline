@@ -3,9 +3,9 @@ import { graphql } from "gatsby";
 import SEO from "../utils/seo";
 import { Layout } from "../components/layout/layout";
 import { Panel } from "../components/panel/panel";
-import { withAddons } from "../utils/withAddons";
+import { withAddons } from "../utils/with-addons";
 import { Divider } from "../components/ui/divider/divider";
-import { MetaTag } from "../components/ui/tags/tags";
+import { IconTag } from "../components/ui/tags/tags";
 
 const BlogIndex = ({ data }: any) => {
 	// const siteTitle = data.site.siteMetadata.title
@@ -30,9 +30,9 @@ const BlogIndex = ({ data }: any) => {
 						>
 							{tags && tags.map((tag: string, inc:number) => {
 								return (
-									<MetaTag link={`/meta/${tag}`} key={inc}>
+									<IconTag link={`/meta/${tag}`} key={inc}>
 										{tag}
-									</MetaTag>
+									</IconTag>
 								)
 							})}
 						</Panel>

@@ -2,10 +2,9 @@ import React from "react";
 
 import { Layout } from "../components/layout/layout";
 import SEO from "../utils/seo";
-import { withAddons } from '../utils/withAddons';
+import { withAddons } from '../utils/with-addons';
 import { SocialBar, SocialIcon } from "../components/socialbar/socialbar";
 import '../styles/index.scss';
-import { FunTable } from "../components/ui/table/table";
 
 const Index = ({}: any) => {
 	return (

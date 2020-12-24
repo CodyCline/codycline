@@ -1,27 +1,28 @@
 import React from "react"
-import PropTypes from "prop-types"
-// Components
 import { Link, graphql } from "gatsby"
 import { Layout } from "../components/layout/layout"
 const Tags = ({ pageContext, data }) => {
 	const { tag } = pageContext
 	const { edges, totalCount } = data.allMdx
-	const tagHeader = `${totalCount} post(s) tagged with "${tag}"`
 	return (
-		<Layout>
-			<h1>{tagHeader}</h1>
-			<ul>
+		<Layout >
+			<div style={{ margin: `auto`, width: `80%` }}>
+				<div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+					<h2>{tag}</h2>
+					<p>{totalCount} Post{totalCount <= 1 ? null : "s"}</p>
+				</div>
 				{edges.map(({ node }) => {
 					const { slug } = node.fields
 					const { title } = node.frontmatter
 					return (
-						<li key={slug}>
-							<Link to={slug}>{title}</Link>
-						</li>
+						<div key={node.id} style={{ padding: "10px", margin: "1em 0 1em 0", border: "2px solid #c0c9ce", borderRadius: "20px" }}>
+							<Link to={slug}>
+								{title}
+							</Link>
+						</div>
 					)
 				})}
-			</ul>
-			<Link to="/tags">All tags</Link>
+			</div>
 		</Layout>
 	)
 }
@@ -36,6 +37,7 @@ query($tag: String) {
 		totalCount
 		edges {
 			node {
+				id
 				fields {
 					slug
 				}

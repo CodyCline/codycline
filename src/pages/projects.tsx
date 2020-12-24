@@ -4,9 +4,9 @@ import { Layout } from '../components/layout/layout';
 import SEO from '../utils/seo';
 import { Divider } from '../components/ui/divider/divider';
 import { Spacer } from '../components/ui/spacer/spacer';
-import { withAddons } from '../utils/withAddons';
+import { withAddons } from '../utils/with-addons';
 import { Panel } from '../components/panel/panel';
-import { ExternalTag } from '../components/ui/tags/tags';
+import { IconTag } from '../components/ui/tags/tags';
 
 const ProjectIndex = ({ data }: any) => {
 	const posts = data.allMdx.edges
@@ -29,8 +29,8 @@ const ProjectIndex = ({ data }: any) => {
 								description={description}
 								imageUrl={thumb && thumb.publicURL}
 							>
-								<ExternalTag link={github_link} icon={["fab", "github"]} />
-								<ExternalTag link={external_link} icon={["fas", "link"]} />
+								<IconTag link={github_link} icon={["fab", "github"]} />
+								<IconTag link={external_link} icon={["fas", "link"]} />
 							</Panel>
 						);
 					})}
