@@ -23,7 +23,7 @@
         display: block;
         width: 100%;
         border-spacing: 0;
-        border: 2px solid #CCCCCC;
+        border: 0.5px solid #8b8b8b;
         display: block;
         overflow-x: scroll;
         white-space: nowrap;
@@ -46,7 +46,6 @@
             @include themed {
                 background: t("fg");
             }
-            
         }
 
         .table__head__cell, .table__cell {
@@ -54,8 +53,8 @@
             text-overflow: ellipsis;
             margin: 0;
             padding: 0.5rem;
-            border-bottom: 1px solid #CCCCCC;
-            border-right: 1px solid #CCCCCC;
+            border-bottom: 0.5px solid #8b8b8b;
+            border-right: 0.5px solid #8b8b8b;
             position: relative;
             :last-child {
                 border-right: 0;
@@ -79,6 +78,7 @@
 
         .table__cell:focus {
             outline: 3px solid $primary;
+            color: $primary;
             z-index: 999;
         }
     }

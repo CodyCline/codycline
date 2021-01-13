@@ -7,8 +7,6 @@ $radius: 25px;
     @include themed() {
         background: t("fg");
     }
-    // width: 750px;
-    // min-height: $size;
     padding: .75em;
     margin: 1em auto;
     transition: 0.5s;

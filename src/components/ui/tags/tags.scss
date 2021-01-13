@@ -2,18 +2,27 @@
 
 .meta {
     margin: 4px 6px 4px 6px;
-    @include themed {
-        border: 1px solid t("border");
+    @include themed() {
+        background: t("bg");
     }
+    border: 2px solid black;
     border-radius: 12px;
-    padding: 2px 10px 2px 10px;
-    font-size: 1.25rem;
+    padding: 0px 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
 
 }
 
+.meta img {
+    height: 30px;
+    width: 30px;
+}
+
 .meta__tag {
-    font-size: 1.25rem;
-    margin: 5px;
+    margin: 0px 5px;
     text-align: center;
 }
 

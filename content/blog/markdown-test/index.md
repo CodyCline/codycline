@@ -7,6 +7,7 @@ thumb: ./randonautica.webp
 tags: 
 - python
 - mystery
+- cargo
 - react
 ---
 

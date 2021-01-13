@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import conan from '../../../assets/icons/code/conan.svg';
 import './tags.scss';
+import { Icon } from '../../../utils/icon/icon';
 
 export const IconTag = ({ children, link }: any) => (
     <Link className="meta" to={link}>
-        <img style={{height: "25px", width: "25px"}} src={conan} alt="icon.svg" />
+        <Icon name={children.toLowerCase()}/>
         <span className="meta__tag">
             {children && children.toLowerCase()}
         </span>

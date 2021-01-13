@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import './table.scss';
 import { useTable, useBlockLayout, useResizeColumns } from 'react-table'
 import cx from 'classnames';
@@ -12,16 +11,27 @@ export const Table = (props: any) => {
     )
 }
 
-export const TableCell = ({ children, tabIndex }) => {
+export const TableCell = (props:any) => {
     const cellRef = React.useRef<any>();
     const copy = () => {
+
+        console.log("Starting copy")
         if (cellRef.current) {
+            console.log("copying!")
             const element = cellRef.current;
             navigator.clipboard.writeText(element.innerText);
         }
     }
     return (
-        <div ref={cellRef} onDoubleClick={copy} tabIndex={tabIndex} className="table__cell">{children}</div>
+        <div 
+            {...props}
+            ref={cellRef} 
+            onDoubleClick={copy} 
+            tabIndex={props.tabIndex} 
+            className="table__cell"
+        >
+            {props.children}
+        </div>
     );
 }
 
@@ -42,7 +52,7 @@ export const TableContainer = (props) => {
                 });
             })
         ),
-        []);
+    []);
 
     //Format body of markdown table from jsx to json
     const getCellData = () => {
@@ -64,7 +74,7 @@ export const TableContainer = (props) => {
             minWidth: 50,
             maxWidth: 1000,
         }),
-        []);
+    []);
 
     //Init table cell data
     const data = getCellData();
@@ -89,23 +99,21 @@ export const TableContainer = (props) => {
     return (
         <div className="table__container">
             <Table {...getTableProps()}>
-                <div>
-                    {/* Table Header groups thead */}
-                    {headerGroups.map(headerRow => (
-                        <div {...headerRow.getHeaderGroupProps()} className="table__row">
+                {/* Table Header groups thead */}
+                {headerGroups.map(headerRow => (
+                    <div {...headerRow.getHeaderGroupProps()} className="table__row">
 
-                            {headerRow.headers.map(headerCell => (
-                                <div {...headerCell.getHeaderProps()} className="table__head__cell">
-                                    {headerCell.render("Header")}
-                                    <div
-                                        {...headerCell.getResizerProps()}
-                                        className={cx(["resizer", headerCell.isResizing && "isResizing"])}
-                                    />
-                                </div>
-                            ))}
-                        </div>
-                    ))}
-                </div>
+                        {headerRow.headers.map(headerCell => (
+                            <div {...headerCell.getHeaderProps()} className="table__head__cell">
+                                {headerCell.render("Header")}
+                                <div
+                                    {...headerCell.getResizerProps()}
+                                    className={cx(["resizer", headerCell.isResizing && "isResizing"])}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                ))}
 
                 {/* Body elements tbody */}
                 <div {...getTableBodyProps()}>
@@ -117,9 +125,9 @@ export const TableContainer = (props) => {
                                 {/* Table cells */}
                                 {row.cells.map((cell, id) => {
                                     return (
-                                        <div tabIndex={id} className="table__cell" {...cell.getCellProps()}>
+                                        <TableCell tabIndex={id} {...cell.getCellProps()}>
                                             {cell.render("Cell")}
-                                        </div>
+                                        </TableCell>
                                     );
                                 })}
                             </div>

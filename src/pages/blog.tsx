@@ -28,9 +28,9 @@ const BlogIndex = ({ data }: any) => {
 							description={description}
 							imageUrl={thumb.publicURL}
 						>
-							{tags && tags.map((tag: string, inc:number) => {
+							{tags && tags.map((tag: string, idx:number) => {
 								return (
-									<IconTag link={`/meta/${tag}`} key={inc}>
+									<IconTag link={`/meta/${tag}`} key={idx}>
 										{tag}
 									</IconTag>
 								)
