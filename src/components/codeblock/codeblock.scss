@@ -6,6 +6,7 @@
 .tool__bar {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     justify-content: space-between; 
     @include themed () {
         background: t("block-toolbar")

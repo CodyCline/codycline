@@ -6,6 +6,7 @@ import components from 'prismjs/components'; //JS not the folder
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './codeblock.scss';
 import './prism.scss';
+import { Icon } from '../ui/icon/icon';
 
 const languagesToLoad: string[] = [
     "markup",
@@ -73,7 +74,7 @@ export const CodeBlock = (props: any) => {
         languageLoader.load((language:string) => {
             require(`prismjs/components/prism-${language || `clike`}.min.js`);
         });
-        pluginLoader.load((plugin: any) => {
+        pluginLoader.load((plugin: string) => {
             require(`prismjs/plugins/${plugin}/prism-${plugin}.min.js`);
         });
         Prism.highlightAll();
@@ -98,6 +99,9 @@ export const CodeBlock = (props: any) => {
                 </code>
             </pre>
             <ul className="tool__bar">
+                <li>
+                    <Icon name={language}/>
+                </li>
                 <li
                     className="copy__icon"
                     onClick={copyCode}
@@ -106,6 +110,7 @@ export const CodeBlock = (props: any) => {
                         {isCopied}<FontAwesomeIcon style={{ marginLeft: "5px" }} icon={["far", "copy"]}/>
                     </p>
                 </li>
+                
             </ul>
         </section>
     );

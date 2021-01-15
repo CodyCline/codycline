@@ -6,11 +6,10 @@ banner: ./randonautica.webp
 thumb: ./randonautica.webp
 tags: 
 - vscode
-- appstore
-- react
+- sln
+- zip
+- kubernetes
 - docker
-- tensorflow
-- azure
 ---
 
 Some markdown plain text :rocket:
@@ -55,6 +54,20 @@ Lorem ipsum dolor ipsut
 </Spoiler>
 
 
+```cpp
+#include "VM.h"
+#include <fstream>
+#include "VM_binaries.h"
+
+using namespace std;
+using namespace VM_BINARIES;
+
+int main(int argc, char const *argv[]) {
+  cout <<< "HEllo world";
+}
+
+```
+
 | Syntax | Description | Usage | Test |
 | --- | --- | --- | --- |
 | Header | Title | HTML is reall cool | Test |
@@ -65,19 +78,21 @@ Lorem ipsum dolor ipsut
 
 Run this `pip install flask, flask-cors`
 
-```python
-import requests
-import random
-import json
-from flask import Flask, request 
-from flask_cors import CORS
-app = Flask(name)
-CORS(app)
-if name == "main":
-    app.run(debug=True)
+```rust
+
+/// The actual Blockchain container
+#[derive(Debug, Clone)]
+pub struct Blockchain {
+    /// Stores all the blocks which are accepted already within the blockchain
+    pub blocks: Vec<Block>,
+
+    /// Lookup from AccountID (will be a public key later) to Account.
+    /// Effectively, this represents the WorldState
+    pub accounts: HashMap<String, Account>,
+
+    /// Will store transactions which should be added to the chain
+    /// but aren't yet
+    pending_transactions: Vec<Transaction>
+}
 ```
-
-
-Here's a sentence with a footnote. [^1]
-
-[^1]: This is the footnote.
+Thats all folks!

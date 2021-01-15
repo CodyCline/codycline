@@ -42,13 +42,21 @@ const BlogPostTemplate = ({ data, pageContext }: any) => {
 						</MDXRenderer>
 					</Markdown>
 				</section>
-				<div style={{display: "grid", gridTemplateColumns: "repeat(6fr, auto)"}} className="article__tags">
+				<div 
+					className="article__tags"
+					style={{ margin: "4rem", display: "flex", flexWrap: "wrap", justifyContent: "center"}}
+				>
 					{
-						tags && tags.map((name: any, index: number) => {
-							console.log("the tag", name)
+						tags && tags.map((name: string, index: number) => {
 							return (
-								<Tag icon={name} key={index}>{name}</Tag>
-							)
+								<Tag 
+									key={index} 
+									icon={name} 
+									link={`/meta/${name}`}
+								>
+									{name}
+								</Tag>
+							);
 						})
 					}
 				</div>
@@ -59,6 +67,7 @@ const BlogPostTemplate = ({ data, pageContext }: any) => {
 						justifyContent: `space-between`,
 						listStyle: `none`,
 						padding: 0,
+						margin: `2rem`
 					}}
 				>
 					<li>

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './tags.scss';
-import { Icon } from '../../../utils/icon/icon';
+import { Icon } from '../icon/icon';
 
 export const Tag = ({ children, link, icon }: any) => (
     <Link className="meta" to={link}>
