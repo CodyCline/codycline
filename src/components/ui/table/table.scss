@@ -1,7 +1,9 @@
 @import "../../../styles/index.scss";
 
 .table::-webkit-scrollbar-track {
-    background: #FCFCFC;
+    @include themed() {
+        background: t("fg");
+    }
 }
 
 .table::-webkit-scrollbar {
@@ -9,9 +11,12 @@
 }
 
 .table::-webkit-scrollbar-thumb {
-    @include themed () {
-        background: t("main-color");
+    @include themed() {
+        background: t("code");
+        border-radius: 5px;
+        z-index: 999;
     }
+    
 }
 
 
@@ -72,7 +77,11 @@
                 touch-action: none;
             }
             .resizer:hover {
-                background: $primary;
+                @include themed() {
+                    background: t("code");
+                    border-radius: 5px;
+                    z-index: 999;
+                }
             }
         }
 

@@ -6,39 +6,13 @@ import { Layout } from "../components/layout/layout"
 import SEO from "../utils/seo"
 import { withAddons } from "../utils/with-addons";
 import { Divider } from "../components/ui/divider/divider";
+import { Tag } from "../components/ui/tags/tags";
 
 const BlogPostTemplate = ({ data, pageContext }: any) => {
 	const post = data.mdx
 	const siteTitle = data.site.siteMetadata.title
+	const { tags } = data.mdx.frontmatter;
 	const { previous, next } = pageContext;
-	const columns = React.useMemo (
-		() => [
-			{
-				Header: 'First Name',
-				accessor: 'firstName',
-			},
-			{
-				Header: 'Last Name',
-				accessor: 'lastName',
-			},
-			{
-				Header: 'Age',
-				accessor: 'age',
-			},
-			{
-				Header: 'Visits',
-				accessor: 'visits',
-			},
-			{
-				Header: 'Status',
-				accessor: 'status',
-			},
-			{
-				Header: 'Profile Progress',
-				accessor: 'progress',
-			},
-		],
-	[]);
 	return (
 		<Layout>
 			<SEO
@@ -68,6 +42,16 @@ const BlogPostTemplate = ({ data, pageContext }: any) => {
 						</MDXRenderer>
 					</Markdown>
 				</section>
+				<div style={{display: "grid", gridTemplateColumns: "repeat(6fr, auto)"}} className="article__tags">
+					{
+						tags && tags.map((name: any, index: number) => {
+							console.log("the tag", name)
+							return (
+								<Tag icon={name} key={index}>{name}</Tag>
+							)
+						})
+					}
+				</div>
 				<nav
 					style={{
 						display: `flex`,
@@ -109,6 +93,7 @@ export const pageQuery = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
 		id
 		frontmatter {
+			tags
 			title
 			date(formatString: "YYYY-MM-DD")
 			description

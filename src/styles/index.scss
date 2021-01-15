@@ -47,3 +47,7 @@ blockquote {
 ::-moz-selection { background: #b3d4fc; }
 ::selection { background: #b3d4fc; }
 
+.article__tags {
+	display: grid;
+	grid-template-columns: repeat(1fr, auto);
+}

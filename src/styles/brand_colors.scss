@@ -1,0 +1,7 @@
+$brands: (
+    tensorflow: #ffafaf,
+);
+
+.test-class {
+    color: t("tensorflow")
+}

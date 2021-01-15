@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import { Layout } from '../components/layout/layout';
+import { Card } from '../components/card/card';
 import SEO from '../utils/seo';
 import { Divider } from '../components/ui/divider/divider';
 import { Spacer } from '../components/ui/spacer/spacer';
 import { withAddons } from '../utils/with-addons';
 import { Panel } from '../components/panel/panel';
-import { IconTag } from '../components/ui/tags/tags';
+import { Tag } from '../components/ui/tags/tags';
 
 const ProjectIndex = ({ data }: any) => {
 	const posts = data.allMdx.edges
@@ -22,16 +23,23 @@ const ProjectIndex = ({ data }: any) => {
 						const { external_link, github_link, description, thumb } = project.node.frontmatter;
 						const { id, fields } = project.node;
 						return (
-							<Panel
+							<Card
 								key={id}
-								link={fields.slug}
-								title={title}
-								description={description}
-								imageUrl={thumb && thumb.publicURL}
-							>
-								<IconTag link={github_link} icon={["fab", "github"]} />
-								<IconTag link={external_link} icon={["fas", "link"]} />
-							</Panel>
+								
+							/>
+							// <Panel
+							
+							// 	key={id}
+							// 	link={fields.slug}
+							// 	title={title}
+							// 	description={description}
+							// 	imageUrl={thumb && thumb.publicURL}
+							// >
+							// 	<Tag link={github_link} icon="git">
+							// 		source
+							// 	</Tag>
+							// 	<Tag link={external_link} icon={["fas", "link"]} />
+							// </Panel>
 						);
 					})}
 				</div>

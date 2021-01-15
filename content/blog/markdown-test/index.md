@@ -5,10 +5,12 @@ description: "Walkthrough on how to build a web app that gives you random locati
 banner: ./randonautica.webp
 thumb: ./randonautica.webp
 tags: 
-- python
-- mystery
-- cargo
+- vscode
+- appstore
 - react
+- docker
+- tensorflow
+- azure
 ---
 
 Some markdown plain text :rocket:
@@ -42,7 +44,7 @@ Some markdown plain text :rocket:
 
 - List one
 - List two
-- List three
+- List three is a really long task that takes up a lot of space so therefore it needs to wrap to the next line
 
 1. Task one
 2. Task two

@@ -1,12 +1,37 @@
 import * as React from 'react';
-import './list.css';
+import './list.scss';
 
-export const OrderedList = ({children}) => (
-    <ol className="numbered-list">
-        {children}
-    </ol>
-)
+//Map this out so we can override the default numbered list
+export const OrderedList = ({children}) => {
+    return (
+        <ol className="list__container">
+            {
+                React.Children.map(children, (child, index) => {
+                    return (
+                        <li className="bullet__list">
+                            <div className="bullet number">
+                                {index + 1}
+                            </div>
+                            {child.props.children}
+                        </li>
+                    );
+                })
+            }
+        </ol>
+    )
+}
 
-export const ListItem = ({children}) => (
-    <li>{children}</li>
-)
+export const List = (props : any) => {
+    return (
+        <li className="bullet__list">
+            <div className="bullet"/>
+            {props.children}
+        </li>
+    );
+}
+
+export const ListContainer = (props : any) => {
+    return (
+        <ul className="list__container">{props.children}</ul>
+    )
+}

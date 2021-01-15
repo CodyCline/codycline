@@ -5,7 +5,7 @@ import { Layout } from "../components/layout/layout";
 import { Panel } from "../components/panel/panel";
 import { withAddons } from "../utils/with-addons";
 import { Divider } from "../components/ui/divider/divider";
-import { IconTag } from "../components/ui/tags/tags";
+import { Tag } from "../components/ui/tags/tags";
 
 const BlogIndex = ({ data }: any) => {
 	// const siteTitle = data.site.siteMetadata.title
@@ -28,11 +28,11 @@ const BlogIndex = ({ data }: any) => {
 							description={description}
 							imageUrl={thumb.publicURL}
 						>
-							{tags && tags.map((tag: string, idx:number) => {
+							{tags && tags.map((tag: string, index: number) => {
 								return (
-									<IconTag link={`/meta/${tag}`} key={idx}>
+									<Tag key={index} icon={tag} link={`/meta/${tag}`}>
 										{tag}
-									</IconTag>
+									</Tag>
 								)
 							})}
 						</Panel>

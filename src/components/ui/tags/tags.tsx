@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './tags.scss';
 import { Icon } from '../../../utils/icon/icon';
 
-export const IconTag = ({ children, link }: any) => (
+export const Tag = ({ children, link, icon }: any) => (
     <Link className="meta" to={link}>
-        <Icon name={children.toLowerCase()}/>
+        <Icon name={icon.toLowerCase()}/>
         <span className="meta__tag">
             {children && children.toLowerCase()}
         </span>

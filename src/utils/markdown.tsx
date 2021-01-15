@@ -8,6 +8,7 @@ import { Link } from '../components/ui/link/link';
 import { CheckBox } from '../components/ui/switch/switch';
 import { Deleted } from '../components/ui/typography/typography';
 import { TableContainer } from '../components/ui/table/table';
+import { ListContainer, List, OrderedList } from '../components/ui/list/list'; 
 
 interface IProps {
     children: React.ReactNode,
@@ -22,6 +23,9 @@ export const Markdown = ({children}:IProps) => {
                 code: InlineCode,
                 hr: Divider,
                 blockquote: Quote,
+                ul: ListContainer,
+                ol: OrderedList,
+                li: List,
                 a: Link,
                 input: CheckBox,
                 table: TableContainer,
