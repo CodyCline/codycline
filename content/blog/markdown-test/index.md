@@ -53,6 +53,19 @@ Some markdown plain text :rocket:
 Lorem ipsum dolor ipsut
 </Spoiler>
 
+```sh
+dig
+```
+
+
+```dockerfile
+FROM ubuntu:latest
+MAINTAINER support@fosstechnix.com
+RUN apt-get update
+RUN apt-get install -y apache2
+```
+
+
 
 ```cpp
 #include "VM.h"

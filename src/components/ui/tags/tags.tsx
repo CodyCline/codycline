@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './tags.scss';
 import { Icon } from '../icon/icon';
+import './tags.scss';
 
 export const Tag = ({ children, link, icon }: any) => (
     <Link className="meta" to={link}>
@@ -15,6 +14,6 @@ export const Tag = ({ children, link, icon }: any) => (
 
 export const ExternalTag = ({link, icon}:any) => (
     <a className="external__tag" href={link} rel="noopener noreferrer">
-        <FontAwesomeIcon icon={icon}/>
+        <Icon name="link"/>
     </a>
 )

@@ -3,7 +3,6 @@ import * as Prism from 'prismjs';
 import cx from 'classnames';
 import getLoader from 'prismjs/dependencies';
 import components from 'prismjs/components'; //JS not the folder
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './codeblock.scss';
 import './prism.scss';
 import { Icon } from '../ui/icon/icon';
@@ -54,7 +53,7 @@ const languagesToLoad: string[] = [
     "yaml"
 ];
 
-const pluginsToLoad: any[] = [
+const pluginsToLoad: string[] = [
     "line-numbers",
     "match-braces",
     "highlight-keywords",
@@ -62,15 +61,13 @@ const pluginsToLoad: any[] = [
 ];
 
 export const CodeBlock = (props: any) => {
-    const [error, setError] = React.useState<boolean>(false);
-    const [isCopied, setIsCopied] = React.useState<string>("copy");
     const codeRef = React.useRef<HTMLPreElement>(null);
     const language = props.className.split("language-").join("");
+    
     React.useEffect(() => {
         //Not the cleanest solution but loadLanguages is broken
         const languageLoader = getLoader(components, languagesToLoad);
         const pluginLoader = getLoader(components, pluginsToLoad);
-        //Todo handle errors
         languageLoader.load((language:string) => {
             require(`prismjs/components/prism-${language || `clike`}.min.js`);
         });
@@ -83,35 +80,33 @@ export const CodeBlock = (props: any) => {
     function copyCode() {
         if (codeRef.current) {
             navigator.clipboard.writeText(codeRef.current.innerText);
-            setIsCopied("copied!");
         }
     }
 
     return (
         <section style={{ margin: "1em 0 1em 0" }}>
-            <pre style={{
-                margin: 0,
-                borderTopLeftRadius: "10px",
-                borderTopRightRadius: "10px",
-            }} className={cx("match-braces", "line-numbers")}>
-                <code ref={codeRef} className={cx(props.className, "rainbow-braces")}>
-                    {props.children}
-                </code>
-            </pre>
             <ul className="tool__bar">
                 <li>
-                    <Icon name={language}/>
+                    <Icon height={26} width={26} name={language}/>
                 </li>
                 <li
                     className="copy__icon"
                     onClick={copyCode}
                 >
-                    <p style={{ margin: 0, borderRadius: "5px" }}>
-                        {isCopied}<FontAwesomeIcon style={{ marginLeft: "5px" }} icon={["far", "copy"]}/>
-                    </p>
+                    <Icon name="copy" height={26} width={26}/>
                 </li>
                 
             </ul>
+            <pre style={{
+                margin: 0,
+                borderBottomLeftRadius: "10px",
+                borderBottomRightRadius: "10px",
+            }} className={cx("match-braces", "line-numbers")}>
+                <code ref={codeRef} className={cx(props.className, "rainbow-braces")}>
+                    {props.children}
+                </code>
+            </pre>
+            
         </section>
     );
 };

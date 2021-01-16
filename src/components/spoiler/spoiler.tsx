@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as types from "../../types/components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./spoiler.scss";
+import { Icon } from "../ui/icon/icon";
 
 
 export const Spoiler = ({ children, title }: types.SpoilerProps) => {
@@ -14,9 +14,12 @@ export const Spoiler = ({ children, title }: types.SpoilerProps) => {
             <ul onClick={onToggle} role="navigation" className="spoiler__header">
                 <li>{title}</li>
                 <li>
-                    <FontAwesomeIcon
-                        icon={["fas", toggled ? "chevron-up" : "chevron-down"]}
-                    />
+                    {
+                        toggled?
+                        <Icon name="chevron_up"/>
+                        :
+                        <Icon name="chevron_down"/>
+                    }
                 </li>
             </ul>
             {toggled &&

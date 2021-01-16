@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { NavItem } from './layout';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const MobileMenu = () => {
     const [visible, setVisible] = React.useState(false);
@@ -13,7 +12,7 @@ export const MobileMenu = () => {
         <React.Fragment>
             <li className="navitem" >
                 <span className="mobile-nav-toggle" onClick={toggle}>
-                    <FontAwesomeIcon icon={["fas", "bars"]} />
+                    {/* <FontAwesomeIcon icon={["fas", "bars"]} /> */}
                 </span>
             </li>
             {visible &&
@@ -21,19 +20,19 @@ export const MobileMenu = () => {
                     <div onClick={toggle} className="mobile-bg">
                         <ul className="mobile-nav">
                             <NavItem link="/" className="mobile-nav-item">
-                                <FontAwesomeIcon className="mobile-nav-icon" icon={["fas", "home"]}/>
+                                {/* <FontAwesomeIcon className="mobile-nav-icon" icon={["fas", "home"]}/> */}
                                 <h4>Home</h4>
                             </NavItem>
                             <NavItem link="/blog" className="mobile-nav-item">
-                                <FontAwesomeIcon className="mobile-nav-icon" icon={["far", "newspaper"]}/>
+                                {/* <FontAwesomeIcon className="mobile-nav-icon" icon={["far", "newspaper"]}/> */}
                                 <h4>Blog</h4>
                             </NavItem>
                             <NavItem link="/projects" className="mobile-nav-item">
-                                <FontAwesomeIcon className="mobile-nav-icon" icon={["fas", "cube"]}/>
+                                {/* <FontAwesomeIcon className="mobile-nav-icon" icon={["fas", "cube"]}/> */}
                                 <h4>Projects</h4>
                             </NavItem>
                             <NavItem link="/contact" className="mobile-nav-item">
-                                <FontAwesomeIcon className="mobile-nav-icon" icon={["far", "envelope"]}/>
+                                {/* <FontAwesomeIcon className="mobile-nav-icon" icon={["far", "envelope"]}/> */}
                                 <h4>Contact </h4>
                             </NavItem>
                         </ul>

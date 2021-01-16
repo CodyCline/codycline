@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icon } from '../../ui/icon/icon';
 import './switch.scss';
 
 export const ThemeSwitch = () => {
@@ -17,9 +17,13 @@ export const ThemeSwitch = () => {
             <React.Fragment>
                 {
                     toggled ?
-                        <p className="icon icon--dark" onClick={() => onClick("dark")}><FontAwesomeIcon style={{ fontSize: "1.75rem" }} icon={["far", "moon"]} /></p>
+                        <p className="icon icon--dark" onClick={() => onClick("dark")}>
+                            <Icon name="moon" height={30} width={30} />
+                        </p>
                         :
-                        <p className="icon icon--light" onClick={() => onClick("light")}><FontAwesomeIcon style={{ fontSize: "1.75rem" }} icon={["fas", "lightbulb"]} /></p>
+                        <p className="icon icon--light" onClick={() => onClick("light")}>
+                            <Icon name="moon" height={30} width={30} />
+                        </p>
                 }
             </React.Fragment>
         )

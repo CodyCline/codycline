@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 import * as ReactDOM from "react-dom"
 import "./offline.scss";
@@ -23,7 +22,6 @@ export const Offline = () => {
         {isOffline &&
             ReactDOM.createPortal(
                 <p className="offline">
-                    <FontAwesomeIcon style={{marginRight: "10px"}} icon={["fas", "broadcast-tower"]}/>
                     You are offline please check your internet connection and refresh the page
                 </p>,
                 document.body
