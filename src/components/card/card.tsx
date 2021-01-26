@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './card.scss';
 
 
@@ -35,37 +34,37 @@ export const Card = ({
                     {/* Icons */}
                     {githubURL &&
                         <a target="_blank" rel="noopener noreferrer" href={githubURL} className="card-icon">
-                            <FontAwesomeIcon icon={["fab", "github"]} />
+                            {/* <FontAwesomeIcon icon={["fab", "github"]} /> */}
                         </a>
                     }
                     {npmURL && 
                         <a target="_blank" rel="noopener noreferrer" href={npmURL} className="card-icon">
-                            <FontAwesomeIcon icon={["fab", "npm"]} />
+                            {/* <FontAwesomeIcon icon={["fab", "npm"]} /> */}
                         </a>
                     }
                     {liveURL &&
                         <a target="_blank" rel="noopener noreferrer" href={liveURL} className="card-icon">
-                            <FontAwesomeIcon icon={["fas", "link"]} />
+                            {/* <FontAwesomeIcon icon={["fas", "link"]} /> */}
                         </a>
                     }
                     {appstoreURL &&
                         <a target="_blank" rel="noopener noreferrer" href={appstoreURL} className="card-icon">
-                            <FontAwesomeIcon icon={["fab", "app-store"]} />
+                            {/* <FontAwesomeIcon icon={["fab", "app-store"]} /> */}
                         </a>
                     }
                     {androidURL &&
                         <a target="_blank" rel="noopener noreferrer" href={androidURL} className="card-icon">
-                            <FontAwesomeIcon icon={["fab", "google-play"]} />
+                            {/* <FontAwesomeIcon icon={["fab", "google-play"]} /> */}
                         </a>
                     }
                     {linuxURL &&
                         <a target="_blank" rel="noopener noreferrer" href={linuxURL} className="card-icon">
-                            <FontAwesomeIcon icon={["fab", "linux"]} />
+                            {/* <FontAwesomeIcon icon={["fab", "linux"]} /> */}
                         </a>
                     }
                     {downloadURL &&
                         <a target="_blank" rel="noopener noreferrer" href={downloadURL} className="card-icon">
-                            <FontAwesomeIcon icon={["fas", "download"]} />
+                            {/* <FontAwesomeIcon icon={["fas", "download"]} /> */}
                         </a>
                     }
                 </ul>

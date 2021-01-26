@@ -101,7 +101,7 @@ export const CodeBlock = (props: any) => {
                 margin: 0,
                 borderBottomLeftRadius: "10px",
                 borderBottomRightRadius: "10px",
-            }} className={cx("match-braces", "line-numbers")}>
+            }} className={cx("code__block", "match-braces", "line-numbers")}>
                 <code ref={codeRef} className={cx(props.className, "rainbow-braces")}>
                     {props.children}
                 </code>

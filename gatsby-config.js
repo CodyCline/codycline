@@ -76,7 +76,6 @@ module.exports = {
 		// 	},
 		// },
 		`gatsby-plugin-sass`,
-		`gatsby-plugin-fontawesome-css`,
 		// `gatsby-plugin-feed`,
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
