@@ -7,7 +7,6 @@ thumb: ./foobar.gif
 tags: 
 - python
 - algorithms
-- firebase
 ---
 
 

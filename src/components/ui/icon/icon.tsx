@@ -4,7 +4,7 @@ import { codeIcons } from '../../../assets/icons/code';
 import { brandIcons } from '../../../assets/icons/brands';
 
 
-export const Icon = ({ name, color, height, width } : any) => {
+export const Icon = ({ name, title,  color, height, width, fill} : any) => {
     const iconLib = { ...standardIcons, ...codeIcons, ...brandIcons  };
     const currentIcon = iconLib[name];
     const exists = iconLib[name] !== undefined && typeof window !== undefined;
@@ -21,13 +21,14 @@ export const Icon = ({ name, color, height, width } : any) => {
             width={width || 24} 
             viewBox="0 0 1024 1024"
         >
+            <title>{ title || name }</title>
             {
                 exists && currentIcon.paths.map((path, index) => {
                     return (
                         <path
                             key={index}
-                            opacity={currentIcon.attrs.length >= 1 && currentIcon.attrs[index]["opacity"]}
-                            fill={currentIcon.attrs.length >= 1 && currentIcon.attrs[index]["fill"]}
+                            opacity={currentIcon.attrs.length > 0 && currentIcon.attrs[index]["opacity"]}
+                            fill={(fill && fill[index]) || (currentIcon.attrs.length > 0 && currentIcon.attrs[index]["fill"])}
                             d={path}
                         >
                         </path>
@@ -35,8 +36,7 @@ export const Icon = ({ name, color, height, width } : any) => {
                 })
             }
         </svg>
-    )
-
+    );
 }
 
 

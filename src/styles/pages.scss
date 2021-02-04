@@ -21,19 +21,18 @@
     text-align: center;
 }
 
-.project__container {
+.projects__header {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     align-items: center;
 }
 
-.project__page {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 90%;
-    margin: auto;
+
+.projects__container {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
 .project__tag__container {

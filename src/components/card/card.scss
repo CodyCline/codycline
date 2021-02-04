@@ -1,60 +1,67 @@
-@import '../../styles/index.scss';
+@import "../../styles/index.scss";
 
 .card {
-    border-radius: 6.8px;
-    margin: 1.5em;
-    display: flex;
-    border: 1px solid gray;
-    flex-direction: column;
+    display: grid;
     padding: 1rem;
-    width: 250px;
-    transition: 0.25s ease-in-out;
-    justify-content: space-between;
-    @include themed () {
+    margin: 0;
+    grid-template-areas:
+        "icon        links"
+        "body       body"
+        "status status";
+    border-radius: 6.8px;
+    align-items: center;
+
+    box-sizing: border-box;
+    border: 1px solid gray;
+    @include themed() {
         background-color: t("fg");
     }
 }
 
-.card:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    border: 2px solid;
-    border-image-slice: 1;
-    @include themed () {
-        border-image-source: linear-gradient(90deg, t("main-color") 35%, t("secondary-color")  100%);   
-    }
+.card__status-light {
+    height: 15px;
+    width: 15px;
+    background: #37b26c;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 50%;
 }
 
-
-.card-image {
-    display: block;
-    object-fit: cover;
-    width: 100%;
-    opacity: 1;
-    object-position: center 40%;
-    height: 200px;
-    border-radius: 6.8px;
+.card__status-version {
+    font-weight: bold;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    
 }
 
-.card-meta {
-    padding: 24px 17px 7px;
-    box-sizing: border-box;
-    list-style: none;
-    min-height: 110px;
-    margin: 0;
-    text-overflow: ellipsis;
+.card__icon {
+    grid-area: icon;
+    display: grid;
 }
 
-.card-icon-bar {
+.card__status {
+    grid-area: status;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
     list-style: none;
-    margin: 0;
 }
 
-.card-icon {
-    padding: 1rem;
-    font-size: 1.5 rem;
+
+
+.card__body {
+    grid-area: body;
 }
+
+.card__links {
+    grid-area: links;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style: none;
+}
+
+.card__link-item {
+    padding: 0 12px;
+}
+

@@ -1,7 +1,7 @@
 ---
 date: "2020-08-15"
 title: React PayPal
-description: "React.js wrapper for PayPal buttons"
+description: JavaScript library of PayPal smart buttons for React
 banner: ./paypal.jpg
 thumb: ./paypal.jpg
 github_link: https://github.com/codycline/paypal-react.git

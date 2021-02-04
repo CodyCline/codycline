@@ -89,24 +89,40 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 	}
 }
 
-// exports.createSchemaCustomization = ({ actions, schema }) => {
-// 	const { createTypes } = actions
-// 	const typeDefs = [
-// 		schema.buildObjectType({
-// 			name: "AllBlogPosts",
-// 			fields: {
-// 				site: {
-// 					siteMetaData: {
-// 						title: "String"
-// 					}
-// 				},
-// 				// receivedSwag: {
-// 				// 	type: "Boolean",
-// 				// 	resolve: source => source.receivedSwag || false,
-// 				// },
-// 			},
-// 			interfaces: ["Node"],
-// 		}),
-// 	]
-// 	createTypes(typeDefs)
-// }
+//Metadata structure on different posts has a different shape
+//Typing accordingly 
+exports.createSchemaCustomization = ({ actions }) => {
+	const { createTypes } = actions
+	createTypes(`
+		interface Frontmatter {
+			title: String
+			date: Date
+			description: String
+			thumb: File
+			banner: File!
+			tags: [String]
+		}
+		type BlogFrontmatter implements Frontmatter {
+			title: String
+			date: Date
+			description: String
+			thumb: File
+			banner: File!
+			tags: [String]
+		}
+
+		type ProjectFrontmatter implements Frontmatter {
+			title: String
+			date: Date
+			description: String
+			thumb: File
+			banner: File!
+			tags: [String]
+			appstore_link: String!
+			snapstore_link: String!
+		}
+		type Mdx implements Node {
+			frontmatter: BlogFrontmatter
+		}
+	`)
+}

@@ -60,7 +60,7 @@ dig
 
 ```dockerfile
 FROM ubuntu:latest
-MAINTAINER support@fosstechnix.com
+MAINTAINER support@website.com
 RUN apt-get update
 RUN apt-get install -y apache2
 ```

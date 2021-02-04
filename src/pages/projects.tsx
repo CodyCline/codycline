@@ -6,45 +6,36 @@ import SEO from '../utils/seo';
 import { Divider } from '../components/ui/divider/divider';
 import { Spacer } from '../components/ui/spacer/spacer';
 import { withAddons } from '../utils/with-addons';
-import { Panel } from '../components/panel/panel';
-import { Tag } from '../components/ui/tags/tags';
 
 const ProjectIndex = ({ data }: any) => {
 	const posts = data.allMdx.edges
 	return (
 		<Layout>
 			<SEO title="All projects" />
-			<div className="project__container">
+			<div className="projects__header">
 				<h2 className="no-margin">Projects</h2>
-				<Divider style={{ width: "30vh" }} />
-				<div className="project__page">
-					{posts.map((project: any) => {
-						const title = project.node.frontmatter.title || project.node.fields.slug;
-						const { external_link, github_link, description, thumb } = project.node.frontmatter;
-						const { id, fields } = project.node;
-						return (
+				<Divider style={{ width: "30vh" }} />	
+			</div>
+			<div className="projects__container">
+				{posts.map((project: any) => {
+					const title = project.node.frontmatter.title || project.node.fields.slug;
+					const { external_link, github_link, description } = project.node.frontmatter;
+					const { id, fields } = project.node;
+					return (
+						<React.Fragment>
 							<Card
 								key={id}
-								
+								title={title}
+								description={description}
+								externalUrl={external_link}
+								gitUrl={github_link}
 							/>
-							// <Panel
-							
-							// 	key={id}
-							// 	link={fields.slug}
-							// 	title={title}
-							// 	description={description}
-							// 	imageUrl={thumb && thumb.publicURL}
-							// >
-							// 	<Tag link={github_link} icon="git">
-							// 		source
-							// 	</Tag>
-							// 	<Tag link={external_link} icon={["fas", "link"]} />
-							// </Panel>
-						);
-					})}
-				</div>
-				<Spacer height={30} units="vh" />
+						</React.Fragment>
+					);
+				})}
 			</div>
+			
+			<Spacer height={30} units="vh" />
 		</Layout>
 	)
 }

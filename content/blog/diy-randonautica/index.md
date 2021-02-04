@@ -16,24 +16,26 @@ and then it finds a random coordinate for you to visit within your vicinity. Str
 
 There has been a lot of superstition around this app, especially in regards to how it works under the hood. Some people have speculated that it uses magic or some kind of mystical source to generate a location.
 
-Today we're going to disple that myth -- by building our very own Randonautica-like web app.
+Today we're going to dispel that myth -- by building our very own Randonautica-like web app.
 
 # Entropy
-What is entropy? It's a fancy word meaning the source of random-ness or unique-ness within a system. You use entropy all the time in the real-world, some examples are:
+What is entropy? It's a fancy word meaning the measurable amount of randomness or uniqueness within a system. Entropy is all the time in the real world, some examples are:
 
 - Generating a Minecraft world using a seed.
 
-- Creating a password that has enough special characters, symbols, numbers and uppercase letters.
+- :key: Creating a password that has enough special characters, symbols, numbers and uppercase letters.
+
+- :birthday: You bake two cakes and you notice that one of them tastes slightly different.
 
 In Randonautica, the default source of entropy (randomness) uses a Quantum Computer that generates "truly random" numbers. 👻 Spooky Right? 
 
 Our workflow will roughly go like this:
 
-1) Set up the server.
+1. Set up the server.
 
-2) Create our endpoints
+2. Create our endpoints
 
-3) Build our front end web app
+3. Build our front end web app
 
 # Part I: Backend
 Were going to build the API in python and flask.

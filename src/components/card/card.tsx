@@ -1,73 +1,65 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
 import './card.scss';
-
+import { Icon } from '../ui/icon/icon';
+import { ExternalLink } from '../ui/link/link';
 
 export const Card = ({ 
-    npmURL, 
-    appstoreURL, 
-    androidURL, 
-    githubURL,
-    liveURL,
-    linuxURL,
-    downloadURL,
-    title,
+    title, 
     description,
-    thumb,
-    link,
-    style,
-    onClick 
+    type, 
+    status, 
+    version,
+    gitUrl,
+    externalUrl,
+    appleUrl,
+    androidUrl,
+    snapcraftUrl,
+    
 }: any) => {
-    const placeHolder = "https://via.placeholder.com/300/000000/FFFFFF/?text=Placeholder";
     return (
-        <div style={style} onClick={onClick} className="card">
-            <Link to={link}>
-                <img className="card-image" alt="card-img" src={thumb || placeHolder} />
-                <ul className="card-meta">
-                    <li>
-                        <h4 style={{ margin: 0, paddingBottom: "5px" }}>{title}</h4>
-                    </li>
-                    <li className="card-description">{description}</li>
-                </ul>
-                </Link>
-                <ul className="card-icon-bar">
-                    {/* Icons */}
-                    {githubURL &&
-                        <a target="_blank" rel="noopener noreferrer" href={githubURL} className="card-icon">
-                            {/* <FontAwesomeIcon icon={["fab", "github"]} /> */}
-                        </a>
+        <div className="card">
+            <div className="card__icon">
+                <Icon height={60} width={60} name="folder" />
+            </div>
+            <ul className="card__links">
+                <li>
+                    {
+                        gitUrl && 
+                        <ExternalLink href={gitUrl}>
+                            <Icon height={28} width={28} name="git" />
+                        </ExternalLink>
                     }
-                    {npmURL && 
-                        <a target="_blank" rel="noopener noreferrer" href={npmURL} className="card-icon">
-                            {/* <FontAwesomeIcon icon={["fab", "npm"]} /> */}
-                        </a>
+                </li>
+                <li>
+                    {externalUrl &&
+                        <ExternalLink href={externalUrl}>
+                            <Icon height={28} width={28} name="link" />
+                        </ExternalLink>
                     }
-                    {liveURL &&
-                        <a target="_blank" rel="noopener noreferrer" href={liveURL} className="card-icon">
-                            {/* <FontAwesomeIcon icon={["fas", "link"]} /> */}
-                        </a>
-                    }
-                    {appstoreURL &&
-                        <a target="_blank" rel="noopener noreferrer" href={appstoreURL} className="card-icon">
-                            {/* <FontAwesomeIcon icon={["fab", "app-store"]} /> */}
-                        </a>
-                    }
-                    {androidURL &&
-                        <a target="_blank" rel="noopener noreferrer" href={androidURL} className="card-icon">
-                            {/* <FontAwesomeIcon icon={["fab", "google-play"]} /> */}
-                        </a>
-                    }
-                    {linuxURL &&
-                        <a target="_blank" rel="noopener noreferrer" href={linuxURL} className="card-icon">
-                            {/* <FontAwesomeIcon icon={["fab", "linux"]} /> */}
-                        </a>
-                    }
-                    {downloadURL &&
-                        <a target="_blank" rel="noopener noreferrer" href={downloadURL} className="card-icon">
-                            {/* <FontAwesomeIcon icon={["fas", "download"]} /> */}
-                        </a>
-                    }
-                </ul>
+                </li>
+                <li>
+                    {appleUrl && <Icon height={28} width={28} name="appstore" />}
+                </li>
+                <li>
+                    {androidUrl && <Icon height={28} width={28} name="googleplay" />}
+                </li>
+                <li>
+                    {snapcraftUrl && <Icon height={28} width={28} name="appstore" />}
+                </li>
+            </ul>
+            <div className="card__body">
+                <h3>{title}</h3>
+                <p>{description}</p>
+            </div>
+            <div className="card__status">
+                <li className="card__status-item">
+                    {version}
+                </li>
+                <li className="card__status-item">
+                    {status && <div className="card__status-light"/>}
+                </li>
+            </div>
+            
         </div>
     )
 }
