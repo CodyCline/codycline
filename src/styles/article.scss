@@ -1,0 +1,50 @@
+//Markdown articles
+@import "./controller.scss";
+
+.article__cover {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 30vh;
+    opacity: 1;
+    object-position: center 40%;
+}
+
+.article__container {
+    margin-left: auto;
+    padding: 1em;
+    margin-right: auto;
+    max-width: 80%;
+}
+
+.article__large-header {
+    font-size: var(--font-size-large);
+    @include themed () {
+        color:  invert(t("text"));
+        background:  t("main-color");
+    }
+}
+
+.article__markdown-section {
+    line-height: 28px;
+    letter-spacing: -0.003em;
+    font-size: var(--font-size-medium);
+}
+
+.article__tags {
+    margin: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.article__navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 2rem;
+    font-size: 20px;
+}

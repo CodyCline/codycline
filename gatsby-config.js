@@ -28,6 +28,13 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
+				path: `${__dirname}/content/snippets`,
+				name: `snippets`,
+			},
+		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
 				path: `${__dirname}/src/assets`,
 				name: `assets`,
 			},
@@ -57,12 +64,12 @@ module.exports = {
 				],
 			},
 		},
-		{
-			resolve: `gatsby-plugin-google-analytics`,
-			options: {
-				//trackingId: `ADD YOUR TRACKING ID HERE`,
-			},
-		},
+		// {
+		// 	resolve: `gatsby-plugin-google-analytics`,
+		// 	options: {
+		// 		//trackingId: `ADD YOUR TRACKING ID HERE`,
+		// 	},
+		// },
 		// {
 		// 	resolve: `gatsby-plugin-manifest`,
 		// 	options: {

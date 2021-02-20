@@ -9,7 +9,7 @@ export const OrderedList = ({children}) => {
                 React.Children.map(children, (child, index) => {
                     return (
                         <li className="bullet__list">
-                            <div className="bullet number">
+                            <div className="bullet bullet__list-number">
                                 {index + 1}
                             </div>
                             {child.props.children}

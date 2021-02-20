@@ -10,12 +10,12 @@
 
 Portfolio website and blog with developer-focused content 🛸
 
+[github-actions-badge](https://github.com/codycline/codycline/workflows/AWS%20CI/badge.svg)
 
 
+## 🔧 Under the hood.
 
-## 🧐 What's inside?
-
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A quick look at the top-level files and directories you'll see in this Gatsby project.
 
     .
     ├── node_modules
@@ -46,15 +46,15 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 1.  **`/src`**: Contains all of the code related to the front-end presentation of the site (the browser).
     1.  **`/assets`**: Static files such as logos, fonts, pictures.
     2. **`/components`**: Core part of the project which contain elements that make up the website.
-    3. **`/pages`**: Individual static pages such as index or contact.
+    3. **`/pages`**: Individual static pages such as home page, 404, etc.
     4. **`/styles`**: CSS and Sass modules which define color schemes, variables for the whole project.
     5. **`/templates`**: Defines dynamic pages such as blog posts.
     6. **`/types`**: Typescript definitions for all components.
     7. **`/utils`**: Miscellaneous or higher-order-functions (HOC).
 
-2.  **`/content`**: Markdown files for things like blog posts projects, snippets
+2.  **`/content`**: Markdown files for blog posts projects, snippets
 
-3.  **`/functions`**: Serverless functions which handle things like HTTP security headers, analytics, etc.
+3.  **`/functions`**: Serverless functions which handles HTTP security headers, etc.
 
 4.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 

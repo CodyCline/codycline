@@ -2,7 +2,7 @@ $caution: #7114EA;
 // also #603888
 $warning: #4379FF;
 $primary: 	#60d9fb;
-$secondary: 	#1A74E2;
+$secondary: 	#58a6ff;
 
 $reddish: #d41714;
 $bluish: #21b9b9;
@@ -16,6 +16,7 @@ $themes: (
         fg: #2b2b2b,
 		text: #D8D8D8,
 		border: #FCFCFC,
+        theme-toggle: #CCC,
 		hr: linear-gradient(to right, $primary, $secondary),
 		main-color: $primary,
 		secondary-color: $secondary,
@@ -60,6 +61,7 @@ $themes: (
 		bg: #FFFFFF,
 		fg: #D8D8D8,
 		text: #171819,
+        theme-toggle: #ff9d00,
 		border: #000,
 		hr: linear-gradient(to right, $warning, $caution),
 		main-color: $warning,

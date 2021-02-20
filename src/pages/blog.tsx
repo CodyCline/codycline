@@ -6,6 +6,7 @@ import { Panel } from "../components/panel/panel";
 import { withAddons } from "../utils/with-addons";
 import { Divider } from "../components/ui/divider/divider";
 import { Tag } from "../components/ui/tags/tags";
+import { Spacer } from "../components/ui/spacer/spacer";
 
 const BlogIndex = ({ data }: any) => {
 	// const siteTitle = data.site.siteMetadata.title
@@ -13,9 +14,13 @@ const BlogIndex = ({ data }: any) => {
 	return (
 		<Layout >
 			<SEO title="All blog posts" />
-			<div className="project__container">
-				<h2 className="no-margin">Blog Posts</h2>
-				<Divider style={{ width: "30vh" }} />
+			<Spacer height={10} units="vh"/>
+			<div className="content__container">
+				<div className="content__header">
+					<h2 className="no__margin">Blog Posts</h2>
+					<p>Full feature articles</p>
+					<Divider/>
+				</div>
 				{posts.map((post: any) => {
 					const title = post.node.frontmatter.title || post.node.fields.slug;
 					const { description, thumb, tags } = post.node.frontmatter;
@@ -27,18 +32,12 @@ const BlogIndex = ({ data }: any) => {
 							title={title}
 							description={description}
 							imageUrl={thumb.publicURL}
-						>
-							{tags && tags.map((tag: string, index: number) => {
-								return (
-									<Tag key={index} icon={tag} link={`/meta/${tag}`}>
-										{tag}
-									</Tag>
-								)
-							})}
-						</Panel>
+							tags={tags}
+						/>
 					)
 				})}
 			</div>
+			<Spacer height={60} units="vh" />
 		</Layout>
 	)
 }

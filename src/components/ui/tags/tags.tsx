@@ -5,7 +5,7 @@ import './tags.scss';
 
 export const Tag = ({ children, link, icon }: any) => (
     <Link className="meta" to={link}>
-        <Icon name={icon.toLowerCase()}/>
+        {icon && <Icon name={icon.toLowerCase()}/>}
         <span className="meta__tag">
             {children && children.toLowerCase()}
         </span>

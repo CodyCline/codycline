@@ -12,80 +12,24 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 
 .nav__item {
-    padding: 0 1rem 0 1rem;
-    width: 15vh;
+    padding: 0 1rem;
+    font-size: var(--font-size-medium);
     font-weight: bold;
 }
 
-.nav__item h1 {
-    margin: 0;
-    width: 100%;
-}
 
-.home__icon {
+.controls {
     margin-right: auto;
-    text-align: left;
+    text-align: right;
     width: 100%;
 }
 
-.mobile__nav {
-    position: fixed;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 1em 0 0 0;
-    width: 100%;
-    height: 100%;
-    top: 50%;
-    z-index: 99;
-    border-radius: 20px;
-    @include themed () {
-        background: t("fg");
-    }
-}
 
-.mobile__nav__icon {
-    margin-right: 1em;
-}
-
-.mobile__nav h4 {
-    margin: 0;
-}
-
-.mobile__bg {
-    background-color: #00000066; 
-    z-index: 1; 
-    min-height: 100vh;
-    width: 100%; 
-    height: 100%; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    overflow: auto; 
-    
-}
-
-.mobile__nav__item {
-    display: flex;
-    width: 100%;
-    margin: 0;
-    padding: 1em;
-}
-
-.mobile__nav__toggle {
-    cursor: pointer;
-    font-size: 1.5rem;
-
-}
-
-.mobile__nav__item:hover {
-    background: #0B6EFD;
-    cursor: pointer;
-}
 
 
 .nav__item__active {

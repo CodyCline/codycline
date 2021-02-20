@@ -1,7 +1,8 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
-const createProjectPages = require(`./create-project-pages`);
 const createBlogPages = require(`./create-blog-pages`);
+const createProjectPages = require(`./create-project-pages`);
+const createSnippetPages = require(`./create-snippet-pages`);
 const createMetaPages = require(`./create-meta-pages`);
 
 
@@ -47,6 +48,25 @@ exports.createPages = async ({ graphql, actions }) => {
 				}
 			}
 		}
+		snippets: allMdx(
+			filter: {fileAbsolutePath: {glob: "**/snippets/**/*.md"}},
+			sort: { 
+				fields: [frontmatter___date], 
+				order: DESC,
+			}
+			limit: 1000
+		){
+			edges {
+				node {
+					fields {
+						slug
+					}
+					frontmatter {
+						title
+					}
+				}
+			}
+		}
 		meta: allMdx(limit: 2000) {
 			group(field: frontmatter___tags) {
 			  fieldValue
@@ -55,22 +75,26 @@ exports.createPages = async ({ graphql, actions }) => {
 	}`);
 
 	if (result.errors) {
-		throw result.errors
+		throw result.errors;
 	}
 
 	const blogPosts = result.data.blog.edges;
 	const projectPosts = result.data.projects.edges;
+	const snippetPosts = result.data.snippets.edges;
 	const metaPosts = result.data.meta.group;
 
-	blogPosts.forEach((post, index) => {
+	blogPosts.forEach((article, index) => {
 		const previous = index === blogPosts.length - 1 ? null : blogPosts[index + 1].node
 		const next = index === 0 ? null : blogPosts[index - 1].node
-		createBlogPages(createPage, post, previous, next);
+		createBlogPages(createPage, article, previous, next);
 	});
 
-	projectPosts.forEach(post => {
-		createProjectPages(createPage, post);
+	projectPosts.forEach(project => {
+		createProjectPages(createPage, project);
 	});
+	snippetPosts.forEach(snippet => {
+		createSnippetPages(createPage, snippet)
+	})
 	metaPosts.forEach(tag => {
 		createMetaPages(createPage, tag);
 	});
@@ -94,32 +118,15 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 exports.createSchemaCustomization = ({ actions }) => {
 	const { createTypes } = actions
 	createTypes(`
-		interface Frontmatter {
-			title: String
-			date: Date
-			description: String
+		type BlogFrontmatter {
+			title: String!
+			date: Date!
+			platform: String
+			description: String!
 			thumb: File
-			banner: File!
+			banner: File
 			tags: [String]
-		}
-		type BlogFrontmatter implements Frontmatter {
-			title: String
-			date: Date
-			description: String
-			thumb: File
-			banner: File!
-			tags: [String]
-		}
-
-		type ProjectFrontmatter implements Frontmatter {
-			title: String
-			date: Date
-			description: String
-			thumb: File
-			banner: File!
-			tags: [String]
-			appstore_link: String!
-			snapstore_link: String!
+			category: String
 		}
 		type Mdx implements Node {
 			frontmatter: BlogFrontmatter

@@ -7,26 +7,26 @@ $radius: 25px;
     @include themed() {
         background: t("fg");
     }
-    padding: .75em;
-    margin: 1em auto;
+    padding: 1em;
+    margin: 2em auto;
     transition: 0.5s;
     overflow: hidden;
-    width: 75%;
 
     display: grid;
     grid-gap: 1em;
     grid-template-areas:
-    "image  header  header"
-    "image  text    text"
-    "image  tags    tags";
+        "image  header  header"
+        "image  text    text"
+        "image  tags    tags";
     border-left: 4px solid $primary;
+    justify-content: left;
+    align-items: center;
 }
 
 .panel:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
-
 
 .panel:hover h3 {
     @include themed {
@@ -46,8 +46,8 @@ $radius: 25px;
 
 .panel__image {
     object-fit: cover;
-    height: auto;
-    width: 100%;
+    height: 200px;
+    width: 200px;
     border-radius: $radius;
     grid-area: image;
 }
@@ -61,9 +61,9 @@ $radius: 25px;
     .panel {
         width: 80%;
         grid-template-areas:
-        "image   image"
-        "header  header"
-        "text    text"
-        "tags    tags";
+            "image   image"
+            "header  header"
+            "text    text"
+            "tags    tags";
     }
 }

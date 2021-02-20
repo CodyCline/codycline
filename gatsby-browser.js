@@ -1,2 +1,3 @@
 // custom typefaces
-// import "prismjs/themes/prism.css"
+import "@fontsource/rubik";
+import "@fontsource/lato";

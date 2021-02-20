@@ -12,30 +12,33 @@ const ProjectIndex = ({ data }: any) => {
 	return (
 		<Layout>
 			<SEO title="All projects" />
-			<div className="projects__header">
-				<h2 className="no-margin">Projects</h2>
-				<Divider style={{ width: "30vh" }} />	
-			</div>
-			<div className="projects__container">
-				{posts.map((project: any) => {
-					const title = project.node.frontmatter.title || project.node.fields.slug;
-					const { external_link, github_link, description } = project.node.frontmatter;
-					const { id, fields } = project.node;
-					return (
-						<React.Fragment>
+			<div className="content__container">
+				<Spacer height={10} units="vh"/>
+				<div className="content__header">
+					<h2 className="no__margin">Projects</h2>
+					<p>Projects, mostly-web based and open source.</p>
+					<Divider/>	
+				</div>
+				<div className="content__card-grid">
+					{posts.map((project: any) => {
+						const title = project.node.frontmatter.title || project.node.fields.slug;
+						const { external_link, github_link, description, platform } = project.node.frontmatter;
+						const { id, fields } = project.node;
+						return (
 							<Card
 								key={id}
 								title={title}
+								platform={platform}
 								description={description}
 								externalUrl={external_link}
 								gitUrl={github_link}
+								slug={fields.slug}
 							/>
-						</React.Fragment>
-					);
-				})}
+						);
+					})}
+				</div>
 			</div>
-			
-			<Spacer height={30} units="vh" />
+			<Spacer height={60} units="vh" />
 		</Layout>
 	)
 }
@@ -62,6 +65,7 @@ query AllProjects {
 					tags
 					external_link
 					github_link
+					platform
 					thumb {
 						publicURL
 					}

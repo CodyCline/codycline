@@ -17,23 +17,12 @@ const ProjectPostTemplate = ({ data, pageContext}:any) => {
 				title={post.frontmatter.title}
 				description={post.frontmatter.description || post.excerpt}
 			/>
-			<img className="article__cover__image" src={post.frontmatter.thumb && post.frontmatter.thumb.publicURL || "https://via.placeholder.com/300x300"} alt="banner.jpg" />
-			<article
-				id={post.id}
-				style={{
-					marginLeft: `auto`,
-					padding: `1em`,
-					marginRight: `auto`,
-					maxWidth: `80%`,
-				}}
-			>
-                <h1 className="big__header">{post.frontmatter.title}</h1>
+			<img className="article__cover" src={post.frontmatter.thumb && post.frontmatter.thumb.publicURL || "https://via.placeholder.com/300x300"} alt="banner.jpg" />
+			<article id={post.id} className="article__container" >
+                <h1 className="article__large-header">{post.frontmatter.title}</h1>
                 <h3>{post.frontmatter.date}</h3>
                 <Divider/>
-                <section style={{
-                    lineHeight: `28px`,
-                    letterSpacing: `-0.003em`
-                }}>
+                <section className="article__markdown-section">
                     <Markdown>
                         <MDXRenderer>{post.body}</MDXRenderer>
                     </Markdown>

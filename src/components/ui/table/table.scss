@@ -70,6 +70,7 @@
                 width: 10px;
                 height: 100%;
                 position: absolute;
+                cursor: col-resize;
                 right: 0;
                 top: 0;
                 transform: translateX(50%);
@@ -79,9 +80,9 @@
             .resizer:hover {
                 @include themed() {
                     background: t("code");
-                    border-radius: 5px;
-                    z-index: 999;
                 }
+                border-radius: 5px;
+                z-index: 999;
             }
         }
 

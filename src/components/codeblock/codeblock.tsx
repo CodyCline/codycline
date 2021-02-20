@@ -63,9 +63,9 @@ const pluginsToLoad: string[] = [
 export const CodeBlock = (props: any) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
     const language = props.className.split("language-").join("");
-    
+
     React.useEffect(() => {
-        //Not the cleanest solution but loadLanguages is broken
+        //Not the cleanest solution but `languageLoader` plugin is broken
         const languageLoader = getLoader(components, languagesToLoad);
         const pluginLoader = getLoader(components, pluginsToLoad);
         languageLoader.load((language:string) => {
@@ -77,6 +77,8 @@ export const CodeBlock = (props: any) => {
         Prism.highlightAll();
     });
 
+    
+
     function copyCode() {
         if (codeRef.current) {
             navigator.clipboard.writeText(codeRef.current.innerText);
@@ -87,21 +89,14 @@ export const CodeBlock = (props: any) => {
         <section style={{ margin: "1em 0 1em 0" }}>
             <ul className="tool__bar">
                 <li>
-                    <Icon height={26} width={26} name={language}/>
+                    <Icon height={24} width={24} name={language}/>
                 </li>
-                <li
-                    className="copy__icon"
-                    onClick={copyCode}
-                >
-                    <Icon name="copy" height={26} width={26}/>
+                <li className="copy__icon" onClick={copyCode}>
+                    <Icon noTitle name="copy" height={24} width={24}/>
                 </li>
                 
             </ul>
-            <pre style={{
-                margin: 0,
-                borderBottomLeftRadius: "10px",
-                borderBottomRightRadius: "10px",
-            }} className={cx("code__block", "match-braces", "line-numbers")}>
+            <pre className={cx("code__block", "match-braces", "line-numbers")}>
                 <code ref={codeRef} className={cx(props.className, "rainbow-braces")}>
                     {props.children}
                 </code>

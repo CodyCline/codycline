@@ -19,57 +19,36 @@ const BlogPostTemplate = ({ data, pageContext }: any) => {
 				title={post.frontmatter.title}
 				description={post.frontmatter.description || post.excerpt}
 			/>
-			<img className="article__cover__image" src={post.frontmatter.thumb.publicURL} alt="banner.jpg" />
-			<article
-				id={post.id}
-				style={{
-					marginLeft: `auto`,
-					padding: `1em`,
-					marginRight: `auto`,
-					maxWidth: `80%`,
-				}}
-			>
-				<h1 className="big__header">{post.frontmatter.title}</h1>
+			<img className="article__cover" src={post.frontmatter.thumb.publicURL} alt="banner.jpg" />
+			<article className="article__container" id={post.id}>
+				<h1 className="article__large-header">{post.frontmatter.title}</h1>
 				<h3>{post.frontmatter.date}</h3>
 				<Divider />
-				<section style={{
-					lineHeight: `28px`,
-					letterSpacing: `-0.003em`
-				}}>
+				<section className="article__markdown-section">
 					<Markdown>
 						<MDXRenderer>
 							{post.body}
 						</MDXRenderer>
 					</Markdown>
 				</section>
-				<div 
+				<div
 					className="article__tags"
-					style={{ margin: "4rem", display: "flex", flexWrap: "wrap", justifyContent: "center"}}
+					
 				>
-					{
-						tags && tags.map((name: string, index: number) => {
-							return (
-								<Tag 
-									key={index} 
-									icon={name} 
-									link={`/meta/${name}`}
-								>
-									{name}
-								</Tag>
-							);
-						})
+					{tags && tags.map((name: string, index: number) => {
+						return (
+							<Tag
+								key={index}
+								icon={name}
+								link={`/meta/${name}`}
+							>
+								{name}
+							</Tag>
+						);
+					})
 					}
 				</div>
-				<nav
-					style={{
-						display: `flex`,
-						flexWrap: `wrap`,
-						justifyContent: `space-between`,
-						listStyle: `none`,
-						padding: 0,
-						margin: `2rem`
-					}}
-				>
+				<nav className="article__navigation">
 					<li>
 						{previous && (
 							<Link to={previous.fields.slug} rel="prev">

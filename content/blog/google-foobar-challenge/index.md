@@ -81,24 +81,32 @@ The number matrix
 | 7 12 18 25 33 42 52 63  
 | 4 8 13 19 26 34 43 53 64  
 | 2 5 9 14 20 27 35 44 54 65   
-| 1 3 6 10 15 21 28 36 45 55 66  
-  
+| 1 3 6 10 15 21 28 36 45 55 66
+
+
+
 ```python
 def solution(x, y):
-    cell_number = 0 
-    x_count = 0 
-    while x_count < x: 
-        x_count += 1 
+    cell_number=0
+    x_count = 0
+    while x_count < x:
+        x_count += 1
         cell_number += x_count
         if x_count == x: #If equal to x_count
-            y_count = 1 
+            y_count = 1
             y_increment = x_count #Copy the current x_count and then iterate
-            while y_count < y: 
+            while y_count < y:
                 y_count += 1
                 cell_number += y_increment
                 y_increment += 1
             return(str(cell_number))
+```
 
+```py
+def solution(x, y):
+    if x % 2 == 0:
+        return False
+    return True
 ```
 
 ## Part 2: Please Pass the Coded Messages

@@ -1,0 +1,54 @@
+@import "../../styles/index.scss";
+
+.strip {
+    display: grid;
+    margin: 2em auto;
+    padding: 0 1em;
+    grid-template-areas: "title description date";
+    border-radius: 6.8px;
+    @include themed() {
+        background: t("fg");
+        border: 1px solid gray;
+    }
+    list-style: none;
+    overflow: hidden;
+}
+
+
+.strip__icon {
+    margin-right: 16px;
+}
+
+.strip__title {
+    grid-area: title;
+    @include themed() {
+        color: t("secondary-color");
+    }
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.strip__description {
+    grid-area: description;
+    max-width: 350px;
+}
+
+.strip__date {
+    grid-area: date;
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 650px) {
+    .strip {
+        grid-template-areas: 
+        "title              title"
+        "description  description"
+        "date                date";
+        padding: 16px;
+    }
+
+    .strip__date {
+        margin-left: 0;
+    }
+}

@@ -1,4 +1,4 @@
-// Prismjs dark vscode theme
+//Prismjs vscode theme
 
 @import "../../styles/index.scss";
 
@@ -10,7 +10,7 @@ code[class*="language-"] {
 	}
 	text-shadow: none;
 	font-family: Menlo, Monaco, Consolas, "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
-	font-size: 1em;
+	font-size: var(--font-size-normal);
 	direction: ltr;
 	text-align: left;
 	white-space: pre;

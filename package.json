@@ -8,6 +8,8 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@fontsource/lato": "^4.2.1",
+    "@fontsource/rubik": "^4.2.1",
     "@mdx-js/mdx": "^1.6.18",
     "@mdx-js/react": "^1.6.18",
     "@typescript-eslint/eslint-plugin": "^4.1.1",

@@ -3,7 +3,7 @@
 .meta {
     margin: 4px 6px 4px 6px;
     @include themed() {
-        background: t("bg");
+        background: lighten(t("bg"), 7.5%);
     }
     border: 2px solid black;
     border-radius: 12px;

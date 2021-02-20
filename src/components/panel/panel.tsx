@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import './panel.scss';
+import { Tag } from '../ui/tags/tags';
 
 
 
-export const Panel = ({ children, title, description, imageUrl, onClick, tags, link }: any) => {
+export const Panel = ({ title, description, imageUrl, onClick, tags, link }: any) => {
     return (
         <article className="panel" onClick={onClick}>
             <Link className="panel__image" to={link}>
@@ -19,7 +20,13 @@ export const Panel = ({ children, title, description, imageUrl, onClick, tags, l
                 <Link to={link}>{description}</Link>
             </p>
             <div className="panel__links">
-                {children}
+                {tags.map((tag: string, index: number) => {
+                    return (
+                        <Tag key={index} icon={tag} link={`/meta/${tag}`}>
+                            {tag}
+                        </Tag>
+                    )
+                })}
             </div>
         </article>
     );
