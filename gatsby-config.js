@@ -8,6 +8,9 @@ module.exports = {
 			summary: `No summary yet`,
 		},
 		description: `Developer blog with code-focused content.`,
+		social: {
+			github: `codycline`
+		}
 	},
 	plugins: [
 		//Load Markdown (mdx) content and static assets

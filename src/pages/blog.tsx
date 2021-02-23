@@ -5,15 +5,20 @@ import { Layout } from "../components/layout/layout";
 import { Panel } from "../components/panel/panel";
 import { withAddons } from "../utils/with-addons";
 import { Divider } from "../components/ui/divider/divider";
-import { Tag } from "../components/ui/tags/tags";
 import { Spacer } from "../components/ui/spacer/spacer";
 
 const BlogIndex = ({ data }: any) => {
 	// const siteTitle = data.site.siteMetadata.title
+	console.log(data.site);
 	const posts = data.allMdx.edges
 	return (
 		<Layout >
-			<SEO title="All blog posts" />
+			<SEO 
+				title="Blog Posts"
+				description="Website blog posts"
+				siteMeta={data.site.siteMetadata}
+				lang="en"
+			/>
 			<Spacer height={10} units="vh"/>
 			<div className="content__container">
 				<div className="content__header">
@@ -49,6 +54,10 @@ query AllBlogPosts {
 	site {
 		siteMetadata {
 			title
+			description
+			social {
+				github
+			}
 	  	}
 	}
 	allMdx(sort: {fields: [frontmatter___date], order: DESC}, filter: {fileAbsolutePath: {glob: "**/blog/**/*.md"}}) {
