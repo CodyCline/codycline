@@ -8,8 +8,6 @@ import { Divider } from "../components/ui/divider/divider";
 import { Spacer } from "../components/ui/spacer/spacer";
 
 const BlogIndex = ({ data }: any) => {
-	// const siteTitle = data.site.siteMetadata.title
-	console.log(data.site);
 	const posts = data.allMdx.edges
 	return (
 		<Layout >

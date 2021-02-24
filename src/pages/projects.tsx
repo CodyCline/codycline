@@ -11,7 +11,12 @@ const ProjectIndex = ({ data }: any) => {
 	const posts = data.allMdx.edges
 	return (
 		<Layout>
-			<SEO title="All projects" />
+			<SEO 
+				title="Portfolio Projects"
+				description="Software portfolio projects"
+				siteMeta={data.site.siteMetadata}
+				lang="en" 
+			/>
 			<div className="content__container">
 				<Spacer height={10} units="vh"/>
 				<div className="content__header">

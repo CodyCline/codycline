@@ -54,6 +54,7 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "gatsby-plugin-testing": "^0.3.4",
     "prettier": "2.1.1"
   },
   "homepage": "https://github.com/codycline/codycline/blob/master/APP_README.md",
