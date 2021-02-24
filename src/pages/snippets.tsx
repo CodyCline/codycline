@@ -12,7 +12,12 @@ const SnippetIndex = ({ data }: any) => {
     const posts = data.allMdx.edges
     return (
         <Layout >
-            <SEO title="All blog posts" />
+            <SEO 
+                title="Snippets"
+				description="Quick, bite-sized bits of content"
+				siteMeta={data.site.siteMetadata}
+				lang="en"
+            />
             <Spacer height={10} units="vh"/>
             <div className="content__container">
                 <div className="content__header">

@@ -8,7 +8,7 @@ import { Spacer } from '../components/ui/spacer/spacer';
 import { withAddons } from '../utils/with-addons';
 
 const ProjectIndex = ({ data }: any) => {
-	const posts = data.allMdx.edges
+	const posts = data.allMdx.edges;
 	return (
 		<Layout>
 			<SEO 

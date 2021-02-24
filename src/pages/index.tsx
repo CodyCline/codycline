@@ -7,10 +7,15 @@ import { SocialBar, SocialIcon } from "../components/socialbar/socialbar";
 import '../styles/index.scss';
 import { Icon } from "../components/ui/icon/icon";
 
-const Index = ({}: any) => {
+const Index = ({data}: any) => {
 	return (
-		<Layout title="Cody Cline">
-			<SEO title="Welcome"/>
+		<Layout>
+			<SEO 
+				title="Welcome"
+				description="Home page"
+				siteMeta={data.site.siteMetadata}
+				lang="en"
+			/>
 			<div className="grid__lines">
 				<div style={{ height: "20vh" }} />
 				<div className="center__card">
