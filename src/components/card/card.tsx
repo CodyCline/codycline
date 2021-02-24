@@ -114,7 +114,8 @@ export const Card = ({
                 </li>
                 <li className="card__status-item">
                     {status && 
-                        <div 
+                        <div
+                            role="tooltip" 
                             className={cx(`status__light`, getStatus(status))}
                         />
                     }
