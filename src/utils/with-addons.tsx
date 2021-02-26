@@ -1,6 +1,10 @@
 import * as React from 'react';
 
-export const withAddons = (Component:any) => (props:any) => {
-    //Analytics, icons, etc.
-    return <Component {...props } />;
-};
+
+//HOC that injects analytics, 
+export const withAddons = (Component: any) => (props: any) => {
+    //Register analytics, logging, etc.
+    return (
+        <Component {...props } />
+    );
+}

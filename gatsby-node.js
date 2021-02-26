@@ -126,7 +126,8 @@ exports.createSchemaCustomization = ({ actions }) => {
 			thumb: File
 			banner: File
 			tags: [String]
-			category: String
+			github_url: String
+			external_url: String
 		}
 		type Mdx implements Node {
 			frontmatter: BlogFrontmatter

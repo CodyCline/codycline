@@ -54,6 +54,7 @@
     "typography": "^0.16.19"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^5.0.3",
     "gatsby-plugin-testing": "^0.3.4",
     "prettier": "2.1.1"
   },
