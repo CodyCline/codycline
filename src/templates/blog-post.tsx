@@ -9,17 +9,21 @@ import { Divider } from "../components/ui/divider/divider";
 import { Tag } from "../components/ui/tags/tags";
 
 const BlogPostTemplate = ({ data, pageContext }: any) => {
-	const post = data.mdx
-	const siteTitle = data.site.siteMetadata.title
+	const post = data.mdx;
+	const siteTitle = post.frontmatter.title || data.site.siteMetadata.title;
+	const siteDescription = post.frontmatter.description || post.excerpt;
 	const { tags } = data.mdx.frontmatter;
 	const { previous, next } = pageContext;
 	return (
 		<Layout>
 			<SEO
-				title={post.frontmatter.title}
-				description={post.frontmatter.description || post.excerpt}
+				title={siteTitle}
+				description={siteDescription}
+				contentType="article"
+				lang="en"
+				siteMeta={data.site.siteMetadata}
 			/>
-			<img className="article__cover" src={post.frontmatter.thumb.publicURL} alt="banner.jpg" />
+			<img className="article__cover" src={post.frontmatter.thumb.publicURL} alt="banner"/>
 			<article className="article__container" id={post.id}>
 				<h1 className="article__large-header">{post.frontmatter.title}</h1>
 				<h3>{post.frontmatter.date}</h3>
@@ -66,7 +70,7 @@ const BlogPostTemplate = ({ data, pageContext }: any) => {
 				</nav>
 			</article>
 		</Layout>
-	)
+	);
 }
 
 export default withAddons(BlogPostTemplate)

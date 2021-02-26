@@ -27,7 +27,7 @@ export const ThemeToggle = () => {
                     width={32} 
                 />
             </button>
-        )
+        );
     }
     return <React.Fragment />
 }

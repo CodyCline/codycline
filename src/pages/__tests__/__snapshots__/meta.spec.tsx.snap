@@ -382,9 +382,9 @@ Array [
         }
       >
         <a
-          href="/blog/google-foobar-challenge/"
+          href="/blog/diy-randonautica/"
         >
-          Tackling the Google Foobar Challenge
+          Create your own Randonautica web app
         </a>
       </div>
       <div
@@ -398,9 +398,9 @@ Array [
         }
       >
         <a
-          href="/blog/diy-randonautica/"
+          href="/blog/google-foobar-challenge/"
         >
-          Create your own Randonautica web app
+          Tackling the Google Foobar Challenge
         </a>
       </div>
     </div>

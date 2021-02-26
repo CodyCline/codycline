@@ -98,7 +98,7 @@ Array [
         href="/blog/diy-randonautica/"
       >
         <img
-          alt="thumb.jpg"
+          alt="thumb"
           className="panel__image"
           role="link"
           src="/static/cd989575e12274e973f0f48f8ab96111/randonautica.webp"
@@ -227,7 +227,7 @@ Array [
         href="/blog/google-foobar-challenge/"
       >
         <img
-          alt="thumb.jpg"
+          alt="thumb"
           className="panel__image"
           role="link"
           src="/static/838890e1e444dcacdf2110b9ff7c38a4/foobar.gif"
@@ -317,7 +317,7 @@ Array [
         href="/blog/markdown-test/"
       >
         <img
-          alt="thumb.jpg"
+          alt="thumb"
           className="panel__image"
           role="link"
           src="/static/cd989575e12274e973f0f48f8ab96111/randonautica.webp"

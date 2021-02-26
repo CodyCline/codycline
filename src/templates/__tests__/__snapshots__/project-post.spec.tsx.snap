@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Projects renders GraphQL data correctly 1`] = `
+Array [
+  <nav
+    className="navbar"
+  >
+    <a
+      className="nav__item home__icon"
+      href="/"
+    >
+      <img
+        alt="logo.png"
+        src="test-file-stub"
+        style={
+          Object {
+            "height": "50px",
+            "width": "70px",
+          }
+        }
+      />
+    </a>
+    <a
+      className="nav__item"
+      href="/blog"
+    >
+       Blog 
+    </a>
+    <a
+      className="nav__item"
+      href="/snippets"
+    >
+      Snippets
+    </a>
+    <a
+      className="nav__item"
+      href="/projects"
+    >
+      Projects
+    </a>
+    <a
+      className="nav__item controls"
+      href="#"
+    >
+      <button
+        className="theme__toggle"
+        onClick={[Function]}
+      >
+        <svg
+          className="theme__toggle-icon"
+          height={32}
+          viewBox="0 0 1024 1024"
+          width={32}
+        >
+          <title>
+            lightbulb
+          </title>
+          <path
+            d="M746.944 554.116c-21.683 21.347-38.349 45.102-50.054 71.274-11.398 26.079-17.126 54.412-17.126 85.068v102.419c0 11.488-2.17 22.342-6.541 32.506-4.32 10.048-10.253 18.861-17.805 26.381-7.546 7.52-16.385 13.427-26.46 17.734-10.187 4.346-21.067 6.502-32.575 6.502h-102.796c-11.509 0-22.389-2.157-32.576-6.502-10.074-4.307-18.913-10.214-26.461-17.734s-13.482-16.333-17.804-26.381c-4.371-10.163-6.538-21.018-6.538-32.506v-102.419c0-30.65-5.859-58.97-17.519-85.044-11.437-26.159-27.981-49.954-49.664-71.298-27.83-27.458-49.316-58.114-64.379-91.95-15.107-33.937-22.631-70.696-22.631-110.196 0-26.425 3.419-51.937 10.271-76.516 6.835-24.517 16.549-47.431 29.149-68.723 12.584-21.53 27.637-41.028 45.153-58.481 17.508-17.445 36.936-32.44 58.271-44.977 21.622-12.544 44.769-22.236 69.365-29.044 24.658-6.824 50.251-10.229 76.76-10.229s52.101 3.405 76.759 10.229c24.598 6.808 47.587 16.484 68.95 29.036 21.6 12.536 41.171 27.532 58.688 44.986 17.517 17.452 32.563 36.95 45.152 58.48 12.602 21.292 22.317 44.206 29.146 68.724 6.854 24.579 10.272 50.091 10.272 76.516 0 39.5-7.52 76.259-22.63 110.196-15.059 33.836-36.55 64.492-64.378 91.95zM615.8 672h-141.629v140.877c0 5.19 1.826 9.6 5.774 13.536 3.949 3.93 8.396 5.766 13.643 5.766h102.796c5.247 0 9.694-1.837 13.643-5.766 3.948-3.936 5.774-8.346 5.774-13.536v-140.877z"
+            fill={null}
+            opacity={1}
+          />
+        </svg>
+      </button>
+    </a>
+  </nav>,
+  <img
+    alt="banner"
+    className="article__cover"
+    src="https://example.com"
+  />,
+  <article
+    className="article__container"
+    id="uuid"
+  >
+    <h1
+      className="article__large-header"
+    >
+      Test Article
+    </h1>
+    <h3>
+      1970-01-01
+    </h3>
+    <hr
+      className="divider"
+    />
+    <section
+      className="article__markdown-section"
+    >
+      <p>
+        Hello world
+      </p>
+    </section>
+  </article>,
+  <footer
+    className="footer"
+  >
+    <li
+      className="footer__item"
+    >
+      2021
+    </li>
+    <li
+      className="footer__item"
+    />
+  </footer>,
+]
+`;

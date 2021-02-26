@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 
 import { Layout } from "../components/layout/layout";
 import SEO from "../utils/seo";
@@ -37,3 +38,18 @@ const Index = ({data}: any) => {
 	)
 }
 export default withAddons(Index);
+
+export const pageQuery = graphql`
+query HomePage {
+	site {
+		siteMetadata {
+			title
+			description
+			social {
+				github
+			}
+		}
+	}
+}
+
+`

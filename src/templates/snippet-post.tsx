@@ -10,15 +10,19 @@ import { Tag } from "../components/ui/tags/tags";
 
 const SnippetPostTemplate = ({ data, pageContext }: any) => {
 	const post = data.mdx
-	const siteTitle = data.site.siteMetadata.title
+	const siteTitle = post.frontmatter.title || data.site.siteMetadata.title;
+	const siteDescription = post.frontmatter.description || post.excerpt;
 	const { banner } = data.mdx.frontmatter;
-    const category = data.mdx.frontmatter.tags[0];
+	const category = data.mdx.frontmatter.tags[0];
 	const { previous, next } = pageContext;
 	return (
 		<Layout>
 			<SEO
-				title={post.frontmatter.title}
-				description={post.frontmatter.description || post.excerpt}
+				title={siteTitle}
+				description={siteDescription}
+				contentType="blog"
+				lang="en"
+				siteMeta={data.site.siteMetadata}
 			/>
 			{banner && <img className="article__cover" src={post.frontmatter.thumb.publicURL} alt="banner.jpg" />}
 			<article id={post.id} className="article__container" >
@@ -33,12 +37,12 @@ const SnippetPostTemplate = ({ data, pageContext }: any) => {
 					</Markdown>
 				</section>
 				<div className="article__tags" >
-                    <Tag 
-                        icon={category} 
-                        link={`/meta/${category}`}
-                    >
-                        {category}
-                    </Tag>
+					<Tag
+						icon={category}
+						link={`/meta/${category}`}
+					>
+						{category}
+					</Tag>
 				</div>
 				<nav className="article__navigation" >
 					<li>
@@ -64,11 +68,11 @@ const SnippetPostTemplate = ({ data, pageContext }: any) => {
 export default withAddons(SnippetPostTemplate)
 
 export const pageQuery = graphql`
-  query SnippetPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
+query SnippetPostBySlug($slug: String!) {
+	site {
+    	siteMetadata {
+        	title
+      	}
     }
     mdx(fields: { slug: { eq: $slug } }) {
 		id
@@ -83,5 +87,5 @@ export const pageQuery = graphql`
 		}
 		body
     }
-  }
+}
 `
