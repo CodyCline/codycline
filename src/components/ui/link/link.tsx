@@ -10,7 +10,7 @@ interface Link {
 	children: React.ReactNode,
 }
 
-export const ExternalLink = ({href, children, externalOnly = false} : Link) => {
+export const Link = ({href, children, externalOnly = false} : Link) => {
 	const currentHost = process.env.NODE_ENV === `development` ? `localhost:8000`: `codycline.com`;
 	if (href.includes(currentHost) || href[0] === `/`) {
 		return <GatsbyLink to={href}>{children}</GatsbyLink>

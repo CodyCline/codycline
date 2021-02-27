@@ -19,7 +19,7 @@ export const ThemeToggle = () => {
             }
         }
         return (
-            <button className={`theme__toggle`} onClick={toggleTheme}>
+            <button role="checkbox" className={`theme__toggle`} onClick={toggleTheme}>
                 <Icon 
                     className={`theme__toggle-icon`} 
                     name={`lightbulb`}  

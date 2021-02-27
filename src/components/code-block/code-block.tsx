@@ -1,11 +1,11 @@
-import * as React from 'react';
-import * as Prism from 'prismjs';
-import cx from 'classnames';
-import getLoader from 'prismjs/dependencies';
-import components from 'prismjs/components'; //JS not the folder
-import './codeblock.scss';
-import './prism.scss';
-import { Icon } from '../ui/icon/icon';
+import * as React from "react";
+import * as Prism from "prismjs";
+import getLoader from "prismjs/dependencies";
+import components from "prismjs/components"; //JS not the folder
+import cx from "classnames";
+import { Icon } from "../ui/icon/icon";
+import "./codeblock.scss";
+import "./prism.scss";
 
 const languagesToLoad: string[] = [
     "markup",
@@ -30,6 +30,7 @@ const languagesToLoad: string[] = [
     "bash",
     "shell",
     "cs",
+    "diff",
     "dotnet",
     "cmake",
     "docker",
@@ -62,7 +63,7 @@ const pluginsToLoad: string[] = [
 
 export const CodeBlock = (props: any) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
-    const language = props.className.split("language-").join("");
+    const language = props.className.split(`language-`).join(``);
 
     React.useEffect(() => {
         //Not the cleanest solution but `languageLoader` plugin is broken
@@ -91,13 +92,13 @@ export const CodeBlock = (props: any) => {
                 <li>
                     <Icon height={24} width={24} name={language}/>
                 </li>
-                <li className="copy__icon" onClick={copyCode}>
+                <li role="button" className="copy__icon" onClick={copyCode}>
                     <Icon noTitle name="copy" height={24} width={24}/>
                 </li>
                 
             </ul>
-            <pre className={cx("code__block", "match-braces", "line-numbers")}>
-                <code ref={codeRef} className={cx(props.className, "rainbow-braces")}>
+            <pre className={cx(`code__block`, `match-braces`, `line-numbers`)}>
+                <code role="div" ref={codeRef} className={cx(props.className, `rainbow-braces`)}>
                     {props.children}
                 </code>
             </pre>
