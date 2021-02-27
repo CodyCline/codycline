@@ -1,16 +1,12 @@
-import * as React from 'react';
-import cx from 'classnames';
-import { useStickyState } from '../../../../utils/use-sticky-state';
-import { useHasMounted } from '../../../../utils/use-has-mounted';
-import { Icon } from '../../icon/icon';
-import './theme-toggle.scss';
+import * as React from "react";
+import cx from "classnames";
+import { useStickyState } from "../../../../utils/use-sticky-state";
+import { useHasMounted } from "../../../../utils/use-has-mounted";
+import { Icon } from "../../icon/icon";
+import "./theme-toggle.scss";
 
 export const ThemeToggle = () => {
-    const hasMounted = useHasMounted();
-    if (!hasMounted) {
-        return null;
-    }
-    const [theme, setTheme]: any = useStickyState(`dark`, `theme__preference`);
+    const [theme, setTheme]:any = useStickyState(`dark`, `theme__preference`);
     React.useEffect(() => {
         document.documentElement.className = `theme--${theme}`
     })
@@ -23,10 +19,10 @@ export const ThemeToggle = () => {
         }
     }
     return (
-        <button role="checkbox" className={`theme__toggle`} onClick={toggleTheme}>
+        <button role="checkbox" className="theme__toggle" onClick={toggleTheme}>
             <Icon
-                className={`theme__toggle-icon`}
-                name={`lightbulb`}
+                className="theme__toggle-icon"
+                name="lightbulb"
                 height={32}
                 width={32}
             />

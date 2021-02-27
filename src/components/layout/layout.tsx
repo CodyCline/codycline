@@ -5,9 +5,9 @@ import { MobileMenu } from './mobile-nav/mobile-nav'
 import { Footer } from './footer/footer';
 import { Offline } from '../ui/offline/offline';
 import { ThemeToggle } from '../ui/toggle/theme-toggle/theme-toggle';
-import './layout.scss';
 import logo from '../../assets/logo.jpg';
-
+import './layout.scss';
+import { useHasMounted } from '../../utils/use-has-mounted';
 
 export const Layout = ({ children }: any) => {
     return (
@@ -22,6 +22,7 @@ export const Layout = ({ children }: any) => {
 }
 
 export const NavBar = () => {
+    const hasMounted  = useHasMounted();
     const [isMobile, setMobileView] = React.useState<boolean>(false);
     const handleResize = React.useCallback((mediaQuery: any) => {
         mediaQuery.matches ? setMobileView(true) : setMobileView(false);
@@ -49,11 +50,11 @@ export const NavBar = () => {
                 <MobileMenu/>
                 :
                 <React.Fragment>
-                    <NavItem link={`/blog`}> Blog </NavItem>
-                    <NavItem link={`/snippets`}>Snippets</NavItem>
-                    <NavItem link={`/projects`}>Projects</NavItem>
-                    <NavItem link={`#`} className="controls">
-                        <ThemeToggle />
+                    <NavItem link="/blog"> Blog </NavItem>
+                    <NavItem link="/snippets">Snippets</NavItem>
+                    <NavItem link="/projects">Projects</NavItem>
+                    <NavItem link="#" className="controls">
+                       {hasMounted? <ThemeToggle />: null}
                     </NavItem>
                 </React.Fragment>
             }

@@ -10,7 +10,12 @@ const NotFoundPage = ({ data }: any) => {
 
 	return (
 		<Layout title={siteTitle}>
-			<SEO title="Not Found" />
+			<SEO 
+				title="Not Found"
+				description="The page you are looking for has not been found"
+				siteMeta={data.site.siteMetadata}
+				lang="en"
+			/>
 			<h1>Not Found</h1>
 			<p>What you are looking for does not exist!</p>
 		</Layout>
@@ -20,11 +25,15 @@ const NotFoundPage = ({ data }: any) => {
 export default withAddons(NotFoundPage);
 
 export const pageQuery = graphql`
-query {
+query NotFoundPage {
 	site {
-    	siteMetadata {
-        	title
-      	}
-    }
+		siteMetadata {
+			title
+			description
+			social {
+				github
+			}
+		}
+	}
 }
 `

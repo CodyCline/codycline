@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cx from 'classnames';
-import { Link } from 'gatsby';
-import { ExternalLink } from '../ui/link/link';
+import { Link } from '../ui/link/link';
+import { Link as GatsbyLink } from 'gatsby'
 import { Icon } from '../ui/icon/icon';
 import './card.scss';
 
@@ -63,49 +63,49 @@ export const Card = ({
             <ul className="card__meta card__links">
                 {gitUrl &&
                     <li className="card__links-item">
-                        <ExternalLink href={gitUrl}>
+                        <Link href={gitUrl}>
                             <Icon height={28} width={28} name="git" />
-                        </ExternalLink>
+                        </Link>
                     </li>
                 }
                 {externalUrl &&
                     <li className="card__links-item">
-                        <ExternalLink href={externalUrl}>
+                        <Link href={externalUrl}>
                             <Icon height={28} width={28} name="link" />
-                        </ExternalLink>
+                        </Link>
                     </li>
                 }
                 {appleUrl &&
                     <li className="card__links-item">
-                        <ExternalLink href={externalUrl}>
+                        <Link href={appleUrl}>
                             <Icon height={28} width={28} name="appstore" />
-                        </ExternalLink>
+                        </Link>
 
                     </li>
                 }
                 {androidUrl &&
                     <li className="card__links-item">
-                        <ExternalLink href={androidUrl}>
+                        <Link href={androidUrl}>
                             <Icon height={28} width={28} name="googleplay" />
-                        </ExternalLink>
+                        </Link>
                     </li>
                 }
                 {snapcraftUrl &&
                     <li className="card__links-item">
-                        <ExternalLink href={snapcraftUrl}>
+                        <Link href={snapcraftUrl}>
                             <Icon height={28} width={28} name="snapcraft" />
-                        </ExternalLink>
+                        </Link>
                     </li>
                 }
             </ul>
             <div className="card__body">
                 <h3>
-                    <Link to={slug}>
+                    <GatsbyLink to={slug}>
                         {title}
-                    </Link>
+                    </GatsbyLink>
                 </h3>
                 <p>
-                    <Link to={slug}>{description}</Link>
+                    <GatsbyLink to={slug}>{description}</GatsbyLink>
                 </p>
             </div>
             <ul className="card__meta card__status">
