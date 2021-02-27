@@ -4,7 +4,7 @@ import getLoader from "prismjs/dependencies";
 import components from "prismjs/components"; //JS not the folder
 import cx from "classnames";
 import { Icon } from "../ui/icon/icon";
-import "./codeblock.scss";
+import "./code-block.scss";
 import "./prism.scss";
 
 const languagesToLoad: string[] = [
