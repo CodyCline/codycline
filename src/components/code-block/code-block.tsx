@@ -98,11 +98,10 @@ export const CodeBlock = (props: any) => {
                 
             </ul>
             <pre className={cx(`code__block`, `match-braces`, `line-numbers`)}>
-                <code role="div" ref={codeRef} className={cx(props.className, `rainbow-braces`)}>
+                <code role="code" ref={codeRef} className={cx(props.className, `rainbow-braces`)}>
                     {props.children}
                 </code>
             </pre>
-            
         </section>
     );
 };

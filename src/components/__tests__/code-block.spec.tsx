@@ -19,21 +19,9 @@ describe(`Code Block`, () => {
                 {testCode}
             </CodeBlock>
         )
-        expect(getByRole("div")).toHaveClass("language-rust");
+        expect(getByRole("code")).toHaveClass("language-rust");
     });
 
-    // test(`Copies code to clipboard`, () => {
-    //     const testCode = `fn main () { println!("Hello, World"); }`
-    //     const { getByRole } = render(
-    //         <CodeBlock className="language-rust">
-    //             {testCode}
-    //         </CodeBlock>
-    //     )
-    //     act(() => {
-    //         navigator.clipboard.writeText(testCode);
-    //     })
-    //     fireEvent.click(getByRole(`button`));
-    //     expect(navigator.clipboard.readText()).toEqual(testCode);
-
-    // });
+    //Todo test clipboard functions
+    //Todo handle errors
 });
