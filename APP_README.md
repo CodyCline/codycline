@@ -10,7 +10,7 @@
 
 Portfolio website and blog with developer-focused content 🛸
 
-[github-actions-badge](https://github.com/codycline/codycline/workflows/AWS%20CI/badge.svg)
+![github-actions-badge](https://github.com/codycline/codycline/workflows/aws_ci/badge.svg)
 
 
 ## 🔧 Under the hood.
