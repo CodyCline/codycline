@@ -1,7 +1,8 @@
 import * as React from "react";
+import cx from "classnames"
+import { Icon } from "../ui/icon/icon";
 import * as types from "../../types/components";
 import "./spoiler.scss";
-import { Icon } from "../ui/icon/icon";
 
 
 export const Spoiler = ({ children, title }: types.SpoilerProps) => {
@@ -11,15 +12,10 @@ export const Spoiler = ({ children, title }: types.SpoilerProps) => {
     }
     return (
         <React.Fragment>
-            <ul onClick={onToggle} role="navigation" className="spoiler__header">
+            <ul onClick={onToggle} role="navigation" className={cx(toggled? `spoiler__border-open`: `spoiler__border`, `spoiler__header`)}>
                 <li>{title}</li>
                 <li>
-                    {
-                        toggled?
-                        <Icon name="chevron_up"/>
-                        :
-                        <Icon name="chevron_down"/>
-                    }
+                    <Icon className="spoiler__icon" height={32} width={32} name={toggled? `chevron-down`: `chevron-up`}/>
                 </li>
             </ul>
             {toggled &&

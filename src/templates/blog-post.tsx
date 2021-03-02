@@ -7,7 +7,6 @@ import SEO from "../utils/seo"
 import { withAddons } from "../utils/with-addons";
 import { Divider } from "../components/ui/divider/divider";
 import { Tag } from "../components/ui/tags/tags";
-import "gatsby-remark-mathjax-ssr/mathjax.css";
 
 const BlogPostTemplate = ({ data, pageContext }: any) => {
 	const post = data.mdx;

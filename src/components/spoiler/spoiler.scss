@@ -13,15 +13,15 @@
 
 .spoiler__header {
     @include themed () { 
-        color: t("secondary-color");
+        color: t("border");
         background: t("fg");
-        border: 2px solid #CCC;
-        border: 2px solid t("secondary-color");
+        border: 1px solid darken(t("border"), 40);
     }
     border-radius: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     padding: 10px 25px 10px 25px;
     list-style: none;
     font-weight: bold;
@@ -29,13 +29,35 @@
     cursor: pointer;
 }
 
+.spoiler__icon {
+    @include themed () {
+        fill: t("text");
+    }
+}
+
+.spoiler__border {
+    @include themed () {
+        border: 1px solid darken(t("border"), 40);
+    }
+}
+
+
+
+.spoiler__border-open {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
 .spoiler__body {
     padding: 25px;
     @include themed () {
         background: t("bg");
-        border: 2px solid t("secondary-color");
-        border-top: none;
+        border-right: 1px solid darken(t("border"), 40);
+        border-left: 1px solid darken(t("border"), 40);
+        border-bottom: 1px solid darken(t("border"), 40);
     }
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: inherit;
     height: auto;
 }
