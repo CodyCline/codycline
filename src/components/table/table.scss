@@ -1,25 +1,4 @@
-@import "../../../styles/index.scss";
-
-.table::-webkit-scrollbar-track {
-    @include themed() {
-        background: t("fg");
-    }
-}
-
-.table::-webkit-scrollbar {
-    height: 8px;
-}
-
-.table::-webkit-scrollbar-thumb {
-    @include themed() {
-        background: t("code");
-        border-radius: 5px;
-        z-index: 999;
-    }
-    
-}
-
-
+@import "../../styles/index.scss";
 
 .table__container {
     margin-top: 10vh;
@@ -28,12 +7,13 @@
         display: block;
         width: 100%;
         border-spacing: 0;
-        border: 0.5px solid #8b8b8b;
+        border-radius: 10px;
         display: block;
         overflow-x: scroll;
         white-space: nowrap;
         @include themed () {
-            background: t("bg");
+            border: 0.5px solid darken(t("border"), 40);
+            border-bottom: 0;
         }
         .table__row:last-child .table__cell {
             border-bottom: 0;
@@ -58,8 +38,10 @@
             text-overflow: ellipsis;
             margin: 0;
             padding: 0.5rem;
-            border-bottom: 0.5px solid #8b8b8b;
-            border-right: 0.5px solid #8b8b8b;
+            @include themed () {
+                border-bottom: 1px solid darken(t("border"), 40);
+                border-right: 0.5px solid darken(t("border"), 40);
+            }
             position: relative;
             :last-child {
                 border-right: 0;

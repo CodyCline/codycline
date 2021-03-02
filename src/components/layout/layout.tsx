@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import { MobileMenu } from './mobile-nav/mobile-nav'
 import { Footer } from './footer/footer';
 import { Offline } from '../ui/offline/offline';
-import { ThemeToggle } from '../ui/toggle/theme-toggle/theme-toggle';
+import { ThemeToggle } from '../toggle/theme-toggle/theme-toggle';
 import logo from '../../assets/logo.jpg';
 import './layout.scss';
 import { useHasMounted } from '../../utils/use-has-mounted';

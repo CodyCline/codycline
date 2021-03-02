@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { NavItem } from '../layout';
-import { ThemeToggle } from '../../ui/toggle/theme-toggle/theme-toggle';
+import { ThemeToggle } from '../../toggle/theme-toggle/theme-toggle';
 import "./mobile-nav.scss";
 import logo from "../../../assets/logo.jpg";
 import { Icon } from '../../ui/icon/icon';

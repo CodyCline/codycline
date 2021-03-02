@@ -10,11 +10,9 @@
 
 Portfolio website and blog with developer-focused content 🛸
 
-<p>
-![github-actions-build-badge](https://github.com/codycline/codycline/workflows/aws_ci/badge.svg)
+[![Github Actions Build Status](https://github.com/codycline/codycline/workflows/aws_ci/badge.svg)](https://github.com/codycline/codycline/actions/workflows/aws-build.yml)
 
-![github-actions-test-badge](https://github.com/codycline/codycline/workflows/tests/badge.svg)
-</p>
+[![Github Actions Test Status](https://github.com/codycline/codycline/workflows/tests/badge.svg)](https://github.com/codycline/codycline/actions/workflows/tests.yml)
 
 
 ## 🔧 Under the hood.

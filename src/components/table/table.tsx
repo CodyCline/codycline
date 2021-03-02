@@ -1,38 +1,15 @@
-import * as React from 'react';
-import './table.scss';
-import { useTable, useBlockLayout, useResizeColumns } from 'react-table'
-import cx from 'classnames';
+import * as React from "react";
+import cx from "classnames";
+import { useTable, useBlockLayout, useResizeColumns, useRowSelect } from "react-table";
+import { TableCell } from "./table-cell";
+import "./table.scss";
 
 export const Table = (props: any) => {
     return (
-        <div className="table">
+        <div className={cx(`table`, props.className)}>
             {props.children}
         </div>
     )
-}
-
-export const TableCell = (props:any) => {
-    const cellRef = React.useRef<any>();
-    const copy = () => {
-
-        console.log("Starting copy")
-        if (cellRef.current) {
-            console.log("copying!")
-            const element = cellRef.current;
-            navigator.clipboard.writeText(element.innerText);
-        }
-    }
-    return (
-        <div 
-            {...props}
-            ref={cellRef} 
-            onDoubleClick={copy} 
-            tabIndex={props.tabIndex} 
-            className="table__cell"
-        >
-            {props.children}
-        </div>
-    );
 }
 
 
@@ -43,16 +20,14 @@ export const TableContainer = (props) => {
     const tcellData = props.children[1].props.children;
 
     //Format head of markdown table from jsx to json
-    const columns = React.useMemo(
-        () => (
-            React.Children.map(theadData, (child: any) => {
-                return ({
-                    Header: (child.props.children),
-                    accessor: (child.props.children).toLowerCase(),
-                });
-            })
-        ),
-    []);
+    const columns = React.useMemo(() => (
+        React.Children.map(theadData, (child: any) => {
+            return ({
+                Header: (child.props.children),
+                accessor: (child.props.children).toLowerCase(),
+            });
+        })
+    ), []);
 
     //Format body of markdown table from jsx to json
     const getCellData = () => {
@@ -60,8 +35,8 @@ export const TableContainer = (props) => {
         React.Children.map(tcellData, (child) => {
             const { children } = child.props;
             const row = {};
-            children.map((cell, idx) => {
-                const parent = (theadData[idx].props.children).toLowerCase();
+            children.map((cell, i:number) => {
+                const parent = (theadData[i].props.children).toLowerCase();
                 row[parent] = cell.props.children;
             });
             cells.push(row);
@@ -70,11 +45,11 @@ export const TableContainer = (props) => {
     }
     const defaultColumn = React.useMemo(
         () => ({
-            width: 200,
+            width: 275,
             minWidth: 50,
             maxWidth: 1000,
         }),
-    []);
+        []);
 
     //Init table cell data
     const data = getCellData();
@@ -92,23 +67,23 @@ export const TableContainer = (props) => {
             defaultColumn,
         },
         useBlockLayout,
-        useResizeColumns
+        useResizeColumns,
     )
 
 
     return (
         <div className="table__container">
-            <Table {...getTableProps()}>
+            <Table {...getTableProps()} className="block__content">
                 {/* Table Header groups thead */}
                 {headerGroups.map(headerRow => (
                     <div {...headerRow.getHeaderGroupProps()} className="table__row">
 
                         {headerRow.headers.map(headerCell => (
                             <div {...headerCell.getHeaderProps()} className="table__head__cell">
-                                {headerCell.render("Header")}
+                                {headerCell.render(`Header`)}
                                 <div
                                     {...headerCell.getResizerProps()}
-                                    className={cx(["resizer", headerCell.isResizing && "isResizing"])}
+                                    className={cx([`resizer`, headerCell.isResizing && `isResizing`])}
                                 />
                             </div>
                         ))}
@@ -123,10 +98,10 @@ export const TableContainer = (props) => {
                             // Table rows
                             <div {...row.getRowProps()} className="table__row">
                                 {/* Table cells */}
-                                {row.cells.map((cell, id) => {
+                                {row.cells.map((cell, id: number) => {
                                     return (
                                         <TableCell tabIndex={id} {...cell.getCellProps()}>
-                                            {cell.render("Cell")}
+                                            {cell.render(`Cell`)}
                                         </TableCell>
                                     );
                                 })}

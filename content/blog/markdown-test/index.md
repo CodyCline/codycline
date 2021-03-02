@@ -14,8 +14,14 @@ tags:
 
 Some markdown plain text :rocket:
 
+Example markdown:
+$$
+L = \frac{1}{2} \rho v^2 S C_L
+$$
 
-
+$$
+a^2 + b^2 = c^2
+$$
 
 ~~This statement is true?~~
 
@@ -70,7 +76,7 @@ RUN apt-get install -y apache2
 
 
 
-```cpp
+```cpp :title=hello
 #include "VM.h"
 #include <fstream>
 #include "VM_binaries.h"
@@ -113,6 +119,12 @@ pub struct Blockchain {
 ```
 Thats all folks!
 
+
+```diff
++ Hello world
+- Text goes here 
+
+```
 
 ```py
 from itertools import combinations

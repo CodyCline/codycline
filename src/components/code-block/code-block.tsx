@@ -63,13 +63,15 @@ const pluginsToLoad: string[] = [
 
 export const CodeBlock = (props: any) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
-    const language = props.className.split(`language-`).join(``);
+    const split: string[] = props.className.split(`:`);
+    const language: string | null = split[0].split(`language-`).join(``);
+    const title: string | null = split[1] ? split[1].split(`title=`).join(``): null;
 
     React.useEffect(() => {
         //Not the cleanest solution but `languageLoader` plugin is broken
         const languageLoader = getLoader(components, languagesToLoad);
         const pluginLoader = getLoader(components, pluginsToLoad);
-        languageLoader.load((language:string) => {
+        languageLoader.load((language: string) => {
             require(`prismjs/components/prism-${language || `clike`}.min.js`);
         });
         pluginLoader.load((plugin: string) => {
@@ -78,7 +80,7 @@ export const CodeBlock = (props: any) => {
         Prism.highlightAll();
     });
 
-    
+
 
     function copyCode() {
         if (codeRef.current) {
@@ -87,17 +89,20 @@ export const CodeBlock = (props: any) => {
     }
 
     return (
-        <section style={{ margin: "1em 0 1em 0" }}>
+        <section className="code__block-container">
             <ul className="tool__bar">
                 <li>
-                    <Icon height={24} width={24} name={language}/>
+                    <Icon height={24} width={24} name={language} />
                 </li>
-                <li role="button" className="copy__icon" onClick={copyCode}>
-                    <Icon noTitle name="copy" height={24} width={24}/>
+                <li className="tool__bar-title">
+                    <span>{title}</span>
                 </li>
-                
+                <li className="tool__bar-item tool__bar-copy" role="button" onClick={copyCode}>
+                    <Icon noTitle className="tool__bar-copy" name="copy" height={24} width={24} />
+                </li>
+
             </ul>
-            <pre className={cx(`code__block`, `match-braces`, `line-numbers`)}>
+            <pre className={cx(`code__block`, `match-braces`, `line-numbers`, `block__content`)}>
                 <code role="code" ref={codeRef} className={cx(props.className, `rainbow-braces`)}>
                     {props.children}
                 </code>

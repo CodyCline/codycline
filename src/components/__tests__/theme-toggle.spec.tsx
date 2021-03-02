@@ -1,6 +1,6 @@
 import * as React from "react"
 import { render, fireEvent, act } from "@testing-library/react";
-import { ThemeToggle } from "../ui/toggle/theme-toggle/theme-toggle";
+import { ThemeToggle } from "../toggle/theme-toggle/theme-toggle";
 
 describe(`Theme Toggle`, () => {
 	test(`Toggle between light and dark mode, ensure document className changes`, () => {
