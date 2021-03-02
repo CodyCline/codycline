@@ -1,9 +1,10 @@
-import * as React from 'react';
-import cx from 'classnames';
-import { Link } from '../ui/link/link';
-import { Link as GatsbyLink } from 'gatsby'
-import { Icon } from '../ui/icon/icon';
-import './card.scss';
+import * as React from "react";
+import cx from "classnames";
+import { Link } from "../ui/link/link";
+import { Link as GatsbyLink } from "gatsby"
+import { Icon } from "../ui/icon/icon";
+import "./card.scss";
+import { Tooltip } from "../ui/tooltip/tooltip";
 
 export const Card = ({
     title,
@@ -63,38 +64,47 @@ export const Card = ({
             <ul className="card__meta card__links">
                 {gitUrl &&
                     <li className="card__links-item">
-                        <Link href={gitUrl}>
-                            <Icon height={28} width={28} name="git" />
-                        </Link>
+                        <Tooltip position="top" content="View Source">
+                            <Link href={gitUrl}>
+                                <Icon noTitle  height={28} width={28} name="git" />
+                            </Link>
+                        </Tooltip>
                     </li>
                 }
                 {externalUrl &&
                     <li className="card__links-item">
-                        <Link href={externalUrl}>
-                            <Icon height={28} width={28} name="link" />
-                        </Link>
+                        <Tooltip position="top" content="View Live">
+                            <Link href={externalUrl}>
+                                <Icon noTitle  height={28} width={28} name="link" />
+                            </Link>
+                        </Tooltip>
                     </li>
                 }
                 {appleUrl &&
                     <li className="card__links-item">
-                        <Link href={appleUrl}>
-                            <Icon height={28} width={28} name="appstore" />
-                        </Link>
-
+                        <Tooltip position="top" content="View on App Store">
+                            <Link href={appleUrl}>
+                                <Icon noTitle  height={28} width={28} name="appstore" />
+                            </Link>
+                        </Tooltip>
                     </li>
                 }
                 {androidUrl &&
                     <li className="card__links-item">
-                        <Link href={androidUrl}>
-                            <Icon height={28} width={28} name="googleplay" />
-                        </Link>
+                        <Tooltip position="top" content="View on Play Store">
+                            <Link href={androidUrl}>
+                                <Icon height={28} width={28} name="googleplay" />
+                            </Link>
+                        </Tooltip>
                     </li>
                 }
                 {snapcraftUrl &&
                     <li className="card__links-item">
-                        <Link href={snapcraftUrl}>
-                            <Icon height={28} width={28} name="snapcraft" />
-                        </Link>
+                        <Tooltip position="top" content="View on Snap Store">
+                            <Link href={snapcraftUrl}>
+                                <Icon noTitle height={28} width={28} name="snapcraft" />
+                            </Link>
+                        </Tooltip>
                     </li>
                 }
             </ul>
@@ -113,11 +123,13 @@ export const Card = ({
                     {version}
                 </li>
                 <li className="card__status-item">
-                    {status && 
-                        <div
-                            role="tooltip" 
-                            className={cx(`status__light`, getStatus(status))}
-                        />
+                    {status &&
+                        <Tooltip position="bottom" content={status}>
+                            <div
+                                role="tooltip" 
+                                className={cx(`status__light`, getStatus(status))}
+                            />
+                        </Tooltip> 
                     }
                 </li>
             </ul>
