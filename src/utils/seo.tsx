@@ -6,34 +6,10 @@
  */
 
 import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
 import { Helmet } from "react-helmet";
+import * as types from "../types/components";
 
-type SiteMeta = {
-	title: string,
-	description: string,
-	author: {
-		name: string,
-		summary: string,
-	},
-	social: {
-		github: string,
-	},
-}
-
-interface SEOProps {
-	title: string,
-	description: string
-	lang: string,
-	siteMeta: SiteMeta,
-	contentType?: string,
-	meta?: any,
-}
-
-
-
-const SEO = ({ siteMeta, description, lang, title, contentType }: SEOProps) => {
+const SEO = ({ siteMeta, description, lang, title, contentType }: types.SEO.IProps) => {
 
 	const metaDescription = description || siteMeta.description;
 	const metaTitle = title || siteMeta.title;

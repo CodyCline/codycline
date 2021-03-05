@@ -3,7 +3,9 @@ import * as Prism from "prismjs";
 import getLoader from "prismjs/dependencies";
 import components from "prismjs/components"; //JS not the folder
 import cx from "classnames";
+import { Tooltip } from "../ui/tooltip/tooltip";
 import { Icon } from "../ui/icon/icon";
+import * as types from "../../types/components";
 import "./code-block.scss";
 import "./prism.scss";
 
@@ -21,7 +23,6 @@ const languagesToLoad: string[] = [
     "nasm",
     "java",
     "rust",
-    "typescript",
     "crystal",
     "jsx",
     "tsx",
@@ -61,7 +62,7 @@ const pluginsToLoad: string[] = [
     "file-highlight",
 ];
 
-export const CodeBlock = (props: any) => {
+export const CodeBlock = (props: types.CodeBlock.IBlockProps) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
     const split: string[] = props.className.split(`:`);
     const language: string | null = split[0].split(`language-`).join(``);
@@ -95,10 +96,12 @@ export const CodeBlock = (props: any) => {
                     <Icon height={24} width={24} name={language} />
                 </li>
                 <li className="tool__bar-title">
-                    <span>{title}</span>
+                    {title}
                 </li>
                 <li className="tool__bar-item tool__bar-copy" role="button" onClick={copyCode}>
-                    <Icon noTitle className="tool__bar-copy" name="copy" height={24} width={24} />
+                    <Tooltip position="top" content="Copy Code">
+                        <Icon noTitle className="tool__bar-copy" name="copy" height={24} width={24} />
+                    </Tooltip>
                 </li>
 
             </ul>
@@ -112,7 +115,7 @@ export const CodeBlock = (props: any) => {
 };
 
 
-export const InlineCode = ({ children }: any) => {
+export const InlineCode = ({ children }: types.CodeBlock.IInlineProps) => {
     return (
         <code className="inline">{children}</code>
     )

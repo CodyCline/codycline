@@ -3,23 +3,18 @@ import { render, fireEvent, act } from "@testing-library/react";
 import { CodeBlock } from "../code-block/code-block";
 
 
-Object.assign(navigator, {
-    clipboard: {
-        writeText: jest.fn(),
-        readText: jest.fn(),
-    },
-});
-
 
 describe(`Code Block`, () => {
     test(`Renders props correctly`, () => {
         const testCode = `fn main () { println!("Hello, World"); }`
-        const { getByRole, container } = render(
+        const { getByRole, getByTitle } = render(
             <CodeBlock className="language-rust">
                 {testCode}
             </CodeBlock>
         )
-        expect(getByRole("code")).toHaveClass("language-rust");
+        expect(getByRole(`code`)).toHaveClass(`language-rust`);
+        expect(getByRole(`code`)).toHaveTextContent(testCode);
+        expect(getByTitle(`rust`)).toHaveTextContent(`rust`);
     });
 
     //Todo test clipboard functions

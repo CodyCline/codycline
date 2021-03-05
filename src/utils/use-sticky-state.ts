@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { useHasMounted } from './use-has-mounted';
 
 
+//Store a value in user localStorage, do not mount on SSR
 export const useStickyState = (defaultValue: any, key: string) => {
-    
     const [value, setValue] = React.useState(() => {
         const stickyValue: string | null = window.localStorage.getItem(key);
         return stickyValue !== null

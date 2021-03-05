@@ -2,7 +2,7 @@ import * as React from "react";
 import cx from "classnames";
 import "./tooltip.scss";
 
-export const Tooltip = ({children, position, delay, content, followCursor = false,} :any) => {
+export const Tooltip = ({children, position, delay, content} :any) => {
     let timeout;
     const [active, setActive] = React.useState<boolean>(false);
 

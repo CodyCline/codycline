@@ -51,8 +51,8 @@ query ProjectPostBySlug($slug: String!) {
 			title
 			date(formatString: "YYYY-MM-DD")
 			description
-			external_url
-			github_url
+			external_link
+			github_link
 			banner {
 				publicURL
 			}

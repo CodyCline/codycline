@@ -37,6 +37,11 @@
     margin-block-end: 16px;
 }
 
+.mobile__nav-hamburger {
+    @include themed () {
+        fill: t("text");
+    }
+}
 
 .mobile__nav-controls {
     display: flex;

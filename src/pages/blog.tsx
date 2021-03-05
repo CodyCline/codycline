@@ -31,7 +31,7 @@ const BlogIndex = ({ data }: any) => {
 					return (
 						<Panel
 							key={id}
-							link={fields.slug}
+							slug={fields.slug}
 							title={title}
 							description={description}
 							imageUrl={thumb.publicURL}

@@ -1,10 +1,11 @@
 import * as React from "react";
 import cx from "classnames";
-import { Link } from "../ui/link/link";
 import { Link as GatsbyLink } from "gatsby"
-import { Icon } from "../ui/icon/icon";
-import "./card.scss";
+import { Link } from "../ui/link/link";
 import { Tooltip } from "../ui/tooltip/tooltip";
+import { Icon } from "../ui/icon/icon";
+import * as types from "../../types/components";
+import "./card.scss";
 
 export const Card = ({
     title,
@@ -19,11 +20,11 @@ export const Card = ({
     androidUrl,
     snapcraftUrl,
 
-}: any) => {
-    type Status = "passing" | "failing" | "mixed";
+}: types.Card.IProps) => {
+    
 
     //Display icon depending on whether project is 
-    const getIcon = (platform: string) => {
+    const getIcon = (platform: types.Card.Platform) => {
         switch (platform) {
             case "web":
                 return (`folder`);
@@ -43,7 +44,7 @@ export const Card = ({
     }
 
     //Display CI status if applicable
-    const getStatus = (status: Status) => {
+    const getStatus = (status: types.Card.Status) => {
         switch (status) {
             case "passing":
                 return (`status__passing`);
@@ -59,7 +60,7 @@ export const Card = ({
     return (
         <div className="card">
             <div className="card__icon">
-                <Icon fill={`#58a6ff`} height={72} width={72} title={platform} name={getIcon(platform)}/>
+                <Icon className="card__icon-platform" height={72} width={72} title={platform} name={getIcon(platform)}/>
             </div>
             <ul className="card__meta card__links">
                 {gitUrl &&
@@ -100,7 +101,7 @@ export const Card = ({
                 }
                 {snapcraftUrl &&
                     <li className="card__links-item">
-                        <Tooltip position="top" content="View on Snap Store">
+                        <Tooltip position="top" content="View on Snapcraft Store">
                             <Link href={snapcraftUrl}>
                                 <Icon noTitle height={28} width={28} name="snapcraft" />
                             </Link>

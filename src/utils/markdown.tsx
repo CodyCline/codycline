@@ -9,13 +9,10 @@ import { CheckBox } from '../components/toggle/checkbox/checkbox';
 import { Header1, Header2, Header3, Header4, Header5, Header6, Deleted } from '../components/ui/typography/typography';
 import { TableContainer } from '../components/table/table';
 import { ListContainer, List, OrderedList } from '../components/ui/list/list';
+import * as types from "../types/components"
 
 
-interface IProps {
-    children: React.ReactNode,
-}
-
-export const Markdown = ({children}:IProps) => {
+export const Markdown = ({children}: types.IGenericProps) => {
     return (
         
         <MDXProvider

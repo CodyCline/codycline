@@ -1,7 +1,8 @@
 import * as React from "react";
-import cx from "classnames";
 import { useTable, useBlockLayout, useResizeColumns, useRowSelect } from "react-table";
+import cx from "classnames";
 import { TableCell } from "./table-cell";
+import * as types from "../../types/components"
 import "./table.scss";
 
 export const Table = (props: any) => {
@@ -12,8 +13,11 @@ export const Table = (props: any) => {
     )
 }
 
+interface ITableProps {
+    children: any
+}
 
-export const TableContainer = (props) => {
+export const TableContainer = (props: ITableProps) => {
 
     //Represents the head and body portion of markdown table
     const theadData = props.children[0].props.children.props.children;

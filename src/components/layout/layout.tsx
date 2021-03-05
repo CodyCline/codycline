@@ -1,15 +1,16 @@
-import React from 'react';
-import cx from 'classnames';
-import { Link } from 'gatsby'
-import { MobileMenu } from './mobile-nav/mobile-nav'
-import { Footer } from './footer/footer';
-import { Offline } from '../ui/offline/offline';
-import { ThemeToggle } from '../toggle/theme-toggle/theme-toggle';
-import logo from '../../assets/logo.jpg';
-import './layout.scss';
-import { useHasMounted } from '../../utils/use-has-mounted';
+import React from "react";
+import cx from "classnames";
+import { Link } from "gatsby"
+import { MobileMenu } from "./mobile-nav/mobile-nav"
+import { Footer } from "./footer/footer";
+import { Offline } from "../ui/offline/offline";
+import { ThemeToggle } from "../toggle/theme-toggle/theme-toggle";
+import { useHasMounted } from "../../utils/use-has-mounted";
+import * as types from "../../types/components";
+import logo from "../../assets/logo.jpg";
+import "./layout.scss";
 
-export const Layout = ({ children }: any) => {
+export const Layout = ({ children }: types.IGenericProps) => {
     return (
         <React.Fragment>
             <NavBar />
@@ -24,8 +25,9 @@ export const Layout = ({ children }: any) => {
 export const NavBar = () => {
     const hasMounted  = useHasMounted();
     const [isMobile, setMobileView] = React.useState<boolean>(false);
-    const handleResize = React.useCallback((mediaQuery: any) => {
-        mediaQuery.matches ? setMobileView(true) : setMobileView(false);
+    
+    const handleResize = React.useCallback((query: any) => {
+        query.matches ? setMobileView(true) : setMobileView(false);
     }, [setMobileView]);
 
     React.useEffect(() => {
@@ -42,9 +44,9 @@ export const NavBar = () => {
         }
     }, [handleResize]);
     return (
-        <nav className={`navbar`}>
-            <NavItem link={`/`} className={`home__icon`}>
-                <img style={{ height: `50px`, width: `70px` }} src={logo} alt={`logo.png`} />
+        <nav className="navbar">
+            <NavItem link="/" className="home__icon">
+                <img style={{ height: `50px`, width: `70px` }} src={logo} alt="logo.png" />
             </NavItem>
             {isMobile ? 
                 <MobileMenu/>
@@ -54,7 +56,7 @@ export const NavBar = () => {
                     <NavItem link="/snippets">Snippets</NavItem>
                     <NavItem link="/projects">Projects</NavItem>
                     <NavItem link="#" className="controls">
-                       {hasMounted? <ThemeToggle />: null}
+                       {hasMounted && <ThemeToggle />}
                     </NavItem>
                 </React.Fragment>
             }
@@ -63,7 +65,8 @@ export const NavBar = () => {
 }
 
 
-export const NavItem = ({ children, link, notActive, className, style }: any) => {
+
+export const NavItem = ({ children, link, notActive, className, style }: types.Layout.INavProps) => {
     return (
         <Link style={style} className={cx(`nav__item`, className)} activeClassName={`nav__item__active`} to={notActive ? `#` : link}>
             {children}

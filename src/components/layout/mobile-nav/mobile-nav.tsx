@@ -2,9 +2,9 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { NavItem } from '../layout';
 import { ThemeToggle } from '../../toggle/theme-toggle/theme-toggle';
-import "./mobile-nav.scss";
-import logo from "../../../assets/logo.jpg";
 import { Icon } from '../../ui/icon/icon';
+import logo from "../../../assets/logo.jpg";
+import "./mobile-nav.scss";
 
 export const MobileMenu = () => {
     const [visible, setVisible] = React.useState<boolean>(false);
@@ -26,7 +26,7 @@ export const MobileMenu = () => {
         <React.Fragment>
             <li className="nav__item controls" >
                 <button className="mobile__nav-toggle" onClick={toggle}>
-                    <Icon height={32} width={32} name="three-bars"/>
+                    <Icon className="mobile__nav-hamburger" height={32} width={32} name="three-bars"/>
                 </button>
             </li>
             {visible &&

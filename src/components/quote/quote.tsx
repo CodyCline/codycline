@@ -1,7 +1,8 @@
-import * as React from 'react';
-import './quote.scss';
+import * as React from "react";
+import * as types from "../../types/components"
+import "./quote.scss";
 
-export const Quote = ({children} : any) => {
+export const Quote = ({children} : types.IGenericProps) => {
     return (
         <blockquote className="quote">
             {children}

@@ -27,17 +27,21 @@ const ProjectIndex = ({ data }: any) => {
 				<div className="content__card-grid">
 					{posts.map((project: any) => {
 						const title = project.node.frontmatter.title || project.node.fields.slug;
-						const { external_link, github_link, description, platform } = project.node.frontmatter;
+						const { external_link, github_link, apple_link, android_link, snapcraft_link, description, platform } = project.node.frontmatter;
 						const { id, fields } = project.node;
 						return (
 							<Card
 								key={id}
 								title={title}
-								platform={platform}
 								description={description}
+								platform={platform}
+								slug={fields.slug}
 								externalUrl={external_link}
 								gitUrl={github_link}
-								slug={fields.slug}
+								appleUrl={apple_link}
+								androidUrl={android_link}
+								snapcraftUrl={snapcraft_link}
+								
 							/>
 						);
 					})}
@@ -70,6 +74,7 @@ query AllProjects {
 					tags
 					external_link
 					github_link
+					snapcraft_link
 					platform
 					thumb {
 						publicURL

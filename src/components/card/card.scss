@@ -25,6 +25,12 @@
     display: grid;
 }
 
+.card__icon-platform {
+    @include themed () {
+        fill: t("text");
+    }
+}
+
 .card__links {
     grid-area: links;
     justify-content: flex-end;
