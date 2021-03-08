@@ -1,0 +1,8 @@
+@import "../../../styles/index.scss";
+
+.rowChart {
+    @include themed () {
+        // fill: t("main-color");
+        fill: green;
+    }
+}

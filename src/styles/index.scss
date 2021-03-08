@@ -12,11 +12,6 @@
 	--tooltip-margin: 32px;
 }
 
-.test__icon {
-	@include themed() {
-		fill: t("main-color");
-	}
-}
 
 body {
 	@include themed() {
