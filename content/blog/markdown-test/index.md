@@ -60,11 +60,19 @@ Some inline `code` should do the trick!
 Lorem ipsum dolor ipsut
 </Spoiler>
 
+<DataTable src="./test.csv"/>
+
+[title](./test.csv)
+
+
+
 ```shell
 dig
 
 ls - a
 ```
+
+
 
 
 ```dockerfile

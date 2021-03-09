@@ -1,9 +1,8 @@
 import * as React from "react";
 import { useTable, useBlockLayout, useResizeColumns, useRowSelect } from "react-table";
 import cx from "classnames";
-import { TableCell } from "./table-cell";
-import * as types from "../../types/components"
 import "./table.scss";
+
 
 export const Table = (props: any) => {
     return (
@@ -13,50 +12,39 @@ export const Table = (props: any) => {
     )
 }
 
-interface ITableProps {
-    children: any
+
+export const TableCell = (props: any) => {
+    const cellRef = React.useRef<any>();
+    const copy = () => {
+        const element = cellRef.current;
+        if (element) {
+            navigator.clipboard.writeText(element.innerText);
+        }
+    }
+    return (
+        <div
+            {...props}
+            ref={cellRef}
+            onDoubleClick={copy}
+            tabIndex={props.tabIndex}
+            className="table__cell"
+        >
+            {props.children}
+        </div>
+    );
 }
 
-export const TableContainer = (props: ITableProps) => {
 
-    //Represents the head and body portion of markdown table
-    const theadData = props.children[0].props.children.props.children;
-    const tcellData = props.children[1].props.children;
 
-    //Format head of markdown table from jsx to json
-    const columns = React.useMemo(() => (
-        React.Children.map(theadData, (child: any) => {
-            return ({
-                Header: (child.props.children),
-                accessor: (child.props.children).toLowerCase(),
-            });
-        })
-    ), []);
-
-    //Format body of markdown table from jsx to json
-    const getCellData = () => {
-        const cells: object[] = []
-        React.Children.map(tcellData, (child) => {
-            const { children } = child.props;
-            const row = {};
-            children.map((cell, i:number) => {
-                const parent = (theadData[i].props.children).toLowerCase();
-                row[parent] = cell.props.children;
-            });
-            cells.push(row);
-        });
-        return cells;
-    }
+//Base table which defines functionality and 
+export const TableBase = ({ data, columns }: any) => {
     const defaultColumn = React.useMemo(
         () => ({
             width: 275,
             minWidth: 50,
             maxWidth: 1000,
         }),
-        []);
-
-    //Init table cell data
-    const data = getCellData();
+    []);
 
     const {
         getTableProps,
@@ -117,3 +105,8 @@ export const TableContainer = (props: ITableProps) => {
         </div>
     );
 }
+
+
+
+
+

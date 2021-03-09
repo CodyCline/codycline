@@ -26,7 +26,6 @@
         }
 
         .table__head__cell {
-            user-select: none;
             font-weight: bold;
             @include themed {
                 background: t("fg");

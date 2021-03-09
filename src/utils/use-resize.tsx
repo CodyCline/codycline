@@ -1,25 +1,25 @@
 import * as React from "react";
-import { useDebounce } from "./use-debounce";
+import { useDebounce, debounce } from "./use-debounce";
 
-export const useResize = (ref:React.MutableRefObject<HTMLDivElement>) => {
-    const [state, setState] = React.useState<object>();
-    const [dimensions] = useDebounce(state, 2000);
+export const useResize = (ref: React.MutableRefObject<HTMLDivElement> | React.RefObject<HTMLDivElement>) => {
+    const [state, setState] = React.useState<any>();
     React.useEffect(() => {
-        const getSize = () => {
+        const getSize = debounce(() => {
             if (!ref || !ref.current) {
                 return;
             }
-            const { offsetWidth, offsetHeight } = ref.current;
+            const width = ref.current.offsetWidth
+            const height = ref.current.offsetHeight
             setState({
-                offsetWidth,
-                offsetHeight,
+                height,
+                width,
             });
 
-        }
+        }, 1000)
         window.addEventListener(`resize`, getSize);
         getSize();
         return () => window.removeEventListener(`resize`, getSize);
     }, [ref]);
 
-    return dimensions;
+    return state;
 }

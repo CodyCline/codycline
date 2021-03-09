@@ -1,9 +1,8 @@
 import * as React from "react";
 
-export const useDebounce = (value:any, delay:number = 250) => {
+export const useDebounce = (value:any, delay:number = 1000) => {
     // State and setters for debounced value
     const [debouncedValue, setDebouncedValue] = React.useState(value);
-
     React.useEffect(() => {
         // Update debounced value after delay
         const handler = setTimeout(() => {
@@ -20,4 +19,12 @@ export const useDebounce = (value:any, delay:number = 250) => {
     }, [value, delay]);
 
     return debouncedValue;
+}
+
+export const debounce = (callback:any, delay:number) => {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => callback(...args), delay);
+    }
 }

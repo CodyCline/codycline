@@ -2,13 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 import SEO from "../utils/seo";
 import { Layout } from "../components/layout/layout";
+import { DataTable } from "../components/table/data-table";
 import { withAddons } from '../utils/with-addons';
 import { SocialBar, SocialIcon } from "../components/socialbar/socialbar";
-import { BarChart } from "../components/chart/bar/bar";
 import "../styles/index.scss";
 
 const Index = ({data}: any) => {
-	const testData = [12, 5, 6, 6, 9, 10];
 
 	return (
 		<Layout>
@@ -18,7 +17,6 @@ const Index = ({data}: any) => {
 				siteMeta={data.site.siteMetadata}
 				lang="en"
 			/>
-			<BarChart data={testData} height={500} width={700}/>
 			<div className="grid__lines">
 				<div style={{ height: "20vh" }} />
 				<div className="center__card">
