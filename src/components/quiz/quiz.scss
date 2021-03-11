@@ -1,0 +1,79 @@
+@import "../../styles/index.scss";
+
+$quiz-red: #dd264b; 
+
+.quiz__container {
+    width: 100%;
+    @include themed () {
+        background: t("fg");
+        border: 3px solid t("border");
+    }
+}
+
+.quiz {
+    margin: 0;
+    padding: 4px 16px;
+    list-style: none;
+    width: 70%;
+}
+
+.quiz__item {
+    margin: 16px 0;
+    cursor: pointer;
+    padding: 10px;
+    @include themed () {
+        border-radius: 32px;
+    }
+    border: 1px solid #CCC;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.correct {
+    background: #70C04F;
+    border: 1px solid transparent;
+}
+.incorrect {
+    background: #c03551;
+    border: 1px solid transparent;
+}
+
+.selected {
+    background: white;
+}
+
+.quiz__bubble {
+    border: 2px solid violet;
+    margin-right: 10px;
+    border-radius: 50%;
+    min-width: 32px;
+    height: 32px;
+    // padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz__bubble-correct {
+    color: #70C04F;
+}
+
+.quiz__bubble-incorrect {
+    color: #c03551;
+}
+
+.quiz__bubble-selected {
+    border-color: transparent;
+    background: white;
+}
+
+.unselected__correct {
+    border-color: white;
+    color: white;
+}
+
+.unselected__incorrect  {
+    border-color:#c03551;
+}

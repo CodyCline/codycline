@@ -2,13 +2,12 @@ import React from "react";
 import { graphql } from "gatsby";
 import SEO from "../utils/seo";
 import { Layout } from "../components/layout/layout";
-import { DataTable } from "../components/table/data-table";
+import { Quiz, QuizChoice, QuizList, Question, Option} from "../components/quiz/quiz";
 import { withAddons } from '../utils/with-addons';
 import { SocialBar, SocialIcon } from "../components/socialbar/socialbar";
 import "../styles/index.scss";
 
 const Index = ({data}: any) => {
-
 	return (
 		<Layout>
 			<SEO 

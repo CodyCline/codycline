@@ -73,7 +73,12 @@ ls - a
 ```
 
 
-
+<Quiz question="What does html stand for?" answer="TEST">
+    <Option>TEST</Option>
+    <Option>Hyper Text Markup Language</Option>
+    <Option>IDK</Option>
+    <Option>NOTHING</Option>
+</Quiz>
 
 ```dockerfile
 FROM ubuntu:latest
