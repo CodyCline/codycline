@@ -27,7 +27,7 @@
 
 .bullet {
     @include themed () {
-        background: darken(t("secondary-color"), 20);
+        background: t("secondary-color");
         border: 2px solid t("secondary-color");        
     }
     z-index: -999;
@@ -41,7 +41,7 @@
 
 .bullet:hover {
     @include themed () {
-        border-color: lighten(t("secondary-color"), 20);
+        border-color: t("secondary-color");
     }
 }
 

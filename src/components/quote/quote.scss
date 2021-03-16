@@ -5,7 +5,7 @@
     border-image-slice: 1;
     @include themed() {
         background: t("fg");
-        border-image-source: linear-gradient(0deg, t("main-color") 25%, t("secondary-color") 100%);
+        border-image-source: linear-gradient(0deg, t("primary-color") 25%, t("secondary-color") 100%);
     }
     overflow: hidden;
     background: #1b1e1f;

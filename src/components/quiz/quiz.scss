@@ -1,38 +1,71 @@
 @import "../../styles/index.scss";
 
-$quiz-red: #dd264b; 
+$quiz-red: #dd264b;
 
 .quiz__container {
-    width: 100%;
-    @include themed () {
+    display: grid;
+    align-items: center;
+    padding: 32px 0;
+}
+
+.quiz__section {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    @include themed() {
         background: t("fg");
-        border: 3px solid t("border");
+        border: 1px solid t("border");
     }
 }
 
-.quiz {
-    margin: 0;
-    padding: 4px 16px;
-    list-style: none;
-    width: 70%;
+@media only screen and (max-width: 600px) {
+    .quiz__section {
+        width: 100%;
+    }
 }
+
+
+.quiz__header {
+    @include themed () {
+        background: t("secondary-color");
+        
+    }
+    color: #d8d8d8;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    
+}
+
+
+
 
 .quiz__item {
     margin: 16px 0;
     cursor: pointer;
     padding: 10px;
-    @include themed () {
+    @include themed() {
         border-radius: 32px;
+        border: 1px solid #ccc;
     }
-    border: 1px solid #CCC;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
 }
 
+.quiz {
+    margin: 0;
+    padding: 4px 16px;
+    list-style: none;
+}
+
 .correct {
-    background: #70C04F;
+    background: #70c04f;
     border: 1px solid transparent;
 }
 .incorrect {
@@ -57,11 +90,11 @@ $quiz-red: #dd264b;
 }
 
 .quiz__bubble-correct {
-    color: #70C04F;
+    fill: #70c04f;
 }
 
 .quiz__bubble-incorrect {
-    color: #c03551;
+    fill: #c03551;
 }
 
 .quiz__bubble-selected {
@@ -71,9 +104,9 @@ $quiz-red: #dd264b;
 
 .unselected__correct {
     border-color: white;
-    color: white;
+    fill: white;
 }
 
-.unselected__incorrect  {
-    border-color:#c03551;
+.unselected__incorrect {
+    border-color: #c03551;
 }

@@ -16,7 +16,7 @@
     border-image-slice: 1;
     @include themed {
         background: t("fg");
-        border-image-source: linear-gradient(90deg, t("main-color") 35%, t("secondary-color") 100%);
+        border-image-source: linear-gradient(90deg, t("primary-color") 35%, t("secondary-color") 100%);
     }
     padding: 3em;
     width: 60%;

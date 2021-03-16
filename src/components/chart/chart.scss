@@ -12,7 +12,7 @@
 
 .bar__chart {
     @include themed () {
-        fill: t("main-color");
+        fill: t("primary-color");
     }
     height: 40vh;
 }

@@ -18,7 +18,11 @@
     }
 }
 
-
+.card__header {
+    @include themed () {
+        color: t("primary-color");
+    }
+}
 
 .card__icon {
     grid-area: icon;
@@ -73,13 +77,13 @@
 }
 
 .status__passing {
-    background: #47ff97;
+    background: var(--color-green);
 }
 .status__failing {
-    background: #ff3c00;
+    background: var(--color-red);
 }
 .status__mixed {
-    background: #ffc400;
+    background: var(--color-yellow);
 }
 
 .card__status-version {

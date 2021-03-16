@@ -2,7 +2,7 @@
 
 .rowChart {
     @include themed () {
-        // fill: t("main-color");
+        // fill: t("primary-color");
         fill: green;
     }
 }

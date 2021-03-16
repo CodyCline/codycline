@@ -3,15 +3,24 @@
 @import "./article.scss";
 @import "./scrollbar.scss";
 
+
+
 :root {
 	--font-size-normal: 16px;
 	--font-size-medium: 20px;
 	--font-size-large:  52px;
-	--color-main-blue: #58a6ff;
-	--color-debug-orange: hsl(19, 100%, 50%);
+	--background-dark:  #1F2124;
+	--foreground-dark: #26282B ;
+	--foreground-dark-auxillary: #1F2123;
+	--color-yellow: #EF9F34;
+	--color-orange: #e25e21;
+	--color-red: #ff3c00;
+	--color-cyan: #079290;
+	--color-purple: #5b4fff;
+	--color-green: #47ff97;
 	--tooltip-margin: 32px;
+	--white: #323232;
 }
-
 
 body {
 	@include themed() {

@@ -1,5 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
+import { Icon } from "../ui/icon/icon";
 import "./quiz.scss";
 
 export const Quiz = ({ children, question, answer }: any) => {
@@ -27,7 +28,7 @@ export const Quiz = ({ children, question, answer }: any) => {
             return React.cloneElement(child, {
                 key: key,
                 onClick: () => { checkAnswer(children); },
-                //Query props and state then assign classname show if correct
+                //Query props and state then assign classname show if correct or not
                 className: cx([
                     className, 
                     (isAnswered && isCorrect(children) && `correct`), 
@@ -47,7 +48,13 @@ export const Quiz = ({ children, question, answer }: any) => {
                     )
                 ]),
                 correct: correct,
-                label: isAnswered? (isCorrect(children)? `✓`: `x`) : key + 1,
+                label: isAnswered? (
+                    <Icon 
+                        noTitle
+                        name={isCorrect(children)? `check`: `close`} 
+                        className={cx([isCorrect(children)? `quiz__bubble-correct` : `quiz__bubble-incorrect`])} 
+                    />
+                ) : (key + 1),
             })
         })
     }
@@ -56,7 +63,7 @@ export const Quiz = ({ children, question, answer }: any) => {
         <div className="quiz__container">
             <div className="quiz__section">
                 <div className="quiz__header">
-                    <h3 className="quiz__question">{question}</h3>
+                    <p className="quiz__question">{question}</p>
                 </div>
                 {status}
                 <ul className="quiz">
@@ -76,71 +83,5 @@ export const Option = ({ children, onClick, correct = false, label, className, h
         </li>
     )
 }
-
-
-
-
-
-export const QuizList = ({ questions, children }: any) => {
-    const [currentIndex, setCurrentIndex] = React.useState(0);
-    const [score, setScore] = React.useState(0);
-    const [isFinished, setFinished] = React.useState(false);
-    const [questionList, setQuestions] = React.useState<any>();
-    const currentQuestion = questions[currentIndex];
-
-    const getData = () => {
-        const questions = []
-        React.Children.map(children,(child:any) => {
-            console.log(child.props)
-        })
-    }
-    React.useEffect(() => { getData() } ,[])
-
-    const onNextClicked = (selectedOption) => {
-        if (currentQuestion.answer === selectedOption) {
-            setScore(score + 1);
-        }
-        //Check if finished
-        if (currentIndex + 1 > questions.length - 1) {
-            setFinished(true);
-            return;
-        }
-        setCurrentIndex(currentIndex + 1);
-    };
-
-    const resetQuiz = () => {
-        setCurrentIndex(0);
-        setFinished(false);
-        setScore(0);
-    };
-
-    return (
-        <div>
-            {isFinished ? (
-                <div className="results">
-                    <h3>
-                        Your results are out. You scored {score} out of {questions.length}
-                    </h3>
-                </div>
-            ) : (
-                // <Question
-                //     onNextClicked={onNextClicked}
-                //     question={currentQuestion}
-                //     key={currentQuestion.id}
-                // />
-                {children}
-            )}
-            {isFinished ? (
-                <button className="try-again" onClick={resetQuiz}>
-                    Try again
-                </button>
-            ) : (
-                <div className="questions-progress">
-                    {currentIndex + 1}/{questions.length}
-                </div>
-            )}
-        </div>
-    )
-};
 
 

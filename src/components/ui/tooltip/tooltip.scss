@@ -14,7 +14,7 @@
     padding: 6px;
     @include themed () {
         color: t("text");
-        background: t("fg");
+        background: t("aux");
         border: 1px solid t("border");
     }
     font-size: var(--font-size-normal);

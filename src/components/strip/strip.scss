@@ -22,7 +22,7 @@
 .strip__title {
     grid-area: title;
     @include themed() {
-        color: t("secondary-color");
+        color: t("primary-color");
     }
     display: flex;
     justify-content: flex-start;

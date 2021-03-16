@@ -6,6 +6,7 @@ $radius: 25px;
 .panel {
     @include themed() {
         background: t("fg");
+        border-left: 4px solid t("secondary-color");
     }
     padding: 1em;
     margin: 2em auto;
@@ -18,7 +19,6 @@ $radius: 25px;
         "image  header  header"
         "image  text    text"
         "image  tags    tags";
-    border-left: 4px solid $primary;
     justify-content: left;
     align-items: center;
 }
@@ -30,7 +30,7 @@ $radius: 25px;
 
 .panel:hover h3 {
     @include themed {
-        color: t("main-color");
+        color: t("primary-color");
     }
 }
 

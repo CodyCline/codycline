@@ -110,7 +110,7 @@ export const Card = ({
                 }
             </ul>
             <div className="card__body">
-                <h3>
+                <h3 className="card__header">
                     <GatsbyLink to={slug}>
                         {title}
                     </GatsbyLink>

@@ -21,7 +21,7 @@
     font-size: var(--font-size-large);
     @include themed () {
         color:  invert(t("text"));
-        background:  t("main-color");
+        background:  t("primary-color");
     }
 }
 

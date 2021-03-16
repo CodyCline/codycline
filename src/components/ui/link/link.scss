@@ -2,6 +2,6 @@
 
 .link {
     @include themed () {
-        color: t("main-color");
+        color: t("primary-color");
     }
 }

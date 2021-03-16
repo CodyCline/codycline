@@ -1,7 +1,7 @@
 @import '../../styles/index.scss';
 .navbar {
     @include themed () {
-        background: t('fg');
+        background: t("fg");
     }
     margin: 0;
     padding: 0;
