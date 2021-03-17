@@ -47,4 +47,11 @@ export const Bar = ({ children, data }: any) => {
     )
 }
 
+export const DebuggableChart = ({data}) => {
+    console.log(data);
+    return (
+        <div>{data.toString()}</div>
+    )
+}
+
 

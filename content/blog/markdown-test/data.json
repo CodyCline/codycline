@@ -1,0 +1,22 @@
+[
+    {
+        "Value": 12345,
+        "Date Purchased": "2011-03-23",
+        "Score": 99
+    },
+    {
+        "Value": 22345,
+        "Date Purchased": "2011-03-24",
+        "Score": 100
+    },
+    {
+        "Value": 32345,
+        "Date Purchased": "2011-03-25",
+        "Score": 99
+    },
+    {
+        "Value": 42345,
+        "Date Purchased": "2011-03-26",
+        "Score": 100
+    }
+]

@@ -12,6 +12,8 @@ tags:
 - docker
 ---
 
+import data from "./data";
+
 Some markdown plain text :rocket:
 
 Example markdown:
@@ -60,9 +62,11 @@ Some inline `code` should do the trick!
 Lorem ipsum dolor ipsut
 </Spoiler>
 
-<DataTable src="./test.csv"/>
+<DebuggableChart data={data}/>
 
-[title](./test.csv)
+<DataTable src={data}/>
+
+[title](data)
 
 
 

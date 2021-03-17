@@ -7,7 +7,6 @@ export const MarkdownTable = (props:any) => {
     //Represents the head and body portion of markdown table
     const theadData = props.children[0].props.children.props.children;
     const tcellData = props.children[1].props.children;
-
     //Format head of markdown table from jsx to json
     const columns = React.useMemo(() => (
         React.Children.map(theadData, (child: any) => {
@@ -33,6 +32,7 @@ export const MarkdownTable = (props:any) => {
         });
         return cells;
     }
+    console.log(data());
     return (
         <TableBase data={data()} columns={columns}/>
     )

@@ -8,8 +8,10 @@ import { Link } from "../components/ui/link/link";
 import { CheckBox } from "../components/toggle/checkbox/checkbox";
 import { Header1, Header2, Header3, Header4, Header5, Header6, Deleted } from "../components/ui/typography/typography";
 import { MarkdownTable } from "../components/table/markdown-table";
+import { DataTable } from "../components/table/data-table";
 import { ListContainer, List, OrderedList } from "../components/ui/list/list";
 import { Quiz, Option } from "../components/quiz/quiz";
+import { DebuggableChart } from "../components/chart/bar/bar";
 import * as types from "../types/components"
 
 
@@ -36,9 +38,11 @@ export const Markdown = ({children}: types.IGenericProps) => {
                 input: CheckBox,
                 table: MarkdownTable,
                 //Custom non-native components
+                DataTable: DataTable,
                 Spoiler: Spoiler,
                 Quiz: Quiz,
                 Option: Option,
+                DebuggableChart: DebuggableChart,
             }}
         >
             {children}
