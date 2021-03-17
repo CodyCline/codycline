@@ -11,7 +11,6 @@ import { MarkdownTable } from "../components/table/markdown-table";
 import { DataTable } from "../components/table/data-table";
 import { ListContainer, List, OrderedList } from "../components/ui/list/list";
 import { Quiz, Option } from "../components/quiz/quiz";
-import { DebuggableChart } from "../components/chart/bar/bar";
 import * as types from "../types/components"
 
 
@@ -42,7 +41,6 @@ export const Markdown = ({children}: types.IGenericProps) => {
                 Spoiler: Spoiler,
                 Quiz: Quiz,
                 Option: Option,
-                DebuggableChart: DebuggableChart,
             }}
         >
             {children}

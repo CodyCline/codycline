@@ -62,7 +62,6 @@ Some inline `code` should do the trick!
 Lorem ipsum dolor ipsut
 </Spoiler>
 
-<DebuggableChart data={data}/>
 
 <DataTable src={data}/>
 

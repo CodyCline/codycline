@@ -27,13 +27,12 @@
 
 .bullet {
     @include themed () {
-        background: t("secondary-color");
-        border: 2px solid t("secondary-color");        
+        background: radial-gradient(circle at 8px 8px, t("primary-color"), t("aux"));
+        border: 2px solid t("primary-color");       
     }
     z-index: -999;
     height: 24px;
     width: 24px;
-    display: flex;
     border-radius: 50%;
     position: absolute;
     left: -15px;

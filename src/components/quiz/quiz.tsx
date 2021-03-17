@@ -65,7 +65,6 @@ export const Quiz = ({ children, question, answer }: any) => {
                 <div className="quiz__header">
                     <p className="quiz__question">{question}</p>
                 </div>
-                {status}
                 <ul className="quiz">
                     {renderAnswers()}
                 </ul>
