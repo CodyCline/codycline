@@ -66,9 +66,9 @@ $themes: (
         bracket-pair-4-8-12: gold,
 	),
 	light: (
-		fg: #FFFFFF,
-		bg: #ece9e9,
-        aux: #f7f7f7,
+		fg: var(--foreground-light),
+		bg: var(--background-light),
+        aux: var(--foreground-light-auxillary),
 		text: #171819,
         theme-toggle: #ff9d00,
 		border: #000,

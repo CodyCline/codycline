@@ -1,14 +1,46 @@
 //Home page
 
 .grid__lines {
-    display: grid;
-    place-items: center;
-    background-size: 75px 75px;
-    @include themed() {
-        background-image: linear-gradient(t("fg") 1px, transparent 0),
-            linear-gradient(90deg, t("fg") 1px, transparent 0),
-            linear-gradient(transparent 1px, #171819 0, #171819 1px, transparent 0);
+    // display: grid;
+    // place-items: center;
+    // background-size: 75px 75px;
+    // @include themed() {
+    //     background-image: linear-gradient(t("fg") 1px, transparent 0),
+    //         linear-gradient(90deg, t("fg") 1px, transparent 0),
+    //         linear-gradient(transparent 1px, #171819 0, #171819 1px, transparent 0);
+    // }
+}
+.hexagon {
+    svg {
+        display: block;
+        width: 40%;
+        margin: 0 auto;
     }
+    polygon,
+    line {
+        fill: none;
+        @include themed() {
+            stroke: t("text");
+        }
+        stroke-width: 2px;
+        filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(255, 255, 255, 0.5));
+        // vector-effect: non-scaling-stroke;
+    }
+    .path {
+        stroke-dasharray: 50 520;
+        stroke-dashoffset: 50;
+        animation: dash 1.5s linear infinite;
+    }
+
+    @keyframes dash {
+        from {
+            stroke-dashoffset: 50;
+        }
+        to {
+            stroke-dashoffset: -520;
+        }
+    }
+    
 }
 
 .center__card {
@@ -25,7 +57,7 @@
 
 //For dynamic content such as blog, snippets, projects
 
-.content__container  {
+.content__container {
     width: 70%;
     margin: auto;
 }
@@ -38,7 +70,7 @@
 }
 
 .content__card-grid {
-    display:grid;
+    display: grid;
     grid-gap: 2em;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }

@@ -5,11 +5,11 @@ import { Layout } from "../components/layout/layout";
 import SEO from "../utils/seo";
 import { withAddons } from "../utils/with-addons";
 
-const NotFoundPage = ({ data }: any) => {
+const Error404Page = ({ data }: any) => {
 	const siteTitle = data.site.siteMetadata.title
 
 	return (
-		<Layout title={siteTitle}>
+		<Layout>
 			<SEO 
 				title="Not Found"
 				description="The page you are looking for has not been found"
@@ -22,10 +22,10 @@ const NotFoundPage = ({ data }: any) => {
 	)
 }
 
-export default withAddons(NotFoundPage);
+export default withAddons(Error404Page);
 
 export const pageQuery = graphql`
-query NotFoundPage {
+query Error404Page {
 	site {
 		siteMetadata {
 			title
