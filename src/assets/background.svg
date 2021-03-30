@@ -1,0 +1,18 @@
+<svg className="hexagon make-it-fast path" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 750 750">
+    <defs>
+        <g id="hex" transform="rotate(30 375 375)">
+            <polygon className="path"  points="229.3,627.5 83.6,375.5 229.3,123.5 520.7,123.5 666.4,375.5 520.7,627.5" />
+            <line x1="229.3" y1="123.5" x2="520.7" y2="627.5" />
+            <line x1="666" y1="375.5" x2="84" y2="375.5" />
+            <line x1="520.7" y1="123.5" x2="229.3" y2="627.5" />
+        </g>
+    </defs>
+    
+    <use className="glow"  xlinkHref="#hex" />
+    <use className="glow" xlinkHref="#hex" transform="translate(187.5, 187.5) scale(.5)" />
+    <use xlinkHref="#hex" transform="translate(61.5, 260.25) scale(.5)" />
+    <use xlinkHref="#hex" transform="translate(313.25, 260.25) scale(.5)" />
+    <use xlinkHref="#hex" transform="translate(313.25, 115.25) scale(.5)" />
+    <use xlinkHref="#hex" transform="translate(61.5, 115.25) scale(.5)" />
+
+</svg>
