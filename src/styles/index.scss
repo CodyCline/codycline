@@ -9,7 +9,7 @@
 	--font-size-normal: 16px;
 	--font-size-medium: 20px;
 	--font-size-large:  52px;
-	--background-dark:  #1F2124;
+	--background-dark:  #171717;
 	--foreground-dark: #26282B ;
 	--foreground-dark-auxillary: #1F2123;
 	--background-light: #DAE0E6;
@@ -24,7 +24,11 @@
 	--tooltip-margin: 32px;
 	--white: #323232;
 }
-
+.canvas__test {
+    @include themed () {
+		background: t("bg");
+	}
+}
 
 .presentation__text {
 	position: absolute;
