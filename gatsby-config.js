@@ -7,7 +7,7 @@ module.exports = {
 			name: `Cody Cline`,
 			summary: `No summary yet`,
 		},
-		description: `Developer blog with code-focused content.`,
+		description: `Developer blog & portfolio with code-focused content.`,
 		social: {
 			github: `codycline`
 		}

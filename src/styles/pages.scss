@@ -1,62 +1,63 @@
 //Home page
+.landing__background {
+	@include themed() {
+		background: t("bg");
+	}
+	position: fixed;
+	top: 10vh;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	z-index: -1;
+}
 
 
+.about__section {
+	width: 50%;
+	margin: auto;
+	display: grid;
+	place-items: center;
+	background: #111111;
+}
 
+.landing__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 
-canvas{
-    width: 100%;
-    height: 100vh;
-    display: block;
-  }
-  
-  .content{
-    overflow: hidden;
-  }
-  
-  .cursor{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    pointer-events: none;
-    border: 1px solid rgba(255,255,255, 0.7);
-  }
-  
-  
+.landing__header-color {
+	margin-left: 1rem;
+	@include themed () {
+		// color: rgb(23, 109, 23);
+		background: #111111;
+	}
+}
 
-
-
-.center__card {
-    border: 5px solid;
-    border-image-slice: 1;
-    @include themed {
-        background: t("fg");
-        border-image-source: linear-gradient(90deg, t("primary-color") 35%, t("secondary-color") 100%);
-    }
-    padding: 3em;
-    width: 60%;
-    text-align: center;
+.landing__header h1 {
+	font-size: var(--font-size-large);
 }
 
 //For dynamic content such as blog, snippets, projects
 
+
+
 .content__container {
-    width: 70%;
-    margin: auto;
+	width: 70%;
+	margin: auto;
 }
 
 .content__header {
-    width: inherit;
-    display: grid;
-    justify-content: left;
-    align-items: center;
+	width: inherit;
+	display: grid;
+	justify-content: left;
+	align-items: center;
 }
 
 .content__card-grid {
-    display: grid;
-    grid-gap: 2em;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	display: grid;
+	grid-gap: 2em;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }

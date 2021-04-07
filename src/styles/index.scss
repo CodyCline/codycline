@@ -24,11 +24,6 @@
 	--tooltip-margin: 32px;
 	--white: #323232;
 }
-.canvas__test {
-    @include themed () {
-		background: t("bg");
-	}
-}
 
 .presentation__text {
 	position: absolute;

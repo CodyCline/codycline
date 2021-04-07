@@ -13,7 +13,7 @@ const ProjectPostTemplate = ({ data, pageContext}:any) => {
 	const siteDescription = post.frontmatter.description || post.excerpt;
 	const { previous, next } = pageContext;
 	return (
-		<Layout id={post.id}>
+		<Layout>
 			<SEO
 				title={siteTitle}
 				description={siteDescription}
