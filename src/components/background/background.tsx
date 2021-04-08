@@ -16,7 +16,7 @@ export const Background = ({ src }: any) => {
             // Get pixel
             const pixel = image.get(x, y);
             // Make a particle for this pixel if blue > 52 (range 0-255)
-            return pixel.b > 68
+            return pixel.b < 216
         },
         color: ({ x, y, image }) => {
             const pixel = image.get(x, y);
@@ -35,8 +35,8 @@ export const Background = ({ src }: any) => {
             // Lighter colors will have smaller radius
             return .15 + (magnitude / 255) / 3.75;
         },
-        mass: () => 100,
-        friction: () => 0.15,
+        mass: () => 128,
+        friction: () => 0.16,
     };
 
     const motionForce = (x: number, y: number): ParticleForce => {
@@ -47,7 +47,7 @@ export const Background = ({ src }: any) => {
             src={src}
             width={Number(hasMounted ? window.innerWidth: 300)}
             height={Number(hasMounted ? window.innerHeight : 300)}
-            scale={4}
+            scale={6}
             entropy={20}
             maxParticles={8000}
             particleOptions={particleOptions}

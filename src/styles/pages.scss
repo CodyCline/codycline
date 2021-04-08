@@ -6,22 +6,27 @@
 	margin: auto;
 }
 
-.home__page-header  {
+.home__page-header {
 	font-size: var(--font-size-large);
 }
 
 .home__page-background {
-	@include themed () {
+	@include themed() {
 		background: t("bg-alt");
 	}
 }
 
 .home__page-about {
 	width: 50%;
-	padding: 1rem;
+	padding: 0 2rem;
 	font-size: var(--font-size-medium);
 }
 
+@media only screen and (max-width: 512px) {
+	.home__page-about {
+		width: 100%;
+	}
+}
 
 //For dynamic content such as blog, snippets, projects
 .content__container {

@@ -5,7 +5,7 @@ import { Layout } from "../components/layout/layout";
 import { withAddons } from "../utils/with-addons";
 import { Background } from "../components/background/background";
 import { Spacer } from "../components/ui/spacer/spacer";
-import sample from "../assets/sample-05.png";
+import photo from "../assets/background.jpg";
 import "../styles/index.scss";
 
 
@@ -22,7 +22,7 @@ const Index = ({ data }: any) => {
 				lang="en"
 			/>
 			<Spacer units="vh" height={20}/>
-			<Background src={sample}/>
+			<Background src={photo}/>
 			<div className="home__page">
 				<h1 className="home__page-header home__page-background">Hello, I'm {name}</h1>
 				<div className="home__page-about home__page-background">
