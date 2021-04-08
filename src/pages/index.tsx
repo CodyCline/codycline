@@ -11,7 +11,6 @@ import "../styles/index.scss";
 
 
 const Index = ({ data }: any) => {
-	
 	const { name, summary } = data.site.siteMetadata.author
 	return (
 		<Layout>
