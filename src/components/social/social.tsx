@@ -1,5 +1,6 @@
 import * as React from 'react';
-import './socialbar.scss';
+import { Icon } from '../ui/icon/icon';
+import './social.scss';
 
 export const SocialBar = ({ children }: any) => {
     return (
@@ -9,11 +10,10 @@ export const SocialBar = ({ children }: any) => {
     )
 }
 
-export const SocialIcon = ({ children, link, icon }: any) => (
+export const Social = ({ link, icon }: any) => (
     <li className="social__icon">
         <a target="_blank" rel="noopener noreferrer" href={link}>
-            {/* <FontAwesomeIcon style={{ fontSize: "32px" }} icon={icon} /> */}
-            {children}
+            <Icon noTitle name={icon}/>
         </a>
     </li>
 )

@@ -16,13 +16,14 @@ $themes: (
         bg: var(--background-dark),
         fg: var(--foreground-dark),
         aux: var(--foreground-dark-auxillary),
+        bg-alt: #111111,
 		text: #D8D8D8,
 		border: #FCFCFC,
         theme-toggle: #CCC,
-		hr: linear-gradient(to right, var(--color-yellow), var(--color-orange)),
-		primary-color: var(--color-yellow),
-		secondary-color: var(--color-orange),
-        aux-color: var(--color-purple),
+		hr: linear-gradient(to right, var(--color-purple), var(--color-blue)),
+		primary-color: var(--color-purple),
+		secondary-color: var(--color-purple),
+        aux-color: var(--color-orange),
         
         
         code:  #c586c0,
@@ -68,6 +69,7 @@ $themes: (
 	light: (
 		fg: var(--foreground-light),
 		bg: var(--background-light),
+        bg-alt: #FFFFFF,
         aux: var(--foreground-light-auxillary),
 		text: #171819,
         theme-toggle: #ff9d00,

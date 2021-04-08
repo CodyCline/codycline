@@ -20,7 +20,6 @@ const SEO = ({ siteMeta, description, lang, title, contentType }: types.SEO.IPro
 				lang,
 			}}
 			title={title}
-			titleTemplate={metaTitle ? `%s | ${metaTitle}` : null}
 			meta={[
 				{
 					name: `description`,

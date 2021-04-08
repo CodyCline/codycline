@@ -10,7 +10,7 @@ exports.handler = (event, context, callback) => {
     }];
     headers["content-security-policy"] = [{
         key: "Content-Security-Policy",
-        value: "default-src 'none'; connect-src 'self'; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self'; img-src 'self' data: https:; media-src 'self'; script-src 'self' 'unsafe-inline' https://apis.google.com/ https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/ data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; object-src 'none'"
+        value: "default-src 'self'; connect-src 'self'; font-src 'self'; frame-src 'self'; img-src 'self' data: https:; media-src 'self'; script-src 'self' 'unsafe-inline' https://apis.google.com/ https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/ data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; object-src 'none'"
     }];
     headers["x-content-type-options"] = [{
         key: "X-Content-Type-Options",

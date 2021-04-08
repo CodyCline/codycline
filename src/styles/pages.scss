@@ -1,49 +1,29 @@
-//Home page
-.landing__background {
-	@include themed() {
-		background: t("bg");
-	}
-	position: fixed;
-	top: 10vh;
-	left: 0;
-	width: 100%;
-	height: 100%;
+@import "./controller.scss";
 
-	z-index: -1;
-}
-
-
-.about__section {
-	width: 50%;
-	margin: auto;
+.home__page {
 	display: grid;
 	place-items: center;
-	background: #111111;
+	margin: auto;
 }
 
-.landing__header {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-.landing__header-color {
-	margin-left: 1rem;
-	@include themed () {
-		// color: rgb(23, 109, 23);
-		background: #111111;
-	}
-}
-
-.landing__header h1 {
+.home__page-header  {
 	font-size: var(--font-size-large);
 }
 
+.home__page-background {
+	@include themed () {
+		background: t("bg-alt");
+	}
+}
+
+.home__page-about {
+	width: 50%;
+	padding: 1rem;
+	font-size: var(--font-size-medium);
+}
+
+
 //For dynamic content such as blog, snippets, projects
-
-
-
 .content__container {
 	width: 70%;
 	margin: auto;

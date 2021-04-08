@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Social, SocialBar } from '../../social/social';
 
 export const Footer = () => {
     const date = new Date();
@@ -9,6 +10,10 @@ export const Footer = () => {
                 {currentYear.toString()}
             </li>
             <li className="footer__item">
+                <SocialBar>
+                    <Social icon="github" link="https://github.com/codycline"/>
+                    <Social icon="stack-overflow" link="https://stackoverflow.com/users/10183827/cody-cline"/>
+                </SocialBar>
             </li>
         </footer>
     )
