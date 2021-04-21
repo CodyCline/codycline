@@ -8,10 +8,10 @@ import "./link.scss";
 export const Link = ({href, children, externalOnly = false} : types.ILinkProps) => {
 	const currentHost = process.env.NODE_ENV === `development` ? `localhost:8000`: `codycline.com`;
 	if (href.includes(currentHost) || href[0] === `/`) {
-		return <GatsbyLink to={href}>{children}</GatsbyLink>
+		return <GatsbyLink className="link" to={href}>{children}</GatsbyLink>
 	}
 	return (
-		<a href={href} target="_blank" rel="noopener noreferrer">
+		<a className="link" href={href} target="_blank" rel="noopener noreferrer">
 			{children}
 		</a>
 	)

@@ -69,8 +69,10 @@
         }
 
         .table__cell:focus {
-            outline: 3px solid $primary;
-            color: $primary;
+            @include themed () {
+                outline: 3px solid t("primary-color");
+                color: t("primary-color");
+            }
             z-index: 999;
         }
     }
