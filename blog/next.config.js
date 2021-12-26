@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
-  reactStrictMode: true,
-}
 
 
 
-export const metadata = {
+const metadata = {
   title: `Cody Cline`,
   author: {
     name: `Cody Cline`,
@@ -18,4 +15,9 @@ export const metadata = {
     github: `codycline`
   },
   siteUrl: `https://codycline.com`
+}
+
+module.exports = {
+  reactStrictMode: true,
+  metadata: metadata,
 }

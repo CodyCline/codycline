@@ -1,0 +1,17 @@
+@import '../../../styles/index.scss';
+
+.offline {
+    @include themed () {
+        background-color: t("fg");
+        color: t("text");
+    }   
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 99;
+    border: 1px solid gray;
+    left: 5%;
+    bottom: 30px;
+    font-size: var(--font-size-medium);
+}

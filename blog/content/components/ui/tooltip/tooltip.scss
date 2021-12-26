@@ -1,0 +1,52 @@
+@import "../../../styles/index.scss";
+
+.tooltip__wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+/* Absolute positioning */
+.tooltip {
+    position: absolute;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px;
+    @include themed () {
+        color: t("text");
+        background: t("aux");
+        border: 1px solid t("border");
+    }
+    font-size: var(--font-size-normal);
+    line-height: 1;
+    z-index: 100;
+    white-space: nowrap;
+}
+
+
+/* Absolute positioning */
+.tooltip.top {
+    top: calc(var(--tooltip-margin) * -1);
+}
+
+/* Absolute positioning */
+.tooltip.right {
+    left: calc(100% + var(--tooltip-margin));
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+}
+
+
+/* Absolute positioning */
+.tooltip.bottom {
+    bottom: calc(var(--tooltip-margin) * -1);
+}
+
+
+/* Absolute positioning */
+.tooltip.left {
+    left: auto;
+    right: calc(100% + var(--tooltip-margin));
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+}
