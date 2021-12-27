@@ -3,7 +3,7 @@ date: "2020-06-28"
 title: Tackling the Google Foobar Challenge
 description: "A comprehensive walkthrough of Google's secret code challenge"
 banner: ./foobar.gif
-thumb: ./foobar.gif
+thumb: ./public/logo.jpg
 tags: 
 - python
 - algorithms
@@ -321,7 +321,7 @@ def gauss_elmination(m, values):
     mat = copy_mat(m)
     for i in range(len(mat)):
         index = -1
-        for j in range(i, len(mat)):</CodeBlock>ues[i]
+        for j in range(i, len(mat)):ues[i]
     res = [0 for i in range(len(mat))]
     for i in range(len(mat)):
         index = len(mat) -1 -i
