@@ -5,6 +5,7 @@ function Home({posts}:any) {
     console.log(posts);
     return (
         <div>
+            <h1>Hello</h1>
             <ul>
                 <li>
                     posts

@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 
-
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
 
 const metadata = {
   title: `Cody Cline`,
@@ -17,7 +23,9 @@ const metadata = {
   siteUrl: `https://codycline.com`
 }
 
-module.exports = {
+
+module.exports = withMDX({
   reactStrictMode: true,
   metadata: metadata,
-}
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'tsx', 'ts'],
+});
