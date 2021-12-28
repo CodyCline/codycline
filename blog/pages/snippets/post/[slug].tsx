@@ -3,23 +3,21 @@ import { MDXRemote } from 'next-mdx-remote'
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { Code } from '../../../components/code/code';
 
-
-
-const BlogPage = ({ mdxSource }:any) => {
+const SnippetsPage = ({ mdxSource }: any) => {
     return (
         <div className="mt-4">
-            <MDXRemote components={{
-                code: Code,
-            }} {...mdxSource}/>
+            <MDXRemote {...mdxSource} />
         </div>
     )
 }
 
 
+
+
+
 export const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join(process.cwd(), "content/blog/"))
+    const files = fs.readdirSync(path.join(process.cwd(), "content/snippets/"))
     const paths = files.map(filename => ({
         params: {
             slug: filename.replace('.md', '')
@@ -33,7 +31,7 @@ export const getStaticPaths = async () => {
 
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
-    const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), "content/blog/" + slug + ".md"), 'utf-8')
+    const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), "content/snippets/" + slug + ".md"), 'utf-8')
     const { data: frontMatter, content } = matter(markdownWithMeta)
     const mdxSource = await serialize(content);
     return {
@@ -45,4 +43,4 @@ export const getStaticProps = async ({ params: { slug } }: any) => {
     }
 }
 
-export default BlogPage;
+export default SnippetsPage;

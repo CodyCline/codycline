@@ -1,6 +1,6 @@
 import * as React from "react"
 import { render, fireEvent, act } from "@testing-library/react";
-import { CodeBlock } from "../code-block/code-block";
+import { CodeBlock } from "../code/code";
 
 
 

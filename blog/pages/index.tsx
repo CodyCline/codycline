@@ -1,4 +1,4 @@
-import { getAllPosts } from "../lib/blog";
+import { getAllPosts } from "../lib/loadBlog";
 
 
 function Home({posts}:any) { 

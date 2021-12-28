@@ -102,7 +102,7 @@ def solution(x, y):
             return(str(cell_number))
 ```
 
-```py
+```python
 def solution(x, y):
     if x % 2 == 0:
         return False

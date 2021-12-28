@@ -20,7 +20,7 @@ export function getAllPosts() {
         return {
             ...data,
             slug,
-            permalink: `/blog/${slug}`,
+            permalink: `/blog/post/${slug}`,
         }
     })
 }

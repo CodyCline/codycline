@@ -1,5 +1,5 @@
 ---
-date: 2020-04-21
+date: "2020-04-21"
 title: C++ container development
 description: Develop C++ with ease using a containerized environment
 tags: 
@@ -41,7 +41,7 @@ Open your project in VSCode, to launch a Remote Container, do the following:
 
 If the option at the bottom left isn't available you'll likely need to add the extension "Remote - Containers"
 
-![start](./build_it.gif)
+![start](public/build_it.gif)
 
 Your container should have successfully launched and you'll now be in a "virtual window."
 
@@ -110,6 +110,5 @@ If everything built successfully, you should be able to run the app and see a md
 
 Great! Now we have a bare-bones, yet functioning C++ development environment with a neat dependency manager. Best part of all, we didn't even have to worry about conflicting compiler versions or any of those other messy details! Anyone can run this and get the exact same results! 
 
-We briefly touched on the subject of the Conan Dependency Manager, there is so much more features packed into conan that couldn't be stated in this post. If you're interested I would recommend this [free course](https://academy.jfrog.com/path/conan) from JFrog that gives an in-depth tutorial on how to use Conan.
+We briefly touched on the subject of the Conan Dependency Manager, there are so many more features packed into conan, that it can't be stated in this post. If you're interested, I would recommend this [free course](https://academy.jfrog.com/path/conan) from JFrog that gives an in-depth tutorial on how to use Conan.
 
-Happy Hacking!

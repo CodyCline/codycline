@@ -1,6 +1,6 @@
 import * as React from "react";
 import { MDXProvider } from "@mdx-js/react";
-import { CodeBlock, InlineCode } from "../components/code-block/code-block"
+import { CodeBlock, InlineCode } from "../components/code/code"
 import { Quote } from "../components/quote/quote";
 import { Spoiler } from "../components/spoiler/spoiler";
 import { Divider } from "../components/ui/divider/divider";
