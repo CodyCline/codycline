@@ -21,7 +21,7 @@ Start by making an empty project folder
 
 Add this `Dockerfile` to your project directory
 
-```dockerfile:Dockerfile
+```docker
 FROM debian:buster
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \

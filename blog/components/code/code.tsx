@@ -1,5 +1,5 @@
 import { Tooltip } from "../ui/tooltip/tooltip";
-import { Icon } from "../ui/icon/icon";
+import { Icon } from "../ui/Icon";
 import * as types from "../../types/components";
 // import "./code-block.scss";
 // import "./prism.scss";
@@ -99,20 +99,22 @@ export const Code = (props: CodeProps) => {
         //I did not find a better way, like the one below, if you know - please submit an issue.
         require("prismjs/components/prism-clike");
         require("prismjs/components/prism-c");
-        import(`prismjs/components/prism-${language}`).then(() => {
+        import(`prismjs/components/prism-${language || `clike`}`).then(() => {
             //If language still not available skip tokenize part
             const tokens: Array<string | Token> = Prism.languages[language]
                 ? Prism.tokenize(props.children, Prism.languages[language])
                 : [];
             //Save the result to the state.
             replaceToken(tokens)
-        })
+        }).catch(() => {
+            console.warn(`Cannot find highlighter for language ${language}`)
+        });
 
         
     }, [props.children]);
     //If the array with tokens is empty, print the code from props, otherwise render our beauty.
     return (
-        <pre style={{fontSize: `1em`}} className={`language-${language}`}>
+        <pre data-language={language} style={{fontSize: `1em`}} className={`language-${language}`}>
             {data.length ? data.map(tokenToReactNode) : props.children}
         </pre>
     );

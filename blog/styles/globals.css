@@ -1,18 +1,36 @@
+:root {
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-default: 16px;
+  --font-size-medium: 36px;
+  --font-size-large: 52px;
+  --color-purple: #5b4fff;
+  --color-yellow: #EF9F34;
+	--color-orange: #e25e21;
+}
+
+
 body,
 body[data-theme="light"] {
-  --color-text-primary: #27201a;
-  --color-text-secondary: #076963;
+  --color-text-primary: #111111;
+  --color-text-secondary: #0096cf;
   --color-bg-primary: #fff;
+  --color-fg-primary: #dae0e6;
   --color-bg-toggle: #1e90ff;
   --color-border: #27201a;
+  --color-foreground-aux: #f7f7f7;
+  --color-link: #4c4ce6;
 }
 
 body[data-theme="dark"] {
+  --color-foreground-aux: #1f2123;
   --color-text-primary: #e3e3e3;
-  --color-text-secondary: #ff6b00;
+  --color-text-secondary: #ffb454;
   --color-bg-primary: #171717;
+  --color-fg-primary: #26282b;
   --color-bg-toggle: #a9a9a9;
   --color-border: #383a3d;
+  --color-link: #0096cf;
 }
 
 
@@ -24,7 +42,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
     -webkit-text-size-adjust: 100%;
-    line-height: 1.5;
+    line-height: 1.7;
     background: var(--color-bg-primary);
     color: var(--color-text-primary);
 }

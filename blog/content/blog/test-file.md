@@ -15,6 +15,12 @@ tags:
 
 <HelloWorld/>
 
+```dockerf
+RUN sudo apt update
+RUN sudo apt get update
+```
+
+
 ```rust
 #include <iostream>
 #include <vector>

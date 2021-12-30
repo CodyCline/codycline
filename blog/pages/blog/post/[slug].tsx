@@ -4,14 +4,28 @@ import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
 import { Code } from '../../../components/code/code';
+import styled from 'styled-components';
 
 
+
+const Paragraph = styled.p`
+    marginBottom: 28px;
+    font-size: 20px;
+`
+
+const Title = styled.h1`
+    font-size: 36px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+`
 
 const BlogPage = ({ mdxSource }:any) => {
     return (
         <div className="mt-4">
             <MDXRemote components={{
                 code: Code,
+                p: Paragraph,
+                h1: Title,
             }} {...mdxSource}/>
         </div>
     )
