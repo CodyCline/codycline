@@ -1,18 +1,17 @@
 import styled from "styled-components";
+import { ListItem } from "./ListItem";
 
 
 
-const UnorderedListContainer = styled.ul`
-    padding: 0;
+export const UnorderedList = styled.ul`
     list-style: none;
-    border-left: 2px solid blue;
-    margin-left: 12px;
+    padding-left: 40px;
+    counter-reset: list-counter;
+    font-size: inherit;
+    --size: 2rem;
+
+    ${ListItem} {
+
+    }
 `
 
-const UnorderedList = ({children}:any) => {
-    return (
-        <UnorderedListContainer>
-            
-        </UnorderedListContainer>
-    )
-}

@@ -1,6 +1,9 @@
 
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import moon from "../public/assets/moon.png";
+import sun from "../public/assets/sun.png";
+import Image from "next/image";
 
 const ToggleButton = styled.button`
   --toggle-width: 80px;
@@ -16,6 +19,7 @@ const ToggleButton = styled.button`
   height: var(--toggle-height);
   padding: var(--toggle-padding);
   border: 0;
+    line-height: 1.7;
   border-radius: calc(var(--toggle-width) / 2);
   cursor: pointer;
   background: var(--color-bg-toggle);
@@ -40,6 +44,7 @@ const ToggleThumb:any = styled.span`
   border-radius: 50%;
   background: white;
   transition: transform 0.25s ease-in-out;
+  z-index: 999;
   transform: ${(props:any) =>
         props.activeTheme === "dark"
             ? "translate3d(calc(var(--toggle-width) - var(--toggle-height)), 0, 0)"
@@ -62,8 +67,8 @@ const ThemeToggle = () => {
             onClick={() => setActiveTheme(inactiveTheme)}
         >
             <ToggleThumb activeTheme={activeTheme} />
-            <span>🌙</span>
-            <span>☀️</span>
+              <Image height={18} width={18} src={moon}/>
+              <Image height={18} width={18}  src={sun} />
         </ToggleButton>
     );
 };

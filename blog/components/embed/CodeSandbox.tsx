@@ -1,9 +1,23 @@
-import * as React from 'react';
-import { useStickyState } from '../../../utils/use-sticky-state';
+import React, { useState } from 'react'
+import { createPortal } from 'react-dom';
+
+export const IFrame = ({
+    children,
+    ...props
+}:any) => {
+    const [contentRef, setContentRef] = useState<any>(null);
+    const mountNode:any = contentRef?.contentWindow?.document?.body
+
+    return (
+        <iframe {...props} ref={setContentRef}>
+            {mountNode && createPortal(children, mountNode)}
+        </iframe>
+    )
+}
 
 
 export const CodeSandbox = ({id, hideNavigation = true}: any) => {
-    const [theme]: any = useStickyState("dark", "theme__preference");
+    const [theme, setTheme]: any = useState("dark");
 
     return (
         <iframe 

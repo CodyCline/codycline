@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { Code } from '../../../components/code/code';
+import { Code } from '../../../components/Code';
 import styled from 'styled-components';
 
 

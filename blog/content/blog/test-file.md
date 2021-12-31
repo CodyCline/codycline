@@ -15,36 +15,20 @@ tags:
 
 <HelloWorld/>
 
-```dockerf
+```docker:Dockerfile
 RUN sudo apt update
 RUN sudo apt get update
 ```
 
 
-```rust
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <numeric>
-#include <future>
-#include <string>
-#include <mutex>
- 
-std::mutex m;
-struct X {
-    void foo(int i, const std::string& str) {
-        std::lock_guard<std::mutex> lk(m);
-        std::cout << str << ' ' << i << '\n';
-    }
-    void bar(const std::string& str) {
-        std::lock_guard<std::mutex> lk(m);
-        std::cout << str << '\n';
-    }
-    int operator()(int i) {
-        std::lock_guard<std::mutex> lk(m);
-        std::cout << i << '\n';
-        return i + 10;
-    }
+```rust:waker.rs
+use std::{
+    future::Future,
+    pin::Pin,
+    sync::{Arc, Mutex},
+    task::{Context, Poll, Waker},
+    thread,
+    time::Duration,
 };
  
 ```

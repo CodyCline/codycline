@@ -10,19 +10,11 @@ export const ListItem = styled.li`
 
 `
 
-const ListNumber = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`
-
-export const ListBullet = styled.i`
+const ListBullet = styled.i`
     z-index: -999;
     height: 24px;
     width: 24px;
     border-radius: 50%;
     position: absolute;
-    left: -15px;
-    background: var(--color-fg-primary);
 
 `

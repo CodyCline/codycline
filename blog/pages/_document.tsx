@@ -22,7 +22,8 @@ class MyDocument extends Document {
                     </>
                 ),
             };
-        } finally {
+        } 
+        finally {
             sheet.seal();
         }
     }
@@ -45,6 +46,7 @@ class MyDocument extends Document {
                 <body>
                     <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                     <Main />
+                    <div id="next-portal"/> 
                     <NextScript />
                 </body>
             </Html>

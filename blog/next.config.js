@@ -21,4 +21,8 @@ const metadata = {
 module.exports = {
   reactStrictMode: true,
   metadata: metadata,
+  experimental: {
+    // Enables the styled-components SWC transform
+    styledComponents: true
+  }
 };
