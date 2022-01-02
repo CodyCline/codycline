@@ -10,6 +10,7 @@ const TagContainer: any = styled.button`
     background: var(--color-bg-primary);
     min-width: 2rem;
     padding: 0.333rem 0.5rem;
+    margin: 0 0.333rem;
     border: 2px solid var(--color-border);
     min-height: 1.5rem;
     max-width: 100%;
@@ -25,8 +26,8 @@ const TagContainer: any = styled.button`
 
 `
 
-const TagText = styled.span`
-    margin-left: calc(var(--font-size-sm) / 2);
+const TagText:any = styled.span`
+    ${(props:any) => props.icon && "margin-left: calc(var(--font-size-sm) / 2);"}
 `
 
 
@@ -36,7 +37,7 @@ export const IconTag = ({ children, link, icon }: any) => {
             <Link href={link}>
                 <TagContainer link={link}>
                     {icon && <Icon height={18} width={18} name={icon.toLowerCase()} />}
-                    <TagText>
+                    <TagText icon={icon}>
                         {children && children.toLowerCase()}
                     </TagText>
                 </TagContainer>
@@ -44,7 +45,7 @@ export const IconTag = ({ children, link, icon }: any) => {
             :
             <TagContainer>
                 {icon && <Icon height={18} width={18} name={icon.toLowerCase()} />}
-                <TagText>
+                <TagText icon={icon}>
                     {children && children.toLowerCase()}
                 </TagText>
             </TagContainer>

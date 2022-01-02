@@ -15,5 +15,4 @@ export const Navbar = styled.nav`
     justify-content: left;
     border-bottom: 1px solid var(--color-border);
     z-index: 999;
-
 `

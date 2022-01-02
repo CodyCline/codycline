@@ -17,12 +17,11 @@ export const Icon = ({ name, title, noTitle, height, width, className }: any) =>
     const exists = iconLib[name] !== undefined && typeof window !== undefined;
 
     return (
-        <i style={{height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block`}}>
+        <i title={noTitle ? `` : `${name || title}`} style={{ height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block` }}>
             <Svg
                 className={className}
                 viewBox="0 0 1024 1024"
             >
-                {!noTitle && <title>{title || name}</title>}
                 {
                     exists && currentIcon.paths.map((path: any, index: any) => {
                         return (

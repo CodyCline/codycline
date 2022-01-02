@@ -1,18 +1,26 @@
-import NextLink from "next/link";
+import NextLink, { LinkProps } from "next/link";
+import React from "react";
 import styled from "styled-components";
 import { ILinkProps } from "../../types/components";
+
+
+export const _Link:any = React.forwardRef(({ href, ...props }: LinkProps, ref?: any) => (
+	<NextLink passHref={true} href={href}>
+		<a ref={ref} {...props} />
+	</NextLink>
+));
 
 const StyledLink = styled.a`
     color: var(--color-link);
 `
 
-const StyledNextLink = styled(NextLink)`
+const StyledNextLink = styled(_Link)`
     color: var(--color-link);
 `;
 
-export const Link = ({href, children} : ILinkProps) => {
-	
-    const currentHost = process.env.NODE_ENV === `development` ? `localhost:8000`: `codycline.com`;
+export const Link = ({ href, children }: ILinkProps) => {
+
+	const currentHost = process.env.NODE_ENV === `development` ? `localhost:8000` : `codycline.com`;
 	if (href.includes(currentHost) || href[0] === `/`) {
 		return <StyledNextLink href={href}>{children}</StyledNextLink>
 	}
