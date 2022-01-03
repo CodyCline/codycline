@@ -15,7 +15,8 @@ import { InlineCode } from "../components/Code";
 import { Spoiler } from "../components/Spoiler";
 import { Tester } from "../components/ui/Media";
 import { BlogCard, BlogList } from "../components/BlogList";
-import { Snippet } from "../components/SnippetList";
+import { Snippet, SnippetList } from "../components/SnippetList";
+import { ProjectCard, ProjectList } from "../components/ProjectList";
 const ThemeToggle: any = dynamic((): any => import("../components/ThemeToggle"), {
     ssr: false,
 });
@@ -69,18 +70,24 @@ function Home({ posts }: any) {
                 <BlogCard title="Test Blog" description="Walkthrough on how to build a web app that gives you random google maps locations to ... explore?" tags={["llvm", "rust", "c++"]} url="https://google.com"  />
                 <BlogCard title="Test Blog" description="Walkthrough on how to build a web app that gives you random google maps locations to ... explore?" tags={["llvm", "rust", "c++"]} url="https://google.com"  />
             </BlogList>
-            <Snippet permaLink={"/404"} tags={["c++"]} title="C++ containers" description="Develop powerful C/C++ applications in a Docker environment">
-                
-            </Snippet>
-            <Snippet permaLink={"/404"} tags={["c"]} title="Decompiling ROMs" description="Behind the curtain of an N64 game codebase">
-                
-            </Snippet>
-            <Snippet permaLink={"/404"} tags={["cargo"]} title="useBattery" description="Detect battery in an application in react">
-                
-            </Snippet>
-            <Snippet permaLink={"/404"} tags={["rust"]} title="Async Read" description="Rust helper function for fast reads">
-                
-            </Snippet>
+            <SnippetList>
+                <Snippet permaLink={"/404"} tags={["c++"]} title="C++ containers" description="Develop powerful C/C++ applications in a Docker environment"/>
+                <Snippet permaLink={"/404"} tags={["c"]} title="Decompiling ROMs" description="Behind the curtain of an N64 game codebase"/>
+                <Snippet permaLink={"/404"} tags={["cargo"]} title="useBattery" description="Detect battery in an application in react"/>
+                <Snippet permaLink={"/404"} tags={["rust"]} title="Async Read" description="Rust helper function for fast reads"/>
+            </SnippetList>
+            <ProjectList>
+                <ProjectCard/>
+                <ProjectCard/>
+
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+
+
+            </ProjectList>
         </div>
     )
 }

@@ -24,7 +24,7 @@ const BlogListContainer = styled.article`
     ${media.phone`flex-direction: column;`}
     ${media.tablet`flex-direction: column`}
     ${media.desktop`flex-direction: column`}
-
+    background: var(--color-fg-primary);
     border: 1px solid var(--color-border);
 `
 
@@ -68,6 +68,9 @@ const ReadButton = styled.button`
     padding: 0.5em;
 `
 import r from "../public/assets/clang.jpg";
+
+
+
 
 export const BlogCard = ({ title, description, image, onClick, tags, url, date, }: any) => {
     const firstThreeTags = tags.slice(0, 3);

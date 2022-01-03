@@ -26,6 +26,6 @@ module.exports = {
     styledComponents: true
   },
   images: {
-    domains: ['via.placeholder.com'],
+    domains: ["via.placeholder.com", "github.com", "img.shields.io"],
   },
 };

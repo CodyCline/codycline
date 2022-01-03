@@ -3,7 +3,9 @@ import { media } from "./ui/Media";
 import { Icon } from "./ui/Icon";
 import Link from "next/link";
 
-const SnippetList = styled.section`
+export const SnippetList = styled.section`
+    margin: auto;
+    width: 80%;
 `
 
 
@@ -14,13 +16,13 @@ const SnippetContainer = styled.section`
     justify-content: space-between;
     align-items: center;
     padding: 0.333rem 1rem;
-    margin: 1em 0.333rem;
+    margin: 1em 0;
     border-radius: var(--font-size-sm);
     ${media.phone`justify-content: flex-start; flex-direction: column; align-items: start;`}
-    background: var(--color-fg-primary);
-    outline: 1px solid transparent;
+    border: 1px solid var(--color-border);
     &:hover {
-        outline-color: var(--color-border);
+        background: var(--color-fg-primary);
+
     }
 `;
 
