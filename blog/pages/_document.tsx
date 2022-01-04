@@ -46,7 +46,7 @@ class MyDocument extends Document {
                 <body>
                     <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                     <Main />
-                    <div id="next-portal"/> 
+                    <div id="__portal"/> 
                     <NextScript />
                 </body>
             </Html>

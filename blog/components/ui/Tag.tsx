@@ -6,11 +6,11 @@ import { Icon } from "./Icon";
 const TagContainer: any = styled.button`
     font-size: var(--font-size-sm);
     outline: none;
-    color: var(--color-text-primary);
+    color: var(--color-text-default);
     background: var(--color-bg-primary);
     min-width: 2rem;
     padding: 0.333rem 0.5rem;
-    margin: 0 0.333rem;
+    margin: 0.333rem;
     border: 2px solid var(--color-border);
     min-height: 1.5rem;
     max-width: 100%;

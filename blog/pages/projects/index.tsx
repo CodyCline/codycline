@@ -1,3 +1,4 @@
+import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { getAllProjects } from "../../lib/loadProjects";
 
 
@@ -6,12 +7,18 @@ function Index({ projects }:any) {
     return (
         <div>
             <h1>Projects</h1>
-            <p>Byte-sized content for quick reading.</p>
-            <ul>
-                <li>
-                    posts
-                </li>
-            </ul>
+            <ProjectList>
+                <ProjectCard/>
+                <ProjectCard/>
+
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+                <ProjectCard/>
+
+
+            </ProjectList>
         </div>
     )
 }

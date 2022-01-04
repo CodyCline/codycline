@@ -27,6 +27,8 @@ function tokenToReactNode(token: Token | string, i: number): ReactNode {
 
 const CodeBlockContainer = styled.section`
     margin: 36px 0;
+    border-radius: var(--font-size-sm);
+    border: 1px solid var(--color-border);
 `
 
 const CodeBlock = styled.pre`

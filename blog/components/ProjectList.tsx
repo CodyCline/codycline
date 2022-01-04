@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { Icon } from "./ui/Icon";
 import { IconTag, LinkTag } from "./ui/Tag";
 import Image from "next/image";
+import r from "../public/assets/minuteman_II.jpg";
 import { truncate } from "./ui/Truncate";
-import r from "../public/assets/llvm.jpg";
 export const ProjectList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(217px,1fr));
@@ -21,13 +21,11 @@ const ProjectCardContainer = styled.article`
     border: 1px solid var(--color-border);
     width: 100%;
     border-radius: 5px;
-    height: 275px;
     overflow: hidden;
     cursor: pointer;
     transition: .3s ease-in-out;
     &:hover {
         background: var(--color-fg-primary);
-
     }
 `;
 
@@ -54,19 +52,25 @@ const getIcon = (platform: string) => {
 
 
 const CardDescription = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: var(--font-size-default);
     height: 96px;
+    ${truncate(225)}
+    
 `;
 
 const CardTitle = styled.div`
     display: inline-flex;
     align-items: center;
-    margin-right: .5em;
-
-`
+    font-weight: 700;
+    > i {
+        margin-right: 10px;
+    }
+    > span {
+        color: #CCC;
+        margin-left: 5px;
+        font-weight: normal;
+        font-size: var(--font-size-sm);
+    }
+    `
 
 const CardActionBar = styled.ul`
     margin: 0;
@@ -92,62 +96,61 @@ const CardSummary = styled.div`
 const CardBadge = styled.div`
     border-radius: 50%;
     position: absolute;
-    transform: translateY(-100%);
+    transform: translateY(-75%);
     right: 17px;
     border: 1px solid var(--color-border);
     background: var(--color-bg-primary);
 `;
 
 
-
-export const ProjectCard = ({title, projectType, buildStatusLink, }) => {
+export const ProjectCard = ({ title, projectType, buildStatusLink, tags, }: any) => {
+    const firstTag = tags && tags[0];
     return (
         <ProjectCardContainer>
-            <div style={{ margin: "0 auto", borderRadius: "8px", border: "1px solid green", height: "14vh", width: "100%", position: `relative` }}>
-                <Image objectFit="cover" layout="fill" src={r} />
-
+            <div style={{ padding: `12px` }}>
+                <div style={{ height: "14vh", width: "100%", position: `relative` }}>
+                    <Image objectFit="cover" layout="fill" src={r} />
+                </div>
             </div>
-            <CardDescription>
-                <CardBadge>
-                    <Icon height={36} width={36} name="cuda" />
-                </CardBadge>
-                <CardTitle>
-                    <Icon height={24} width={24} name="package" />
-                    react-paypal
-                    <span style={{ color: "#CCC" }}> v.223</span>
-                </CardTitle>
-                <CardSummary>
-                    A slideshow component for cycling through elements—images or slides of text—like a carousel. Nested carousels are not supported.
+            <CardBadge>
+                <Icon height={36} width={36} name="rust" />
+            </CardBadge>
+            <div style={{ padding: "16px", display: "flex", height:"175px", flexDirection: "column", "justifyContent": "space-between" }}>
+                <CardDescription>
 
+                    <CardTitle>
+                        <Icon height={24} width={24} name={getIcon("package")} />
+                        minuteman  <span>v.2.1.0</span>
+                    </CardTitle>
+                    <CardSummary>
+                        CLI tool for wiping secure hard drive erasure using D.O.D. 5220-m method
+                    </CardSummary>
 
-                </CardSummary>
+                </CardDescription>
                 <CardActionBar>
                     <CardActionItem>
                         <Icon height={24} width={24} name="link" />
-
-
                     </CardActionItem>
                     <CardActionItem>
                         <Icon height={24} width={24} name="snapcraft" />
-
                     </CardActionItem>
                     <CardActionItem>
-                        <Icon height={24} width={24} name="appstore" />
-
+                        <Icon height={24} width={24} name="github" />
                     </CardActionItem>
-                    {buildStatusLink &&
-                        <CardActionItem right>
-                            <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
-                                <img
-                                    title="build status"
-                                    alt="build status"
-                                    src="https://github.com/rust-lang/rust/workflows/CI/badge.svg"
-                                />
-                            </div>
-                        </CardActionItem>
-                    }
+                    <CardActionItem>
+                        <Icon height={24} width={24} name="cargo" />
+                    </CardActionItem>
+                    <CardActionItem right>
+                        <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
+                            <img
+                                title="build status"
+                                alt="build status"
+                                src="https://github.com/rust-lang/rust/workflows/CI/badge.svg"
+                            />
+                        </div>
+                    </CardActionItem>
                 </CardActionBar>
-            </CardDescription>
+            </div>
         </ProjectCardContainer>
     );
 }

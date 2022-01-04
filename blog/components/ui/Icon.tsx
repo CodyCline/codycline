@@ -6,12 +6,12 @@ import { brandIcons } from '../../public/assets/icons/brands';
 
 
 
-const Svg = styled.svg`
-    fill: var(--color-text-primary);
+const Svg:any = styled.svg`
+    fill: ${(props:any) => props.fill || `var(--color-text-default)`};
 `
 
 
-export const Icon = ({ name, title, noTitle, height, width, className }: any) => {
+export const Icon = ({ name, fill, title, noTitle, height, width, className }: any) => {
     const iconLib: any = { ...standardIcons, ...codeIcons, ...brandIcons };
     const currentIcon = iconLib[name];
     const exists = iconLib[name] !== undefined && typeof window !== undefined;
@@ -19,6 +19,7 @@ export const Icon = ({ name, title, noTitle, height, width, className }: any) =>
     return (
         <i title={noTitle ? `` : `${name || title}`} style={{ height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block` }}>
             <Svg
+                fill={fill}
                 className={className}
                 viewBox="0 0 1024 1024"
             >

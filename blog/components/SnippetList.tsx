@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { media } from "./ui/Media";
 import { Icon } from "./ui/Icon";
 import Link from "next/link";
+import { complement, cssVar, invert } from "polished";
 
 export const SnippetList = styled.section`
     margin: auto;
@@ -15,7 +16,7 @@ const SnippetContainer = styled.section`
     transition: .25s ease-in-out;
     justify-content: space-between;
     align-items: center;
-    padding: 0.333rem 1rem;
+    padding: 1rem;
     margin: 1em 0;
     border-radius: var(--font-size-sm);
     ${media.phone`justify-content: flex-start; flex-direction: column; align-items: start;`}
@@ -28,10 +29,11 @@ const SnippetContainer = styled.section`
 
 const SnippetTitle = styled.p`
     padding-left: 1em;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     font-weight: bold;
     &:hover {
-        text-decoration: underline;
+        text-decoration: dotted underline;
+        color: ${invert(cssVar("--color-fg-primary", "black")  as string)};
     }
     
 `

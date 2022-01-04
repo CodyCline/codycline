@@ -24,7 +24,6 @@ const BlogListContainer = styled.article`
     ${media.phone`flex-direction: column;`}
     ${media.tablet`flex-direction: column`}
     ${media.desktop`flex-direction: column`}
-    background: var(--color-fg-primary);
     border: 1px solid var(--color-border);
 `
 
@@ -32,11 +31,11 @@ const Header = styled.h3`
     font-weight: 700;
     font-size: 1.7rem;
     cursor: pointer;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     margin-block-start: 0;
     transition: 1s ease-in-out;
     &:hover {
-        text-decoration: underline;
+        text-decoration: dotted underline;
     }
 `;
 
@@ -53,19 +52,35 @@ const SubItem = styled.li`
     margin-bottom: 0.33em;
 `;
 
+const Summary = styled.div`
+    --max-lines: 3;
+    --lh: 1.7rem;
+    max-height: calc(var(--lh) * var(--max-lines));
+    overflow: hidden;
+    &:before {
+        content: "...";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+`
+
 const Date = styled.span`
     color: #ccc;
 `
 
 
 const ReadButton = styled.button`
-    background: ${lighten(0.2, complement("#1f2123"))};
-    color: var(--color-bg-toggle);
-    border-radius: 0.333em;
-    margin: 1em 0;
+    font-size: var(--font-size-default);
+    color: var(--color-text-primary);
+    background: inherit;
+    border: 2px solid var(--color-text-primary);
+    margin: .5em 0;
     cursor: pointer;
-    border: none;
-    padding: 0.5em;
+    &:hover {
+        background: var(--color-text-primary);
+        color: var(--color-text-default);
+    }
 `
 import r from "../public/assets/clang.jpg";
 
@@ -92,7 +107,9 @@ export const BlogCard = ({ title, description, image, onClick, tags, url, date, 
                     <Date>2020.12.24</Date>
                 </SubItem>
                 <SubItem>
-                    <Link href={url}>{description}</Link>
+                    <Summary>
+                        <Link href={url}>{description}</Link>
+                    </Summary>
                 </SubItem>
                 <SubItem>
                     <ReadButton> Start Reading ➡️</ReadButton>

@@ -8,7 +8,7 @@ const SpoilerContainer = styled.section`
 `
 
 const SpoilerHeader:any = styled.ul`
-        color: var(--color-text-primary);
+        color: var(--color-text-default);
         background: var(--color-fg-primary);
         border: 1px solid var(--color-border);
     display: flex;
