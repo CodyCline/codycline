@@ -29,7 +29,7 @@ const SnippetContainer = styled.section`
 
 const SnippetTitle = styled.p`
     padding-left: 1em;
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     font-weight: bold;
     &:hover {
         text-decoration: dotted underline;

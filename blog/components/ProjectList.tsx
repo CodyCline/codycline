@@ -113,7 +113,7 @@ export const ProjectCard = ({ title, projectType, buildStatusLink, tags, }: any)
                 </div>
             </div>
             <CardBadge>
-                <Icon height={36} width={36} name="rust" />
+                <Icon height={36} width={36} name={firstTag} />
             </CardBadge>
             <div style={{ padding: "16px", display: "flex", height:"175px", flexDirection: "column", "justifyContent": "space-between" }}>
                 <CardDescription>

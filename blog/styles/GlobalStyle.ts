@@ -27,15 +27,15 @@ const GlobalStyle = createGlobalStyle`
 	body,
 	body[data-theme="light"] {
 		--color-text-default: #111111; 
-		--color-text-primary: #7e22ce;
-		--color-text-secondary: #0CAFFF;
+		--color-text-primary: #298cff;
+		--color-text-secondary: #916BBF;
 		--color-bg-primary: #fff;
 		--color-fg-primary: #e3e3e3;
 		--color-bg-toggle: #ffb454;
 		--color-border: #d9d9d9;
 		--color-foreground-aux: #f7f7f7;
 		--color-link: #4c4ce6;
-		--color-text-inline-code:#9d00ec;
+		--color-text-inline-code: #9d00ec;
 		--color: #6e6b5e;
 		--color-bg-inline-code: #f6f7f6;
 
@@ -66,7 +66,7 @@ const GlobalStyle = createGlobalStyle`
 		--color-foreground-aux: #1f2123;
 		--color-text-default: #e3e3e3;
 		--color-text-primary: #ffb454;
-		--color-text-secondary: #ffe77a;
+		--color-text-secondary: #FFD369;
 		--color-bg-primary: #171717;
 		--color-fg-primary: #26282b;
 		--color-bg-toggle: #0096cf;

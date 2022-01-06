@@ -29,7 +29,7 @@ const BlogListContainer = styled.article`
 const Header = styled.h3`
     font-weight: 700;
     cursor: pointer;
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     margin-block-start: 0;
     transition: 1s ease-in-out;
     &:hover {
