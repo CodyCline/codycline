@@ -1,4 +1,4 @@
-import type { AppProps } from 'next/app'
+import type { AppProps, AppContext } from 'next/app'
 import dynamic from 'next/dynamic';
 import { Layout } from "../components/layout/Layout";
 
@@ -14,5 +14,6 @@ function App({ Component, pageProps }: AppProps) {
   
   </>
 }
+
 
 export default App;

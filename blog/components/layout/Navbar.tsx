@@ -27,7 +27,7 @@ export const NavItem: any = styled.div`
 `
 
 const _Link:any = styled.a`
-margin-right: 10px;
+    margin-right: 10px;
     color: ${(props:any) => props.active && `var(--color-text-primary);`}
 `
 
@@ -48,8 +48,7 @@ function ActiveLink({ children, href }:any) {
 }
 
 
-export const NavLink = ({ children, href, active }: any) => {
-    const router = useRouter();
+export const NavLink = ({ children, href }: any) => {
 
     return (
         <NavItem>

@@ -1,5 +1,5 @@
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
-import { getAllProjects } from "../../lib/loadProjects";
+import { loadAllProjects } from "../../lib/load-projects";
 
 
 function Index({ projects }:any) { 
@@ -25,7 +25,7 @@ function Index({ projects }:any) {
 
 
 export async function getStaticProps() {
-    const projectPosts = await getAllProjects();
+    const projectPosts = await loadAllProjects();
 
     return {
         props: {

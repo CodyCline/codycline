@@ -3,7 +3,6 @@ import Image, { ImageProps } from "next/image";
 import styled from "styled-components";
 import { IconTag } from "./ui/Tag";
 import { media } from "./ui/Media";
-import { complement, cssVar, lighten } from "polished";
 import React from "react";
 
 export const BlogList = styled.div`
@@ -29,7 +28,6 @@ const BlogListContainer = styled.article`
 
 const Header = styled.h3`
     font-weight: 700;
-    font-size: 1.7rem;
     cursor: pointer;
     color: var(--color-text-primary);
     margin-block-start: 0;
@@ -87,28 +85,28 @@ import r from "../public/assets/clang.jpg";
 
 
 
-export const BlogCard = ({ title, description, image, onClick, tags, url, date, }: any) => {
-    const firstThreeTags = tags.slice(0, 3);
+export const BlogCard = ({ title, description, image, onClick, tags, permaLink, date, }: any) => {
+    const firstThreeTags = tags.slice(0, 4);
     return (
         <BlogListContainer onClick={onClick}>
-            <Link href={url}>
+            <Link href={permaLink}>
                 <Image objectFit="cover" height={100} width={500} src={r} />
             </Link>
 
             <SubContent>
                 <SubItem>
                     <Header>
-                        <Link href={url}>
+                        <Link href={permaLink}>
                             {title}
                         </Link>
                     </Header>
                 </SubItem>
                 <SubItem>
-                    <Date>2020.12.24</Date>
+                    <Date title={date.toString()}>{date.toISOString()}</Date>
                 </SubItem>
                 <SubItem>
                     <Summary>
-                        <Link href={url}>{description}</Link>
+                        <Link href={permaLink}>{description}</Link>
                     </Summary>
                 </SubItem>
                 <SubItem>

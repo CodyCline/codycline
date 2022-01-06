@@ -32,7 +32,6 @@ const CodeBlockContainer = styled.section`
 `
 
 const CodeBlock = styled.pre`
-    margin: 0;
     border-bottom-left-radius: var(--font-size-sm);
     border-bottom-right-radius: var(--font-size-sm);
 `
@@ -41,9 +40,10 @@ const ToolBar = styled.ul`
     display: flex;
     flex-direction: row;
     margin: 0;
-    padding: 6px;
+    padding: 0.5em 1em;
+
     list-style: none;
-    background: #2B2B2B;
+    background: var(--color-fg-primary);
     border-top-left-radius: var(--font-size-sm);
     border-top-right-radius: var(--font-size-sm);
 `
@@ -55,22 +55,23 @@ const ToolBarTitle = styled.li`
 `
 
 const CopyIcon = styled.li`
-cursor: pointer;
-margin-left: auto;
-
-`
+    cursor: pointer;
+    margin-left: auto;
+`;
 
 export const InlineCode = styled.code`
     white-space: nowrap;
+    font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
     color: var(--color-text-inline-code);
     background: var(--color-bg-inline-code);
     padding: 0.1em 0.3em;
     border-radius: 3px;
-`
+`;
 
-export const Code = (props: CodeProps) => {
+
+export const Code = ({className, children}:any) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
-    const separate: string[] = props.className.split(`:`);
+    const separate: string[] = className.split(`:`);
     const language: string | null = separate[0].split(`language-`).join(``);
     const title: string | null = separate[1] ? separate[1].split(`title=`).join(``): null;
     //In the state, we store the code and tokens for the code.
@@ -83,7 +84,7 @@ export const Code = (props: CodeProps) => {
     }
 
     useEffect(() => {
-        require( "prism-themes/themes/prism-vsc-dark-plus.min.css");
+        // require( "./layout/Prism.css");
         //We need to add languages since, by default only markup, CSS, clike, and javascript are available.
         //I did not find a better way, like the one below, if you know - please submit an issue.
         require("prismjs/components/prism-clike");
@@ -91,7 +92,7 @@ export const Code = (props: CodeProps) => {
         import(`prismjs/components/prism-${language || `clike`}`).then(() => {
             //If language still not available skip tokenize part
             const tokens: Array<string | Token> = Prism.languages[language]
-                ? Prism.tokenize(props.children, Prism.languages[language])
+                ? Prism.tokenize(children, Prism.languages[language])
                 : [];
             //Save the result to the state.
             replaceToken(tokens)
@@ -100,7 +101,7 @@ export const Code = (props: CodeProps) => {
         });
 
         
-    }, [props.children]);
+    }, [children]);
     //If the array with tokens is empty, print the code from props, otherwise render our beauty.
     return (
         <CodeBlockContainer>
@@ -113,9 +114,13 @@ export const Code = (props: CodeProps) => {
                     <Icon onClick={copyCode} noTitle name="copy" height={18} width={18} />
                 </CopyIcon>
             </ToolBar>
-            <CodeBlock style={{margin: 0, fontSize: `18px`}} ref={codeRef} className={`language-${language}`}>
-                {data.length ? data.map(tokenToReactNode) : props.children}
-            </CodeBlock>
+            <pre
+                ref={codeRef}
+                className={`language-${language}`}
+                style={{ borderBottomLeftRadius: `var(--font-size-sm)`, borderBottomRightRadius: `var(--font-size-sm)`}}
+            >
+                {data.length ? data.map(tokenToReactNode) : children}
+            </pre>
         </CodeBlockContainer>
     );
 }

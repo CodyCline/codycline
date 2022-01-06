@@ -19,7 +19,7 @@ export const MobileNav = () => {
     function toggle() {
         setToggled(!toggled);
     }
-    
+
     return (
         <React.Fragment>
             <SideNavButton onClick={toggle}>
@@ -29,7 +29,16 @@ export const MobileNav = () => {
                 {toggled &&
                     <SideNav ref={ref}>
                         <NavLink href="/">
-                            <h2>Hello</h2>
+                            Home
+                        </NavLink>
+                        <NavLink href="/blog">
+                            Blog
+                        </NavLink>
+                        <NavLink href="/projects">
+                            Projects
+                        </NavLink>
+                        <NavLink href="/snippets">
+                            Snippets
                         </NavLink>
                         <button>Hello</button>
 

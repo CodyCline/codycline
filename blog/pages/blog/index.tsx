@@ -1,25 +1,42 @@
 import { BlogCard, BlogList } from "../../components/BlogList";
-import { getAllPosts } from "../../lib/loadBlog";
+import { loadAllPosts } from "../../lib/load-posts";
+import type { GetStaticProps } from 'next';
+import { BlogPost } from "../../types/post";
 
 
-function Index({posts}:any) { 
+type Content = {
+    posts: BlogPost[],
+}
+
+function Index({posts}:Content) { 
+    console.log(posts);
     return (
         <div>
             <h1>Blog Posts</h1>
             <BlogList>
-                <BlogCard title="Test Blog" description="Walkthrough on how to build a web app that gives you random google maps locations to ... explore?" tags={["python", "google", "algorithms"]} url="https://google.com"  />
-                <BlogCard title="Test Blog" description="Guide to making your own toy programming language using the powerful LLVM toolchain and lectical analysis, with vector math" tags={["llvm", "rust", "c++"]} url="https://google.com"  />
-                <BlogCard title="Test Blog" description="Walkthrough on how to build a web app that gives you random google maps locations to ... explore?" tags={["llvm", "rust", "c++"]} url="https://google.com"  />
-                <BlogCard title="Test Blog" description="Walkthrough on how to build a web app that gives you random google maps locations to ... explore?" tags={["llvm", "rust", "c++"]} url="https://google.com"  />
+                {posts && 
+                    posts.map((post, idx) => {
+                        return (
+                            <BlogCard 
+                                key={idx}
+                                title={post.title} 
+                                description={post.description} 
+                                tags={post.tags}
+                                date={post.updated || post.created}
+                                permaLink={post.permaLink}
+                            />
+                        )
+                    })
+                }
             </BlogList>
         </div>
     )
 }
 
 
-export async function getStaticProps() {
-    const blogPosts = await getAllPosts();
-
+export const getStaticProps: GetStaticProps = async () => {
+    const blogPosts = await loadAllPosts();
+    
     return {
         props: {
             posts: blogPosts

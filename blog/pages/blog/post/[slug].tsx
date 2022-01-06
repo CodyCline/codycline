@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
-import { Code } from '../../../components/Code';
+import { Code, CodeProps, InlineCode } from '../../../components/Code';
 import styled from 'styled-components';
 
 
@@ -24,6 +24,7 @@ const BlogPage = ({ mdxSource }:any) => {
         <div className="mt-4">
             <MDXRemote components={{
                 code: Code,
+                inlineCode: InlineCode,
                 p: Paragraph,
                 h1: Title,
             }} {...mdxSource}/>

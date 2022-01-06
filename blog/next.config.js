@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-
+const { withSuperjson } = require("next-superjson");
 
 const metadata = {
   title: `Cody Cline`,
@@ -18,7 +18,7 @@ const metadata = {
 }
 
 
-module.exports = {
+module.exports = withSuperjson()({
   reactStrictMode: true,
   metadata: metadata,
   experimental: {
@@ -28,4 +28,4 @@ module.exports = {
   images: {
     domains: ["via.placeholder.com", "github.com", "img.shields.io"],
   },
-};
+});

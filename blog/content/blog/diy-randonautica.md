@@ -1,9 +1,8 @@
 ---
-date: "2020-09-08"
 title: Create your own Randonautica web app
 description: "Walkthrough on how to build a web app that gives you random locations to ... explore?"
-banner: ./randonautica.webp
-thumb: ./randonautica.webp
+hero: ./public/assets/randonautica.webp
+featured: 0
 tags: 
 - python
 - mystery

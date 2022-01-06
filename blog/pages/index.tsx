@@ -1,4 +1,3 @@
-import { getAllPosts } from "../lib/loadBlog";
 
 import { IconTag, LinkTag } from "../components/ui/Tag";
 import { Icon } from "../components/ui/Icon";
@@ -16,8 +15,7 @@ import { Snippet, SnippetList } from "../components/SnippetList";
 import { ProjectCard, ProjectList } from "../components/ProjectList";
 
 
-function Home({ posts }: any) {
-    console.log(posts);
+const Home = () => {
     return (
         <div>
             <h1>Hello</h1>
@@ -54,20 +52,15 @@ function Home({ posts }: any) {
             <IconTag icon="llvm">llvm</IconTag>
             <IconTag icon="assembly">assembly</IconTag>
             <IconTag icon="c">c</IconTag>
-            
-            
-            
         </div>
     )
 }
 
 
 export async function getStaticProps() {
-    const blogPosts = await getAllPosts();
-
     return {
         props: {
-            posts: blogPosts
+            posts: []
         }
     }
 }
