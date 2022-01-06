@@ -1,16 +1,16 @@
 ---
-date: "2020-08-15"
+type: dependency
 title: React PayPal
-platform: package
-description: JavaScript library of PayPal smart buttons for React
-banner: ./paypal.jpg
-thumb: ./paypal.jpg
-github_link: https://github.com/codycline/paypal-react.git
-external_link: https://www.npmjs.com/package/paypal-button-react
+description: Package to remove the pain of integrating Paypal in your react app
+hero: ./paypal.jpg
+links:
+- https://www.npmjs.com/package/paypal-button-react
+- https://github.com/codycline/paypal-react.git
+ci_link: null
 tags: 
-- javascript
-- paypal
 - react
+- paypal
+- javascript
 ---
 ## Problem
 PayPal has released a new version of JavaScript library called the [Smart Button Library](https://developer.paypal.com/docs/checkout/) which allows you to accept payments on your website. 

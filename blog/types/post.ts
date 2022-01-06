@@ -45,6 +45,7 @@ export interface Snippet extends Post {}
 export interface Project extends Post {
     links: string[] | URL[]; //Links to github, etc.
     buildLink?: URL | string;
+    type: ProjectType;
 }
 
 

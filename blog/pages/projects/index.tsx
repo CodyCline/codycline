@@ -1,23 +1,28 @@
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { loadAllProjects } from "../../lib/load-projects";
+import { Project } from "../../types/post";
 
 
 function Index({ projects }:any) { 
-    console.log( projects );
     return (
         <div>
             <h1>Projects</h1>
             <ProjectList>
-                <ProjectCard/>
-                <ProjectCard/>
+                {projects && 
+                    projects.map((project: Project) => (
+                        <ProjectCard
+                            key={project.slug}
+                            title={project.title}
+                            description={project.description}
+                            links={project.links}
+                            permaLink={project.permaLink}
+                            type={project.type}
+                            buildLink={null}
+                            tags={project.tags}
 
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-
-
+                        />
+                    )
+                )}
             </ProjectList>
         </div>
     )

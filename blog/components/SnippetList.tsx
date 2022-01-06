@@ -23,7 +23,6 @@ const SnippetContainer = styled.section`
     border: 1px solid var(--color-border);
     &:hover {
         background: var(--color-fg-primary);
-
     }
 `;
 
@@ -33,7 +32,6 @@ const SnippetTitle = styled.p`
     font-weight: bold;
     &:hover {
         text-decoration: dotted underline;
-        color: ${invert(cssVar("--color-fg-primary", "black")  as string)};
     }
     
 `
@@ -66,7 +64,7 @@ export const Snippet = ({ tags, title, description, permaLink, date }: any) => {
                     {description}
                 </Link>
             </SnippetDescription>
-            <SnippetDate>2020.12.24</SnippetDate>
+            <SnippetDate title={date.toString()}>{date.toISOString()}</SnippetDate>
         </SnippetContainer>
     );
 };

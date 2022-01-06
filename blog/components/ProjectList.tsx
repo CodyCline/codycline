@@ -4,6 +4,8 @@ import { IconTag, LinkTag } from "./ui/Tag";
 import Image from "next/image";
 import r from "../public/assets/minuteman_II.jpg";
 import { truncate } from "./ui/Truncate";
+import { ProjectType } from "../types/post";
+import Link  from "next/link";
 export const ProjectList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(217px,1fr));
@@ -30,22 +32,20 @@ const ProjectCardContainer = styled.article`
 `;
 
 
-const getIcon = (platform: string) => {
+const projectTypeIcon = (platform: ProjectType) => {
     switch (platform) {
-        case "web":
-            return (`folder`);
-        case "mobile":
-            return (`folder`);
-        case "hardware":
-            return (`circuit`);
-        case "network":
-            return (`globe`);
-        case "desktop":
-            return (`desktop`);
-        case "package":
-            return (`package`);
-        default:
-            return (`folder`);
+        case ProjectType.WEB: return `desktop`;
+        case ProjectType.MOBILE: return `desktop`;
+        case ProjectType.DESKTOP: return `desktop`;
+        case ProjectType.EXTENSION: return `desktop`;
+        case ProjectType.CLI: return `desktop`
+        case ProjectType.NETWORK: return `desktop`;
+        case ProjectType.DEPENDENCY: return `package`;
+        case ProjectType.HARDWARE: return ``;
+        case ProjectType.SECURITY: return ``;
+        case ProjectType.PUBLICATION: return ``;
+        case ProjectType.OTHER: return `mystery`;      
+        default: return `folder`
     }
 }
 
@@ -103,8 +103,10 @@ const CardBadge = styled.div`
 `;
 
 
-export const ProjectCard = ({ title, projectType, buildStatusLink, tags, }: any) => {
+export const ProjectCard = ({ title, type, buildLink, tags, links, description, permaLink }: any) => {
     const firstTag = tags && tags[0];
+    const firstLink = links && links[0];
+    console.log(firstTag, firstLink);
     return (
         <ProjectCardContainer>
             <div style={{ padding: `12px` }}>
@@ -119,18 +121,20 @@ export const ProjectCard = ({ title, projectType, buildStatusLink, tags, }: any)
                 <CardDescription>
 
                     <CardTitle>
-                        <Icon height={24} width={24} name={getIcon("package")} />
-                        minuteman  <span>v.2.1.0</span>
+                            <Icon height={24} width={24} name={projectTypeIcon(type as ProjectType)} />
+                            {title}<span>v.2.1.0</span>
                     </CardTitle>
                     <CardSummary>
-                        CLI tool for wiping secure hard drive erasure using D.O.D. 5220-m method
+                        {description}
                     </CardSummary>
 
                 </CardDescription>
                 <CardActionBar>
-                    <CardActionItem>
-                        <Icon height={24} width={24} name="link" />
-                    </CardActionItem>
+                    <Link href={firstLink}>
+                        <CardActionItem>
+                                <Icon height={24} width={24} name="link" />
+                        </CardActionItem>
+                    </Link>
                     <CardActionItem>
                         <Icon height={24} width={24} name="snapcraft" />
                     </CardActionItem>
@@ -140,15 +144,17 @@ export const ProjectCard = ({ title, projectType, buildStatusLink, tags, }: any)
                     <CardActionItem>
                         <Icon height={24} width={24} name="cargo" />
                     </CardActionItem>
-                    <CardActionItem right>
-                        <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
-                            <img
-                                title="build status"
-                                alt="build status"
-                                src="https://github.com/rust-lang/rust/workflows/CI/badge.svg"
-                            />
-                        </div>
-                    </CardActionItem>
+                    {buildLink &&
+                        <CardActionItem right>
+                            <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
+                                <img
+                                    title="build status"
+                                    alt="build status"
+                                    src={buildLink}
+                                />
+                            </div>
+                        </CardActionItem>
+                    }
                 </CardActionBar>
             </div>
         </ProjectCardContainer>

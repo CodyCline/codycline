@@ -1,18 +1,27 @@
 import { Snippet, SnippetList } from "../../components/SnippetList";
-import { getAllSnippets } from "../../lib/snippets";
+import type { Snippet as Snp } from "../../types/post";
+import { loadAllSnippets } from "../../lib/load-snippets";
 
 
-function Index({ snippets }:any) { 
-    console.log( snippets );
+function Index({ snippets }: any) {
+    console.log(snippets);
     return (
+
         <div>
-            <h1 style={{color: "#ffe77a"}}>Snippets</h1>
+            <h1>Snippets</h1>
             <p>Byte-sized content for quick reading.</p>
             <SnippetList>
-                <Snippet permaLink={"/404"} tags={["c++"]} title="C++ containers" description="Develop powerful C/C++ applications in a Docker environment"/>
-                <Snippet permaLink={"/404"} tags={["c"]} title="Decompiling ROMs" description="Behind the curtain of an N64 game codebase"/>
-                <Snippet permaLink={"/404"} tags={["cargo"]} title="useBattery" description="Detect battery in an application in react"/>
-                <Snippet permaLink={"/404"} tags={["rust"]} title="Async Read" description="Rust helper function for fast reads"/>
+                {snippets && snippets.map((snippet: Snp) => {
+                    return (
+                        <Snippet 
+                            title="C++ containers" 
+                            description="Develop powerful C/C++ applications in a Docker environment" 
+                            permaLink={snippet.permaLink}
+                            date={snippet.updated! || snippet.created}
+                            tags={snippet.tags}
+                        />
+                    )
+                })}
             </SnippetList>
         </div>
     )
@@ -20,7 +29,7 @@ function Index({ snippets }:any) {
 
 
 export async function getStaticProps() {
-    const snippetPosts = await getAllSnippets();
+    const snippetPosts = await loadAllSnippets();
 
     return {
         props: {

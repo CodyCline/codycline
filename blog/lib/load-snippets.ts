@@ -2,11 +2,13 @@ import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { FileDate, getFileDate } from './getFileData';
-import { BlogPost, Post, Project, ProjectType } from '../types/post';
+import { BlogPost, Post, ProjectType, Snippet } from '../types/post';
+//
 
 
-export async function loadAllProjects(): Promise<Project[]> {
-    const blogPostsPath = path.join(process.cwd(), "content/projects/");
+
+export async function loadAllSnippets(): Promise<Snippet[]> {
+    const blogPostsPath = path.join(process.cwd(), "content/snippets/");
     const paths = await readdir(blogPostsPath);
     const mdxFiles = paths.filter(path => path.endsWith(".md" || ".mdx"));
     const postContents = await Promise.all(
@@ -24,29 +26,20 @@ export async function loadAllProjects(): Promise<Project[]> {
                 description: string;
                 tags: string[];
                 slug?: string;
-                hero: string;
-                links:  string[] | URL[];
                 published: boolean;
                 featured?: number;
-                ci_link?: URL | string;
                 content: string;
-                type: string;
-
             }
 
 
-            //TODO HERO IMAGE
-            const post: Project = {
+            const post: Snippet = {
                 title: matterData.title!,
                 created: created!,
                 published: matterData.published! || false,
                 featured: matterData.featured || 0,
                 updated: updated!,
                 slug: slug,
-                type: matterData.type.toUpperCase() as ProjectType,
-                buildLink: matterData.ci_link,
-                links: matterData.links,
-                permaLink: `/project/post/${slug}`,
+                permaLink: `/snippet/post/${slug}`,
                 tags: matterData.tags || [],
                 description: matterData.description,
                 ___rawContent: matterData.content,
@@ -57,6 +50,4 @@ export async function loadAllProjects(): Promise<Project[]> {
         })
     );
     return postContents;
-    // return new Map(postContents.map((post) => [post.slug, post] as const));
-
 }
