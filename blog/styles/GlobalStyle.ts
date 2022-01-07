@@ -31,14 +31,14 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-secondary: #916BBF;
 		--color-bg-primary: #fff;
 		--color-fg-primary: #e3e3e3;
-		--color-bg-toggle: #ffb454;
+		--color-bg-toggle: #0096cf;
 		--color-border: #d9d9d9;
 		--color-foreground-aux: #f7f7f7;
 		--color-link: #4c4ce6;
 		--color-text-inline-code: #9d00ec;
 		--color: #6e6b5e;
 		--color-bg-inline-code: #f6f7f6;
-
+		--color-motion-toggle: #f7f3f7;
 
 		#Prismjs custom light theme from 
 		--prism-foreground: #393a34;
@@ -69,11 +69,12 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-secondary: #FFD369;
 		--color-bg-primary: #171717;
 		--color-fg-primary: #26282b;
-		--color-bg-toggle: #0096cf;
+		--color-bg-toggle: #ffb454;
 		--color-border: #383a3d;
 		--color-link: #0096cf;
 		--color-text-inline-code: #ffb454;
 		--color-bg-inline-code: #1d1f21;
+		--color-motion-toggle: rgb(202, 108, 154);
 
 		#Prismjs theme dark
 		--prism-scheme: dark;

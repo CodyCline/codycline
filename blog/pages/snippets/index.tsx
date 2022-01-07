@@ -14,8 +14,8 @@ function Index({ snippets }: any) {
                 {snippets && snippets.map((snippet: Snp) => {
                     return (
                         <Snippet 
-                            title="C++ containers" 
-                            description="Develop powerful C/C++ applications in a Docker environment" 
+                            title={snippet.title} 
+                            description={snippet.description}
                             permaLink={snippet.permaLink}
                             date={snippet.updated! || snippet.created}
                             tags={snippet.tags}

@@ -10,7 +10,6 @@ import { UnorderedList } from "../components/list/UnorderedList";
 import { InlineCode } from "../components/Code";
 import { Spoiler } from "../components/Spoiler";
 import { Tester } from "../components/ui/Media";
-import { BlogCard, BlogList } from "../components/BlogList";
 import { Snippet, SnippetList } from "../components/SnippetList";
 import { ProjectCard, ProjectList } from "../components/ProjectList";
 

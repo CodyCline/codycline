@@ -1,11 +1,15 @@
+import React from "react";
 import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 import styled from "styled-components";
 import { IconTag } from "./ui/Tag";
 import { media } from "./ui/Media";
-import React from "react";
+import { truncate } from "./ui/Truncate";
+import r from "../public/assets/clang.jpg";
+import { eDateFormat } from "../utils/eDateFormat";
 
-export const BlogList = styled.div`
+
+export const ArticleList = styled.div`
     display: grid;
     grid-template-columns: auto auto;
     gap: 32px;
@@ -32,9 +36,11 @@ const Header = styled.h3`
     color: var(--color-text-secondary);
     margin-block-start: 0;
     transition: 1s ease-in-out;
+    ${truncate(2, "vertical")}
     &:hover {
         text-decoration: dotted underline;
     }
+
 `;
 
 const SubContent = styled.ul`
@@ -51,16 +57,7 @@ const SubItem = styled.li`
 `;
 
 const Summary = styled.div`
-    --max-lines: 3;
-    --lh: 1.7rem;
-    max-height: calc(var(--lh) * var(--max-lines));
-    overflow: hidden;
-    &:before {
-        content: "...";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+    ${truncate(3, "vertical")}
 `
 
 const Date = styled.span`
@@ -80,12 +77,11 @@ const ReadButton = styled.button`
         color: var(--color-text-default);
     }
 `
-import r from "../public/assets/clang.jpg";
 
 
 
 
-export const BlogCard = ({ title, description, image, onClick, tags, permaLink, date, }: any) => {
+export const ArticleCard = ({ title, description, image, onClick, tags, permaLink, date, }: any) => {
     const firstThreeTags = tags.slice(0, 4);
     return (
         <BlogListContainer onClick={onClick}>
@@ -102,7 +98,7 @@ export const BlogCard = ({ title, description, image, onClick, tags, permaLink, 
                     </Header>
                 </SubItem>
                 <SubItem>
-                    <Date title={date.toString()}>{date.toISOString()}</Date>
+                    <Date title={date.toString()}>{eDateFormat(date)}</Date>
                 </SubItem>
                 <SubItem>
                     <Summary>

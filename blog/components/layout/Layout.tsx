@@ -22,7 +22,7 @@ export const Layout = ({ children }:any) => {
                     </NavItem>
                     :
                     <React.Fragment>
-                        <NavLink href="/blog">Blog</NavLink>
+                        <NavLink href="/posts">Writings</NavLink>
                         <NavLink href="/projects">Projects</NavLink>
                         <NavLink href="/snippets">Snippets</NavLink>
                         <NavItem right>

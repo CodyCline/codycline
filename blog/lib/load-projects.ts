@@ -2,7 +2,7 @@ import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { FileDate, getFileDate } from './getFileData';
-import { BlogPost, Post, Project, ProjectType } from '../types/post';
+import { Project, ProjectType } from '../types/post';
 
 
 export async function loadAllProjects(): Promise<Project[]> {
@@ -22,11 +22,12 @@ export async function loadAllProjects(): Promise<Project[]> {
             const matterData = { ...data, content } as {
                 title: string;
                 description: string;
+                published: Date;
                 tags: string[];
                 slug?: string;
                 hero: string;
                 links:  string[] | URL[];
-                published: boolean;
+                draft: boolean;
                 featured?: number;
                 ci_link?: URL | string;
                 content: string;
@@ -39,7 +40,8 @@ export async function loadAllProjects(): Promise<Project[]> {
             const post: Project = {
                 title: matterData.title!,
                 created: created!,
-                published: matterData.published! || false,
+                published: matterData.published!,
+                draft: matterData.draft || false,
                 featured: matterData.featured || 0,
                 updated: updated!,
                 slug: slug,

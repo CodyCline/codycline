@@ -8,18 +8,18 @@ export interface HeroImage {
     ref?: string;
     license?: string;
 }
-export interface Post {
+interface MarkdownDocument {
     title: string;
     description: string;
+    published: Date;
     created: Date;
     updated?: Date;
     tags: string[];
     slug: string;
-    banner?: string;
-    published: boolean;
+    draft: boolean;
     featured: number;
+    permaLink: string;
     ___rawContent: string;
-    permaLink?: string;
 }
 
 export enum ProjectType {
@@ -38,11 +38,14 @@ export enum ProjectType {
 
 
 
-export interface BlogPost extends Post {}
+export interface Article extends MarkdownDocument {
+    hero?: string;
+}
 
-export interface Snippet extends Post {}
+export interface Snippet extends MarkdownDocument {}
 
-export interface Project extends Post {
+export interface Project extends MarkdownDocument {
+    hero?: string;
     links: string[] | URL[]; //Links to github, etc.
     buildLink?: URL | string;
     type: ProjectType;

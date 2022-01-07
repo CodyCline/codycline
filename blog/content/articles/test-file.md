@@ -1,5 +1,6 @@
 ---
-date: "2020-06-28"
+draft: false
+published: 2020-03-102
 title: Tackling the Google Foobar Challenge
 description: "A comprehensive walkthrough of Google's secret code challenge"
 banner: ./foobar.gif

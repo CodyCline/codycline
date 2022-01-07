@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { media } from "./ui/Media";
 import { Icon } from "./ui/Icon";
 import Link from "next/link";
-import { complement, cssVar, invert } from "polished";
+import { eDateFormat } from "../utils/eDateFormat";
+ 
 
 export const SnippetList = styled.section`
     margin: auto;
@@ -64,7 +65,7 @@ export const Snippet = ({ tags, title, description, permaLink, date }: any) => {
                     {description}
                 </Link>
             </SnippetDescription>
-            <SnippetDate title={date.toString()}>{date.toISOString()}</SnippetDate>
+            <SnippetDate title={date.toString()}>{eDateFormat(date)}</SnippetDate>
         </SnippetContainer>
     );
 };

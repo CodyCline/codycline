@@ -1,9 +1,9 @@
 ---
-date: "2020-06-28"
+draft: false
+published: 2020-06-28
 title: Tackling the Google Foobar Challenge
 description: "A comprehensive walkthrough of Google's secret code challenge"
-banner: ./foobar.gif
-thumb: ./public/logo.jpg
+hero: ./public/logo.jpg
 tags: 
 - python
 - algorithms

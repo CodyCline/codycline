@@ -2,7 +2,7 @@ import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { FileDate, getFileDate } from './getFileData';
-import { BlogPost, Post, ProjectType, Snippet } from '../types/post';
+import { Snippet } from '../types/post';
 //
 
 
@@ -14,7 +14,7 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
     const postContents = await Promise.all(
         mdxFiles.map(async (fileName) => {
             const fileContents = await readFile(blogPostsPath + fileName, { encoding: "utf8" });
-            const { created, updated }:FileDate = getFileDate(blogPostsPath);
+            const { created, updated } : FileDate = getFileDate(blogPostsPath);
             
             const { data, content } = matter(fileContents);
 
@@ -26,7 +26,8 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
                 description: string;
                 tags: string[];
                 slug?: string;
-                published: boolean;
+                published: Date;
+                draft: boolean;
                 featured?: number;
                 content: string;
             }
@@ -35,7 +36,8 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
             const post: Snippet = {
                 title: matterData.title!,
                 created: created!,
-                published: matterData.published! || false,
+                published: matterData.published!,
+                draft: matterData.draft,
                 featured: matterData.featured || 0,
                 updated: updated!,
                 slug: slug,

@@ -1,7 +1,7 @@
 ---
 date: "2020-04-21"
-title: C++ container development
-description: Develop C++ with ease using a containerized environment
+title: C++ containers
+description: Develop powerful C/C++ in a docker environment
 tags: 
 - cc
 - vscode

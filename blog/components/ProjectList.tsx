@@ -52,8 +52,6 @@ const projectTypeIcon = (platform: ProjectType) => {
 
 
 const CardDescription = styled.div`
-    height: 96px;
-    ${truncate(225)}
     
 `;
 
@@ -86,11 +84,7 @@ const CardActionItem: any = styled.li`
 `;
 
 const CardSummary = styled.div`
-    min-width: 0;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
-
+${truncate(3, "vertical")}
 `
 
 const CardBadge = styled.div`
@@ -117,7 +111,7 @@ export const ProjectCard = ({ title, type, buildLink, tags, links, description, 
             <CardBadge>
                 <Icon height={36} width={36} name={firstTag} />
             </CardBadge>
-            <div style={{ padding: "16px", display: "flex", height:"175px", flexDirection: "column", "justifyContent": "space-between" }}>
+            <div style={{ padding: "16px", display: "flex", height:"200px", flexDirection: "column", "justifyContent": "space-between" }}>
                 <CardDescription>
 
                     <CardTitle>

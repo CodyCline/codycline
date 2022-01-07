@@ -2,19 +2,19 @@ import { readFile, readdir } from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { FileDate, getFileDate } from './getFileData';
-import { BlogPost, Post } from '../types/post';
+import { Article } from '../types/post';
 //
 
 
 
-export async function loadAllPosts(): Promise<BlogPost[]> {
-    const blogPostsPath = path.join(process.cwd(), "content/blog/");
-    const paths = await readdir(blogPostsPath);
+export async function loadAllArticles(): Promise<Article[]> {
+    const articlesPath = path.join(process.cwd(), "content/articles/");
+    const paths = await readdir(articlesPath);
     const mdxFiles = paths.filter(path => path.endsWith(".md" || ".mdx"));
-    const postContents = await Promise.all(
+    const articleContents = await Promise.all(
         mdxFiles.map(async (fileName) => {
-            const fileContents = await readFile(blogPostsPath + fileName, { encoding: "utf8" });
-            const { created, updated }:FileDate = getFileDate(blogPostsPath);
+            const fileContents = await readFile(articlesPath + fileName, { encoding: "utf8" });
+            const { created, updated }:FileDate = getFileDate(articlesPath);
             
             const { data, content } = matter(fileContents);
 
@@ -27,7 +27,8 @@ export async function loadAllPosts(): Promise<BlogPost[]> {
                 tags: string[];
                 slug?: string;
                 hero: string;
-                published: boolean;
+                draft: boolean;
+                published: Date;
                 featured?: number;
                 content: string;
             }
@@ -36,24 +37,27 @@ export async function loadAllPosts(): Promise<BlogPost[]> {
 
             }
 
-            const post: Post = {
+            const article: Article = {
                 title: matterData.title!,
-                created: created!,
-                published: matterData.published! || false,
-                featured: matterData.featured || 0,
-                updated: updated!,
-                slug: slug,
-                permaLink: `/blog/post/${slug}`,
-                tags: matterData.tags || [],
                 description: matterData.description,
+                permaLink: `/article/${slug}`,
+                slug: slug,
+                featured: matterData.featured || 0,
+                draft: matterData.draft,
+                tags: matterData.tags || [],
+                
+                created: created!,
+                published: matterData.published!,
+                updated: updated!,
+                
                 ___rawContent: matterData.content,
             }
 
 
-            return post;
+            return article;
         })
     );
-    return postContents;
+    return articleContents;
     // return new Map(postContents.map((post) => [post.slug, post] as const));
 
 }
