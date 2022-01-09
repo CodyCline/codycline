@@ -8,21 +8,21 @@ type Content = {
     articles: Article[],
 }
 
-function ArticleIndex({articles}:Content) { 
+function ArticleIndex({articles}:Content) {
     return (
         <div>
             <h1>Blog Posts</h1>
             <ArticleList>
-                {articles && 
-                    articles.map((article, idx) => {
+                {articles && articles.map((article: Article) => {
+                    const { slug, title, tags, description, updated, created, permaLink} = article;
                         return (
                             <ArticleCard 
-                                key={idx}
-                                title={article.title} 
-                                description={article.description} 
-                                tags={article.tags}
-                                date={article.updated || article.created}
-                                permaLink={article.permaLink}
+                                key={slug}
+                                title={title} 
+                                description={description} 
+                                tags={tags}
+                                date={updated || created}
+                                permaLink={permaLink}
                             />
                         )
                     })
