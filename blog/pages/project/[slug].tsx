@@ -3,13 +3,20 @@ import { MDXRemote } from 'next-mdx-remote'
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import { MarkdownWrapper } from '../../components/Markdown';
+import { ContentBodyWrapper, ContentHeader, ContentTags } from '../../components/ContentTemplate';
+import { IconTag } from '../../components/ui/Tag';
 
-const ProjectPage = ({ mdxSource }:any) => {
+const ProjectPage = ({ mdxSource, frontMatter }: any) => {
     return (
-        <div className="mt-4">
-            <MDXRemote components={{
-            }} {...mdxSource}/>
-        </div>
+        <ContentBodyWrapper>
+            <ContentHeader>{frontMatter.title}</ContentHeader>
+            <MarkdownWrapper source={mdxSource} />
+            {frontMatter.updated && <span>{frontMatter.updated}</span>}
+            <ContentTags>
+                {frontMatter.tags && frontMatter.tags.map((tag: string) => <IconTag link={"/hello"} icon={tag}>{tag}</IconTag>)}
+            </ContentTags>
+        </ContentBodyWrapper>
     )
 }
 

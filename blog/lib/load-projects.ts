@@ -6,14 +6,13 @@ import { Project, ProjectType } from '../types/post';
 
 
 export async function loadAllProjects(): Promise<Project[]> {
-    const blogPostsPath = path.join(process.cwd(), "content/projects/");
-    const paths = await readdir(blogPostsPath);
+    const projectsPath = path.join(process.cwd(), "content/projects/");
+    const paths = await readdir(projectsPath);
     const mdxFiles = paths.filter(path => path.endsWith(".md" || ".mdx"));
-    const postContents = await Promise.all(
+    const projectContents = await Promise.all(
         mdxFiles.map(async (fileName) => {
-            const fileContents = await readFile(blogPostsPath + fileName, { encoding: "utf8" });
-            const { created, updated }:FileDate = getFileDate(blogPostsPath);
-            
+            const fileContents = await readFile(projectsPath + fileName, { encoding: "utf8" });
+            const { created, updated }:FileDate = getFileDate(projectsPath);
             const { data, content } = matter(fileContents);
 
             //Remove the file extension name
@@ -32,12 +31,11 @@ export async function loadAllProjects(): Promise<Project[]> {
                 ci_link?: URL | string;
                 content: string;
                 type: string;
-
             }
 
 
             //TODO HERO IMAGE
-            const post: Project = {
+            const project: Project = {
                 title: matterData.title!,
                 created: created!,
                 published: matterData.published!,
@@ -48,17 +46,15 @@ export async function loadAllProjects(): Promise<Project[]> {
                 type: matterData.type.toUpperCase() as ProjectType,
                 buildLink: matterData.ci_link,
                 links: matterData.links,
-                permaLink: `/project/post/${slug}`,
+                permaLink: `/project/${slug}`,
                 tags: matterData.tags || [],
                 description: matterData.description,
                 ___rawContent: matterData.content,
             }
-
-
-            return post;
+            return project;
         })
     );
-    return postContents;
+    return projectContents;
     // return new Map(postContents.map((post) => [post.slug, post] as const));
 
 }

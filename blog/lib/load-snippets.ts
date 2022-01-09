@@ -8,13 +8,13 @@ import { Snippet } from '../types/post';
 
 
 export async function loadAllSnippets(): Promise<Snippet[]> {
-    const blogPostsPath = path.join(process.cwd(), "content/snippets/");
-    const paths = await readdir(blogPostsPath);
+    const snippetsPath = path.join(process.cwd(), "content/snippets/");
+    const paths = await readdir(snippetsPath);
     const mdxFiles = paths.filter(path => path.endsWith(".md" || ".mdx"));
-    const postContents = await Promise.all(
+    const snippetContents = await Promise.all(
         mdxFiles.map(async (fileName) => {
-            const fileContents = await readFile(blogPostsPath + fileName, { encoding: "utf8" });
-            const { created, updated } : FileDate = getFileDate(blogPostsPath);
+            const fileContents = await readFile(snippetsPath + fileName, { encoding: "utf8" });
+            const { created, updated } : FileDate = getFileDate(snippetsPath);
             
             const { data, content } = matter(fileContents);
 
@@ -33,7 +33,7 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
             }
 
 
-            const post: Snippet = {
+            const snippet: Snippet = {
                 title: matterData.title!,
                 created: created!,
                 published: matterData.published!,
@@ -41,15 +41,15 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
                 featured: matterData.featured || 0,
                 updated: updated!,
                 slug: slug,
-                permaLink: `/snippet/post/${slug}`,
+                permaLink: `/snippet/${slug}`,
                 tags: matterData.tags || [],
                 description: matterData.description,
                 ___rawContent: matterData.content,
             }
 
 
-            return post;
+            return snippet;
         })
     );
-    return postContents;
+    return snippetContents;
 }

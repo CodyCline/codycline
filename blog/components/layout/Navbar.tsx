@@ -28,7 +28,7 @@ export const NavItem: any = styled.div`
 
 const _Link:any = styled.a`
     margin-right: 10px;
-    color: ${(props:any) => props.active && `var(--color-text-primary);`}
+    color: ${(props:any) => props.active ? `var(--color-text-primary);` : `var(--color-text-default);`}
 `
 
 function ActiveLink({ children, href }:any) {

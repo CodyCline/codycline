@@ -1,14 +1,21 @@
 import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
 import path from "path";
 import fs from "fs";
 import matter from "gray-matter";
+import { ContentBodyWrapper, ContentHeader, ContentTags } from '../../components/ContentTemplate';
+import { MarkdownWrapper } from '../../components/Markdown';
+import { IconTag } from '../../components/ui/Tag';
 
-const SnippetsPage = ({ mdxSource }: any) => {
+const SnippetsPage = ({ frontMatter, mdxSource }: any) => {
     return (
-        <div className="mt-4">
-            <MDXRemote {...mdxSource} />
-        </div>
+        <ContentBodyWrapper>
+            <ContentHeader>{frontMatter.title}</ContentHeader>
+            <MarkdownWrapper source={mdxSource} />
+            {frontMatter.updated && <span>{frontMatter.updated}</span>}
+            <ContentTags>
+                {frontMatter.tags && frontMatter.tags.map((tag: string) => <IconTag link={"/hello"} icon={tag}>{tag}</IconTag>)}
+            </ContentTags>
+        </ContentBodyWrapper>
     )
 }
 

@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import moon from "../public/assets/moon.png";
 import sun from "../public/assets/sun.png";
+import motion from "../public/assets/motion.png";
+import stopMotion from "../public/assets/stop_motion.png";
+
 import Image from "next/image";
 
-const ToggleButton = styled.button`
+const ToggleButton:any = styled.button`
   --toggle-size: 38px;
   --togle-padding: 4px;
   position: relative;
@@ -30,33 +33,52 @@ const ToggleButton = styled.button`
     outline: none;
   }
   &:hover {
-    box-shadow: 0 0 10px 4px var(--color-bg-toggle);
+    background: ${(props:any) => props.hoverColor};
+    box-shadow: 0 0 10px 4px ${(props:any) => props.hoverColor};
   },
 `;
 
 
 
 const ThemeToggle = () => {
-    const [activeTheme, setActiveTheme] = useState<any>(document.body.dataset.theme);
-    const inactiveTheme:any = activeTheme === "light" ? "dark" : "light";
+  const [activeTheme, setActiveTheme] = useState<any>(document.body.dataset.theme);
+  const inactiveTheme: any = activeTheme === "light" ? "dark" : "light";
 
-    useEffect(() => {
-        document.body.dataset.theme = activeTheme;
-        window.localStorage.setItem("theme", activeTheme);
-    }, [activeTheme]);
-    return (
-        <ToggleButton
-            aria-label={`Change to ${inactiveTheme} mode`}
-            title={`Change to ${inactiveTheme} mode`}
-            type="button"
-            onClick={() => setActiveTheme(inactiveTheme)}
-        >
-              {activeTheme === `dark` 
-                ? <Image height={18} width={18} src={moon}/>
-                : <Image height={18} width={18}  src={sun} />
-              }
-        </ToggleButton>
-    );
+  useEffect(() => {
+    document.body.dataset.theme = activeTheme;
+    window.localStorage.setItem("theme", activeTheme);
+  }, [activeTheme]);
+  return (
+    <ToggleButton
+      hoverColor="var(--color-bg-toggle)"
+      aria-label={`Change to ${inactiveTheme} mode`}
+      title={`Change to ${inactiveTheme} mode`}
+      type="button"
+      onClick={() => setActiveTheme(inactiveTheme)}
+    >
+      {activeTheme === `dark`
+        ? <Image height={18} width={18} src={moon} />
+        : <Image height={18} width={18} src={sun} />
+      }
+    </ToggleButton>
+  );
 };
 
 export default ThemeToggle;
+
+
+export const MotionToggle = ({theme}:any) => {
+  const [activeMotion, setActiveMotion] = useState<any>(true);
+
+  return (
+    <ToggleButton
+      hoverColor="var(--color-motion-toggle)"
+    onClick={() => setActiveMotion(!activeMotion)}
+    >
+      {activeMotion
+        ? <Image height={18} width={18} src={stopMotion} />
+        : <Image height={18} width={18} src={motion} />
+      }
+    </ToggleButton>
+  )
+}

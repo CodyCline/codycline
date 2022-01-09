@@ -5,12 +5,13 @@ import { NavBar } from "./Navbar";
 import { MobileNav } from "./Mobilenav";
 import { useMatchMedia } from "../../utils/useMatchMedia";
 
+import { MotionToggle } from "../ThemeToggle";
 const ThemeToggle: any = dynamic((): any => import("../ThemeToggle"), {
     ssr: false,
 });
 
 export const Layout = ({ children }:any) => {
-    const isMobile = useMatchMedia(`(max-width: 700px)`);
+    const isMobile = useMatchMedia(`(max-width: 750px)`);
     
     return (
         <React.Fragment>
@@ -22,10 +23,13 @@ export const Layout = ({ children }:any) => {
                     </NavItem>
                     :
                     <React.Fragment>
-                        <NavLink href="/posts">Writings</NavLink>
+                        <NavLink href="/articles">Articles</NavLink>
                         <NavLink href="/projects">Projects</NavLink>
                         <NavLink href="/snippets">Snippets</NavLink>
                         <NavItem right>
+                            <MotionToggle/>
+                        </NavItem>
+                        <NavItem>
                             <ThemeToggle/>
                         </NavItem>
                     </React.Fragment>

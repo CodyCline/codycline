@@ -34,7 +34,7 @@ export async function loadAllArticles(): Promise<Article[]> {
             }
 
             if (matterData.hero) {
-
+                //Todo images
             }
 
             const article: Article = {

@@ -2,12 +2,17 @@
 draft: false
 published: 2020-03-102
 title: Tackling the Google Foobar Challenge
-description: "A comprehensive walkthrough of Google's secret code challenge"
+description: A comprehensive walkthrough of Google's secret code challenge
 banner: ./foobar.gif
 thumb: ./foobar.gif
 tags: 
 - python
 - algorithms
+- c++
+- rust 
+- llvm
+- cmake
+- csharp
 ---
 
 
@@ -15,8 +20,21 @@ tags:
 # HELLO WORLD!
 `super`
 Use a  method to instaniate the said thing
+<dl>
 
-<HelloWorld/>
+<dt>Beast of Bodmin</dt>
+<dd>A large feline inhabiting Bodmin Moor.</dd>
+
+</dl>
+
+
+<Spoiler title="Hello World">
+
+Hello world
+
+
+</Spoiler>
+
 
 ```docker:Dockerfile
 RUN sudo apt update

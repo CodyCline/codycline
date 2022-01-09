@@ -97,7 +97,7 @@ const CardBadge = styled.div`
 `;
 
 
-export const ProjectCard = ({ title, type, buildLink, tags, links, description, permaLink }: any) => {
+export const ProjectCard = ({ title, type, ciLink, tags, links, description, permaLink }: any) => {
     const firstTag = tags && tags[0];
     const firstLink = links && links[0];
     console.log(firstTag, firstLink);
@@ -113,13 +113,16 @@ export const ProjectCard = ({ title, type, buildLink, tags, links, description, 
             </CardBadge>
             <div style={{ padding: "16px", display: "flex", height:"200px", flexDirection: "column", "justifyContent": "space-between" }}>
                 <CardDescription>
-
+                    <Link href={permaLink}>
                     <CardTitle>
                             <Icon height={24} width={24} name={projectTypeIcon(type as ProjectType)} />
                             {title}<span>v.2.1.0</span>
                     </CardTitle>
+                    </Link>
                     <CardSummary>
+                        <Link href={permaLink}>
                         {description}
+                        </Link>
                     </CardSummary>
 
                 </CardDescription>
@@ -138,13 +141,13 @@ export const ProjectCard = ({ title, type, buildLink, tags, links, description, 
                     <CardActionItem>
                         <Icon height={24} width={24} name="cargo" />
                     </CardActionItem>
-                    {buildLink &&
+                    {ciLink &&
                         <CardActionItem right>
                             <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
                                 <img
-                                    title="build status"
-                                    alt="build status"
-                                    src={buildLink}
+                                    title="ci status"
+                                    alt="ci status"
+                                    src={ciLink}
                                 />
                             </div>
                         </CardActionItem>

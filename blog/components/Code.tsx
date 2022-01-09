@@ -40,7 +40,7 @@ const ToolBar = styled.ul`
     display: flex;
     flex-direction: row;
     margin: 0;
-    padding: 0.5em 1em;
+    padding: 10px 25px 10px 25px;
 
     list-style: none;
     background: var(--color-fg-primary);
@@ -69,11 +69,15 @@ export const InlineCode = styled.code`
 `;
 
 
+const FileName = styled.span`
+    margin-left: .5rem;
+`
+
 export const Code = ({className, children}:any) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
     const separate: string[] = className.split(`:`);
     const language: string | null = separate[0].split(`language-`).join(``);
-    const title: string | null = separate[1] ? separate[1].split(`title=`).join(``): null;
+    const title: string | null = separate[1] ? separate[1].split(``).join(``): null;
     //In the state, we store the code and tokens for the code.
     const [data, replaceToken] = useState<Array<string | Token>>([])
 
@@ -107,8 +111,8 @@ export const Code = ({className, children}:any) => {
         <CodeBlockContainer>
             <ToolBar>
                 <ToolBarTitle>
-                    <Icon name={language || `file`} height={20} width={20}/>
-                    {title}
+                    <Icon name={language || `gear`} height={20} width={20}/>
+                    <FileName>{title}</FileName>
                 </ToolBarTitle>
                 <CopyIcon onClick={copyCode}>
                     <Icon onClick={copyCode} noTitle name="copy" height={18} width={18} />

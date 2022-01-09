@@ -5,12 +5,14 @@ import { Icon } from "./ui/Icon";
 
 const SpoilerContainer = styled.section`
     transition: 1s ease-in-out;
+    margin: 36px 0;
+
 `
 
 const SpoilerHeader:any = styled.ul`
-        color: var(--color-text-default);
-        background: var(--color-fg-primary);
-        border: 1px solid var(--color-border);
+    color: var(--color-text-default);
+    background: var(--color-fg-primary);
+    border: 1px solid var(--color-border);
     display: flex;
     ${(props:any) => 
         props.toggled
@@ -20,6 +22,7 @@ const SpoilerHeader:any = styled.ul`
 
     flex-direction: row;
     justify-content: space-between;
+    font-size: var(--font-size-md);
     align-items: center;
     padding: 10px 25px 10px 25px;
     list-style: none;
@@ -28,12 +31,7 @@ const SpoilerHeader:any = styled.ul`
     cursor: pointer;
 `;
 const SpoilerHeaderItem = styled.li`
-
-
 `;
-const SpoilerIcon = styled(Icon)`
-
-`
 
 const SpoilerBody = styled.div`
     padding: 25px;
@@ -54,11 +52,11 @@ export const Spoiler = ({children, title} : any) => {
         toggleSpoiler(!toggled);
     }
     return (
-        <>
+        <SpoilerContainer>
             <SpoilerHeader onClick={onToggle} toggled={toggled}>
                 <SpoilerHeaderItem>{title}</SpoilerHeaderItem>
                 <SpoilerHeaderItem>
-                    <SpoilerIcon width={24} height={24} name={toggled? `chevron-down`: `chevron-up`}/>
+                    <Icon width={24} height={24} name={toggled? `chevron-down`: `chevron-up`}/>
                 </SpoilerHeaderItem>
             </SpoilerHeader>
             {toggled &&
@@ -67,6 +65,6 @@ export const Spoiler = ({children, title} : any) => {
                 </SpoilerBody>
                 
             }
-        </>
+        </SpoilerContainer>
     )
 }

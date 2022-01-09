@@ -21,7 +21,7 @@ Start by making an empty project folder
 
 Add this `Dockerfile` to your project directory
 
-```docker
+```docker:Dockerfile
 FROM debian:buster
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
@@ -41,7 +41,6 @@ Open your project in VSCode, to launch a Remote Container, do the following:
 
 If the option at the bottom left isn't available you'll likely need to add the extension "Remote - Containers"
 
-![start](public/build_it.gif)
 
 Your container should have successfully launched and you'll now be in a "virtual window."
 
@@ -76,7 +75,7 @@ cmake
 ```
 
 
-```makefile:CMakeLists.txt
+```cmake:CMakeLists.txt
  cmake_minimum_required(VERSION 2.8.12)
  project(MD5Encrypter)
 
@@ -91,7 +90,7 @@ cmake
 
 We can finally install our dependencies and build the app. In the root of the project folder run the following on the command line
 
-```shell
+```shell-session
 mkdir build && cd build 
 conan install ..
 
@@ -101,7 +100,7 @@ cmake --build .
 
 If everything built successfully, you should be able to run the app and see a md5 string outputted on the terminal.
 
-```shell
+```shell-session
 ./bin/md5
 
 #Expected output or something similar

@@ -46,7 +46,7 @@ Start by installing dependencies.
 
 Our app boilerplate called server.py
 
-```python
+```python:server.py
 import requests
 import random
 import json
