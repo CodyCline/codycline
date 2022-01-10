@@ -11,6 +11,7 @@ function Index({ projects }:any) {
                 {projects && 
                     projects.map((project: Project) => (
                         <ProjectCard
+                            image={project.hero}
                             key={project.slug}
                             title={project.title}
                             description={project.description}

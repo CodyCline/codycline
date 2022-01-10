@@ -85,9 +85,12 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
     const firstThreeTags = tags.slice(0, 4);
     return (
         <BlogListContainer onClick={onClick}>
-            <Link href={permaLink}>
-                <Image objectFit="cover" height={100} width={500} src={r} />
-            </Link>
+            {image &&
+                <Link href={permaLink}>
+                    <Image objectFit="cover" height="100%" width={200} src={image.src} />
+                </Link>
+            }
+
 
             <SubContent>
                 <SubItem>
@@ -105,9 +108,9 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
                         <Link href={permaLink}>{description}</Link>
                     </Summary>
                 </SubItem>
-                <SubItem>
+                {/* <SubItem>
                     <ReadButton> Start Reading ➡️</ReadButton>
-                </SubItem>
+                </SubItem> */}
                 <SubItem>
                     {tags && firstThreeTags.map((tag: string, index: number) =>
                         <IconTag key={index} icon={tag} link={`/meta/${tag}`}>

@@ -1,13 +1,13 @@
 import path from 'path';
-import { Project, ProjectType } from '../types/post';
+import { HeroImage, Project, ProjectType } from '../types/post';
 import { parseMdxDirectory } from './parse-mdx-directory';
-
+import { sizeOf } from './image-metadata';
 
 export async function loadAllProjects(): Promise<Project[]> {
     const projectsPath = path.join(process.cwd(), "content/projects/");
     const projectData = await parseMdxDirectory(projectsPath);
 
-    const allProjects = projectData.map((fileData: object) => {
+    const allProjects = projectData.map(async (fileData: object) => {
         const matterData = fileData as {
             title: string;
             description: string;
@@ -25,9 +25,6 @@ export async function loadAllProjects(): Promise<Project[]> {
             type: string;
         }
 
-        if (matterData.hero) {
-            //Todo images
-        }
         
         const project: Project = {
             title: matterData.title!,
@@ -37,6 +34,7 @@ export async function loadAllProjects(): Promise<Project[]> {
             featured: matterData.featured || 0,
             updated: matterData.updated!,
             slug: matterData.slug,
+            hero: null!,
             type: matterData.type.toUpperCase() as ProjectType,
             buildLink: matterData.ci_link,
             links: matterData.links,
@@ -45,7 +43,22 @@ export async function loadAllProjects(): Promise<Project[]> {
             description: matterData.description,
             ___rawContent: matterData.content,
         }
+        if (matterData.hero) {
+            //If there is an image attached to frontmatter load it and get dimensions
+            const imagePath = path.join(process.cwd(), "public", matterData.hero);
+            const res = await sizeOf(imagePath);
+            if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
+
+            if (res.width && res.height) {
+                const heroImage: HeroImage = {
+                    height: res.height,
+                    width: res.width,
+                    src: matterData.hero,
+                }
+                project.hero = heroImage;
+            }
+        }
         return project;
     })
-    return allProjects;
+    return Promise.all(allProjects);
 }

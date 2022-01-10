@@ -2,11 +2,9 @@
 
 export interface HeroImage {
     src: string;
-    width: number;
-    height: number;
-    title?: string;
-    ref?: string;
-    license?: string;
+    width: number | undefined;
+    height: number | undefined;
+    blurDataURL?: string;
 }
 interface MarkdownDocument {
     title: string;
@@ -39,13 +37,13 @@ export enum ProjectType {
 
 
 export interface Article extends MarkdownDocument {
-    hero?: string;
+    hero?: HeroImage;
 }
 
 export interface Snippet extends MarkdownDocument {}
 
 export interface Project extends MarkdownDocument {
-    hero?: string;
+    hero?: HeroImage;
     links: string[] | URL[]; //Links to github, etc.
     buildLink?: URL | string;
     type: ProjectType;

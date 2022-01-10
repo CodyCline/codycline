@@ -39,6 +39,8 @@ Open your project in VSCode, to launch a Remote Container, do the following:
 2. Within in the pop-up menu, select "Reopen in Container" 
 3. Select "From 'Dockerfile'" 
 
+![build](/content/build_it.gif)
+
 If the option at the bottom left isn't available you'll likely need to add the extension "Remote - Containers"
 
 

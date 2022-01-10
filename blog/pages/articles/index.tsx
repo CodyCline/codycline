@@ -14,10 +14,11 @@ function ArticleIndex({articles}:Content) {
             <h1>Blog Posts</h1>
             <ArticleList>
                 {articles && articles.map((article: Article) => {
-                    const { slug, title, tags, description, updated, created, permaLink} = article;
+                    const { hero, slug, title, tags, description, updated, created, permaLink} = article;
                         return (
                             <ArticleCard 
                                 key={slug}
+                                image={hero}
                                 title={title} 
                                 description={description} 
                                 tags={tags}

@@ -5,6 +5,7 @@ import matter from "gray-matter";
 import { ContentBodyWrapper, ContentHeader, ContentTags } from '../../components/ContentTemplate';
 import { MarkdownWrapper } from '../../components/Markdown';
 import { IconTag } from '../../components/ui/Tag';
+import imageMetadata from '../../lib/image-metadata';
 
 const SnippetsPage = ({ frontMatter, mdxSource }: any) => {
     return (
@@ -40,7 +41,11 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params: { slug } }: any) => {
     const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), "content/snippets/" + slug + ".md"), 'utf-8')
     const { data: frontMatter, content } = matter(markdownWithMeta)
-    const mdxSource = await serialize(content);
+    const mdxSource = await serialize(content, {
+        mdxOptions: {
+            rehypePlugins: [imageMetadata]
+        }
+    });
     return {
         props: {
             frontMatter,

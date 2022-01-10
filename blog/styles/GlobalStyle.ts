@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
 	body,
 	body[data-theme="light"] {
-		--color-text-default: #111111; 
+		--color-text-default: #374151; 
 		--color-text-primary: #298cff;
 		--color-text-secondary: #916BBF;
 		--color-bg-primary: #fff;

@@ -2,7 +2,7 @@
 type: dependency
 title: React PayPal
 description: Package to remove the pain of integrating Paypal in your react app
-hero: ./paypal.jpg
+hero: /assets/paypal.jpg
 links:
 - https://www.npmjs.com/package/paypal-button-react
 - https://github.com/codycline/paypal-react.git

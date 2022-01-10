@@ -1,7 +1,7 @@
 ---
 title: Create your own Randonautica web app
 description: Walkthrough on how to build a web app that gives you random locations to ... explore?
-hero: ./public/assets/randonautica.webp
+hero: /assets/randonautica.webp
 featured: 0
 draft: false
 tags: 

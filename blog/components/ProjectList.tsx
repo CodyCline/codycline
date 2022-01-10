@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { Icon } from "./ui/Icon";
-import { IconTag, LinkTag } from "./ui/Tag";
 import Image from "next/image";
-import r from "../public/assets/minuteman_II.jpg";
 import { truncate } from "./ui/Truncate";
 import { ProjectType } from "../types/post";
 import Link  from "next/link";
@@ -23,6 +21,7 @@ const ProjectCardContainer = styled.article`
     border: 1px solid var(--color-border);
     width: 100%;
     border-radius: 5px;
+    padding: 1em;
     overflow: hidden;
     cursor: pointer;
     transition: .3s ease-in-out;
@@ -59,8 +58,9 @@ const CardTitle = styled.div`
     display: inline-flex;
     align-items: center;
     font-weight: 700;
+    margin-top: 1rem;
     > i {
-        margin-right: 10px;
+        margin-right: var(--font-size-xs);
     }
     > span {
         color: #CCC;
@@ -71,7 +71,7 @@ const CardTitle = styled.div`
     `
 
 const CardActionBar = styled.ul`
-    margin: 0;
+    margin: 2rem 0 0 0;
     padding: 0;
     list-style: none;
     display: flex;
@@ -90,70 +90,73 @@ ${truncate(3, "vertical")}
 const CardBadge = styled.div`
     border-radius: 50%;
     position: absolute;
-    transform: translateY(-75%);
+    transform: translateY(-50%);
     right: 17px;
     border: 1px solid var(--color-border);
     background: var(--color-bg-primary);
 `;
 
 
-export const ProjectCard = ({ title, type, ciLink, tags, links, description, permaLink }: any) => {
+export const ProjectCard = ({ image, title, type, ciLink, tags, links, description, permaLink }: any) => {
     const firstTag = tags && tags[0];
     const firstLink = links && links[0];
-    console.log(firstTag, firstLink);
     return (
         <ProjectCardContainer>
-            <div style={{ padding: `12px` }}>
+            <div>
                 <div style={{ height: "14vh", width: "100%", position: `relative` }}>
-                    <Image objectFit="cover" layout="fill" src={r} />
+                    <Image objectFit="cover" layout="fill" src={image.src} />
                 </div>
             </div>
             <CardBadge>
                 <Icon height={36} width={36} name={firstTag} />
             </CardBadge>
-            <div style={{ padding: "16px", display: "flex", height:"200px", flexDirection: "column", "justifyContent": "space-between" }}>
-                <CardDescription>
+            <CardDescription>
+                <Link href={permaLink}>
+                <CardTitle>
+                    <Icon height={24} width={24} fill={`var(--color-text-secondary)`} name={projectTypeIcon(type as ProjectType)} />
+                    <p style={{color: `var(--color-text-secondary)`}}>{title}</p>
+                    <span>v.2.1.0</span>
+                </CardTitle>
+                </Link>
+                <CardSummary>
                     <Link href={permaLink}>
-                    <CardTitle>
-                            <Icon height={24} width={24} name={projectTypeIcon(type as ProjectType)} />
-                            {title}<span>v.2.1.0</span>
-                    </CardTitle>
+                    {description}
                     </Link>
-                    <CardSummary>
-                        <Link href={permaLink}>
-                        {description}
-                        </Link>
-                    </CardSummary>
+                </CardSummary>
 
-                </CardDescription>
-                <CardActionBar>
-                    <Link href={firstLink}>
-                        <CardActionItem>
-                                <Icon height={24} width={24} name="link" />
-                        </CardActionItem>
-                    </Link>
+            </CardDescription>
+            <CardActionBar>
+                <Link passHref href={firstLink}>
+                    <a target="_blank" href={firstLink}>
                     <CardActionItem>
-                        <Icon height={24} width={24} name="snapcraft" />
+                        <Icon height={24} width={24} name="link" />
                     </CardActionItem>
-                    <CardActionItem>
-                        <Icon height={24} width={24} name="github" />
+                    </a>
+                </Link>
+                <CardActionItem>
+                    <Icon height={24} width={24} name="snapcraft" />
+                </CardActionItem>
+                <CardActionItem>
+                    <Icon height={24} width={24} name="github" />
+                </CardActionItem>
+                <CardActionItem>
+                    <Icon height={24} width={24} name="cargo" />
+                </CardActionItem>
+                {ciLink &&
+                    <CardActionItem right>
+                        <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
+                            <Image
+                                title="ci status"
+                                alt="ci status"
+                                objectFit="scale-down"
+                                height={20}
+                                width="100%"
+                                src={ciLink}
+                            />
+                        </div>
                     </CardActionItem>
-                    <CardActionItem>
-                        <Icon height={24} width={24} name="cargo" />
-                    </CardActionItem>
-                    {ciLink &&
-                        <CardActionItem right>
-                            <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
-                                <img
-                                    title="ci status"
-                                    alt="ci status"
-                                    src={ciLink}
-                                />
-                            </div>
-                        </CardActionItem>
-                    }
-                </CardActionBar>
-            </div>
+                }
+            </CardActionBar>
         </ProjectCardContainer>
     );
 }
