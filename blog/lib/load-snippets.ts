@@ -1,6 +1,6 @@
 import path from 'path';
 import { Snippet } from '../types/post';
-import { parseMdxDirectory } from './parse-mdx-directory';
+import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
 //
 
 export async function loadAllSnippets(): Promise<Snippet[]> {
@@ -39,4 +39,39 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
         return snippet;
     })
     return allSnippets;
+}
+
+
+export async function loadSnippetBySlug(slug: string) : Promise<Snippet> {
+    const snippetPath = path.join(process.cwd(), "content/snippets/" + slug + ".md");
+    const snippetData = await parseSingleMdxFile(snippetPath);
+
+    const matterData = snippetData as {
+        title: string;
+        description: string;
+        tags: string[];
+        slug: string;
+        published: Date;
+        draft: boolean;
+        created: Date;
+        updated: Date | null;
+        featured?: number;
+        content: string;
+    }
+
+    
+    const snippet: Snippet = {
+        title: matterData.title!,
+        created: matterData.created!,
+        published: new Date(matterData.published!),
+        draft: matterData.draft || true,
+        featured: matterData.featured || 0,
+        updated: matterData.updated!,
+        slug: matterData.slug,
+        permaLink: `/snippet/${matterData.slug}`,
+        tags: matterData.tags || [],
+        description: matterData.description,
+        ___rawContent: matterData.content,
+    }
+    return snippet;
 }

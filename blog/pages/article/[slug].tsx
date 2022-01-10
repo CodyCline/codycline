@@ -7,20 +7,24 @@ import r from "../../public/assets/llvm.jpg"
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
 import { MarkdownWrapper } from "../../components/Markdown";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { loadArticleBySlug } from "../../lib/load-articles";
+import { Article } from "../../types/post";
+import imageMetadata from "../../lib/image-metadata";
 
 
-const ArticleContent = ({ mdxSource, frontMatter }:any) => {
+const ArticleContent = ({ article, articleMdxSource }:any) => {
     return (
         <>
-            <ContentHero src={r.src}>
+            <ContentHero src={article.hero?.src}>
 
             </ContentHero>
             <ContentBodyWrapper>
-                <ContentHeader>{frontMatter.title}</ContentHeader>
-                <MarkdownWrapper source={mdxSource}/>
-                {frontMatter.updated && <span>{frontMatter.updated}</span>}
+                <ContentHeader>{article.title}</ContentHeader>
+                <MarkdownWrapper>{articleMdxSource}</MarkdownWrapper>
+                {article.updated && <span>{article.updated.toISOString()}</span>}
                 <ContentTags>
-                    {frontMatter.tags && frontMatter.tags.map((tag:string) => <IconTag link={"/hello"} icon={tag}>{tag}</IconTag>)}
+                    {article.tags && article.tags.map((tag:string, i: number) => <IconTag key={i} link={"/hello"} icon={tag}>{tag}</IconTag>)}
                 </ContentTags>
             </ContentBodyWrapper>
         
@@ -33,7 +37,7 @@ export const getStaticPaths = async () => {
     const files = fs.readdirSync(path.join(process.cwd(), "content/articles/"))
     const paths = files.map(filename => ({
         params: {
-            slug: filename.replace(/.md/, "")
+            slug: filename.replace(/(.md|.mdx)/, "")
         }
     }))
     return {
@@ -44,14 +48,16 @@ export const getStaticPaths = async () => {
 
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
-    const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), "content/articles/" + slug + ".md"), 'utf-8')
-    const { data: frontMatter, content } = matter(markdownWithMeta)
-    const mdxSource = await serialize(content);
+    const article: Article = await loadArticleBySlug(slug);
+    const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(article.___rawContent, {
+        mdxOptions: {
+            rehypePlugins: [imageMetadata]
+        }
+    });
     return {
         props: {
-            frontMatter,
-            slug,
-            mdxSource
+            article: article,
+            articleMdxSource: mdxSource
         }
     }
 }

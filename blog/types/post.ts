@@ -1,3 +1,4 @@
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 
 export interface HeroImage {

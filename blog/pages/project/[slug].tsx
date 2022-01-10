@@ -1,22 +1,32 @@
 import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import path from "path";
 import fs from "fs";
-import matter from "gray-matter";
 import { MarkdownWrapper } from '../../components/Markdown';
-import { ContentBodyWrapper, ContentHeader, ContentTags } from '../../components/ContentTemplate';
+import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
+import { Project } from '../../types/post';
+import { loadProjectBySlug } from '../../lib/load-projects';
+import imageMetadata from '../../lib/image-metadata';
 
-const ProjectPage = ({ mdxSource, frontMatter }: any) => {
+const ProjectPage = ({ project, projectMdxSource }: any) => {
     return (
-        <ContentBodyWrapper>
-            <ContentHeader>{frontMatter.title}</ContentHeader>
-            <MarkdownWrapper source={mdxSource} />
-            {frontMatter.updated && <span>{frontMatter.updated}</span>}
-            <ContentTags>
-                {frontMatter.tags && frontMatter.tags.map((tag: string) => <IconTag link={"/hello"} icon={tag}>{tag}</IconTag>)}
-            </ContentTags>
-        </ContentBodyWrapper>
+        <>
+            <ContentHero src={project.hero?.src}/>
+            <ContentBodyWrapper>
+                <ContentHeader>{project.title}</ContentHeader>
+                <MarkdownWrapper>{projectMdxSource}</MarkdownWrapper>
+                {project.updated && <span>{project.updated.toISOString()}</span>}
+                <ContentTags>
+                    {project.tags &&
+                        project.tags.map((tag: string, i: number) =>
+                            <IconTag key={i} link={"/hello"} icon={tag}>{tag}</IconTag>
+                        )
+                    }
+                </ContentTags>
+            </ContentBodyWrapper>
+
+        </>
     )
 }
 
@@ -36,14 +46,16 @@ export const getStaticPaths = async () => {
 
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
-    const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), "content/projects/" + slug + ".md"), 'utf-8')
-    const { data: frontMatter, content } = matter(markdownWithMeta)
-    const mdxSource = await serialize(content);
+    const project: Project = await loadProjectBySlug(slug);
+    const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(project.___rawContent, {
+        mdxOptions: {
+            rehypePlugins: [imageMetadata]
+        }
+    });
     return {
         props: {
-            frontMatter,
-            slug,
-            mdxSource
+            project: project,
+            projectMdxSource: mdxSource
         }
     }
 }

@@ -2,6 +2,7 @@
 date: "2020-04-21"
 title: C++ containers
 description: Develop powerful C/C++ in a docker environment
+published: 2021-12-26T21:30:35.394Z
 tags: 
 - cc
 - vscode

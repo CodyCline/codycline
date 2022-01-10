@@ -4,6 +4,7 @@ description: Walkthrough on how to build a web app that gives you random locatio
 hero: /assets/randonautica.webp
 featured: 0
 draft: false
+published: 2021-12-26T21:30:35.394Z
 tags: 
 - python
 - mystery

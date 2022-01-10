@@ -4,7 +4,6 @@ import { loadAllSnippets } from "../../lib/load-snippets";
 
 
 function Index({ snippets }: any) {
-    console.log(snippets);
     return (
 
         <div>

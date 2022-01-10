@@ -25,3 +25,16 @@ export async function parseMdxDirectory(path: PathLike) {
     )
     return content;
 }
+
+
+export async function parseSingleMdxFile(path: PathLike): Promise<object> {
+    const fileContents = await readFile(path, `utf-8`);
+    const stats: Stats = statSync(path);
+    const { data, content } = matter(fileContents);
+    return {
+        ...data,
+        content,
+        created: stats?.birthtime? stats.birthtime : new Date(),
+        updated: stats?.mtime? stats.mtime : null,
+    }
+}

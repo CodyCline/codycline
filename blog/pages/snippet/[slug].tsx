@@ -6,15 +6,18 @@ import { ContentBodyWrapper, ContentHeader, ContentTags } from '../../components
 import { MarkdownWrapper } from '../../components/Markdown';
 import { IconTag } from '../../components/ui/Tag';
 import imageMetadata from '../../lib/image-metadata';
+import { Snippet } from '../../types/post';
+import { loadSnippetBySlug } from '../../lib/load-snippets';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-const SnippetsPage = ({ frontMatter, mdxSource }: any) => {
+const SnippetsPage = ({ snippet, snippetMdxSource }: any) => {
     return (
         <ContentBodyWrapper>
-            <ContentHeader>{frontMatter.title}</ContentHeader>
-            <MarkdownWrapper source={mdxSource} />
-            {frontMatter.updated && <span>{frontMatter.updated}</span>}
+            <ContentHeader>{snippet.title}</ContentHeader>
+            <MarkdownWrapper>{snippetMdxSource}</MarkdownWrapper>
+            {snippet.updated && <span>{snippet.updated.toISOString()} {snippet.published.toISOString()}</span>}
             <ContentTags>
-                {frontMatter.tags && frontMatter.tags.map((tag: string) => <IconTag link={"/hello"} icon={tag}>{tag}</IconTag>)}
+                {snippet.tags && snippet.tags.map((tag: string, i:number) => <IconTag key={i} link={"/hello"} icon={tag}>{tag}</IconTag>)}
             </ContentTags>
         </ContentBodyWrapper>
     )
@@ -28,7 +31,7 @@ export const getStaticPaths = async () => {
     const files = fs.readdirSync(path.join(process.cwd(), "content/snippets/"))
     const paths = files.map(filename => ({
         params: {
-            slug: filename.replace('.md', '')
+            slug: filename.replace(`.md`, '')
         }
     }))
     return {
@@ -39,18 +42,16 @@ export const getStaticPaths = async () => {
 
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
-    const markdownWithMeta = fs.readFileSync(path.join(process.cwd(), "content/snippets/" + slug + ".md"), 'utf-8')
-    const { data: frontMatter, content } = matter(markdownWithMeta)
-    const mdxSource = await serialize(content, {
+    const snippet: Snippet = await loadSnippetBySlug(slug);
+    const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(snippet.___rawContent, {
         mdxOptions: {
             rehypePlugins: [imageMetadata]
         }
     });
     return {
         props: {
-            frontMatter,
-            slug,
-            mdxSource
+            snippet: snippet,
+            snippetMdxSource: mdxSource
         }
     }
 }

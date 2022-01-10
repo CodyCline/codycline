@@ -14,6 +14,6 @@ const mdxComponents: MDXProviderComponentsProp = {
     Spoiler: Spoiler,
 }
 
-export const MarkdownWrapper = ({source}:any) => (
-    <MDXRemote components={mdxComponents} {...source}/>
+export const MarkdownWrapper = ({children}:any) => (
+    <MDXRemote components={mdxComponents} {...children}/>
 )
