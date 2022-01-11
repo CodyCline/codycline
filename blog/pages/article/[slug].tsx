@@ -1,9 +1,6 @@
 import fs from "fs";
 import { serialize } from 'next-mdx-remote/serialize'
 import path from "path";
-import matter from "gray-matter";
-import Image from "next/image";
-import r from "../../public/assets/llvm.jpg"
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
 import { MarkdownWrapper } from "../../components/Markdown";
@@ -17,7 +14,6 @@ const ArticleContent = ({ article, articleMdxSource }:any) => {
     return (
         <>
             <ContentHero src={article.hero?.src}>
-
             </ContentHero>
             <ContentBodyWrapper>
                 <ContentHeader>{article.title}</ContentHeader>

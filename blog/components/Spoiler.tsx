@@ -35,7 +35,7 @@ const SpoilerHeaderItem = styled.li`
 
 const SpoilerBody = styled.div`
     padding: 25px;
-    background: t("bg");
+    background: var(--prism-background);
     border-right: 1px solid var(--color-border);
     border-left: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);

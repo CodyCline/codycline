@@ -3,7 +3,9 @@ import { Icon } from "./ui/Icon";
 import Image from "next/image";
 import { truncate } from "./ui/Truncate";
 import { ProjectType } from "../types/post";
-import Link  from "next/link";
+import Link from "next/link";
+import { hostToIconName } from "../utils/hostToIconName";
+
 export const ProjectList = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(217px,1fr));
@@ -43,20 +45,18 @@ const projectTypeIcon = (platform: ProjectType) => {
         case ProjectType.HARDWARE: return ``;
         case ProjectType.SECURITY: return ``;
         case ProjectType.PUBLICATION: return ``;
-        case ProjectType.OTHER: return `mystery`;      
+        case ProjectType.OTHER: return `mystery`;
         default: return `folder`
     }
 }
 
 
 
-const CardDescription = styled.div`
-    
-`;
-
 const CardTitle = styled.div`
     display: inline-flex;
     align-items: center;
+    color: var(--color-text-secondary);
+    
     font-weight: 700;
     margin-top: 1rem;
     > i {
@@ -80,80 +80,78 @@ const CardActionBar = styled.ul`
 `;
 
 const CardActionItem: any = styled.li`
-    ${(props: any) => props.right ? "margin-left: auto;" : "margin-right: .33em;"}
+    ${(props: any) => props.right ? `margin-left: auto;` : `margin-right: .33em;`}
 `;
 
 const CardSummary = styled.div`
-${truncate(3, "vertical")}
+    ${truncate(3, `vertical`)}
 `
 
 const CardBadge = styled.div`
     border-radius: 50%;
     position: absolute;
-    transform: translateY(-50%);
+    transform: translateY(-66.6%);
     right: 17px;
     border: 1px solid var(--color-border);
     background: var(--color-bg-primary);
 `;
 
 
-export const ProjectCard = ({ image, title, type, ciLink, tags, links, description, permaLink }: any) => {
+const CiStatusWrapper = styled.div`
+    display: inline-flex;
+    vertical-align: middle 
+`
+
+export const ProjectCard = ({ image, title, type, ciLink = "https://github.com/codycline/codycline/workflows/aws_ci/badge.svg", tags, links, description, permaLink }: any) => {
     const firstTag = tags && tags[0];
-    const firstLink = links && links[0];
+    const allLinks = links && links.map((link: string) => {
+        return new URL(link);
+    })
+
     return (
         <ProjectCardContainer>
-            <div>
-                <div style={{ height: "14vh", width: "100%", position: `relative` }}>
-                    <Image objectFit="cover" layout="fill" src={image.src} />
-                </div>
-            </div>
+            <Image objectFit="cover" width={image.width} height={400} src={image.src} />
             <CardBadge>
                 <Icon height={36} width={36} name={firstTag} />
             </CardBadge>
-            <CardDescription>
-                <Link href={permaLink}>
+            <Link href={permaLink}>
                 <CardTitle>
-                    <Icon height={24} width={24} fill={`var(--color-text-secondary)`} name={projectTypeIcon(type as ProjectType)} />
-                    <p style={{color: `var(--color-text-secondary)`}}>{title}</p>
-                    <span>v.2.1.0</span>
+                    <Icon height={24} width={24} fill="var(--color-text-secondary)" name={projectTypeIcon(type as ProjectType)} />
+                    <p>{title}</p>
+                    {/* <span>version</span> */}
                 </CardTitle>
-                </Link>
-                <CardSummary>
-                    <Link href={permaLink}>
+            </Link>
+            <CardSummary>
+                <Link href={permaLink}>
                     {description}
-                    </Link>
-                </CardSummary>
-
-            </CardDescription>
-            <CardActionBar>
-                <Link passHref href={firstLink}>
-                    <a target="_blank" href={firstLink}>
-                    <CardActionItem>
-                        <Icon height={24} width={24} name="link" />
-                    </CardActionItem>
-                    </a>
                 </Link>
-                <CardActionItem>
-                    <Icon height={24} width={24} name="snapcraft" />
-                </CardActionItem>
-                <CardActionItem>
-                    <Icon height={24} width={24} name="github" />
-                </CardActionItem>
-                <CardActionItem>
-                    <Icon height={24} width={24} name="cargo" />
-                </CardActionItem>
+            </CardSummary>
+
+            <CardActionBar>
+                {
+                    allLinks.map((link: URL) => (
+                        <Link key={link.href} passHref href={link.href}>
+                            <a target="_blank" href={link.href}>
+                                <CardActionItem>
+                                    <Icon title={`View project on ${link.hostname}`} height={24} width={24} name={hostToIconName(link)} />
+                                </CardActionItem>
+                            </a>
+                        </Link>
+                    ))
+                }
                 {ciLink &&
                     <CardActionItem right>
-                        <div style={{ verticalAlign: "middle", display: "inline-flex", }}>
+                        <CiStatusWrapper>
                             <Image
                                 title="ci status"
+                                unoptimized
                                 alt="ci status"
                                 objectFit="scale-down"
-                                height={20}
+                                height={25}
                                 width="100%"
                                 src={ciLink}
                             />
-                        </div>
+                        </CiStatusWrapper>
                     </CardActionItem>
                 }
             </CardActionBar>

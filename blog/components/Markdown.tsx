@@ -4,6 +4,7 @@ import type { MDXProviderComponentsProp } from "@mdx-js/react";
 import { Spoiler } from "./Spoiler"
 import { MdxImg } from "./ui/MDXImage"
 import { Paragraph, Title } from "./ui/Typography"
+import { Quote } from "./ui/Quote";
 
 const mdxComponents: MDXProviderComponentsProp = {
     code: Code,
@@ -11,6 +12,7 @@ const mdxComponents: MDXProviderComponentsProp = {
     img: (props) => <MdxImg {...props} layout="responsive"  />,
     p: Paragraph,
     h1: Title,
+    blockquote: Quote,
     Spoiler: Spoiler,
 }
 

@@ -17,7 +17,7 @@ export const Icon = ({ name, fill, title, noTitle, height, width, className }: a
     const exists = iconLib[name] !== undefined && typeof window !== undefined;
 
     return (
-        <i title={noTitle ? `` : `${name || title}`} style={{ height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block` }}>
+        <i title={noTitle ? `` : `${title || name}`} style={{ height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block` }}>
             <Svg
                 fill={fill}
                 className={className}

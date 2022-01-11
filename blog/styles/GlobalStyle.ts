@@ -39,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
 		--color: #6e6b5e;
 		--color-bg-inline-code: #f6f7f6;
 		--color-motion-toggle: red;
+		--color-greentext: #789922;
 
 		#Prismjs custom light theme from 
 		--prism-foreground: #393a34;
@@ -75,6 +76,8 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-inline-code: #ffb454;
 		--color-bg-inline-code: #1d1f21;
 		--color-motion-toggle: rgb(202, 108, 154);
+		--color-greentext: #669f96;
+
 
 		#Prismjs theme dark
 		--prism-scheme: dark;
