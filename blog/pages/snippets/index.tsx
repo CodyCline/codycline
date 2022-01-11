@@ -13,6 +13,7 @@ function Index({ snippets }: any) {
                 {snippets && snippets.map((snippet: Snp) => {
                     return (
                         <Snippet 
+                            key={snippet.slug}
                             title={snippet.title} 
                             description={snippet.description}
                             permaLink={snippet.permaLink}

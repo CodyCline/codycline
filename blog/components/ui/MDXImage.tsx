@@ -5,6 +5,9 @@ interface MdxImgProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     blurDataURL?: string;
 }
 
+
+
+
 export const MdxImg: React.FC<MdxImgProps> = ({
     src,
     width,
@@ -40,3 +43,5 @@ export const MdxImg: React.FC<MdxImgProps> = ({
 
     return <Image alt={alt} {...props} />;
 };
+
+

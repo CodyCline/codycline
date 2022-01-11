@@ -2,8 +2,8 @@ import path from 'path';
 import { Article, HeroImage } from '../types/post';
 import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
 
-import { sizeOf } from './image-metadata';
-import { serialize } from 'next-mdx-remote/serialize';
+import { sizeOf, } from './image-metadata';
+import { readFile, readFileSync } from 'fs';
 
 
 export async function loadAllArticles(): Promise<Article[]> {
@@ -25,7 +25,7 @@ export async function loadAllArticles(): Promise<Article[]> {
             content: string;
         }
 
-        
+
 
         const article: Article = {
             title: matterData.title!,
@@ -84,8 +84,6 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
         content: string;
     }
 
-    const mdxSource = await serialize(matterData.content);
-
     const article: Article = {
         title: matterData.title!,
         description: matterData.description,
@@ -103,16 +101,36 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
 
 
     if (matterData.hero) {
+        const BLUR_IMG_SIZE = 8;
+        const BLUR_QUALITY = 70;
+        const VALID_BLUR_EXT = ["jpeg", "png", "webp"];
         //If there is an image attached to frontmatter load it and get dimensions
         const imagePath = path.join(process.cwd(), "public", matterData.hero);
+
         const res = await sizeOf(imagePath);
         if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
 
         if (res.width && res.height) {
+            // const imageBlurExt: any = imagePath.match(/\.(png|webp|jpg|jpeg)$/);
+            // const dimension = res.width >= res.height ? "width" : "height";
+            // const extension = imageBlurExt[1].replace("jpg", "jpeg");
+            // const content = await readFileSync(imagePath);
+            // const resizedImage = await resizeImage(
+            //     content,
+            //     dimension,
+            //     BLUR_IMG_SIZE,
+            //     extension,
+            //     BLUR_QUALITY
+            // );
+
+            // const blurredImageURL = `data:image/${extension};base64,${resizedImage.toString(
+            //     "base64"
+            // )}`;
             const heroImage: HeroImage = {
                 height: res.height,
                 width: res.width,
                 src: matterData.hero,
+                // blurDataURL: blurredImageURL,
             }
             article.hero = heroImage;
         }

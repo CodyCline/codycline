@@ -24,7 +24,7 @@ const ArticleContent = ({ article, articleMdxSource }:any) => {
                 <MarkdownWrapper>{articleMdxSource}</MarkdownWrapper>
                 {article.updated && <span>{article.updated.toISOString()}</span>}
                 <ContentTags>
-                    {article.tags && article.tags.map((tag:string, i: number) => <IconTag key={i} link={"/hello"} icon={tag}>{tag}</IconTag>)}
+                    {article.tags && article.tags.map((tag:string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
                 </ContentTags>
             </ContentBodyWrapper>
         

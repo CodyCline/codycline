@@ -3,6 +3,7 @@ import { media } from "./ui/Media";
 import { Icon } from "./ui/Icon";
 import Link from "next/link";
 import { eDateFormat } from "../utils/eDateFormat";
+import { truncate } from "./ui/Truncate";
  
 
 export const SnippetList = styled.section`
@@ -12,6 +13,7 @@ export const SnippetList = styled.section`
 
 
 const SnippetContainer = styled.section`
+overflow: hidden;
     display: flex;
     position: relative;
     transition: .25s ease-in-out;
@@ -20,7 +22,11 @@ const SnippetContainer = styled.section`
     padding: 1rem;
     margin: 1em 0;
     border-radius: var(--font-size-sm);
-    ${media.phone`justify-content: flex-start; flex-direction: column; align-items: start;`}
+    ${media.phone`
+        justify-content: flex-start; 
+        flex-direction: column; 
+        align-items: start;
+    `}
     border: 1px solid var(--color-border);
     &:hover {
         background: var(--color-fg-primary);
@@ -43,7 +49,11 @@ const SnippetIcon = styled.div`
 `;
 
 
-const SnippetDescription = styled.div``;
+const SnippetDescription = styled.div`
+    ${truncate(1, "vertical")}
+
+    ${media.phone(truncate(3, "vertical"))}
+`;
 
 const SnippetDate = styled.div`
     color: gray;

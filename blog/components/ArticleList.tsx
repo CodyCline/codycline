@@ -87,7 +87,7 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
         <BlogListContainer onClick={onClick}>
             {image &&
                 <Link href={permaLink}>
-                    <Image objectFit="cover" height="100%" width={200} src={image.src} />
+                    <Image objectFit="cover" blurDataURL={image.blurDataURL} height="100%" width={200} src={image.src} />
                 </Link>
             }
 
@@ -113,7 +113,7 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
                 </SubItem> */}
                 <SubItem>
                     {tags && firstThreeTags.map((tag: string, index: number) =>
-                        <IconTag key={index} icon={tag} link={`/meta/${tag}`}>
+                        <IconTag key={index} icon={tag} link={`/category/${tag}`}>
                             {tag}
                         </IconTag>
                     )}

@@ -24,7 +24,7 @@ const ToggleButton:any = styled.button`
     line-height: 1.7;
   border-radius: 50%;
   cursor: pointer;
-  background: var(--color-bg-primary);
+  background: inherit;
   transition: background 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
   &:focus {
     outline-offset: 5px;
@@ -69,11 +69,13 @@ export default ThemeToggle;
 
 export const MotionToggle = ({theme}:any) => {
   const [activeMotion, setActiveMotion] = useState<any>(true);
-
+  const inactiveSetting: any = activeMotion ? "on" : "off";
   return (
     <ToggleButton
+      aria-label={`Toggle webstite animations ${inactiveSetting}`}
+      title={`Toggle website animations ${inactiveSetting}`}
       hoverColor="var(--color-motion-toggle)"
-    onClick={() => setActiveMotion(!activeMotion)}
+      onClick={() => setActiveMotion(!activeMotion)}
     >
       {activeMotion
         ? <Image height={18} width={18} src={stopMotion} />

@@ -33,22 +33,25 @@ const TagText:any = styled.span`
 
 export const IconTag = ({ children, link, icon }: any) => {
     return (
-        link ?
-            <Link href={link}>
-                <TagContainer link={link}>
+        <>
+            {link ?
+                <Link href={link}>
+                    <TagContainer link={link}>
+                        {icon && <Icon height={18} width={18} name={icon.toLowerCase()} />}
+                        <TagText icon={icon}>
+                            {children}
+                        </TagText>
+                    </TagContainer>
+                </Link>
+                :
+                <TagContainer>
                     {icon && <Icon height={18} width={18} name={icon.toLowerCase()} />}
                     <TagText icon={icon}>
-                        {children && children.toLowerCase()}
+                        {children}
                     </TagText>
                 </TagContainer>
-            </Link>
-            :
-            <TagContainer>
-                {icon && <Icon height={18} width={18} name={icon.toLowerCase()} />}
-                <TagText icon={icon}>
-                    {children && children.toLowerCase()}
-                </TagText>
-            </TagContainer>
+            }
+        </>
     )
 }
 

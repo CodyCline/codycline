@@ -17,7 +17,7 @@ const SnippetsPage = ({ snippet, snippetMdxSource }: any) => {
             <MarkdownWrapper>{snippetMdxSource}</MarkdownWrapper>
             {snippet.updated && <span>{snippet.updated.toISOString()} {snippet.published.toISOString()}</span>}
             <ContentTags>
-                {snippet.tags && snippet.tags.map((tag: string, i:number) => <IconTag key={i} link={"/hello"} icon={tag}>{tag}</IconTag>)}
+                {snippet.tags && snippet.tags.map((tag: string, i:number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
             </ContentTags>
         </ContentBodyWrapper>
     )

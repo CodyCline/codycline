@@ -20,7 +20,7 @@ const ProjectPage = ({ project, projectMdxSource }: any) => {
                 <ContentTags>
                     {project.tags &&
                         project.tags.map((tag: string, i: number) =>
-                            <IconTag key={i} link={"/hello"} icon={tag}>{tag}</IconTag>
+                            <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>
                         )
                     }
                 </ContentTags>

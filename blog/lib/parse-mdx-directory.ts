@@ -38,3 +38,4 @@ export async function parseSingleMdxFile(path: PathLike): Promise<object> {
         updated: stats?.mtime? stats.mtime : null,
     }
 }
+

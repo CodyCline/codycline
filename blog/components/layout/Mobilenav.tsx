@@ -5,6 +5,7 @@ import { Icon } from "../ui/Icon";
 import dynamic from "next/dynamic";
 import { NavItem, NavLink } from "./Navbar";
 import { useOnClickOutside } from "../../utils/useOnOutside";
+import ThemeToggle from "../ThemeToggle";
 
 const Portal: any = dynamic((): any => import("../ui/Portal"), {
     ssr: false,
@@ -17,32 +18,42 @@ export const MobileNav = () => {
     useOnClickOutside(ref, () => setToggled(false));
 
     function toggle() {
-        setToggled(!toggled);
+        setToggled(!toggled)
     }
 
     return (
         <React.Fragment>
             <SideNavButton onClick={toggle}>
-                <Icon name={toggled? "close": "three-bars"} height={36} width={36} />
+                <Icon name={toggled ? "close" : "three-bars"} height={36} width={36} />
             </SideNavButton>
             <Portal>
                 {toggled &&
-                    <SideNav ref={ref}>
-                        <NavLink href="/">
-                            Home
-                        </NavLink>
-                        <NavLink href="/blog">
-                            Blog
-                        </NavLink>
-                        <NavLink href="/projects">
-                            Projects
-                        </NavLink>
-                        <NavLink href="/snippets">
-                            Snippets
-                        </NavLink>
-                        <button>Hello</button>
+                    <ModalContainer ref={ref}>
+                        <SideNav>
 
-                    </SideNav>
+                            <SideNavLinks>
+                                <NavLink href="/">
+                                    <h2>Home</h2>
+                                </NavLink>
+                                <NavLink href="/articles">
+                                    <h2>Articles</h2>
+
+                                </NavLink>
+                                <NavLink href="/projects">
+                                    <h2>Projects</h2>
+
+                                </NavLink>
+                                <NavLink href="/snippets">
+                                    <h2>Snippets</h2>
+                                </NavLink>
+                            </SideNavLinks>
+                            <SideNavControls>
+                                <NavItem>
+                                    <ThemeToggle />
+                                </NavItem>
+                            </SideNavControls>
+                        </SideNav>
+                    </ModalContainer>
                 }
             </Portal>
         </React.Fragment>
@@ -51,23 +62,40 @@ export const MobileNav = () => {
 
 
 
-const SideNav = styled.aside`
+const ModalContainer = styled.aside`
     position: absolute;
     top: 0;
     right: 0;
-    margin: 0;
-    padding: 0;
+    padding: 16px 16px 16px 32px;
     width: 70%;
     height: 100%;
+    z-index: 999;
     background: var(--color-fg-primary);
+`;
+
+const SideNavLinks = styled.div`
 
 `
 
+const SideNavControls = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const SideNav = styled.nav`
+    margin: 1em 0 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+`
+
 const SideNavButton = styled.button`
- padding: 4px;
- background: none;
- outline: none;
- border: none;
- cursor: pointer;
- z-index: 99;
+    padding: 4px;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    z-index: 99;
 `

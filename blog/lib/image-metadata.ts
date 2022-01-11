@@ -5,6 +5,7 @@ import { Node } from "unist";
 import { visit } from "unist-util-visit";
 import { promisify } from "util";
 import { VFile } from "vfile";
+import sharp from "sharp";
 
 export const sizeOf = promisify(imageSize);
 
@@ -61,7 +62,7 @@ export default function imageMetadata(this: Processor) {
     return async function transformer(tree: Node, file: VFile): Promise<Node> {
         const imgNodes: ImageNode[] = [];
 
-        visit(tree, "element", (node:ImageNode) => {
+        visit(tree, "element", (node: ImageNode) => {
             if (isImageNode(node) && filterImageNode(node)) {
                 imgNodes.push(node);
             }
@@ -74,3 +75,62 @@ export default function imageMetadata(this: Processor) {
         return tree;
     };
 }
+
+
+
+//Taken from https://github.com/vercel/next.js/blob/canary/packages/next/server/image-optimizer.ts
+// let sharp:
+//     | ((
+//         input?: string | Buffer,
+//         options?: import('sharp').SharpOptions
+//     ) => import('sharp').Sharp)
+//     | undefined
+
+
+// export async function resizeImage(
+//     content: Buffer,
+//     dimension: 'width' | 'height',
+//     size: number,
+//     // Should match VALID_BLUR_EXT
+//     extension: 'avif' | 'webp' | 'png' | 'jpeg',
+//     quality: number
+// ): Promise<Buffer> {
+//     const transformer = sharp(content)
+//     if (extension === 'avif') {
+//         if (transformer.avif) {
+//             transformer.avif({ quality })
+//         } else {
+//             console.warn(
+//                 `Warning: Your installed version of the 'sharp' package does not support AVIF images. Run 'yarn add sharp@latest' to upgrade to the latest version.\n` +
+//                 'Read more: https://nextjs.org/docs/messages/sharp-version-avif'
+//             )
+//             transformer.webp({ quality })
+//         }
+//     } else if (extension === 'webp') {
+//         transformer.webp({ quality })
+//     } else if (extension === 'png') {
+//         transformer.png({ quality })
+//     } else if (extension === 'jpeg') {
+//         transformer.jpeg({ quality })
+//     }
+//     if (dimension === 'width') {
+//         transformer.resize(size)
+//     } else {
+//         transformer.resize(null, size)
+//     }
+//     const buf = await transformer.toBuffer()
+//     return buf
+//     // } else {
+//     //     const resizeOperationOpts: Operation =
+//     //         dimension === 'width'
+//     //             ? { type: 'resize', width: size }
+//     //             : { type: 'resize', height: size }
+//     //     const buf = await processBuffer(
+//     //         content,
+//     //         [resizeOperationOpts],
+//     //         extension,
+//     //         quality
+//     //     )
+//     //     return buf
+//     // }
+// }
