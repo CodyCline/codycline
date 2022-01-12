@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Icon } from "./ui/Icon";
 import Image from "next/image";
-import { truncate } from "./ui/Truncate";
+import { truncate } from "./styles/Truncate";
 import { ProjectType } from "../types/post";
 import Link from "next/link";
 import { hostToIconName } from "../utils/hostToIconName";

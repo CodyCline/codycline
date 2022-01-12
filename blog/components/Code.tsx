@@ -2,6 +2,7 @@ import React, { useEffect, ReactNode, useState } from "react";
 import styled from "styled-components";
 import Prism, { Token } from "prismjs";
 import { Icon } from "./ui/Icon";
+import { scrollbar } from "./styles/Scrollbar";
 
 export interface CodeProps {
     language: string
@@ -27,13 +28,16 @@ function tokenToReactNode(token: Token | string, i: number): ReactNode {
 
 const CodeBlockContainer = styled.section`
     margin: 36px 0;
-    border-radius: var(--font-size-sm);
-    border: 1px solid var(--color-border);
+
 `
 
 const CodeBlock = styled.pre`
-    border-bottom-left-radius: var(--font-size-sm);
-    border-bottom-right-radius: var(--font-size-sm);
+    ${scrollbar()}
+    overflow: auto;
+    border: 1px solid var(--color-border);
+    border-top: none;
+
+
 `
 
 const ToolBar = styled.ul`
@@ -46,6 +50,7 @@ const ToolBar = styled.ul`
     background: var(--color-fg-primary);
     border-top-left-radius: var(--font-size-sm);
     border-top-right-radius: var(--font-size-sm);
+    border: 1px solid var(--color-border);
 `
 
 const ToolBarTitle = styled.li`
@@ -118,13 +123,13 @@ export const Code = ({className, children}:any) => {
                     <Icon onClick={copyCode} noTitle name="copy" height={18} width={18} />
                 </CopyIcon>
             </ToolBar>
-            <pre
+            <CodeBlock
                 ref={codeRef}
                 className={`language-${language}`}
-                style={{ borderBottomLeftRadius: `var(--font-size-sm)`, borderBottomRightRadius: `var(--font-size-sm)`}}
+                style={{  borderBottomLeftRadius: `var(--font-size-sm)`, borderBottomRightRadius: `var(--font-size-sm)`}}
             >
                 {data.length ? data.map(tokenToReactNode) : children}
-            </pre>
+            </CodeBlock>
         </CodeBlockContainer>
     );
 }

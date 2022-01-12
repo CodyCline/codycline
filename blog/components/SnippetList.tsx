@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { media } from "./ui/Media";
+import { media } from "./styles/Media";
 import { Icon } from "./ui/Icon";
 import Link from "next/link";
 import { eDateFormat } from "../utils/eDateFormat";
-import { truncate } from "./ui/Truncate";
+import { truncate } from "./styles/Truncate";
  
 
 export const SnippetList = styled.section`

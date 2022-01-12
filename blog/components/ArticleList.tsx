@@ -3,8 +3,8 @@ import Link from "next/link";
 import Image, { ImageProps } from "next/image";
 import styled from "styled-components";
 import { IconTag } from "./ui/Tag";
-import { media } from "./ui/Media";
-import { truncate } from "./ui/Truncate";
+import { media } from "./styles/Media";
+import { truncate } from "./styles/Truncate";
 import r from "../public/assets/clang.jpg";
 import { eDateFormat } from "../utils/eDateFormat";
 

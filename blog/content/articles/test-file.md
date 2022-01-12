@@ -14,17 +14,26 @@ tags:
 - csharp
 ---
 
->Anything to note Is that there i Is that there i Is that there i
-Anything to note Is that ther
-Anything to note Is that there i Is that there i Is that there i
-Anything to note Is that there i Is that there i Is that there i
-Anything to note Is that there i Is that there i Is that there i
+> Ask not what your country can do for you, but what you can do for your country.
+> -- John Fitzgerald Kennedy
+
+
+| Operating System | Inner x64 Debug | Inner x64 Release | Outer x64 Debug | Outer x64 Release|
+| ----------- | ----------- | ----------- | ----------- | 
+| _CentOS 7.1_| Download    | Release     | misc        |
+| _Debian 8_| Download    | Release     | misc        |
+| _openSUSE 42.1_| Download    | Release     | misc        |
+| _Open BSD_| Download    | Release     | misc        |
+| _Ubuntu  _| Download    | Release     | misc        |
+
 
 # 1
 # HELLO WORLD!
 `super`
 Use a  method to instaniate the said thing
+
 <dl>
+
 
 <dt>Beast of Bodmin</dt>
 <dd>A large feline inhabiting Bodmin Moor.</dd>

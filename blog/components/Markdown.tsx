@@ -5,6 +5,7 @@ import { Spoiler } from "./Spoiler"
 import { MdxImg } from "./ui/MDXImage"
 import { Paragraph, Title } from "./ui/Typography"
 import { Quote } from "./ui/Quote";
+import { MarkdownTable } from "./table/MarkdownTable";
 
 const mdxComponents: MDXProviderComponentsProp = {
     code: Code,
@@ -12,6 +13,7 @@ const mdxComponents: MDXProviderComponentsProp = {
     img: (props) => <MdxImg {...props} layout="responsive"  />,
     p: Paragraph,
     h1: Title,
+    table: MarkdownTable,
     blockquote: Quote,
     Spoiler: Spoiler,
 }

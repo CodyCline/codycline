@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TableBase } from "./table";
+import { TableBase } from "./Table";
 
 //Data table takes the json data file passed and puts it into the table
 export const DataTable = ({src} : any) => {

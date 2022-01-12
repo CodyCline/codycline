@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { media } from "./ui/Media";
+import { media } from "./styles/Media";
 
 export const ContentBodyWrapper = styled.article`
     height: 100%;

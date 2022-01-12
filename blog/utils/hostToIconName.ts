@@ -2,7 +2,6 @@
 //A function that takes in a URL object and matches its `hostname` against the
 //icon library to display an icon link in a component
 export const hostToIconName = (link: URL) => {
-    console.log(link.hostname);
     switch(link.hostname) {
         
         case `www.npmjs.com`: return `npm`
