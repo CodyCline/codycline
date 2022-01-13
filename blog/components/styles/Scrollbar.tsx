@@ -5,17 +5,13 @@ export function scrollbar () {
     return css`
         &::-webkit-scrollbar-track {
             background: inherit;
-            border-bottom-left-radius: var(--font-size-sm);
-            border-bottom-right-radius: var(--font-size-sm);
-            border-left: 1px solid var(--color-border);
-            border-right: 1px solid var(--color-border);
-
-            border-bottom: 0;
+            border-top: 1px solid var(--color-border);
+            
             z-index: 999;
         }
 
         &::-webkit-scrollbar {
-            height: 10px;
+            height: calc(var(--font-size-sm) / 1.5);
         }
         &::-webkit-scrollbar-thumb {
             background: var(--color-fg-primary);

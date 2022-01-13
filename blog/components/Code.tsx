@@ -36,6 +36,7 @@ const CodeBlock = styled.pre`
     overflow: auto;
     border: 1px solid var(--color-border);
     border-top: none;
+    border-radius: 5px;
 
 
 `
@@ -48,9 +49,10 @@ const ToolBar = styled.ul`
 
     list-style: none;
     background: var(--color-fg-primary);
-    border-top-left-radius: var(--font-size-sm);
-    border-top-right-radius: var(--font-size-sm);
     border: 1px solid var(--color-border);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
 `
 
 const ToolBarTitle = styled.li`
@@ -126,7 +128,7 @@ export const Code = ({className, children}:any) => {
             <CodeBlock
                 ref={codeRef}
                 className={`language-${language}`}
-                style={{  borderBottomLeftRadius: `var(--font-size-sm)`, borderBottomRightRadius: `var(--font-size-sm)`}}
+                style={{ borderBottomLeftRadius: `5px`, borderBottomRightRadius: `5px` }}
             >
                 {data.length ? data.map(tokenToReactNode) : children}
             </CodeBlock>

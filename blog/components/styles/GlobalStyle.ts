@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 		--color-fg-primary: #e3e3e3;
 		--color-bg-toggle: #0096cf;
 		--color-border: #d9d9d9;
-		--color-foreground-aux: #f7f7f7;
+		--color-fg-aux: #f7f7f7;
 		--color-link: #4c4ce6;
 		--color-text-inline-code: #9d00ec;
 		--color: #6e6b5e;
@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
 	}
   
 	body[data-theme="dark"] {
-		--color-foreground-aux: #1f2123;
+		--color-fg-aux: #1f2123;
 		--color-text-default: #e3e3e3;
 		--color-text-primary: #ffb454;
 		--color-text-secondary: #FFD369;

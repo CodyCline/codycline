@@ -9,16 +9,18 @@ import { loadArticleBySlug } from "../../lib/load-articles";
 import { Article } from "../../types/post";
 import imageMetadata from "../../lib/image-metadata";
 
+import { eDateFormat } from "../../utils/eDateFormat";
+
 
 const ArticleContent = ({ article, articleMdxSource }:any) => {
     return (
         <>
-            <ContentHero src={article.hero?.src}>
-            </ContentHero>
+            <ContentHero src={article.hero?.src}/>
             <ContentBodyWrapper>
+                <span title={article.published.toString()}>Published: {eDateFormat(article.published)}</span>
+                <span title={article.updated.toString()}> Last Updated: {eDateFormat(article.published)}</span>
                 <ContentHeader>{article.title}</ContentHeader>
                 <MarkdownWrapper>{articleMdxSource}</MarkdownWrapper>
-                {article.updated && <span>{article.updated.toISOString()}</span>}
                 <ContentTags>
                     {article.tags && article.tags.map((tag:string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
                 </ContentTags>
@@ -47,7 +49,7 @@ export const getStaticProps = async ({ params: { slug } }: any) => {
     const article: Article = await loadArticleBySlug(slug);
     const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(article.___rawContent, {
         mdxOptions: {
-            rehypePlugins: [imageMetadata]
+            rehypePlugins: [imageMetadata] as any,
         }
     });
     return {

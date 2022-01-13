@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { media } from "../styles/Media";
-import { Paragraph } from "./Typography";
+import { media } from "./styles/Media";
+import { Paragraph } from "./ui/Typography";
 
 const BlockQuoteWrapper = styled.blockquote`
     color: var(--color-greentext);
     background: var(--color-bg-greentext);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 25px;
     margin: 36px 0;
     border: 1px solid var(--color-border-greentext);

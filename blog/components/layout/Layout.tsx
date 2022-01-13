@@ -6,15 +6,21 @@ import { MobileNav } from "./Mobilenav";
 import { useMatchMedia } from "../../utils/useMatchMedia";
 
 import { MotionToggle } from "../ThemeToggle";
+import { Footer, FooterItem, FooterItems, FooterLink } from "./Footer";
+import styled from "styled-components";
+import { Icon } from "../ui/Icon";
+
 const ThemeToggle: any = dynamic((): any => import("../ThemeToggle"), {
     ssr: false,
 });
 
+const LayoutWrapper = styled.main``
+
 export const Layout = ({ children }:any) => {
     const isMobile = useMatchMedia(`(max-width: 750px)`);
-    
+    const date = new Date()
     return (
-        <React.Fragment>
+        <LayoutWrapper>
             <NavBar>
                 <NavLink href="/">CC</NavLink>
                 {isMobile ? 
@@ -36,7 +42,23 @@ export const Layout = ({ children }:any) => {
                 }
             </NavBar>
             {children}
-        </React.Fragment>
+            <Footer>
+                <FooterItems>
+                    <FooterItem>{date.getFullYear()}</FooterItem>
+                    <FooterItem>
+                        <FooterLink href="https://google.com">
+                            <Icon width={24} height={24} title="Github Profile" name="github"/>
+                        </FooterLink>
+                        <FooterLink href="https://google.com">
+                            <Icon width={24} height={24}  title="Stack Overflow Profile" name="stack-overflow"/>
+                        </FooterLink>
+                        <FooterLink href="https://google.com">
+                            <Icon width={24} height={24}  title="Stack Overflow Profile" name="hackerone"/>
+                        </FooterLink>
+                    </FooterItem>
+                </FooterItems>
+            </Footer>
+        </LayoutWrapper>
     )
 }
 

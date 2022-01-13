@@ -17,7 +17,6 @@ export const ContentBodyWrapper = styled.article`
 export const ContentHeader = styled.h1`
     font-size: var(--font-size-lg);
     color: var(--color-bg-toggle);
-    background: var(--color-text-default);
     margin: 2rem 0;
 `
 

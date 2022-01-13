@@ -27,6 +27,20 @@ tags:
 | _Ubuntu  _| Download    | Release     | misc        |
 
 
+Hi there! Hello!
+
+## Inline math
+
+This is inline math: $T_n = a + (n-1)d$
+
+## Block math
+
+This is a block of math:
+
+$$
+S_n = \frac{n(2a + (n-1)d)}{2}
+$$
+
 # 1
 # HELLO WORLD!
 `super`

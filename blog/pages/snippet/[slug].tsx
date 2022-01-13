@@ -9,10 +9,13 @@ import imageMetadata from '../../lib/image-metadata';
 import { Snippet } from '../../types/post';
 import { loadSnippetBySlug } from '../../lib/load-snippets';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { eDateFormat } from '../../utils/eDateFormat';
 
 const SnippetsPage = ({ snippet, snippetMdxSource }: any) => {
     return (
         <ContentBodyWrapper>
+            <span title={snippet.published.toString()}>Published: {eDateFormat(snippet.published)}</span>
+            <span title={snippet.updated.toString()}> Last Updated: {eDateFormat(snippet.published)}</span>
             <ContentHeader>{snippet.title}</ContentHeader>
             <MarkdownWrapper>{snippetMdxSource}</MarkdownWrapper>
             {snippet.updated && <span>{snippet.updated.toISOString()} {snippet.published.toISOString()}</span>}
