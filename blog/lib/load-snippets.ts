@@ -4,7 +4,7 @@ import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
 //
 
 export async function loadAllSnippets(): Promise<Snippet[]> {
-    const snippetsPath = path.join(process.cwd(), "content/snippets/");
+    const snippetsPath = path.join(process.cwd(), "content", "snippets");
 
     const projectData = await parseMdxDirectory(snippetsPath);
 

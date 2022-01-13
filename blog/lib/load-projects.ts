@@ -4,7 +4,7 @@ import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
 import { sizeOf } from './image-metadata';
 
 export async function loadAllProjects(): Promise<Project[]> {
-    const projectsPath = path.join(process.cwd(), "content/projects/");
+    const projectsPath = path.join(process.cwd(), "content", "projects");
     const projectData = await parseMdxDirectory(projectsPath);
 
     const allProjects = projectData.map(async (fileData: object) => {

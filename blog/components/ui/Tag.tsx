@@ -11,7 +11,7 @@ const TagContainer: any = styled.button`
     min-width: 2rem;
     padding: 0.333rem 0.5rem;
     margin: 0.333rem .33rem .33rem 0;
-    border: 2px solid var(--color-border);
+    border: 1px solid var(--color-border);
     min-height: 1.5rem;
     max-width: 100%;
     border-radius: .725rem;

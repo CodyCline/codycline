@@ -4,6 +4,9 @@ import type { GetStaticProps } from 'next';
 import { Article } from "../../types/post";
 
 
+export const ARTICLES_PER_PAGE = 1;
+
+
 type Content = {
     articles: Article[],
 }

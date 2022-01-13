@@ -2,12 +2,12 @@ import path from 'path';
 import { Article, HeroImage } from '../types/post';
 import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
 
-import { sizeOf, } from './image-metadata';
-import { readFile, readFileSync } from 'fs';
+import { sizeOf } from './image-metadata';
 
 
 export async function loadAllArticles(): Promise<Article[]> {
-    const articlesPath = path.join(process.cwd(), "content/articles/");
+    const articlesPath = path.join(process.cwd(), "content", "articles");
+    
     const articleData = await parseMdxDirectory(articlesPath);
 
     const allArticles = articleData.map(async (fileData: object) => {
