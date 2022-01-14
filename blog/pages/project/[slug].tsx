@@ -8,10 +8,17 @@ import { IconTag } from '../../components/ui/Tag';
 import { Project } from '../../types/post';
 import { loadProjectBySlug } from '../../lib/load-projects';
 import imageMetadata from '../../lib/image-metadata';
+import { siteMetadata } from '../../site-metadata';
+import { ContentSeo } from '../../components/Seo';
 
 const ProjectPage = ({ project, projectMdxSource }: any) => {
     return (
         <>
+            <ContentSeo
+                url={`${siteMetadata.siteUrl}/project/${project.slug}`}
+                authorDetails={siteMetadata.author}
+                {...project}
+            />
             <ContentHero src={project.hero?.src}/>
             <ContentBodyWrapper>
                 <ContentHeader>{project.title}</ContentHeader>

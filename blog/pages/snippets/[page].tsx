@@ -5,6 +5,8 @@ import { Pagination } from "../../components/Pagination";
 import { readdirSync } from "fs";
 import path from "path";
 import { GetServerSidePropsContext, GetStaticPathsContext, GetStaticPropsContext } from "next";
+import { PageSeo } from "../../components/Seo";
+import { siteMetadata } from "../../site-metadata";
 
 export const SNIPPETS_PER_PAGE = 1;
 
@@ -48,6 +50,10 @@ export async function getStaticProps({ params }: GetServerSidePropsContext) {
 
 const SnippetPages = ({ snippets, pagination }: any) => (
     <div>
+        <PageSeo 
+            title={`snippets - ${siteMetadata.author.name}`}
+            description={`short, byte-sized content for quick reading`}
+        />
         <h1>Snippets</h1>
         <p>Byte-sized content for quick reading.</p>
         <SnippetList>

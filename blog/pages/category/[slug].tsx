@@ -92,25 +92,26 @@ export const getStaticProps = async ({ params: { slug } }: any) => {
         loadAllProjects(),
         loadAllSnippets(),
     ])
-    
-    const filteredArticles: Article[] = articles.filter((article: Article) => {
-        if (article.tags.find((tag: string) => tag.toLowerCase() == slug.toLowerCase())) {
-            return article;
-        }
-    })
 
-    const filteredProjects: Project[] = projects.filter((project: Project) => {
-        if (project.tags.find((tag: string) => tag.toLowerCase() == slug.toLowerCase())) {
-            return project;
-        }
-    })
-    
-    const filteredSnippets: Snp[] = snippets.filter((snippet: Snp) => {
-        if (snippet.tags.find((tag: string) => tag.toLowerCase() == slug.toLowerCase())) {
-            return snippet;
-        }
-    })
+    const [filteredArticles, filteredProjects, filteredSnippets] = await Promise.all([
+        articles.filter((article: Article) => {
+            if (article.tags.find((tag: string) => tag.toLowerCase() == slug.toLowerCase())) {
+                return article;
+            }
+        }),
+        projects.filter((project: Project) => {
+            if (project.tags.find((tag: string) => tag.toLowerCase() == slug.toLowerCase())) {
+                return project;
+            }
+        }),
+        snippets.filter((snippet: Snp) => {
+            if (snippet.tags.find((tag: string) => tag.toLowerCase() == slug.toLowerCase())) {
+                return snippet;
+            }
+        })
+    ]);
 
+    
     return {
         props: {
             articles: filteredArticles,

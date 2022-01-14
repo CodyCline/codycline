@@ -9,6 +9,7 @@ import { MotionToggle } from "../ThemeToggle";
 import { Footer, FooterItem, FooterItems, FooterLink } from "./Footer";
 import styled from "styled-components";
 import { Icon } from "../ui/Icon";
+import { siteMetadata } from "../../site-metadata";
 
 const ThemeToggle: any = dynamic((): any => import("../ThemeToggle"), {
     ssr: false,
@@ -46,10 +47,10 @@ export const Layout = ({ children }:any) => {
                 <FooterItems>
                     <FooterItem>{date.getFullYear()}</FooterItem>
                     <FooterItem>
-                        <FooterLink href="https://google.com">
+                        <FooterLink href={siteMetadata.social.github}>
                             <Icon width={24} height={24} title="Github Profile" name="github"/>
                         </FooterLink>
-                        <FooterLink href="https://google.com">
+                        <FooterLink href={siteMetadata.social.stackOverflow}>
                             <Icon width={24} height={24}  title="Stack Overflow Profile" name="stack-overflow"/>
                         </FooterLink>
                         <FooterLink href="https://google.com">

@@ -2,13 +2,19 @@ import { Snippet, SnippetList } from "../../components/SnippetList";
 import type { Snippet as Snp } from "../../types/post";
 import { loadAllSnippets } from "../../lib/load-snippets";
 import { Pagination } from "../../components/Pagination";
+import { PageSeo } from "../../components/Seo";
+import { siteMetadata } from "../../site-metadata";
 
 export const SNIPPETS_PER_PAGE = 1;
 
 const SnippetsIndex = ({ snippets, pagination }: any) => (
     <div>
+        <PageSeo 
+            title={`snippets - ${siteMetadata.author.name}`}
+            description={`short, byte-sized content for quick reading and clipping`}
+        />
         <h1>Snippets</h1>
-        <p>Byte-sized content for quick reading.</p>
+        <p>Byte-sized content for quick reading and clipping.</p>
         <SnippetList>
             {snippets && snippets.map((snippet: Snp) => {
                 return (

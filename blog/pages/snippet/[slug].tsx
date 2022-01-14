@@ -10,17 +10,24 @@ import { Snippet } from '../../types/post';
 import { loadSnippetBySlug } from '../../lib/load-snippets';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { eDateFormat } from '../../utils/eDateFormat';
+import { ContentSeo } from '../../components/Seo';
+import { siteMetadata } from '../../site-metadata';
 
 const SnippetsPage = ({ snippet, snippetMdxSource }: any) => {
     return (
         <ContentBodyWrapper>
+            <ContentSeo
+                url={`${siteMetadata.siteUrl}/snippet/${snippet.slug}`}
+                authorDetails={siteMetadata.author}
+                {...snippet}
+            />
             <span title={snippet.published.toString()}>Published: {eDateFormat(snippet.published)}</span>
             <span title={snippet.updated.toString()}> Last Updated: {eDateFormat(snippet.published)}</span>
             <ContentHeader>{snippet.title}</ContentHeader>
             <MarkdownWrapper>{snippetMdxSource}</MarkdownWrapper>
             {snippet.updated && <span>{snippet.updated.toISOString()} {snippet.published.toISOString()}</span>}
             <ContentTags>
-                {snippet.tags && snippet.tags.map((tag: string, i:number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
+                {snippet.tags && snippet.tags.map((tag: string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
             </ContentTags>
         </ContentBodyWrapper>
     )

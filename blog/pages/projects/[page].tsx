@@ -4,7 +4,9 @@ import path from "path";
 import { PROJECTS_PER_PAGE } from ".";
 import { Pagination } from "../../components/Pagination";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
+import { PageSeo } from "../../components/Seo";
 import { loadAllProjects } from "../../lib/load-projects";
+import { siteMetadata } from "../../site-metadata";
 import { Project } from "../../types/post";
 
 
@@ -51,6 +53,10 @@ export const getStaticProps = async ({ params }: GetServerSidePropsContext) => {
 function ProjectPages({ projects, pagination }: any) {
     return (
         <div>
+            <PageSeo 
+                title={`projects - ${siteMetadata.headerTitle}`}
+                description={`portfolio projects`}
+            />
             <h1>Blog Posts</h1>
             <ProjectList>
                 {projects &&  projects.map((project: Project) => (

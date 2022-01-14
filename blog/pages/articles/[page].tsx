@@ -6,6 +6,8 @@ import { readdirSync } from "fs";
 import path from "path";
 import { ARTICLES_PER_PAGE } from ".";
 import { Pagination } from "../../components/Pagination";
+import { siteMetadata } from "../../site-metadata";
+import { PageSeo } from "../../components/Seo";
 
 type Content = {
     articles: Article[],
@@ -58,6 +60,10 @@ export const getStaticProps = async ({ params }: GetServerSidePropsContext) => {
 function ArticlePages({ articles, pagination }: Content) {
     return (
         <div>
+            <PageSeo 
+                title={`articles - ${siteMetadata.headerTitle}`} 
+                description={siteMetadata.description} 
+            />
             <h1>Blog Posts</h1>
             
             <ArticleList>

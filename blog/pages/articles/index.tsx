@@ -3,6 +3,8 @@ import { loadAllArticles } from "../../lib/load-articles";
 import type { GetStaticProps } from 'next';
 import { Article } from "../../types/post";
 import { Pagination } from "../../components/Pagination";
+import { PageSeo } from "../../components/Seo";
+import { siteMetadata } from "../../site-metadata";
 
 
 export const ARTICLES_PER_PAGE = 1;
@@ -16,6 +18,10 @@ type Content = {
 function ArticleIndex({ articles, pagination }: Content) {
     return (
         <div>
+            <PageSeo 
+                title={`articles - ${siteMetadata.headerTitle}`} 
+                description={siteMetadata.description} 
+            />
             <h1>Blog Posts</h1>
             <ArticleList>
                 {articles && articles.map((article: Article) => {

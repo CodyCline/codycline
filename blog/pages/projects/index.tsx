@@ -1,12 +1,18 @@
 import { Pagination } from "../../components/Pagination";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
+import { PageSeo } from "../../components/Seo";
 import { loadAllProjects } from "../../lib/load-projects";
+import { siteMetadata } from "../../site-metadata";
 import { Project } from "../../types/post";
 
 export const PROJECTS_PER_PAGE = 1;
 
 const ProjectsIndex = ({ projects, pagination }:any) => ( 
     <div>
+        <PageSeo 
+            title={`projects - ${siteMetadata.headerTitle}`}
+            description={`portfolio projects`}
+        />
         <h1>Projects</h1>
         <ProjectList>
             {projects && 

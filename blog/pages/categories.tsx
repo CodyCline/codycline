@@ -1,7 +1,7 @@
-import { ContentTags } from "../../components/ContentTemplate";
-import { Icon } from "../../components/ui/Icon";
-import { IconTag } from "../../components/ui/Tag";
-import { loadAllCategories } from "../../lib/load-categories";
+import { ContentTags } from "../components/ContentTemplate";
+import { Icon } from "../components/ui/Icon";
+import { IconTag } from "../components/ui/Tag";
+import { loadAllCategories } from "../lib/load-categories";
 
 
 const CategoryPage = ({categories}:any) => {

@@ -10,11 +10,18 @@ import { Article } from "../../types/post";
 import imageMetadata from "../../lib/image-metadata";
 
 import { eDateFormat } from "../../utils/eDateFormat";
+import { siteMetadata } from "../../site-metadata";
+import { ContentSeo } from "../../components/Seo";
 
 
 const ArticleContent = ({ article, articleMdxSource }:any) => {
     return (
         <>
+            <ContentSeo
+                url={`${siteMetadata.siteUrl}/article/${article.slug}`}
+                authorDetails={siteMetadata.author}
+                {...article}
+            />
             <ContentHero src={article.hero?.src}/>
             <ContentBodyWrapper>
                 <span title={article.published.toString()}>Published: {eDateFormat(article.published)}</span>
