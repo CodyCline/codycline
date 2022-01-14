@@ -5,9 +5,11 @@ import { Article } from "../../types/post";
 import { readdirSync } from "fs";
 import path from "path";
 import { ARTICLES_PER_PAGE } from ".";
+import { Pagination } from "../../components/Pagination";
 
 type Content = {
     articles: Article[],
+    pagination: any,
 }
 
 
@@ -33,13 +35,9 @@ export const getStaticProps = async ({ params }: GetServerSidePropsContext) => {
     const {
         page
     }:any = params;
-    console.log(page);
-    // const {
-    //     params: page, 
-    // } = context;
     const allArticles = await loadAllArticles();
     const pageNumber = parseInt(page)
-    const initialDisplayArticles = allArticles.slice(
+    const initialArticles = allArticles.slice(
       ARTICLES_PER_PAGE * (pageNumber - 1),
       ARTICLES_PER_PAGE * pageNumber
     );
@@ -50,17 +48,18 @@ export const getStaticProps = async ({ params }: GetServerSidePropsContext) => {
     };
     return {
         props: {
-            articles: initialDisplayArticles,
-            // pagination: pagination,
+            articles: initialArticles,
+            pagination: pagination,
         }
     }
 }
 
 
-function ArticlePages({ articles }: Content) {
+function ArticlePages({ articles, pagination }: Content) {
     return (
         <div>
             <h1>Blog Posts</h1>
+            
             <ArticleList>
                 {articles && articles.map((article: Article) => {
                     const { hero, slug, title, tags, description, updated, created, permaLink } = article;
@@ -78,6 +77,7 @@ function ArticlePages({ articles }: Content) {
                     })
                 }
             </ArticleList>
+            <Pagination slug="articles" currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
         </div>
     )
 }
