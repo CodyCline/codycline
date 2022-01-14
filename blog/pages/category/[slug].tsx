@@ -1,42 +1,48 @@
 import { useRouter } from "next/router";
 import { ArticleCard, ArticleList } from "../../components/ArticleList";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
+import { TagSeo } from "../../components/Seo";
 import { Snippet, SnippetList } from "../../components/SnippetList";
 import { Icon } from "../../components/ui/Icon";
 import { loadAllArticles } from "../../lib/load-articles";
-import { loadAllCategories  } from "../../lib/load-categories";
+import { loadAllCategories } from "../../lib/load-categories";
 import { loadAllProjects } from "../../lib/load-projects";
 import { loadAllSnippets } from "../../lib/load-snippets";
+import { siteMetadata } from "../../site-metadata";
 import { Article, Project, Snippet as Snp } from "../../types/post";
 
 
 
-const CategoryPage = ({articles, snippets, projects}:any) => {
+const CategoryPage = ({ articles, snippets, projects }: any) => {
     const router = useRouter();
     const { slug } = router.query;
     const currentCategory = slug?.toString().replace(/./, c => c.toUpperCase())
     return (
         <div>
-            <h2><Icon width={24} height={24} name={slug}/> {currentCategory} Content</h2>
+            <TagSeo
+                title={`${slug} - content`}
+                description={`${slug} content - ${siteMetadata.headerTitle}`}
+            />
+            <h2><Icon width={24} height={24} name={slug} /> {currentCategory} Content</h2>
             <ArticleList>
                 {articles && articles.map((article: Article) => {
-                    const { hero, slug, title, tags, description, updated, created, permaLink} = article;
-                        return (
-                            <ArticleCard 
-                                key={slug}
-                                image={hero}
-                                title={title} 
-                                description={description} 
-                                tags={tags}
-                                date={updated || created}
-                                permaLink={permaLink}
-                            />
-                        )
-                    })
+                    const { hero, slug, title, tags, description, updated, created, permaLink } = article;
+                    return (
+                        <ArticleCard
+                            key={slug}
+                            image={hero}
+                            title={title}
+                            description={description}
+                            tags={tags}
+                            date={updated || created}
+                            permaLink={permaLink}
+                        />
+                    )
+                })
                 }
             </ArticleList>
             <ProjectList>
-                {projects && 
+                {projects &&
                     projects.map((project: Project) => (
                         <ProjectCard
                             image={project.hero}
@@ -51,14 +57,14 @@ const CategoryPage = ({articles, snippets, projects}:any) => {
 
                         />
                     )
-                )}
+                    )}
             </ProjectList>
             <SnippetList>
                 {snippets && snippets.map((snippet: Snp) => {
                     return (
-                        <Snippet 
+                        <Snippet
                             key={snippet.slug}
-                            title={snippet.title} 
+                            title={snippet.title}
                             description={snippet.description}
                             permaLink={snippet.permaLink}
                             date={snippet.updated! || snippet.created}
@@ -73,8 +79,8 @@ const CategoryPage = ({articles, snippets, projects}:any) => {
 
 
 export const getStaticPaths = async () => {
-    const categories =  await loadAllCategories();
-    const paths = categories.map((category:any) => ({
+    const categories = await loadAllCategories();
+    const paths = categories.map((category: any) => ({
         params: {
             slug: category.name
         }
@@ -111,7 +117,7 @@ export const getStaticProps = async ({ params: { slug } }: any) => {
         })
     ]);
 
-    
+
     return {
         props: {
             articles: filteredArticles,

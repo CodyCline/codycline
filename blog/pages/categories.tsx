@@ -1,12 +1,18 @@
 import { ContentTags } from "../components/ContentTemplate";
+import { PageSeo } from "../components/Seo";
 import { Icon } from "../components/ui/Icon";
 import { IconTag } from "../components/ui/Tag";
 import { loadAllCategories } from "../lib/load-categories";
+import { siteMetadata } from "../site-metadata";
 
 
 const CategoryPage = ({categories}:any) => {
     return (
         <>
+        <PageSeo 
+            title={`content categories - ${siteMetadata.headerTitle}`}
+            description={siteMetadata.description}
+        />
         <ContentTags>
             <h2>All Content Categories</h2>
         </ContentTags>
