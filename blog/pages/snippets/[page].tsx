@@ -7,6 +7,7 @@ import path from "path";
 import { GetServerSidePropsContext, GetStaticPathsContext, GetStaticPropsContext } from "next";
 import { PageSeo } from "../../components/Seo";
 import { siteMetadata } from "../../site-metadata";
+import { ContentTitle } from "../../components/ContentTemplate";
 
 export const SNIPPETS_PER_PAGE = 1;
 
@@ -27,7 +28,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }: GetServerSidePropsContext) {
     const {
         page
-    }:any = params;
+    }: any = params;
     const allSnippets = await loadAllSnippets();
 
     const pageNumber = parseInt(page)
@@ -50,12 +51,13 @@ export async function getStaticProps({ params }: GetServerSidePropsContext) {
 
 const SnippetPages = ({ snippets, pagination }: any) => (
     <div>
-        <PageSeo 
-            title={`snippets - ${siteMetadata.author.name}`}
+        <PageSeo
+            title={`snippets - ${siteMetadata.headerTitle}`}
             description={`short, byte-sized content for quick reading`}
         />
-        <h1>Snippets</h1>
-        <p>Byte-sized content for quick reading.</p>
+        <ContentTitle header="Snippets">
+            byte-sized content for quick reading and clipping
+        </ContentTitle>
         <SnippetList>
             {snippets && snippets.map((snippet: Snp) => {
                 return (

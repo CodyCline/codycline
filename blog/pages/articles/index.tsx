@@ -5,9 +5,10 @@ import { Article } from "../../types/post";
 import { Pagination } from "../../components/Pagination";
 import { PageSeo } from "../../components/Seo";
 import { siteMetadata } from "../../site-metadata";
+import { ContentTitle } from "../../components/ContentTemplate";
 
 
-export const ARTICLES_PER_PAGE = 1;
+export const ARTICLES_PER_PAGE = 6;
 
 
 type Content = {
@@ -22,7 +23,9 @@ function ArticleIndex({ articles, pagination }: Content) {
                 title={`articles - ${siteMetadata.headerTitle}`} 
                 description={siteMetadata.description} 
             />
-            <h1>Blog Posts</h1>
+            <ContentTitle header="Articles">
+                Full-feature posts
+            </ContentTitle>
             <ArticleList>
                 {articles && articles.map((article: Article) => {
                     const { hero, slug, title, tags, description, updated, created, permaLink } = article;

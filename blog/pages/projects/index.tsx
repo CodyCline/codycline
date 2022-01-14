@@ -1,3 +1,4 @@
+import { ContentTitle } from "../../components/ContentTemplate";
 import { Pagination } from "../../components/Pagination";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { PageSeo } from "../../components/Seo";
@@ -7,15 +8,17 @@ import { Project } from "../../types/post";
 
 export const PROJECTS_PER_PAGE = 1;
 
-const ProjectsIndex = ({ projects, pagination }:any) => ( 
+const ProjectsIndex = ({ projects, pagination }: any) => (
     <div>
-        <PageSeo 
+        <PageSeo
             title={`projects - ${siteMetadata.headerTitle}`}
             description={`portfolio projects`}
         />
-        <h1>Projects</h1>
+        <ContentTitle header="Projects">
+            all projects
+        </ContentTitle>
         <ProjectList>
-            {projects && 
+            {projects &&
                 projects.map((project: Project) => (
                     <ProjectCard
                         image={project.hero}
@@ -30,12 +33,12 @@ const ProjectsIndex = ({ projects, pagination }:any) => (
 
                     />
                 )
-            )}
+                )}
         </ProjectList>
-        <Pagination 
-            slug="projects" 
-            currentPage={pagination.currentPage} 
-            totalPages={pagination.totalPages} 
+        <Pagination
+            slug="projects"
+            currentPage={pagination.currentPage}
+            totalPages={pagination.totalPages}
         />
     </div>
 )
@@ -45,8 +48,8 @@ export async function getStaticProps() {
     const allProjects = await loadAllProjects();
     const initialDisplayProjects = allProjects.slice(0, PROJECTS_PER_PAGE)
     const pagination = {
-      currentPage: 1,
-      totalPages: Math.ceil(allProjects.length / PROJECTS_PER_PAGE),
+        currentPage: 1,
+        totalPages: Math.ceil(allProjects.length / PROJECTS_PER_PAGE),
     }
     return {
         props: {

@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { ArticleCard, ArticleList } from "../../components/ArticleList";
+import { ContentTitle } from "../../components/ContentTemplate";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { TagSeo } from "../../components/Seo";
 import { Snippet, SnippetList } from "../../components/SnippetList";
@@ -23,7 +24,9 @@ const CategoryPage = ({ articles, snippets, projects }: any) => {
                 title={`${slug} - content`}
                 description={`${slug} content - ${siteMetadata.headerTitle}`}
             />
-            <h2><Icon width={24} height={24} name={slug} /> {currentCategory} Content</h2>
+            <ContentTitle icon={currentCategory} header={`${currentCategory} Content`}>
+                All content categorized with {currentCategory}
+            </ContentTitle>
             <ArticleList>
                 {articles && articles.map((article: Article) => {
                     const { hero, slug, title, tags, description, updated, created, permaLink } = article;

@@ -8,6 +8,7 @@ import { ARTICLES_PER_PAGE } from ".";
 import { Pagination } from "../../components/Pagination";
 import { siteMetadata } from "../../site-metadata";
 import { PageSeo } from "../../components/Seo";
+import { ContentTitle } from "../../components/ContentTemplate";
 
 type Content = {
     articles: Article[],
@@ -60,6 +61,9 @@ export const getStaticProps = async ({ params }: GetServerSidePropsContext) => {
 function ArticlePages({ articles, pagination }: Content) {
     return (
         <div>
+            <ContentTitle header="Articles">
+                Full-feature posts
+            </ContentTitle>
             <PageSeo 
                 title={`articles - ${siteMetadata.headerTitle}`} 
                 description={siteMetadata.description} 

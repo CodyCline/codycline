@@ -4,17 +4,19 @@ import { loadAllSnippets } from "../../lib/load-snippets";
 import { Pagination } from "../../components/Pagination";
 import { PageSeo } from "../../components/Seo";
 import { siteMetadata } from "../../site-metadata";
+import { ContentTitle } from "../../components/ContentTemplate";
 
-export const SNIPPETS_PER_PAGE = 1;
+export const SNIPPETS_PER_PAGE = 8;
 
 const SnippetsIndex = ({ snippets, pagination }: any) => (
     <div>
         <PageSeo 
-            title={`snippets - ${siteMetadata.author.name}`}
+            title={`snippets - ${siteMetadata.headerTitle}`}
             description={`short, byte-sized content for quick reading and clipping`}
         />
-        <h1>Snippets</h1>
-        <p>Byte-sized content for quick reading and clipping.</p>
+        <ContentTitle header="Snippets">
+            byte-sized content for quick reading and clipping
+        </ContentTitle>
         <SnippetList>
             {snippets && snippets.map((snippet: Snp) => {
                 return (
@@ -29,7 +31,7 @@ const SnippetsIndex = ({ snippets, pagination }: any) => (
                 )
             })}
         </SnippetList>
-        <Pagination slug="projects" currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+        <Pagination slug="snippets" currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
     </div>
 )
 

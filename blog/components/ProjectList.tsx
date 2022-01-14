@@ -13,8 +13,9 @@ export const ProjectList = styled.div`
     -webkit-column-gap: 10px;
     -moz-column-gap: 10px;
     column-gap: 10px;
-    margin: auto;
+    margin: 2em auto;
     width: 80%;
+    padding-bottom: 10vh;
     grid-gap: 32px;
 `;
 

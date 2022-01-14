@@ -6,6 +6,8 @@ import { Icon } from "./ui/Icon";
 const PaginationWrapper = styled.div`
     margin: auto;
     width: 80%; 
+    padding: 0 0 10vh 0;
+
 `
 
 const PaginationNav = styled.nav`

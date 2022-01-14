@@ -1,5 +1,29 @@
 import styled from "styled-components";
 import { media } from "./styles/Media";
+import { Icon } from "./ui/Icon";
+
+
+const TitleWrapper = styled.div`
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 10vh;
+`
+
+const Header = styled.h1`
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+`
+
+export const ContentTitle = ({header, children, icon}:any) => (
+    <TitleWrapper>
+        <Header>
+            {icon && <Icon height={36} width={36} name={icon || `file`}/>} {header}
+        </Header>
+        {children}
+    </TitleWrapper>
+)
 
 export const ContentBodyWrapper = styled.article`
     height: 100%;

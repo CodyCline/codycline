@@ -2,6 +2,7 @@ import { readdirSync } from "fs";
 import { GetServerSidePropsContext } from "next";
 import path from "path";
 import { PROJECTS_PER_PAGE } from ".";
+import { ContentTitle } from "../../components/ContentTemplate";
 import { Pagination } from "../../components/Pagination";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { PageSeo } from "../../components/Seo";
@@ -57,7 +58,9 @@ function ProjectPages({ projects, pagination }: any) {
                 title={`projects - ${siteMetadata.headerTitle}`}
                 description={`portfolio projects`}
             />
-            <h1>Blog Posts</h1>
+            <ContentTitle header="Projects">
+                all projects
+            </ContentTitle>
             <ProjectList>
                 {projects &&  projects.map((project: Project) => (
                         <ProjectCard

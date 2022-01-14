@@ -7,8 +7,10 @@ import { truncate } from "./styles/Truncate";
  
 
 export const SnippetList = styled.section`
-    margin: auto;
+    margin: 2em auto;
     width: 80%;
+    padding-bottom: 10vh;
+
 `
 
 

@@ -16,6 +16,7 @@ export const ArticleList = styled.div`
     ${media.tablet`grid-template-columns: 1fr; grid-gap: none;`}
     ${media.phone`grid-template-columns: 1fr; grid-gap: none;`}
     margin: auto;
+    padding-bottom: 10vh;
     width: 80%;
 `
 
