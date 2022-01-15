@@ -18,13 +18,14 @@ const CategoryPage = ({ articles, snippets, projects }: any) => {
     const router = useRouter();
     const { slug } = router.query;
     const currentCategory = slug?.toString().replace(/./, c => c.toUpperCase())
+    console.log(currentCategory);
     return (
         <div>
             <TagSeo
                 title={`${slug} - content`}
                 description={`${slug} content - ${siteMetadata.headerTitle}`}
             />
-            <ContentTitle icon={currentCategory} header={`${currentCategory} Content`}>
+            <ContentTitle icon={slug?.toString().toLowerCase()} header={`${currentCategory} Content`}>
                 All content categorized with {currentCategory}
             </ContentTitle>
             <ArticleList>

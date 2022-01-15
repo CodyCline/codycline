@@ -12,6 +12,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { eDateFormat } from '../../utils/eDateFormat';
 import { ContentSeo } from '../../components/Seo';
 import { siteMetadata } from '../../site-metadata';
+import { formatSlug } from '../../lib/utils/format-slug';
 
 const SnippetsPage = ({ snippet, snippetMdxSource }: any) => {
     return (
@@ -38,10 +39,10 @@ const SnippetsPage = ({ snippet, snippetMdxSource }: any) => {
 
 
 export const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join(process.cwd(), "content/snippets/"))
+    const files = fs.readdirSync(path.join(process.cwd(), `content`, `snippets`))
     const paths = files.map(filename => ({
         params: {
-            slug: filename.replace(`.md`, '')
+            slug: formatSlug(filename)
         }
     }))
     return {

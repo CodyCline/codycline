@@ -2,6 +2,7 @@ import path from 'path';
 import { HeroImage, Project, ProjectType } from '../types/post';
 import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
 import { sizeOf } from './image-metadata';
+import { existsSync } from 'fs';
 
 export async function loadAllProjects(): Promise<Project[]> {
     const projectsPath = path.join(process.cwd(), "content", "projects");
@@ -65,8 +66,13 @@ export async function loadAllProjects(): Promise<Project[]> {
 
 
 export async function loadProjectBySlug(slug: string): Promise<Project> {
-    const projectPath = path.join(process.cwd(), "content/projects/" + slug + ".md");
-    const projectData = await parseSingleMdxFile(projectPath);
+    const mdPath = path.join(process.cwd(), `content`, `projects`, `${slug}.md`);
+    const mdxPath = path.join(process.cwd(), `content`, `projects`, `${slug}.mdx`);
+    const source = existsSync(mdxPath)
+        ? mdxPath
+        : mdPath
+        
+    const projectData = await parseSingleMdxFile(source);
 
     const matterData = projectData as {
         title: string;

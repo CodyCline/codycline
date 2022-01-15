@@ -12,6 +12,7 @@ import imageMetadata from "../../lib/image-metadata";
 import { eDateFormat } from "../../utils/eDateFormat";
 import { siteMetadata } from "../../site-metadata";
 import { ContentSeo } from "../../components/Seo";
+import { formatSlug } from "../../lib/utils/format-slug";
 
 
 const ArticleContent = ({ article, articleMdxSource }:any) => {
@@ -39,10 +40,10 @@ const ArticleContent = ({ article, articleMdxSource }:any) => {
 
 
 export const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join(process.cwd(), "content/articles/"))
+    const files = fs.readdirSync(path.join(process.cwd(), `content`, `articles`))
     const paths = files.map(filename => ({
         params: {
-            slug: filename.replace(/(.md|.mdx)/, "")
+            slug: formatSlug(filename)
         }
     }))
     return {

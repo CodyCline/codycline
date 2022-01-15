@@ -10,6 +10,7 @@ import { loadProjectBySlug } from '../../lib/load-projects';
 import imageMetadata from '../../lib/image-metadata';
 import { siteMetadata } from '../../site-metadata';
 import { ContentSeo } from '../../components/Seo';
+import { formatSlug } from '../../lib/utils/format-slug';
 
 const ProjectPage = ({ project, projectMdxSource }: any) => {
     return (
@@ -39,10 +40,10 @@ const ProjectPage = ({ project, projectMdxSource }: any) => {
 
 
 export const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join(process.cwd(), "content/projects/"))
+    const files = fs.readdirSync(path.join(process.cwd(), `content`, `projects`))
     const paths = files.map(filename => ({
         params: {
-            slug: filename.replace('.md', '')
+            slug: formatSlug(filename)
         }
     }))
     return {

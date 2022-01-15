@@ -1,4 +1,4 @@
-import { ContentTags } from "../components/ContentTemplate";
+import { ContentTags, ContentTitle } from "../components/ContentTemplate";
 import { PageSeo } from "../components/Seo";
 import { Icon } from "../components/ui/Icon";
 import { IconTag } from "../components/ui/Tag";
@@ -13,9 +13,9 @@ const CategoryPage = ({categories}:any) => {
             title={`content categories - ${siteMetadata.headerTitle}`}
             description={siteMetadata.description}
         />
-        <ContentTags>
-            <h2>All Content Categories</h2>
-        </ContentTags>
+        <ContentTitle header="Categories">
+            All possible content categories
+        </ContentTitle>
         <ContentTags>
             {categories && categories.map((category: object) => {
                 const { name, frequency }:any = category;

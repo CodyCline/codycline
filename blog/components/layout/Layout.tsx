@@ -15,7 +15,9 @@ const ThemeToggle: any = dynamic((): any => import("../ThemeToggle"), {
     ssr: false,
 });
 
-const LayoutWrapper = styled.main``
+const LayoutWrapper = styled.main`
+    min-height: 100%;
+`
 
 export const Layout = ({ children }:any) => {
     const isMobile = useMatchMedia(`(max-width: 750px)`);

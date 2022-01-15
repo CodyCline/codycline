@@ -1,3 +1,4 @@
+import { existsSync } from 'fs';
 import path from 'path';
 import { Snippet } from '../types/post';
 import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
@@ -43,8 +44,12 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
 
 
 export async function loadSnippetBySlug(slug: string) : Promise<Snippet> {
-    const snippetPath = path.join(process.cwd(), "content/snippets/" + slug + ".md");
-    const snippetData = await parseSingleMdxFile(snippetPath);
+    const mdPath = path.join(process.cwd(), `content`, `snippets`, `${slug}.md`);
+    const mdxPath = path.join(process.cwd(), `content`, `snippets`, `${slug}.mdx`);
+    const source = existsSync(mdxPath)
+        ? mdxPath
+        : mdPath
+    const snippetData = await parseSingleMdxFile(source);
 
     const matterData = snippetData as {
         title: string;

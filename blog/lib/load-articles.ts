@@ -1,4 +1,5 @@
 import path from 'path';
+import { existsSync, readFileSync } from 'fs';
 import { Article, HeroImage } from '../types/post';
 import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
 
@@ -68,8 +69,15 @@ export async function loadAllArticles(): Promise<Article[]> {
 
 
 export async function loadArticleBySlug(slug: string): Promise<Article> {
-    const articlePath = path.join(process.cwd(), "content/articles/" + slug + ".md");
-    const articleData = await parseSingleMdxFile(articlePath);
+    const mdPath = path.join(process.cwd(), `content`, `articles`, `${slug}.md`);
+    const mdxPath = path.join(process.cwd(), `content`, `articles`, `${slug}.mdx`);
+    const source = existsSync(mdxPath)
+        ? mdxPath
+        : mdPath
+
+    console.log("ONE!", source, mdxPath);
+
+    const articleData = await parseSingleMdxFile(source);
     const matterData = articleData as {
         title: string;
         description: string;
