@@ -1,32 +1,44 @@
 import { visit } from "unist-util-visit";
 
-export default function remarkCodeTitles() {
-    return (tree: any) =>
-        visit(tree, "code", (node, index) => {
-            const nodeLang = node.lang || ""
-            let language = ""
-            let title = ""
 
-            if (nodeLang.includes(":")) {
-                language = nodeLang.slice(0, nodeLang.search(":"))
-                title = nodeLang.slice(nodeLang.search(":") + 1, nodeLang.length)
+//Instead of explicitly adding nodes to the pre block for 
+//a title feature we give it props from the AST 
+//this references 
+//https://github.com/timlrx/rehype-prism-plus/blob/main/src/generator.js
+export const rehypeCodeMeta = (options = {}) => {
+    return (tree) => {
+        visit(tree, "element", visitor)
+    }
+    function visitor(node, index, parent) {
+        if (!parent || parent.tagName !== "pre" || node.tagName !== "code") {
+            return
+        }
+
+        let meta = node.data && node.data.meta ? /** @type {string} */ (node.data.meta) : ''
+
+        // Coerce className to array
+        console.log('cname', node.properties);
+        const nodeLang = node.properties.className;
+        if (node.properties.className) {
+            if (typeof node.properties.className === "boolean") {
+                node.properties.className = []
+            } else if (!Array.isArray(node.properties.className)) {
+                node.properties.className = [node.properties.className]
             }
+        } else {
+            node.properties.className = []
+        }
+        
+        if (node.properties.className[0].includes(":")) {
+            const separate: string[] = node.properties.className[0].split(`:`);
+            const language: string | null = separate[0].split(`language-`).join(``);
+            const title: string | null = separate[1] ? separate[1].split(``).join(``): null;
+            parent.properties["language"] = language;
+            parent.properties["title"] = title;
+        } else {
+            parent.properties["language"] = nodeLang;
+            parent.properties["title"] = "test";
+        }
 
-            if (!title) {
-                return
-            }
-
-            const className = "remark-code-title"
-
-            const titleNode = {
-                type: "mdxJsxFlowElement",
-                name: "div",
-                attributes: [{ type: "mdxJsxAttribute", name: "className", value: className }],
-                children: [{ type: "text", value: title }],
-                data: { _xdmExplicitJsx: true },
-            }
-
-            tree.children.splice(index, 0, titleNode)
-            node.lang = language
-        })
+    }
 }

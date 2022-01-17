@@ -1,21 +1,19 @@
 import fs from "fs";
-import { serialize } from 'next-mdx-remote/serialize'
 import path from "path";
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
-import { MarkdownWrapper } from "../../components/Markdown";
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MdxRenderer } from "../../components/Markdown";
 import { loadArticleBySlug } from "../../lib/load-articles";
 import { Article } from "../../types/post";
 import imageMetadata from "../../lib/image-metadata";
 
-import { eDateFormat } from "../../utils/eDateFormat";
+import { eDateFormat } from "../../lib/utils/format-date";
 import { siteMetadata } from "../../site-metadata";
 import { ContentSeo } from "../../components/Seo";
 import { formatSlug } from "../../lib/utils/format-slug";
 
 
-const ArticleContent = ({ article, articleMdxSource }:any) => {
+const ArticleContent = ({ article }:any) => {
     return (
         <>
             <ContentSeo
@@ -28,7 +26,7 @@ const ArticleContent = ({ article, articleMdxSource }:any) => {
                 <span title={article.published.toString()}>Published: {eDateFormat(article.published)}</span>
                 <span title={article.updated.toString()}> Last Updated: {eDateFormat(article.published)}</span>
                 <ContentHeader>{article.title}</ContentHeader>
-                <MarkdownWrapper>{articleMdxSource}</MarkdownWrapper>
+                <MdxRenderer source={article.___rawContent}/>
                 <ContentTags>
                     {article.tags && article.tags.map((tag:string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
                 </ContentTags>
@@ -55,15 +53,15 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
     const article: Article = await loadArticleBySlug(slug);
-    const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(article.___rawContent, {
-        mdxOptions: {
-            rehypePlugins: [imageMetadata] as any,
-        }
-    });
+    // const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(article.___rawContent, {
+    //     mdxOptions: {
+    //         rehypePlugins: [imageMetadata] as any,
+    //     }
+    // });
     return {
         props: {
             article: article,
-            articleMdxSource: mdxSource
+            // articleMdxSource: mdxSource
         }
     }
 }

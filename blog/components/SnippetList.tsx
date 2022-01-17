@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "./styles/Media";
 import { Icon } from "./ui/Icon";
 import Link from "next/link";
-import { eDateFormat } from "../utils/eDateFormat";
+import { eDateFormat } from "../lib/utils/format-date";
 import { truncate } from "./styles/Truncate";
  
 
