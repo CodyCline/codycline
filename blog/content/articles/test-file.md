@@ -49,13 +49,51 @@ $$
 \end{array}\right]
 $$
 
+```jsx
+const component = () => {
+  return (
+    <div onClick={() => alert("HELLO")}>
+    
+    </div>
+  )
+}
+```
 
 
-```rs:file
-impl <T> for Compiler {
-  fn new(&mut language) {
+```cpp
+#include <iostream>
 
-  }
+int main(int argc, char *argv[]) {
+
+  /* An annoying "Hello World" example */
+  for (auto i = 0; i < 0xFFFF; i++)
+    cout << "Hello, World!" << endl;
+
+  char c = '\n';
+  unordered_map <string, vector<string> > m;
+  m["key"] = "\\\\"; // this is an error
+
+  return -2e3 + 12l;
+}
+```
+
+
+```Rust:main.rs
+#[derive(Debug)]
+pub enum State {
+    Start,
+    Transient,
+    Closed,
+}
+
+impl From<&'a str> for State {
+    fn from(s: &'a str) -> Self {
+        match s {
+            "start" => State::Start,
+            "closed" => State::Closed,
+            _ => unreachable!(),
+        }
+    }
 }
 ```
 

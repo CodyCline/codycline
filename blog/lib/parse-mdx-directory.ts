@@ -59,7 +59,7 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
     } else {
         process.env.ESBUILD_BINARY_PATH = path.join(process.cwd(), "node_modules", "esbuild", "bin", "esbuild")
     }
-
+    
     let toc = []
     const { code } = await bundleMDX({
         source: fileContents,
@@ -86,7 +86,8 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
                     rehypeCitation,
                     { bibliography: frontmatter?.bibliography, path: path.join(process.cwd(), "content") },
                 ],
-                [rehypeCodeMeta],
+                rehypeCodeMeta,
+                // rehypePrismPlus
                 
             ]
             return options

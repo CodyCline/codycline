@@ -9,10 +9,7 @@ import { MarkdownTable } from "./table/MarkdownTable";
 
 
 const mdxComponents = {
-    pre: (props:any) => { 
-        console.log(props);
-        return <Code {...props}/>
-     },
+    pre: Code,
     // code: InlineCode,
     // img: (props) => <MdxImg {...props} layout="responsive" />,
     // pre: (preProps: Partial<ReactHTMLElement<HTMLPreElement>['props']>) => {
