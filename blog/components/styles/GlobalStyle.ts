@@ -69,8 +69,8 @@ const GlobalStyle = createGlobalStyle`
 	body[data-theme="dark"] {
 		--color-fg-aux: #1f2123;
 		--color-text-default: #e3e3e3;
-		--color-text-primary: #ffb454;
-		--color-text-secondary: #FFD369;
+		--color-text-secondary: #ffb454;
+		--color-text-primary: #ffcc00;
 		--color-bg-primary: #171717;
 		--color-fg-primary: #26282b;
 		--color-bg-toggle: #ffb454;

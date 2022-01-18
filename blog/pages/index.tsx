@@ -1,11 +1,8 @@
 
 import { IconTag, LinkTag } from "../components/ui/Tag";
-import { OrderedList } from "../components/list/OrderedList";
-import { ListItem } from "../components/list/ListItem";
-import { UnorderedList } from "../components/list/UnorderedList";
-import { InlineCode } from "../components/Code";
 
 import Image from "next/image";
+import { generateRssFeed } from "../lib/generate-rss";
 const Home = () => {
     return (
         <div>
@@ -27,10 +24,9 @@ const Home = () => {
 
 
 export async function getStaticProps() {
+    await generateRssFeed();
     return {
-        props: {
-            posts: []
-        }
+        props: {}
     }
 }
 

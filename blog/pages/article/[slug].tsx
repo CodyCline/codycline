@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
-import { MdxRenderer } from "../../components/Markdown";
+import { MdxRenderer } from "../../components/Mdx";
 import { loadArticleBySlug } from "../../lib/load-articles";
 import { Article } from "../../types/post";
 import imageMetadata from "../../lib/image-metadata";

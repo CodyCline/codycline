@@ -18,7 +18,7 @@ export const OrderedList = styled.ol`
 
     & ${ListItem}::before {
         content: counter(list-counter);
-        color: var(--color-text-primary);
+        color: var(--color-text-secondary);
         font-weight: bold;
         position: absolute;
         left: calc(-1 * var(--size) - 8px);
@@ -28,7 +28,7 @@ export const OrderedList = styled.ol`
         top: calc(-1 * var(--size) / 8);
         border-radius: 50%;
         text-align: center;
-        border: 2px solid var(--color-text-primary);
+        border: 2px solid var(--color-text-secondary);
     }
 `
 

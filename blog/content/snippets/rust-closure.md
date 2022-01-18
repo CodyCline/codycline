@@ -10,8 +10,22 @@ tags:
 
 # Intro 
 
+Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
-```cpp
+A todo list 
+
+* Fix compiler bug
+* Add support for closures
+* Really cool stuff
+
+
+A n ordered list 
+1. Build the mainframe
+2. Wire the world
+3. Wire everythign!!!
+4. Play Skyrim
+
+```cmake:cmakelists.txt
 [requires]
 poco/1.9.4
 
@@ -32,3 +46,22 @@ cmake
  add_executable(md5 md5.cc)
  target_link_libraries(md5 ${CONAN_LIBS})
 ```
+
+
+This is an example of multiple definitions for a single term.
+
+Indent
+: (*noun*) A whitespace to align text in a beautiful way.
+: (*verb*) To add whitespace to make ugly code beautiful.
+
+
+[^1]: This is the first footnote.
+[^bignote]: Here's one with multiple paragraphs and code.
+
+    Indent paragraphs to include them in the footnote.
+
+    `{ my code }`
+
+    Add as many paragraphs as you like.
+
+

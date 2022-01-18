@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 import { ContentBodyWrapper, ContentHeader, ContentTags } from '../../components/ContentTemplate';
-import { MdxRenderer } from '../../components/Markdown';
+import { MdxRenderer } from '../../components/Mdx';
 import { IconTag } from '../../components/ui/Tag';
 import { Snippet } from '../../types/post';
 import { loadSnippetBySlug } from '../../lib/load-snippets';

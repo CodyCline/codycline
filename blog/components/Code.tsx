@@ -22,7 +22,7 @@ const Pre = styled.pre`
     overflow: auto;
     border: 1px solid var(--color-border);
     border-top: none;
-    border-radius: 5px;
+    // border-radius: 5px;
 
 
 `
@@ -88,23 +88,14 @@ export const Code = ({ className, language, title, children }: any) => {
         }
     }
 
-    // console.log(className, language, title, `fuck you!`);
 
     
     useEffect(() => {
-        // require( "./layout/Prism.css");
-        //We need to add languages since, by default only markup, CSS, clike, and javascript are available.
-        //I did not find a better way, like the one below, if you know - please submit an issue.
-        require("prismjs/components/prism-c");
-        require("prismjs/components/prism-clike");
-        // require("prismjs/components/prism-cmake");
-
         import(`prismjs/components/prism-${language}`).then(() => {
             //If language still not available skip tokenize part
             const tokens: Array<string | Token> = Prism.languages[language]
                 ? Prism.tokenize(children, Prism.languages[language])
                 : [];
-            //Save the result to the state.
             replaceToken(tokens)
         }).catch((error) => {
             console.log(error);
@@ -125,7 +116,7 @@ export const Code = ({ className, language, title, children }: any) => {
                     <Icon onClick={copyCode} noTitle name="copy" height={18} width={18} />
                 </CopyIcon>
             </ToolBar>
-            <Pre ref={codeRef} className={className}>
+            <Pre style={{borderBottomLeftRadius: `5px`, borderBottomRightRadius: `5px`}} ref={codeRef} className={className}>
                 {data.length ? data.map(tokenToReactNode) : children}
             </Pre>
 

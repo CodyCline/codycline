@@ -6,6 +6,7 @@ export const ListItem = styled.li`
     padding-left: 20px;
     font-size: 1rem;
     position: relative;
+    font-size: 18px;
     z-index: 999;
 
 `

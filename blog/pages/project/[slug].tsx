@@ -1,6 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { MdxRenderer } from '../../components/Markdown';
+import { MdxRenderer } from '../../components/Mdx';
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
 import { Project } from '../../types/post';

@@ -9,6 +9,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import remarkFootnotes from "remark-footnotes"
 import remarkGfm  from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkDefList from "remark-deflist"
 import remarkTocHeadings from "./utils/toc-headings";
 import markdown from "remark-parse";
 // Rehype packages
@@ -65,6 +66,7 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
                 emoji,
                 [remarkTocHeadings, { exportRef: toc }],
                 remarkMath,
+                remarkDefList,
                 remarkGfm,
             ],
             rehypePlugins: [
