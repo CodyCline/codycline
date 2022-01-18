@@ -2,8 +2,9 @@ import React, { useEffect, ReactNode, useState } from "react";
 import styled from "styled-components";
 import { Icon } from "./ui/Icon";
 import { scrollbar } from "./styles/Scrollbar";
-
 import Prism, { Token } from 'prismjs';
+
+
 export interface CodeProps {
     language: string
     children: any,
@@ -79,30 +80,30 @@ function tokenToReactNode(token: Token | string, i: number): ReactNode {
 
 
 export const Code = ({ className, language, title, children }: any) => {
-    console.log(className, language, title, children);
     const codeRef = React.useRef<HTMLPreElement>(null);
     const [data, replaceToken] = useState<Array<string | Token>>([])
-
     function copyCode() {
         if (codeRef.current) {
             navigator.clipboard.writeText(codeRef.current.innerText);
         }
     }
 
+    // console.log(className, language, title, `fuck you!`);
 
+    
     useEffect(() => {
         // require( "./layout/Prism.css");
         //We need to add languages since, by default only markup, CSS, clike, and javascript are available.
         //I did not find a better way, like the one below, if you know - please submit an issue.
-        require("prismjs/components/prism-clike");
         require("prismjs/components/prism-c");
-        import(`prismjs/components/prism-${language || `clike`}`).then(() => {
+        require("prismjs/components/prism-clike");
+        // require("prismjs/components/prism-cmake");
+
+        import(`prismjs/components/prism-${language}`).then(() => {
             //If language still not available skip tokenize part
-            console.log(Prism.languages);
             const tokens: Array<string | Token> = Prism.languages[language]
                 ? Prism.tokenize(children, Prism.languages[language])
                 : [];
-            console.log(tokens);
             //Save the result to the state.
             replaceToken(tokens)
         }).catch((error) => {
@@ -124,30 +125,10 @@ export const Code = ({ className, language, title, children }: any) => {
                     <Icon onClick={copyCode} noTitle name="copy" height={18} width={18} />
                 </CopyIcon>
             </ToolBar>
-            <Pre className={`language-jsx`}>
+            <Pre ref={codeRef} className={className}>
                 {data.length ? data.map(tokenToReactNode) : children}
             </Pre>
 
         </CodeBlockContainer>
     );
 }
-
-
-// const notinuse = 
-
-// <Highlight Prism={Prism} {...defaultProps} theme={undefined} code={code} language={language}>
-//                 {({ style, tokens, getLineProps, getTokenProps }) => (
-//                     <Pre className={className}>
-//                         {tokens.slice(0, -1).map((line, i) => (
-//                             <Line key={i} {...getLineProps({ line, key: i })}>
-//                                 <LineNo>{i + 1}</LineNo>
-//                                 <LineContent>
-//                                     {line.map((token, key) => (
-//                                         <span key={key} {...getTokenProps({ token, key })} />
-//                                     ))}
-//                                 </LineContent>
-//                             </Line>
-//                         ))}
-//                     </Pre>
-//                 )}
-//             </Highlight>

@@ -53,15 +53,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
     const article: Article = await loadArticleBySlug(slug);
-    // const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(article.___rawContent, {
-    //     mdxOptions: {
-    //         rehypePlugins: [imageMetadata] as any,
-    //     }
-    // });
     return {
         props: {
             article: article,
-            // articleMdxSource: mdxSource
         }
     }
 }

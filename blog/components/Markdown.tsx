@@ -1,4 +1,4 @@
-import { getMDXComponent } from "mdx-bundler/client";
+import { MDXRemote } from "next-mdx-remote";
 import { useMemo } from "react";
 import { Code, InlineCode } from "./Code";
 import { Spoiler } from "./Spoiler"
@@ -9,31 +9,27 @@ import { MarkdownTable } from "./table/MarkdownTable";
 
 
 const mdxComponents = {
-    pre: Code,
-    // code: InlineCode,
-    // img: (props) => <MdxImg {...props} layout="responsive" />,
-    // pre: (preProps: Partial<ReactHTMLElement<HTMLPreElement>['props']>) => {
-    //     const props = preToCodeBlock(preProps)
-
-    //     if (props) {
-    //         return <Code {...props} />
-    //     }
-
-    //     return <pre {...preProps} />
-    // },
+    code: (props:any) => { 
+        const separate: string[] = props.className.split(`:`) ;
+        const language: string | null = separate[0].split(`language-`).join(``);
+        const title: string | null = separate[1] ? separate[1].split(``).join(``) : null;
+        return <Code className={`language-${language}`} language={language} title={title} {...props}/>
+    },
+    inlineCode: InlineCode,
+    img: (props) => <MdxImg {...props} layout="responsive" />,
     p: Paragraph,
     h1: Title,
-    // table: MarkdownTable,
+    table: MarkdownTable,
     blockquote: Quote,
     Spoiler: Spoiler,
 }
 
-// export const MarkdownWrapper = ({ children }: any) => (
-//     <MDXRemote components={mdxComponents} {...children} />
-// )
+export const MdxRenderer = ({ source }: any) => (
+    <MDXRemote components={mdxComponents} {...source} />
+)
 
-export const MdxRenderer: React.FC<{ source: string }> = ({ source, ...rest }) => {
-    const Component = useMemo(() => getMDXComponent(source), [source])
+// export const MdxRenderer: React.FC<{ source: string }> = ({ source, ...rest }) => {
+//     const Component = useMemo(() => getMDXComponent(source), [source])
 
-    return <Component components={mdxComponents} />
-}
+//     return <Component components={mdxComponents} />
+// }

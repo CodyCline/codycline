@@ -1,8 +1,6 @@
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import path from "path";
 import fs from "fs";
-import { MarkdownWrapper } from '../../components/Markdown';
+import { MdxRenderer } from '../../components/Markdown';
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
 import { Project } from '../../types/post';
@@ -12,7 +10,7 @@ import { siteMetadata } from '../../site-metadata';
 import { ContentSeo } from '../../components/Seo';
 import { formatSlug } from '../../lib/utils/format-slug';
 
-const ProjectPage = ({ project, projectMdxSource }: any) => {
+const ProjectPage = ({ project }: any) => {
     return (
         <>
             <ContentSeo
@@ -23,7 +21,7 @@ const ProjectPage = ({ project, projectMdxSource }: any) => {
             <ContentHero src={project.hero?.src}/>
             <ContentBodyWrapper>
                 <ContentHeader>{project.title}</ContentHeader>
-                <MarkdownWrapper>{projectMdxSource}</MarkdownWrapper>
+                <MdxRenderer source={project.___rawContent}/>
                 {project.updated && <span>{project.updated.toISOString()}</span>}
                 <ContentTags>
                     {project.tags &&
@@ -55,15 +53,9 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { slug } }: any) => {
     const project: Project = await loadProjectBySlug(slug);
-    const mdxSource: MDXRemoteSerializeResult<Record<string, unknown>> = await serialize(project.___rawContent, {
-        mdxOptions: {
-            rehypePlugins: [imageMetadata]
-        }
-    });
     return {
         props: {
             project: project,
-            projectMdxSource: mdxSource
         }
     }
 }

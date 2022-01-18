@@ -14,6 +14,7 @@ const BlockQuoteWrapper = styled.blockquote`
         white-space: pre-wrap;
         ${media.phone`white-space: normal`}
         padding-left: 12px;
+        margin: 0;
     }
     & ${Paragraph}::before {
         content: ">";
