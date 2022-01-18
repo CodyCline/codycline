@@ -13,6 +13,7 @@ import remarkTocHeadings from "./utils/toc-headings";
 import markdown from "remark-parse";
 // Rehype packages
 import rehypeSlug from "rehype-slug";
+import imageMetadata from "./image-metadata";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex"
 import rehypeCitation from "rehype-citation"
@@ -70,6 +71,7 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
                 rehypeSlug,
                 rehypeAutolinkHeadings,
                 rehypeKatex,
+                imageMetadata,
                 [
                     rehypeCitation,
                     { bibliography: frontmatter?.bibliography, path: path.join(process.cwd(), "content") },

@@ -27,9 +27,3 @@ const mdxComponents = {
 export const MdxRenderer = ({ source }: any) => (
     <MDXRemote components={mdxComponents} {...source} />
 )
-
-// export const MdxRenderer: React.FC<{ source: string }> = ({ source, ...rest }) => {
-//     const Component = useMemo(() => getMDXComponent(source), [source])
-
-//     return <Component components={mdxComponents} />
-// }

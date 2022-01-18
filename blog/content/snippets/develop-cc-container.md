@@ -68,7 +68,7 @@ int main(int argc, char** argv){
 
 Next, create these config files.
 
-```txt:conanfile.txt
+```cmake:conanfile.txt
 [requires]
 poco/1.9.4
 
