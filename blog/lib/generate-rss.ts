@@ -2,10 +2,11 @@ import { Feed, Item } from "feed";
 import { loadAllArticles } from "./load-articles";
 import { loadAllProjects } from "./load-projects";
 import { loadAllSnippets } from "./load-snippets";
+import { loadAllCategories } from "./load-categories";
+
 import { siteMetadata } from "../site-metadata";
 import { Article, Project, Snippet } from "../types/post";
 import { writeFileSync, mkdirSync } from "fs";
-import { loadAllCategories } from "./load-categories";
 
 export const generateRssFeed = async () => {
     const [articles, projects, snippets, categories] = await Promise.all([
@@ -110,7 +111,7 @@ export const generateRssFeed = async () => {
         });
     });
 
-    await Promise.all([parseArticles, parseSnippets, parseCategories])
+    await Promise.all([parseArticles, parseSnippets, parseProjects, parseCategories])
 
     await Promise.all([
         mkdirSync("public/rss", { recursive: true }),

@@ -3,6 +3,7 @@ import { IconTag, LinkTag } from "../components/ui/Tag";
 
 import Image from "next/image";
 import { generateRssFeed } from "../lib/generate-rss";
+import { generateSitemap } from "../lib/generate-sitemap";
 const Home = () => {
     return (
         <div>
@@ -25,6 +26,7 @@ const Home = () => {
 
 export async function getStaticProps() {
     await generateRssFeed();
+    await generateSitemap();
     return {
         props: {}
     }

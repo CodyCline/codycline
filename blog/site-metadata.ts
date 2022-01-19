@@ -19,8 +19,8 @@ export const siteMetadata = {
     language: "en-us",
     theme: "system", // system, dark or light
     motion: "system",
-    siteUrl: "https://codycline.com/",
-    siteRepo: "https://github.com/codycline/codycline/",
+    siteUrl: "https://codycline.com",
+    siteRepo: "https://github.com/codycline/codycline.git",
     siteLogo: "/static/images/logo.png",
     image: "/static/images/avatar.png",
     locale: "en-US",

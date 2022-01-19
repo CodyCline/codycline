@@ -36,11 +36,19 @@ Hi there! Hello! `inline codeeee`
 
 :wave: :+1: :us: :ca:
 
-This is inline math: $T_n = a + (n-1)d$
+This is inline  math: $T_n = a + (n-1)d$
 
 ## Block math
 
-This is a block of math:
+<p>It's a  </p>
+
+This is a block of  math: 
+
+
+
+:::keyword optional title
+some content
+:::
 
 $$
 \mathbf{Y} = \left[\begin{array}

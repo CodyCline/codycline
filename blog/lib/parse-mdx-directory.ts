@@ -18,7 +18,6 @@ import imageMetadata from "./image-metadata";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeKatex from "rehype-katex"
 import rehypeCitation from "rehype-citation"
-import emoji from "remark-emoji";
 //Scans through a folder of files with .mdx or .md extensions and returns
 //An array of objects containing the rawContent, frontmatter, and file Stats
 export async function parseMdxDirectory(path: PathLike) {
@@ -63,11 +62,11 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
         mdxOptions: {
             remarkPlugins: [
                 markdown,
-                emoji,
+                remarkGfm,
                 [remarkTocHeadings, { exportRef: toc }],
                 remarkMath,
                 remarkDefList,
-                remarkGfm,
+
             ],
             rehypePlugins: [
                 rehypeSlug,
