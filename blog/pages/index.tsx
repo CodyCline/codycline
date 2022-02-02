@@ -15,9 +15,9 @@ const Home = () => {
                 
             </ul>
             <Image src="/content/build_it.gif" height={30} width={30}/>
-            <IconTag icon="rust">rust</IconTag>
+            <IconTag icon="4chan">4chan</IconTag>
             <IconTag icon="llvm">llvm</IconTag>
-            <IconTag icon="assembly">assembly</IconTag>
+            <IconTag icon="archlinux">assembly</IconTag>
             <IconTag icon="c">c</IconTag>
         </div>
     )

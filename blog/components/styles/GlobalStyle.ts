@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import "prism-theme-vars/base.css";
+import "katex/dist/katex.min.css";
+
 
 const GlobalStyle = createGlobalStyle`
 

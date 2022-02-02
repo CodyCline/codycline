@@ -9,9 +9,9 @@ import { serialize } from "next-mdx-remote/serialize";
 import remarkFootnotes from "remark-footnotes"
 import remarkGfm  from "remark-gfm";
 import remarkMath from "remark-math";
-import remarkDefList from "remark-deflist"
 import remarkTocHeadings from "./utils/toc-headings";
 import markdown from "remark-parse";
+import emoji from "remark-emoji";
 // Rehype packages
 import rehypeSlug from "rehype-slug";
 import imageMetadata from "./image-metadata";
@@ -56,7 +56,6 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
 
     const mdxSource = await serialize(content, {
         // made available to the arguments of any custom mdx component
-        scope: {},
         // MDX's available options at time of writing pulled directly from
         // https://github.com/mdx-js/mdx/blob/master/packages/mdx/index.js
         mdxOptions: {
@@ -65,7 +64,7 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
                 remarkGfm,
                 [remarkTocHeadings, { exportRef: toc }],
                 remarkMath,
-                remarkDefList,
+                emoji,
 
             ],
             rehypePlugins: [
@@ -78,12 +77,9 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
                     { bibliography: frontmatter?.bibliography, path: path.join(process.cwd(), "content") },
                 ],
             ],
-            compilers: [],
-            filepath: '/some/file/path',
         },
         // Specify the target environment for the generated code. See esbuild docs:
         // https://esbuild.github.io/api/#target
-        target: ['esnext'],
     })
     
 

@@ -4,7 +4,6 @@ import { Icon } from "./ui/Icon";
 import { scrollbar } from "./styles/Scrollbar";
 import Prism, { Token } from 'prismjs';
 
-
 export interface CodeProps {
     language: string
     children: any,
@@ -79,7 +78,7 @@ function tokenToReactNode(token: Token | string, i: number): ReactNode {
 }
 
 
-export const Code = ({ className, language, title, children }: any) => {
+export const Code = ({ language, title, children }: any) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
     const [data, replaceToken] = useState<Array<string | Token>>([])
     function copyCode() {
@@ -87,22 +86,17 @@ export const Code = ({ className, language, title, children }: any) => {
             navigator.clipboard.writeText(codeRef.current.innerText);
         }
     }
-
-
-    
     useEffect(() => {
+        import("prismjs/components/prism-c");
         import(`prismjs/components/prism-${language}`).then(() => {
-            //If language still not available skip tokenize part
-            const tokens: Array<string | Token> = Prism.languages[language]
-                ? Prism.tokenize(children, Prism.languages[language])
-                : [];
-            replaceToken(tokens)
-        }).catch((error) => {
-            console.log(error);
-            console.warn(`Cannot find highlighter for language ${language}`)
-        });
-
-
+          const tokens: Array<string | Token> = Prism.languages[ language ]
+            ? Prism.tokenize(children, Prism.languages[ language ])
+            : [];
+          replaceToken(tokens)
+        }).catch((e) => {
+            console.warn(`Failed to load highlighter for language: ${language}`)
+            console.error(e);
+        })
     }, [children]);
     //If the array with tokens is empty, print the code from props, otherwise render our beauty.
     return (
@@ -116,7 +110,7 @@ export const Code = ({ className, language, title, children }: any) => {
                     <Icon onClick={copyCode} noTitle name="copy" height={18} width={18} />
                 </CopyIcon>
             </ToolBar>
-            <Pre style={{borderBottomLeftRadius: `5px`, borderBottomRightRadius: `5px`}} ref={codeRef} className={className}>
+            <Pre style={{ borderBottomLeftRadius: `5px`, borderBottomRightRadius: `5px` }} ref={codeRef} className={`language-${language}`}>
                 {data.length ? data.map(tokenToReactNode) : children}
             </Pre>
 

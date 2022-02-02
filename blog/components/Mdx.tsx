@@ -12,12 +12,11 @@ import { UnorderedList } from "../components/list/UnorderedList";
 
 const mdxComponents = {
     code: (props:any) => { 
-        const separate: string[] = props.className.split(`:`) ;
+        const separate: string[] = props.className.includes(":")? props.className.split(`:`) : [props.className];
         const language: string | null = separate[0].split(`language-`).join(``);
         const title: string | null = separate[1] ? separate[1].split(``).join(``) : null;
         return (
             <Code 
-                className={`language-${language}`} 
                 language={language} 
                 title={title} 
                 {...props}
