@@ -9,6 +9,7 @@ import imageMetadata from '../../lib/image-metadata';
 import { siteMetadata } from '../../site-metadata';
 import { ContentSeo } from '../../components/Seo';
 import { formatSlug } from '../../lib/utils/format-slug';
+import { eDateFormat } from "../../lib/utils/format-date";
 
 const ProjectPage = ({ project }: any) => {
     return (
@@ -18,8 +19,11 @@ const ProjectPage = ({ project }: any) => {
                 authorDetails={siteMetadata.author}
                 {...project}
             />
+            
             <ContentHero src={project.hero?.src}/>
             <ContentBodyWrapper>
+                <span title={project.published.toString()}>Published: {eDateFormat(project.published)}</span>
+                <span title={project.updated.toString()}> Last Updated: {eDateFormat(project.published)}</span>
                 <ContentHeader>{project.title}</ContentHeader>
                 <MdxRenderer source={project.___rawContent}/>
                 {project.updated && <span>{project.updated.toISOString()}</span>}

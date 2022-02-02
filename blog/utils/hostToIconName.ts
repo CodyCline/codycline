@@ -2,8 +2,8 @@
 //A function that takes in a URL object and matches its `hostname` against the
 //icon library to display an icon link in a component
 export const hostToIconName = (link: URL) => {
-    switch(link.hostname) {
-        
+    switch (link.hostname) {
+
         //Cloud
         case `aws.amazon.com`: return `aws`;
         case `console.aws.amazon.com`: return `aws`;
@@ -26,9 +26,9 @@ export const hostToIconName = (link: URL) => {
         case `microsoft.com`: return `microsoft`;
         case `docs.microsoft.org`: return `microsoft`;
         case `dotnet.microsoft.org`: return `microsoft`;
-        
-        case `www.hackerone.com`: return `hackerone`;
         case `pypi.org`: return `pip`;
+
+        case `www.hackerone.com`: return `hackerone`;
         case `crystalshards.org`: return `crystal-shards`
         case `cocoapods.org`: return `cocoa-pods`;
         case `rubygems.org`: return `ruby`;
@@ -47,7 +47,7 @@ export const hostToIconName = (link: URL) => {
         //Search engines
         case `google.com`: return `google`;
         case `bing.com`: return `bing`;
-        case `duckduckgo.com`: return `duckduckgo.com`;
+        case `duckduckgo.com`: return `duckduckgo`;
         case `www.torproject.org`: return `tor`;
 
         //Messaging and social
@@ -56,6 +56,14 @@ export const hostToIconName = (link: URL) => {
         case `dropbox.com`: return `dropbox`;
         case `drive.google.com`: return `google-drive`;
         case `odysee.com`: return `odysee`;
+        case `youtube.com`: return `youtube`;
+        case `4chan.org`: return `4chan`;
+        case `boards.4chan.org`: return `4chan`;
+        case `boards.4channel.org`: return `4chan`;
+
+        case `reddit.com`: return `reddit`;
+        case `meta.com`: return `meta`;
+        case `facebook.com`: return `meta`;
         case `youtube.com`: return `youtube`;
 
         //Payments 
@@ -67,5 +75,5 @@ export const hostToIconName = (link: URL) => {
 
         //
         default: return `link`;
-    }    
+    }
 }

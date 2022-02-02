@@ -9,6 +9,7 @@ import { MarkdownTable } from "./table/MarkdownTable";
 import { OrderedList } from "../components/list/OrderedList";
 import { ListItem } from "../components/list/ListItem";
 import { UnorderedList } from "../components/list/UnorderedList";
+import { Bookmark, Link } from "./ui/Link";
 
 const mdxComponents = {
     code: (props:any) => { 
@@ -26,13 +27,15 @@ const mdxComponents = {
     inlineCode: InlineCode,
     img: (props:any) => <MdxImg {...props} layout="responsive" />,
     p: Paragraph,
+    a: Link,
     h1: Title,
     table: MarkdownTable,
     ol: OrderedList,
     ul: UnorderedList,
     li: ListItem,
     blockquote: Quote,
-    Spoiler: Spoiler,
+    spoiler: Spoiler,
+    bookmark: Bookmark,
 }
 
 export const MdxRenderer = ({ source }: any) => (

@@ -91,7 +91,19 @@ impl From<&'a str> for State {
     }
 }
 ```
+<Bookmark href="https://crates.io/crates/syn"/>
 
+<Bookmark href="https://slack.com/"/>
+
+<Bookmark href="https://discord.gg/">
+<Bookmark href="https://nuget.com"/>
+
+<Spoiler title="hello">
+    You spoiled me
+</Spoiler>
+
+
+Concurrent mode in react is an experimental feature [according to their website](https://reactjs.org/)
 
 ```cpp:md5.cc
 #include "Poco/MD5Engine.h"

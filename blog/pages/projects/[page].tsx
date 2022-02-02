@@ -58,9 +58,7 @@ function ProjectPages({ projects, pagination }: any) {
                 title={`projects - ${siteMetadata.headerTitle}`}
                 description={`portfolio projects`}
             />
-            <ContentTitle header="Projects">
-                all projects
-            </ContentTitle>
+            <ContentTitle header="Projects"> all projects </ContentTitle>
             <ProjectList>
                 {projects &&  projects.map((project: Project) => (
                         <ProjectCard
