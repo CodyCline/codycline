@@ -4,31 +4,28 @@ title: Tackling the Google Foobar Challenge
 description: A comprehensive walkthrough of Google's secret code challenge
 thumb: ./foobar.gif
 published: 2021-12-26T21:30:35.394Z
-tags: 
-- python
-- algorithms
-- c++
-- rust 
-- llvm
-- cmake
-- csharp
+tags:
+  - python
+  - algorithms
+  - c++
+  - rust
+  - llvm
+  - cmake
+  - csharp
 ---
 
 > Ask not what your country can do for you, but what you can do for your country.
 > -- John Fitzgerald Kennedy
 
-
 $$y_i = \mathbf{x}'_i \beta + u_i$$
 
-
-| Operating System | Inner x64 Debug | Inner x64 Release | Outer x64 Debug | 
-| :-: | :-: | :-: | :-: |
-| _CentOS 7.1_| Download    | Release     | misc        |
-| _Debian 8_| Download    | Release     | misc        |
-| _openSUSE 42.1_| Download    | Release     | misc        |
-| _Open BSD_| Download    | Release     | misc        |
-| _Ubuntu  _| Download    | Release     | misc        |
-
+| Operating System | Inner x64 Debug | Inner x64 Release | Outer x64 Debug |
+| :--------------: | :-------------: | :---------------: | :-------------: |
+|   _CentOS 7.1_   |    Download     |      Release      |      misc       |
+|    _Debian 8_    |    Download     |      Release      |      misc       |
+| _openSUSE 42.1_  |    Download     |      Release      |      misc       |
+|    _Open BSD_    |    Download     |      Release      |      misc       |
+|    _Ubuntu _     |    Download     |      Release      |      misc       |
 
 Hi there! Hello! `inline codeeee`
 
@@ -36,15 +33,13 @@ Hi there! Hello! `inline codeeee`
 
 :wave: :+1: :us: :ca:
 
-This is inline  math: $T_n = a + (n-1)d$
+This is inline math: $T_n = a + (n-1)d$
 
 ## Block math
 
 <p>It's a  </p>
 
-This is a block of  math: 
-
-
+This is a block of math:
 
 :::keyword optional title
 some content
@@ -63,15 +58,37 @@ $$
 
 ```jsx
 const component = () => {
-  return (
-    <div onClick={() => alert("HELLO")}>
-    
-    </div>
-  )
+  return <div onClick={() => alert("HELLO")}></div>
 }
 ```
 
+<Admonition type="note" title="A quick note ...">
+    A note from the author
+</Admonition>
 
+<Admonition type="tip" title="Productivity Tip">
+    Use macros to type check your code and prevent redundant typings
+</Admonition>
+
+<Admonition type="info" title="A quick note ...">
+    Hello
+</Admonition>
+
+<Admonition type="experimental" title="A quick note ...">
+    Caution! This feature is an experimental feature and may cause unintended side-effects in your codebase. 
+</Admonition>
+
+<Admonition type="caution" title="A quick note ...">
+    Warning 
+</Admonition>
+
+<Admonition type="danger" title="Danger!!!">
+    If you are not careful doing the following below can cause irreversible memory corruption to your machine! Proceed with extreme caution
+</Admonition>
+
+<Admonition type="fatal" title="Your final warning!!!">
+    Do not replicate below for malicious or otherwise nefarious purposes! Doing so may put you in jeopardy of legal, criminal and financial punishment.
+</Admonition>
 
 ```rust:main.rs
 #[derive(Debug)]
@@ -91,6 +108,7 @@ impl From<&'a str> for State {
     }
 }
 ```
+
 <Bookmark href="https://pkg.go.dev"/>
 
 <Bookmark href="https://slack.com/"/>
@@ -101,7 +119,6 @@ impl From<&'a str> for State {
 <Spoiler title="hello">
     You spoiled me
 </Spoiler>
-
 
 Concurrent mode in react is an experimental feature [according to their website](https://reactjs.org/)
 
@@ -120,7 +137,6 @@ int main(int argc, char** argv){
 }
 ```
 
-
 ```haskell
 import Network.Wai
 import Network.Wai.Handler.Warp
@@ -128,20 +144,20 @@ import Network.HTTP.Types (status200)
 import Blaze.ByteString.Builder (copyByteString)
 import qualified Data.ByteString.UTF8 as BU
 import Data.Monoid
- 
+
 main = do
     let port = 3000
     putStrLn $ "Listening on port " ++ show port
     run port app
- 
+
 app req respond = respond $
     case pathInfo req of
         ["yay"] -> yay
         x -> index x
- 
+
 yay = responseBuilder status200 [ ("Content-Type", "text/plain") ] $ mconcat $ map copyByteString
     [ "yay" ]
- 
+
 index x = responseBuilder status200 [("Content-Type", "text/html")] $ mconcat $ map copyByteString
     [ "<p>Hello from ", BU.fromString $ show x, "!</p>"
     , "<p><a href='/yay'>yay</a></p>\n" ]

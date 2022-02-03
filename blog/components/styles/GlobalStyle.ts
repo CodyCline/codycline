@@ -6,6 +6,8 @@ import { cssVar, darken, lighten } from "polished";
 //Use these 
 // # Colors #32c8f5
 // => #3487da
+
+
 const GlobalStyle = createGlobalStyle`
 
 	:root {
@@ -18,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 		--font-size-lg: 48px;
 		--font-size-xl: 64px;
 		
-		
+		--color-metallic: #6e6b5e;
 		--color-greentext: #789922;
 		--color-blue: #3487da;
 		--color-yellow: rgb(221, 177, 0);
@@ -47,21 +49,19 @@ const GlobalStyle = createGlobalStyle`
 		--color-fg-aux: #f7f7f7;
 		--color-link: #4c4ce6;
 		--color-text-inline-code: #9d00ec;
-		--color: #6e6b5e;
+		
 		--color-bg-inline-code: #f6f7f6;
 		--color-motion-toggle: red;
 		--color-bg-greentext: #fff9f5;
 		--color-border-greentext: #d9bfb7;
 		
-		--color-bg-admonition-tip: ${lighten(.5, cssVar("--color-greentext") as string)};
-		--color-bg-admonition-info: ${lighten(.2, cssVar("--color-blue") as string)};
-		--color-bg-admonition-experimental: ${lighten(.5, cssVar("--color-yellow") as string)};
-		--color-bg-admonition-caution: ${lighten(.33, cssVar("--color-orange") as string)};
-		--color-bg-admonition-danger: ${lighten(.66, cssVar("--color-red") as string)};
-		--color-bg-admonition-fatal: ${lighten(.5, cssVar("--color-dark-purple") as string)};
+		--color-bg-admonition-tip: ${lighten(.55, "#789922")};
+		--color-bg-admonition-info: ${lighten(.33, "#3487da")};
+		--color-bg-admonition-experimental: ${lighten(.5, "#ddb100")};
+		--color-bg-admonition-caution: ${lighten(.33, "#e25e21")};
+		--color-bg-admonition-danger: ${lighten(.55, "#8B0000")};
+		--color-bg-admonition-fatal: ${lighten(.5, "#763053")};
 
-
-		#Prismjs custom light theme from 
 		--prism-foreground: #393a34;
 		--prism-background: #fbfbfb;
 		--prism-comment: #a0ada0;
@@ -84,6 +84,7 @@ const GlobalStyle = createGlobalStyle`
 	}
   
 	html[data-theme="dark"] {
+
 		--color-fg-aux: #1f2123;
 		--color-text-default: #e3e3e3;
 		--color-text-secondary: #ffb454;
@@ -99,14 +100,13 @@ const GlobalStyle = createGlobalStyle`
 		--color-bg-greentext: #382213;
 		--color-border-greentext: #7e7567;
 
-		--color-bg-admonition-tip: ${darken(.25, cssVar("--color-greentext") as string)};
-		--color-bg-admonition-info: ${darken(.4, cssVar("--color-blue") as string)};
-		--color-bg-admonition-experimental: ${darken(.38, cssVar("--color-yellow") as string)};
-		--color-bg-admonition-caution: ${darken(.4, cssVar("--color-orange") as string)};
-		--color-bg-admonition-danger: ${darken(.15, cssVar("--color-red") as string)};
-		--color-bg-admonition-fatal: ${darken(.25, cssVar("--color-dark-purple") as string)};
-		
-		#Prismjs theme dark
+		--color-bg-admonition-tip: ${darken(.25, "#789922")};
+		--color-bg-admonition-info: ${darken(.4, "#3487da")};
+		--color-bg-admonition-experimental: ${darken(.38, "#ddb100")};
+		--color-bg-admonition-caution: ${darken(.4, "#e25e21")};
+		--color-bg-admonition-danger: ${darken(.19, "#8B0000")};
+		--color-bg-admonition-fatal: ${darken(.25, "#763053")};
+
 		--prism-scheme: dark;
 		--prism-foreground: #d4cfbf;
 		--prism-background: #1e1e1e;

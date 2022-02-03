@@ -10,6 +10,7 @@ import { OrderedList } from "../components/list/OrderedList";
 import { ListItem } from "../components/list/ListItem";
 import { UnorderedList } from "../components/list/UnorderedList";
 import { Bookmark, Link } from "./ui/Link";
+import { Admonition } from "./Admonition";
 
 const mdxComponents = {
     code: (props:any) => { 
@@ -36,6 +37,7 @@ const mdxComponents = {
     blockquote: Quote,
     spoiler: Spoiler,
     bookmark: Bookmark,
+    admonition: Admonition
 }
 
 export const MdxRenderer = ({ source }: any) => (
