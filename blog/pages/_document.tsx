@@ -34,20 +34,15 @@ class MyDocument extends Document {
             if(window.localStorage.getItem('theme')) {
                 return window.localStorage.getItem('theme')
             }
+            //Todo default to dark if no preference found 
             return window.matchMedia('(prefers-color-scheme: dark)').matches 
                 ? 'dark' 
                 : 'light'
         }
-        document.body.dataset.theme = getUserPreference();
+        document.documentElement.dataset.theme = getUserPreference();
     `;
         return (
             <Html>
-                {/* <link
-                    rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css"
-                    integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
-                    crossOrigin="anonymous"
-                /> */}
                 <Head />
                 <body>
                     <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />

@@ -91,7 +91,7 @@ impl From<&'a str> for State {
     }
 }
 ```
-<Bookmark href="https://crates.io/crates/syn"/>
+<Bookmark href="https://pkg.go.dev"/>
 
 <Bookmark href="https://slack.com/"/>
 

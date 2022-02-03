@@ -15,11 +15,13 @@ const GlobalStyle = createGlobalStyle`
 		--font-size-lg: 48px;
 		--font-size-xl: 64px;
 		--color-purple: #5b4fff;
+		--color-fatal: #763053;
 		--color-yellow: #ffe77a;
 		--color-orange: #e25e21;
 		--color-greentext: #789922;
 		
 		--prism-block-margin-y: 0;
+		
 		--prism-font-size: 18px;
 		--prism-block-radius: 0;
 		--prism-font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
@@ -27,8 +29,8 @@ const GlobalStyle = createGlobalStyle`
 
 
 
-	body,
-	body[data-theme="light"] {
+	html,
+	html[data-theme="light"] {
 		--color-text-default: #374151; 
 		--color-text-primary: #0366d6;
 		--color-text-secondary: #916BBF;
@@ -68,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
 		--prism-json-property: #698c96;
 	}
   
-	body[data-theme="dark"] {
+	html[data-theme="dark"] {
 		--color-fg-aux: #1f2123;
 		--color-text-default: #e3e3e3;
 		--color-text-secondary: #ffb454;

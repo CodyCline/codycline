@@ -7,6 +7,7 @@ import motion from "../public/assets/motion.png";
 import stopMotion from "../public/assets/stop_motion.png";
 
 import Image from "next/image";
+import { cssVar, lighten } from "polished";
 
 const ToggleButton:any = styled.button`
   --toggle-size: 38px;
@@ -41,16 +42,16 @@ const ToggleButton:any = styled.button`
 
 
 const ThemeToggle = () => {
-  const [activeTheme, setActiveTheme] = useState<any>(document.body.dataset.theme);
+  const [activeTheme, setActiveTheme] = useState<any>(document.documentElement.dataset.theme);
   const inactiveTheme: any = activeTheme === "light" ? "dark" : "light";
 
   useEffect(() => {
-    document.body.dataset.theme = activeTheme;
+    document.documentElement.dataset.theme = activeTheme;
     window.localStorage.setItem("theme", activeTheme);
   }, [activeTheme]);
   return (
     <ToggleButton
-      hoverColor="var(--color-bg-toggle)"
+      hoverColor={"--color-bg-toggle"}
       aria-label={`Change to ${inactiveTheme} mode`}
       title={`Change to ${inactiveTheme} mode`}
       type="button"

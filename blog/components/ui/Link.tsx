@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { ILinkProps } from "../../types/components";
 import { hostToIconName } from "../../utils/hostToIconName";
+import { truncate } from "../styles/Truncate";
 import { Icon } from "./Icon";
 
 export const _Link: any = React.forwardRef(({ href, ...props }: LinkProps, ref?: any) => (
@@ -58,7 +59,8 @@ export const Link = ({ href, children }: ILinkProps) => {
 
 
 const BookmarkContainer = styled.div`
-	display: flex; flex-direction: column;
+	display: flex; 
+	flex-direction: column;
 	margin: 36px 0;
 	justify-content: center;
 	border: 1px solid var(--color-border);
@@ -77,21 +79,23 @@ const BookmarkIcon = styled.span`
 	margin-right: .33rem;
 `
 
+const BookmarkText = styled.span`
+	${truncate(1, "vertical")}
+`
+
 export const Bookmark = ({ href }: any) => {
 	const url = isValidUrl(href) ? new URL(href) : null;
 	if (url) {
-	const icon = hostToIconName(url)
-	console.log(icon);
 		return (
 			<StyledLink href={href} target="_blank" rel="noopener noreferrer">
-				<BookmarkContainer>
+				<BookmarkContainer title={`go to ${href}`}>
 					<h3>
 						<BookmarkIcon>
-							<Icon name={hostToIconName(url)} height={32} width={32} />
+							<Icon name={hostToIconName(url)} height={18} width={18} />
 						</BookmarkIcon>
 						{url.hostname}
 					</h3>
-					{url.href}
+					<BookmarkText>{href}</BookmarkText>
 				</BookmarkContainer>
 			</StyledLink>
 		)

@@ -5,6 +5,10 @@ import Image from "next/image";
 import { generateRssFeed } from "../lib/generate-rss";
 import { generateSitemap } from "../lib/generate-sitemap";
 import { Icon } from "../components/ui/Icon";
+import dynamic from "next/dynamic";
+const Admonition: any = dynamic((): any => import("../components/Admonition"), {
+    ssr: false,
+});
 const Home = () => {
     return (
         <div>
@@ -19,8 +23,11 @@ const Home = () => {
             <IconTag icon="tf">4chan</IconTag>
             <Icon height={50} width={50} name="chef"/>
             <IconTag icon="llvm">llvm</IconTag>
-            <IconTag icon="archlinux">assembly</IconTag>
-            <IconTag icon="gtk">c</IconTag>
+            <IconTag icon="cookbook">assembly</IconTag>
+            <IconTag icon="patch">patch 2.2</IconTag>
+            <Admonition type="tip" title="A quick note ...">
+                Hello
+            </Admonition>
         </div>
     )
 }
