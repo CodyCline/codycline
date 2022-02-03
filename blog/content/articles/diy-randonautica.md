@@ -24,7 +24,7 @@ What is entropy? It's a fancy word meaning the measurable amount of randomness o
 
 - Generating a Minecraft world using a seed.
 
-- :key: Creating a password that has enough special characters, symbols, numbers and uppercase letters.
+- :key: Creating a password that has enough special characters, symbols, numbers and uppercase letters. 
 
 - :birthday: You bake two cakes and you notice that one of them tastes slightly different.
 

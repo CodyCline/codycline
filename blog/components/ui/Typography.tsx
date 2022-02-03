@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Paragraph = styled.p`
-    marginBottom: 28px;
+    margin-bottom: 28px;
     margin-block-start: 1em;
     margin-block-end: 1em;
     font-size: 20px;
