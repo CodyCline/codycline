@@ -9,7 +9,7 @@ import stopMotion from "../public/assets/stop_motion.png";
 import Image from "next/image";
 import { cssVar, lighten } from "polished";
 
-const ToggleButton:any = styled.button`
+const ToggleButton: any = styled.button`
   --toggle-size: 38px;
   --togle-padding: 4px;
   position: relative;
@@ -34,8 +34,8 @@ const ToggleButton:any = styled.button`
     outline: none;
   }
   &:hover {
-    background: ${(props:any) => props.hoverColor};
-    box-shadow: 0 0 10px 4px ${(props:any) => props.hoverColor};
+    background: ${(props: any) => props.hoverColor};
+    box-shadow: 0 0 10px 4px ${(props: any) => props.hoverColor};
   },
 `;
 
@@ -44,14 +44,13 @@ const ToggleButton:any = styled.button`
 const ThemeToggle = () => {
   const [activeTheme, setActiveTheme] = useState<any>(document.documentElement.dataset.theme);
   const inactiveTheme: any = activeTheme === "light" ? "dark" : "light";
-
   useEffect(() => {
     document.documentElement.dataset.theme = activeTheme;
     window.localStorage.setItem("theme", activeTheme);
   }, [activeTheme]);
   return (
     <ToggleButton
-      hoverColor={"--color-bg-toggle"}
+      hoverColor={"var(--color-bg-toggle)"}
       aria-label={`Change to ${inactiveTheme} mode`}
       title={`Change to ${inactiveTheme} mode`}
       type="button"
@@ -68,14 +67,14 @@ const ThemeToggle = () => {
 export default ThemeToggle;
 
 
-export const MotionToggle = ({theme}:any) => {
+export const MotionToggle = ({ theme }: any) => {
   const [activeMotion, setActiveMotion] = useState<any>(true);
   const inactiveSetting: any = activeMotion ? "on" : "off";
   return (
     <ToggleButton
       aria-label={`Toggle webstite animations ${inactiveSetting}`}
       title={`Toggle website animations ${inactiveSetting}`}
-      hoverColor="var(--color-motion-toggle)"
+      // hoverColor="--color-motion-toggle"
       onClick={() => setActiveMotion(!activeMotion)}
     >
       {activeMotion

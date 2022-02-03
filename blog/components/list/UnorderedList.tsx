@@ -5,13 +5,16 @@ import { ListItem } from "./ListItem";
 
 export const UnorderedList = styled.ul`
     list-style: none;
-    padding-left: 40px;
-    counter-reset: list-counter;
     font-size: inherit;
     --size: 2rem;
 
-    ${ListItem} {
-
+    ${ListItem}::before {
+        content: "*";
+        color: red; /* Change the color */
+        font-weight: bold; /* If you want it to be bold */
+        display: inline-block; /* Needed to add space between the bullet and the text */
+        width: 1em; /* Also needed for space (tweak if needed) */
+        margin-left: -1em; /* Also needed for space (tweak if needed) */
     }
 `
 

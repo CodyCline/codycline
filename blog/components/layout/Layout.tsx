@@ -36,7 +36,7 @@ export const Layout = ({ children }:any) => {
                         <NavLink href="/projects">Projects</NavLink>
                         <NavLink href="/snippets">Snippets</NavLink>
                         <NavItem right>
-                            <MotionToggle/>
+                            {/* <MotionToggle/> */}
                         </NavItem>
                         <NavItem>
                             <ThemeToggle/>

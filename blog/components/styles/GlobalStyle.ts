@@ -1,8 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 import "prism-theme-vars/base.css";
 import "katex/dist/katex.min.css";
+import { cssVar, darken, lighten } from "polished";
 
-
+//Use these 
+// # Colors #32c8f5
+// => #3487da
 const GlobalStyle = createGlobalStyle`
 
 	:root {
@@ -14,21 +17,24 @@ const GlobalStyle = createGlobalStyle`
 		--font-size-md: 20px;
 		--font-size-lg: 48px;
 		--font-size-xl: 64px;
-		--color-purple: #5b4fff;
-		--color-fatal: #763053;
-		--color-yellow: #ffe77a;
-		--color-orange: #e25e21;
+		
+		
 		--color-greentext: #789922;
+		--color-blue: #3487da;
+		--color-yellow: rgb(221, 177, 0);
+		--color-orange: #e25e21;
+		--color-red: #8B0000;
+		--color-purple: #5b4fff;
+		--color-dark-purple: #763053;
 		
 		--prism-block-margin-y: 0;
-		
 		--prism-font-size: 18px;
 		--prism-block-radius: 0;
 		--prism-font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
 	}
 
 
-
+	
 	html,
 	html[data-theme="light"] {
 		--color-text-default: #374151; 
@@ -46,6 +52,13 @@ const GlobalStyle = createGlobalStyle`
 		--color-motion-toggle: red;
 		--color-bg-greentext: #fff9f5;
 		--color-border-greentext: #d9bfb7;
+		
+		--color-bg-admonition-tip: ${lighten(.5, cssVar("--color-greentext") as string)};
+		--color-bg-admonition-info: ${lighten(.2, cssVar("--color-blue") as string)};
+		--color-bg-admonition-experimental: ${lighten(.5, cssVar("--color-yellow") as string)};
+		--color-bg-admonition-caution: ${lighten(.33, cssVar("--color-orange") as string)};
+		--color-bg-admonition-danger: ${lighten(.66, cssVar("--color-red") as string)};
+		--color-bg-admonition-fatal: ${lighten(.5, cssVar("--color-dark-purple") as string)};
 
 
 		#Prismjs custom light theme from 
@@ -86,7 +99,13 @@ const GlobalStyle = createGlobalStyle`
 		--color-bg-greentext: #382213;
 		--color-border-greentext: #7e7567;
 
-
+		--color-bg-admonition-tip: ${darken(.25, cssVar("--color-greentext") as string)};
+		--color-bg-admonition-info: ${darken(.4, cssVar("--color-blue") as string)};
+		--color-bg-admonition-experimental: ${darken(.38, cssVar("--color-yellow") as string)};
+		--color-bg-admonition-caution: ${darken(.4, cssVar("--color-orange") as string)};
+		--color-bg-admonition-danger: ${darken(.15, cssVar("--color-red") as string)};
+		--color-bg-admonition-fatal: ${darken(.25, cssVar("--color-dark-purple") as string)};
+		
 		#Prismjs theme dark
 		--prism-scheme: dark;
 		--prism-foreground: #d4cfbf;

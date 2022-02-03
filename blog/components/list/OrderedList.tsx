@@ -5,13 +5,14 @@ import { ListItem } from "./ListItem";
 
 export const OrderedList = styled.ol`
     list-style: none;
-    padding-left: 40px;
     counter-reset: list-counter;
-    font-size: 18px;
-    --size: 2rem;
+    --size: 20px;
+    padding: 0;
+    margin: 0;
     
     ${ListItem} {
-        margin: 0 0 2rem 0;
+    border: 1px solid green;
+        margin: 0;
         counter-increment: list-counter;
         position: relative;
     }
@@ -22,11 +23,11 @@ export const OrderedList = styled.ol`
         font-weight: bold;
         position: absolute;
         left: calc(-1 * var(--size) - 8px);
-        line-height: var(--size);
         width: var(--size);
+        top: calc(20px -)
         height: var(--size);
-        top: calc(-1 * var(--size) / 8);
         border-radius: 50%;
+        line-height: none;
         text-align: center;
         border: 2px solid var(--color-text-secondary);
     }
