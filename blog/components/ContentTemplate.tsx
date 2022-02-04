@@ -27,6 +27,7 @@ export const ContentTitle = ({header, children, icon}:any) => (
 
 export const ContentBodyWrapper = styled.article`
     height: 100%;
+    margin-top: 2em;
     margin-left: auto;
     padding: 1em;
     margin-right: auto;

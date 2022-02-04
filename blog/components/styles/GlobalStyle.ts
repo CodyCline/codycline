@@ -44,7 +44,7 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-secondary: #916BBF;
 		--color-bg-primary: #fff;
 		--color-fg-primary: #e3e3e3;
-		--color-bg-toggle: #0096cf;
+		--color-bg-toggle: #3487da;
 		--color-border: #d9d9d9;
 		--color-fg-aux: #f7f7f7;
 		--color-link: #4c4ce6;

@@ -34,11 +34,13 @@ RUN conan profile new default --detect
 RUN conan profile update settings.compiler.libcxx=libstdc++11 default
 ```
 
-Open your project in VSCode, to launch a Remote Container, do the following: 
+Open your project in VSCode, to launch a Remote Container, do the following:
+
 1. On the bottom left and select "Open a Remote Window" 
 2. Within in the pop-up menu, select "Reopen in Container" 
 3. Select "From 'Dockerfile'" 
 
+  
 ![build](/content/build_it.gif)
 
 If the option at the bottom left isn't available you'll likely need to add the extension "Remote - Containers"

@@ -10,8 +10,11 @@ import { siteMetadata } from '../../site-metadata';
 import { ContentSeo } from '../../components/Seo';
 import { formatSlug } from '../../lib/utils/format-slug';
 import { eDateFormat } from "../../lib/utils/format-date";
+import { useRef } from "react";
+import { Progressbar } from "../../components/ui/Progressbar";
 
 const ProjectPage = ({ project }: any) => {
+    const ref = useRef<any>()
     return (
         <>
             <ContentSeo
@@ -19,9 +22,9 @@ const ProjectPage = ({ project }: any) => {
                 authorDetails={siteMetadata.author}
                 {...project}
             />
-            
+            <Progressbar target={ref}/>
             <ContentHero src={project.hero?.src}/>
-            <ContentBodyWrapper>
+            <ContentBodyWrapper ref={ref}>
                 <span title={project.published.toString()}>Published: {eDateFormat(project.published)}</span>
                 <span title={project.updated.toString()}> Last Updated: {eDateFormat(project.published)}</span>
                 <ContentHeader>{project.title}</ContentHeader>

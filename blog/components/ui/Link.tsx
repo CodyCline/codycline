@@ -24,7 +24,7 @@ const LinkIcon = styled.span`
 	`
 
 const LinkText = styled.span`
-	border-bottom: 1px solid var(--color-link);
+	border-bottom: 1px dashed var(--color-link);
 	&:hover {
 		color: var(--color-link);
 	}
@@ -69,7 +69,7 @@ const BookmarkContainer = styled.div`
 	padding: 1em;
 	transition: .25s ease-in-out;
 	&:hover {
-		border: 1px solid var(--color-text-primary);
+		border: 1px solid var(--color-link);
 		background: var(--color-fg-primary);
 
 	}

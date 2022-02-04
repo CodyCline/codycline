@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 
 export const NavBar = styled.nav`
-    margin: 0 0 1em 0;
+    margin: 0;
     padding: 0;
     list-style: none;
     text-align: center;

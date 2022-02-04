@@ -1,8 +1,7 @@
 import { MDXRemote } from "next-mdx-remote";
-import { useMemo } from "react";
 import { Code, InlineCode } from "./Code";
 import { Spoiler } from "./Spoiler"
-import { MdxImg } from "./ui/MDXImage"
+import { MdxImg } from "./ui/MdxImage"
 import { Paragraph, Title } from "./ui/Typography"
 import { Quote } from "./Quote";
 import { MarkdownTable } from "./table/MarkdownTable";

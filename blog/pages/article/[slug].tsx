@@ -11,18 +11,23 @@ import { eDateFormat } from "../../lib/utils/format-date";
 import { siteMetadata } from "../../site-metadata";
 import { ContentSeo } from "../../components/Seo";
 import { formatSlug } from "../../lib/utils/format-slug";
-
+import{  Progressbar }from "../../components/ui/Progressbar";
+import { useEffect, useRef } from "react";
+import { StyledComponent } from "styled-components";
+// import dynamic from "next/dynamic";
 
 const ArticleContent = ({ article }:any) => {
+    const ref = useRef<any>();
     return (
         <>
+            <Progressbar target={ref}/>
             <ContentSeo
                 url={`${siteMetadata.siteUrl}/article/${article.slug}`}
                 authorDetails={siteMetadata.author}
                 {...article}
             />
             <ContentHero src={article.hero?.src}/>
-            <ContentBodyWrapper>
+            <ContentBodyWrapper ref={ref}>
                 <span title={article.published.toString()}>Published: {eDateFormat(article.published)}</span>
                 <span title={article.updated.toString()}> Last Updated: {eDateFormat(article.published)}</span>
                 <ContentHeader>{article.title}</ContentHeader>

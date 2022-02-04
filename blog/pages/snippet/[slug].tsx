@@ -9,23 +9,30 @@ import { eDateFormat } from '../../lib/utils/format-date';
 import { ContentSeo } from '../../components/Seo';
 import { siteMetadata } from '../../site-metadata';
 import { formatSlug } from '../../lib/utils/format-slug';
-
+import { Progressbar } from "../../components/ui/Progressbar";
+import { useRef } from "react";
 const SnippetsPage = ({ snippet }: any) => {
+    const ref = useRef<any>()
     return (
-        <ContentBodyWrapper>
+        <>
             <ContentSeo
                 url={`${siteMetadata.siteUrl}/snippet/${snippet.slug}`}
                 authorDetails={siteMetadata.author}
                 {...snippet}
             />
-            <span title={snippet.published.toString()}>Published: {eDateFormat(snippet.published)}</span>
-            <span title={snippet.updated.toString()}> Last Updated: {eDateFormat(snippet.published)}</span>
-            <ContentHeader>{snippet.title}</ContentHeader>
-            <MdxRenderer source={snippet.___rawContent}/>
-            <ContentTags>
-                {snippet.tags && snippet.tags.map((tag: string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
-            </ContentTags>
-        </ContentBodyWrapper>
+            <Progressbar target={ref} />
+            <ContentBodyWrapper ref={ref}>
+
+                <span title={snippet.published.toString()}>Published: {eDateFormat(snippet.published)}</span>
+                <span title={snippet.updated.toString()}> Last Updated: {eDateFormat(snippet.published)}</span>
+                <ContentHeader>{snippet.title}</ContentHeader>
+                <MdxRenderer source={snippet.___rawContent} />
+                <ContentTags>
+                    {snippet.tags && snippet.tags.map((tag: string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
+                </ContentTags>
+            </ContentBodyWrapper>
+
+        </>
     )
 }
 
