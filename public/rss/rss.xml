@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Cody Cline</title>
+        <link>https://codycline.com</link>
+        <description>Developer blog and portfolio with code-focused content.</description>
+        <lastBuildDate>Fri, 04 Feb 2022 03:21:56 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>awesome</generator>
+        <language>en</language>
+        <copyright>All rights reserved Thu Feb 03 2022 19:21:56 GMT-0800 (Pacific Standard Time)</copyright>
+        <category>python</category>
+        <category>mystery</category>
+        <category>react</category>
+        <category>algorithms</category>
+        <category>c++</category>
+        <category>rust</category>
+        <category>llvm</category>
+        <category>cmake</category>
+        <category>csharp</category>
+        <category>paypal</category>
+        <category>javascript</category>
+        <category>vscode</category>
+        <category>docker</category>
+        <atom:link href="https://codycline.com/rss" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Create your own Randonautica web app]]></title>
+            <link>https://codycline.com/article/diy-randonautica</link>
+            <guid>https://codycline.com/article/diy-randonautica</guid>
+            <pubDate>Sun, 26 Dec 2021 21:30:35 GMT</pubDate>
+            <description><![CDATA[Walkthrough on how to build a web app that gives you random locations to ... explore?]]></description>
+            <author>20631166+CodyCline@users.noreply.github.com (Cody Cline)</author>
+        </item>
+        <item>
+            <title><![CDATA[Tackling the Google Foobar Challenge]]></title>
+            <link>https://codycline.com/article/google-foobar-challenge</link>
+            <guid>https://codycline.com/article/google-foobar-challenge</guid>
+            <pubDate>Sun, 26 Dec 2021 21:30:35 GMT</pubDate>
+            <description><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></description>
+            <author>20631166+CodyCline@users.noreply.github.com (Cody Cline)</author>
+        </item>
+        <item>
+            <title><![CDATA[Tackling the Google Foobar Challenge]]></title>
+            <link>https://codycline.com/article/test-file</link>
+            <guid>https://codycline.com/article/test-file</guid>
+            <pubDate>Sun, 26 Dec 2021 21:30:35 GMT</pubDate>
+            <description><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></description>
+            <author>20631166+CodyCline@users.noreply.github.com (Cody Cline)</author>
+        </item>
+        <item>
+            <title><![CDATA[React PayPal]]></title>
+            <link>https://codycline.com/project/react-paypal</link>
+            <guid>https://codycline.com/project/react-paypal</guid>
+            <pubDate>Sun, 26 Dec 2021 21:30:35 GMT</pubDate>
+            <description><![CDATA[Package to remove the pain of integrating Paypal in your react app]]></description>
+            <author>20631166+CodyCline@users.noreply.github.com (Cody Cline)</author>
+        </item>
+        <item>
+            <title><![CDATA[C++ containers]]></title>
+            <link>https://codycline.com/snippet/develop-cc-container</link>
+            <guid>https://codycline.com/snippet/develop-cc-container</guid>
+            <pubDate>Sun, 26 Dec 2021 21:30:35 GMT</pubDate>
+            <description><![CDATA[Develop powerful C/C++ in a docker environment]]></description>
+            <author>20631166+CodyCline@users.noreply.github.com (Cody Cline)</author>
+        </item>
+        <item>
+            <title><![CDATA[Rust closures]]></title>
+            <link>https://codycline.com/snippet/rust-closure</link>
+            <guid>https://codycline.com/snippet/rust-closure</guid>
+            <pubDate>Sun, 02 Jan 2022 21:30:35 GMT</pubDate>
+            <description><![CDATA[What the heck are closures in rust?!]]></description>
+            <author>20631166+CodyCline@users.noreply.github.com (Cody Cline)</author>
+        </item>
+    </channel>
+</rss>
