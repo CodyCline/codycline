@@ -12,9 +12,6 @@ export const _Link: any = React.forwardRef(({ href, ...props }: LinkProps, ref?:
 	</NextLink>
 ));
 
-const StyledLink = styled.a`
-    // color: var(--color-link);
-`
 
 const LinkIcon = styled.span`
 	align-items: center;
@@ -39,13 +36,13 @@ export const Link = ({ href, children }: ILinkProps) => {
 	if (!(href.includes(currentHost) || href[0] === `/` || href[0] === "#")) {
 		const url = new URL(href);
 		return (
-			<StyledLink href={href} target="_blank" rel="noopener noreferrer">
+			<a title={`Visit: ${href}`} aria-label={`Visit: ${href}`} href={href} target="_blank" rel="noopener noreferrer">
 				<LinkIcon role="img" aria-label="Link logo">
-					<Icon name={hostToIconName(url)} height={20} width={20} />
+					<Icon title={`Visit: ${href}`} name={hostToIconName(url)} height={20} width={20} />
 				</LinkIcon>
 				<LinkText>{children}</LinkText>
 
-			</StyledLink>
+			</a>
 		)
 	}
 	return (
@@ -70,8 +67,7 @@ const BookmarkContainer = styled.div`
 	transition: .25s ease-in-out;
 	&:hover {
 		border: 1px solid var(--color-link);
-		background: var(--color-fg-primary);
-
+		background: var(--color-link-hover);
 	}
 `
 
@@ -87,22 +83,22 @@ export const Bookmark = ({ href }: any) => {
 	const url = isValidUrl(href) ? new URL(href) : null;
 	if (url) {
 		return (
-			<StyledLink href={href} target="_blank" rel="noopener noreferrer">
-				<BookmarkContainer title={`go to ${href}`}>
+			<a title={`Visit: ${href}`} aria-label={`Visit: ${href}`} href={href} target="_blank" rel="noopener noreferrer">
+				<BookmarkContainer title={`Visit: ${href}`}>
 					<h3>
 						<BookmarkIcon>
-							<Icon name={hostToIconName(url)} height={18} width={18} />
+							<Icon title={`Visit: ${href}`} name={hostToIconName(url)} height={18} width={18} />
 						</BookmarkIcon>
 						{url.hostname}
 					</h3>
 					<BookmarkText>{href}</BookmarkText>
 				</BookmarkContainer>
-			</StyledLink>
+			</a>
 		)
 	}
 	return (
 		<BookmarkContainer>
-			<h3>Please supply a valid URL</h3>
+			<h3>Error Cannot Preview Link: Invalid URL</h3>
 		</BookmarkContainer>
 	)
 }

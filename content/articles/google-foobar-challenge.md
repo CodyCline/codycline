@@ -2,7 +2,7 @@
 draft: false
 title: Tackling the Google Foobar Challenge
 description: "A comprehensive walkthrough of Google's secret code challenge"
-hero: /assets/logo.jpg
+hero: /content/logo.jpg
 published: 2021-12-26T21:30:35.394Z
 tags: 
 - python

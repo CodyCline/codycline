@@ -1,13 +1,12 @@
 
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import moon from "../public/assets/moon.png";
-import sun from "../public/assets/sun.png";
-import motion from "../public/assets/motion.png";
-import stopMotion from "../public/assets/stop_motion.png";
+import moon from "../public/assets/img/moon.png";
+import sun from "../public/assets/img/sun.png";
+import motion from "../public/assets/img/motion.png";
+import stopMotion from "../public/assets/img/stop_motion.png";
 
 import Image from "next/image";
-import { cssVar, lighten } from "polished";
 
 const ToggleButton: any = styled.button`
   --toggle-size: 38px;
@@ -34,7 +33,7 @@ const ToggleButton: any = styled.button`
     outline: none;
   }
   &:hover {
-    background: ${(props: any) => props.hoverColor};
+    background: ${(props: any) => props.backgroundColor};
     box-shadow: 0 0 10px 4px ${(props: any) => props.hoverColor};
   },
 `;
@@ -50,7 +49,8 @@ const ThemeToggle = () => {
   }, [activeTheme]);
   return (
     <ToggleButton
-      hoverColor={"var(--color-bg-toggle)"}
+      hoverColor="var(--color-shadow-theme-toggle)"
+      backgroundColor="var(--color-bg-theme-toggle)"
       aria-label={`Change to ${inactiveTheme} mode`}
       title={`Change to ${inactiveTheme} mode`}
       type="button"

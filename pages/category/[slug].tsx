@@ -4,7 +4,6 @@ import { ContentTitle } from "../../components/ContentTemplate";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { TagSeo } from "../../components/Seo";
 import { Snippet, SnippetList } from "../../components/SnippetList";
-import { Icon } from "../../components/ui/Icon";
 import { loadAllArticles } from "../../lib/load-articles";
 import { loadAllCategories } from "../../lib/load-categories";
 import { loadAllProjects } from "../../lib/load-projects";

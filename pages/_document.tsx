@@ -30,17 +30,21 @@ class MyDocument extends Document {
 
     render() {
         const setInitialTheme = `
-        function getUserPreference() {
-            if(window.localStorage.getItem('theme')) {
-                return window.localStorage.getItem('theme')
+            function getUserPreference() {
+                if(window.localStorage.getItem("theme")) {
+                    return window.localStorage.getItem("theme")
+                }
+                if (window.matchMedia("(prefers-color-scheme: dark").matches) {
+                    return "dark";
+                }
+                if (window.matchMedia("(prefers-color-scheme: light").matches) {
+                    return "light";
+                } else {
+                    return "dark";
+                }
             }
-            //Todo default to dark if no preference found 
-            return window.matchMedia('(prefers-color-scheme: dark)').matches 
-                ? 'dark' 
-                : 'light'
-        }
-        document.documentElement.dataset.theme = getUserPreference();
-    `;
+            document.documentElement.dataset.theme = getUserPreference();
+        `;
         return (
             <Html>
                 <Head />

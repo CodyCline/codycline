@@ -16,10 +16,15 @@ const Header = styled.h1`
     flex-direction: row;
 `
 
+const IconWrapper = styled.span`
+    margin-right: 1rem;
+    display: inline-flex;
+`
+
 export const ContentTitle = ({header, children, icon}:any) => (
     <TitleWrapper>
         <Header>
-            {icon && <Icon height={36} width={36} name={icon || `file`}/>} {header}
+            {icon && <IconWrapper><Icon height={36} width={36} name={icon || `file`}/></IconWrapper>} {header}
         </Header>
         {children}
     </TitleWrapper>
@@ -41,7 +46,7 @@ export const ContentBodyWrapper = styled.article`
 //Image for a content wrapper
 export const ContentHeader = styled.h1`
     font-size: var(--font-size-lg);
-    color: var(--color-bg-toggle);
+    color: var(--color-text-primary);
     margin: 2rem 0;
 `
 

@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 		--color-greentext: #789922;
 		--color-blue: #3487da;
 		--color-yellow: rgb(221, 177, 0);
-		--color-orange: #e25e21;
+		--color-orange: #ff7f00;
 		--color-red: #8B0000;
 		--color-purple: #5b4fff;
 		--color-dark-purple: #763053;
@@ -44,10 +44,14 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-secondary: #916BBF;
 		--color-bg-primary: #fff;
 		--color-fg-primary: #e3e3e3;
-		--color-bg-toggle: #3487da;
+		
+		--color-bg-theme-toggle: ${lighten(.27, "#3487da")};
+		--color-shadow-theme-toggle: #3487da;
+		
 		--color-border: #d9d9d9;
 		--color-fg-aux: #f7f7f7;
 		--color-link: #4c4ce6;
+		--color-link-hover: ${lighten(.38, "#4c4ce6")};
 		--color-text-inline-code: #9d00ec;
 		
 		--color-bg-inline-code: #f6f7f6;
@@ -55,12 +59,12 @@ const GlobalStyle = createGlobalStyle`
 		--color-bg-greentext: #fff9f5;
 		--color-border-greentext: #d9bfb7;
 		
-		--color-bg-admonition-tip: ${lighten(.55, "#789922")};
-		--color-bg-admonition-info: ${lighten(.33, "#3487da")};
+		--color-bg-admonition-tip: ${lighten(.6, "#789922")};
+		--color-bg-admonition-info: ${lighten(.38, "#3487da")};
 		--color-bg-admonition-experimental: ${lighten(.5, "#ddb100")};
-		--color-bg-admonition-caution: ${lighten(.33, "#e25e21")};
-		--color-bg-admonition-danger: ${lighten(.55, "#8B0000")};
-		--color-bg-admonition-fatal: ${lighten(.5, "#763053")};
+		--color-bg-admonition-caution: ${lighten(.45, "#e25e21")};
+		--color-bg-admonition-danger: ${lighten(.68, "#8B0000")};
+		--color-bg-admonition-fatal: ${lighten(.6, "#763053")};
 
 		--prism-foreground: #393a34;
 		--prism-background: #fbfbfb;
@@ -91,9 +95,13 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-primary: #ffcc00;
 		--color-bg-primary: #171717;
 		--color-fg-primary: #26282b;
-		--color-bg-toggle: #ffb454;
+		
+		--color-bg-theme-toggle: ${darken(.34, "#ffb454")};
+		--color-shadow-theme-toggle: #ffb454;
+		
 		--color-border: #383a3d;
 		--color-link: #0096cf;
+		--color-link-hover: ${darken(.3, "#0096cf")};
 		--color-text-inline-code: #ffb454;
 		--color-bg-inline-code: #1d1f21;
 		--color-motion-toggle: #ca6c9a;

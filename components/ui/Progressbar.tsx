@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const Progress: any = styled.div`
-    position: sticky;
-    height: 2px;
-    top: 0;
-    width: ${(props: any) => props.progress}%;
-    background: linear-gradient(to left, var(--color-text-secondary), var(--color-link));
-`
 
+const Progress:any = styled.div.attrs((props:any) => ({
+    style: {
+        width: props.progress + "%",
+    },
+}))`
+    position: sticky;
+    height: 4px;
+    top: 0;
+    background: linear-gradient(to left, var(--color-bg-theme-toggle), var(--color-shadow-theme-toggle));
+
+`;
 export const Progressbar = ({ target }: any) => {
     const [readingProgress, setReadingProgress] = useState(0);
     const scrollListener = () => {
