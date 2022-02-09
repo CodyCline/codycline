@@ -1,14 +1,15 @@
-
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
+import useSound from 'use-sound';
 import moon from "../public/assets/img/moon.png";
 import sun from "../public/assets/img/sun.png";
 import motion from "../public/assets/img/motion.png";
 import stopMotion from "../public/assets/img/stop_motion.png";
+import darkSound from "../public/assets/sfx/theme-dark.mp3";
+import lightSound from "../public/assets/sfx/theme-light.mp3";
 
-import Image from "next/image";
-
-const ToggleButton: any = styled.button`
+export const ToggleButton: any = styled.button`
   --toggle-size: 38px;
   --togle-padding: 4px;
   position: relative;
@@ -38,49 +39,61 @@ const ToggleButton: any = styled.button`
   },
 `;
 
-
-
 const ThemeToggle = () => {
-  const [activeTheme, setActiveTheme] = useState<any>(document.documentElement.dataset.theme);
-  const inactiveTheme: any = activeTheme === "light" ? "dark" : "light";
-  useEffect(() => {
-    document.documentElement.dataset.theme = activeTheme;
-    window.localStorage.setItem("theme", activeTheme);
-  }, [activeTheme]);
-  return (
-    <ToggleButton
-      hoverColor="var(--color-shadow-theme-toggle)"
-      backgroundColor="var(--color-bg-theme-toggle)"
-      aria-label={`Change to ${inactiveTheme} mode`}
-      title={`Change to ${inactiveTheme} mode`}
-      type="button"
-      onClick={() => setActiveTheme(inactiveTheme)}
-    >
-      {activeTheme === `dark`
-        ? <Image height={18} width={18} src={moon} />
-        : <Image height={18} width={18} src={sun} />
-      }
-    </ToggleButton>
-  );
+	const [activeTheme, setActiveTheme] = useState<any>(document.documentElement.dataset.theme);
+	const inactiveTheme: any = activeTheme === "light" ? "dark" : "light";
+	useEffect(() => {
+		document.documentElement.dataset.theme = activeTheme;
+		window.localStorage.setItem("theme", activeTheme);
+	}, [activeTheme]);
+
+	const [playThemeSound] = useSound(lightSound, {
+		
+		soundEnabled: false,
+	});
+	const [playDarkTheme] = useSound(darkSound, {
+		soundEnabled: false
+	});
+
+	return (
+		<ToggleButton
+			hoverColor="var(--color-shadow-theme-toggle)"
+			backgroundColor="var(--color-bg-theme-toggle)"
+			aria-label={`Change to ${inactiveTheme} mode`}
+			title={`Change to ${inactiveTheme} mode`}
+			type="button"
+			onClick={() => {
+				activeTheme === "dark" 
+					? playThemeSound({forceSoundEnabled: document.documentElement.dataset.volume === "on"})
+					: playDarkTheme({forceSoundEnabled: document.documentElement.dataset.volume === "on"})
+				setActiveTheme(inactiveTheme);
+			}}
+		>
+			{activeTheme === `dark`
+				? <Image height={18} width={18} src={moon} />
+				: <Image height={18} width={18} src={sun} />
+			}
+		</ToggleButton>
+	);
 };
 
 export default ThemeToggle;
 
 
 export const MotionToggle = ({ theme }: any) => {
-  const [activeMotion, setActiveMotion] = useState<any>(true);
-  const inactiveSetting: any = activeMotion ? "on" : "off";
-  return (
-    <ToggleButton
-      aria-label={`Toggle webstite animations ${inactiveSetting}`}
-      title={`Toggle website animations ${inactiveSetting}`}
-      // hoverColor="--color-motion-toggle"
-      onClick={() => setActiveMotion(!activeMotion)}
-    >
-      {activeMotion
-        ? <Image height={18} width={18} src={stopMotion} />
-        : <Image height={18} width={18} src={motion} />
-      }
-    </ToggleButton>
-  )
+	const [activeMotion, setActiveMotion] = useState<any>(true);
+	const inactiveSetting: any = activeMotion ? "on" : "off";
+	return (
+		<ToggleButton
+			aria-label={`Toggle webstite animations ${inactiveSetting}`}
+			title={`Toggle website animations ${inactiveSetting}`}
+			// hoverColor="--color-motion-toggle"
+			onClick={() => setActiveMotion(!activeMotion)}
+		>
+			{activeMotion
+				? <Image height={18} width={18} src={stopMotion} />
+				: <Image height={18} width={18} src={motion} />
+			}
+		</ToggleButton>
+	)
 }

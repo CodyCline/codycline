@@ -43,13 +43,25 @@ class MyDocument extends Document {
                     return "dark";
                 }
             }
+            
             document.documentElement.dataset.theme = getUserPreference();
+        `;
+        const setInitialVolume = `
+            function getSoundPreference() {
+                if(window.localStorage.getItem("volume")) {
+                    return window.localStorage.getItem("volume");
+                } else {
+                    return "on";
+                }
+            }
+            document.documentElement.dataset.volume = getSoundPreference();
         `;
         return (
             <Html>
                 <Head />
                 <body>
                     <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
+                    <script dangerouslySetInnerHTML={{ __html: setInitialVolume }} />
                     <Main />
                     <div id="__portal"/> 
                     <NextScript />

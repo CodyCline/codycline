@@ -5,7 +5,7 @@ import Image from "next/image";
 import { generateRssFeed } from "../lib/generate-rss";
 import { generateSitemap } from "../lib/generate-sitemap";
 import { Icon } from "../components/ui/Icon";
-import Admonition from "../components/Admonition";
+
 const Home = () => {
     return (
         <div>
@@ -14,6 +14,7 @@ const Home = () => {
                 <li>
                     posts
                 </li>
+                
                 
             </ul>
             <Image src="/content/build_it.gif" height={30} width={30}/>

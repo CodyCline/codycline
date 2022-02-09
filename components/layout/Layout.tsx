@@ -15,6 +15,12 @@ const ThemeToggle: any = dynamic((): any => import("../ThemeToggle"), {
     ssr: false,
 });
 
+const VolumeToggle:any = dynamic(():any => import("../VolumeToggle"), {
+    ssr: false,
+});
+
+
+
 const LayoutWrapper = styled.main`
     min-height: 100%;
 `
@@ -36,6 +42,10 @@ export const Layout = ({ children }:any) => {
                         <NavLink href="/projects">Projects</NavLink>
                         <NavLink href="/snippets">Snippets</NavLink>
                         <NavItem right>
+                            <MotionToggle/>
+                        </NavItem>
+                        <NavItem >
+                            <VolumeToggle/>
                             {/* <MotionToggle/> */}
                         </NavItem>
                         <NavItem>

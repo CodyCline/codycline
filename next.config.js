@@ -20,6 +20,15 @@ const metadata = {
 
 module.exports = withSuperjson()({
   reactStrictMode: true,
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.mp3$/,
+      use: {
+        loader: "url-loader",
+      },
+    });
+    return config;
+  },
   metadata: metadata,
   experimental: {
     // Enables the styled-components SWC transform
