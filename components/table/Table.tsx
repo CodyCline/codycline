@@ -1,7 +1,10 @@
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 import { useTable, useBlockLayout, useResizeColumns, useRowSelect } from "react-table";
 import { scrollbar } from "../styles/Scrollbar";
+import useSound from "use-sound";
+import copySound from "../../public/assets/sfx/copy.mp3";
+import { Snackbar } from "../ui/Tooltip";
 
 export const Resizer: any = styled.div`
     display: inline-block;
@@ -53,10 +56,16 @@ export const CellWrapper: any = styled.div`
     padding: .5rem 1rem;
     position: relative;
     margin: 0;
+    box-sizing: none;
+
+    &:hover {
+        cursor: help;
+    }
 
     &:focus {
-        outline: 3px solid var(--color-text-secondary);
-        color: var(--color-text-secondary);
+        background: var(--color-bg-admonition-tip);
+        color: var(--color-greentext);
+        outline: 1px solid var(--color-greentext);
     }
     &:last-child {
         border-right: 0;
@@ -75,7 +84,7 @@ export const HeaderCell: any = styled.div`
     background: var(--color-fg-primary);
 
     &:last-child {
-        border-right: 0;
+        border-right: none;
     }
 `;
 
@@ -86,16 +95,16 @@ export const Row: any = styled.div`
     margin: 0;
     
     position:relative;
+    border-right: 1px solid var(--color-border);
+
 
     &:hover {
         background: var(--color-fg-aux);
     }
-    :last-child {
+    
+    &:last-child > ${CellWrapper} {
         border-bottom: 0;
     }
-
-
-    
 `
 
 
@@ -109,12 +118,14 @@ export const TableCell = (props: any) => {
         const element = cellRef.current;
         if (element) {
             navigator.clipboard.writeText(element.innerText);
+            props.onCopy();
         }
     }
 
     return (
         <CellWrapper
             {...props}
+            title="Click to copy cell"
             ref={cellRef}
             onDoubleClick={copy}
             tabIndex={props.tabIndex}
@@ -134,6 +145,9 @@ export const TableBase = ({ data, columns }: any) => {
         []
     );
 
+    const [play] = useSound(copySound, { soundEnabled: false });
+    const [copied, setCopied] = useState(false);
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -150,7 +164,16 @@ export const TableBase = ({ data, columns }: any) => {
         useResizeColumns,
     );
 
+    const onCopy = () => {
+        setCopied(true);
+        play({forceSoundEnabled: document.documentElement.dataset.volume === "on"})
+        setTimeout(() => {
+            setCopied(false);
+        }, 2500)
+    }
+
     return (
+        <>
         <TableWrapper>
             <Table  {...getTableProps()}>
                 {headerGroups.map(headerRow => (
@@ -175,8 +198,8 @@ export const TableBase = ({ data, columns }: any) => {
                             <Row {...row.getRowProps()} >
                                 {/* Table cells */}
                                 {row.cells.map((cell, id: number) => (
-                                    <TableCell tabIndex={id} {...cell.getCellProps()}>
-                                        {cell.render(`Cell`)}
+                                    <TableCell onCopy={onCopy} tabIndex={id} {...cell.getCellProps()}>
+                                        {cell.render("Cell")}
                                     </TableCell>
                                 ))}
                             </Row>
@@ -185,5 +208,8 @@ export const TableBase = ({ data, columns }: any) => {
                 </TableBody>
             </Table>
         </TableWrapper>
+        <Snackbar toggled={copied}>copied</Snackbar>
+
+        </>
     );
 }

@@ -1,31 +1,11 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import useSound from 'use-sound';
+import { ToggleButton } from "./ThemeToggle";
 import volumeOn from "../public/assets/img/volume_on.png";
 import volumeOff from "../public/assets/img/volume_off.png";
 import muteSound from "../public/assets/sfx/mute.mp3";
 import unmuteSound from "../public/assets/sfx/unmute.mp3";
-import { ToggleButton } from "./ThemeToggle";
-
-export const useContextualVolume = (sound:any, settings?:any) => {
-  const [volume, setVolume] = useState(() => {
-    const stickyValue = window.localStorage.getItem("volume");
-    return stickyValue !== null
-        ? stickyValue
-        : "on";
-  });
-  const [playSound] = useSound(sound, {
-    soundEnabled: volume === "on",
-    ...settings
-  });
-  useEffect(() => {
-    window.localStorage.setItem("volume", volume);
-  }, [volume])
-  
-  return [playSound];
-}
-
-
 
 
 

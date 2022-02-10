@@ -11,13 +11,13 @@ const Svg:any = styled.svg`
 `
 
 
-export const Icon = ({ name, fill, title, noTitle, height, width, className }: any) => {
+export const Icon = ({ name, fill, title, noTitle, height, width, className, role }: any) => {
     const iconLib: any = { ...standardIcons, ...codeIcons, ...brandIcons };
     const currentIcon = iconLib[name];
     const exists = iconLib[name] !== undefined && typeof window !== undefined;
 
     return (
-        <i title={noTitle ? `` : `${title || name}`} style={{ height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block` }}>
+        <i role={role} title={noTitle ? `` : `${title || name}`} style={{ height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block` }}>
             <Svg
                 fill={fill}
                 className={className}

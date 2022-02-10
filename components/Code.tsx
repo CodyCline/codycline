@@ -3,6 +3,9 @@ import styled from "styled-components";
 import { Icon } from "./ui/Icon";
 import { scrollbar } from "./styles/Scrollbar";
 import Prism, { Token } from 'prismjs';
+import useSound from "use-sound";
+import { Snackbar } from "./ui/Tooltip";
+import copySound from "../public/assets/sfx/copy.mp3";
 
 export interface CodeProps {
     language: string
@@ -77,22 +80,30 @@ function tokenToReactNode(token: Token | string, i: number): ReactNode {
     }
 }
 
-
 export const Code = ({ language, title, children }: any) => {
     const codeRef = React.useRef<HTMLPreElement>(null);
-    const [data, replaceToken] = useState<Array<string | Token>>([])
-    function copyCode() {
+    const [data, replaceToken] = useState<Array<string | Token>>([]);
+    const [playCopySound] = useSound(copySound, { soundEnabled: false });
+    const [copied, setCopied] = useState(false);
+
+    const onCopy = () => {
         if (codeRef.current) {
+            playCopySound({forceSoundEnabled: document.documentElement.dataset.volume === "on"});
+            setCopied(true);
             navigator.clipboard.writeText(codeRef.current.innerText);
+            setTimeout(() => {
+                setCopied(false);
+            }, 2500)
         }
     }
+
     useEffect(() => {
         import("prismjs/components/prism-c");
         import(`prismjs/components/prism-${language}`).then(() => {
-          const tokens: Array<string | Token> = Prism.languages[ language ]
-            ? Prism.tokenize(children, Prism.languages[ language ])
-            : [];
-          replaceToken(tokens)
+            const tokens: Array<string | Token> = Prism.languages[language]
+                ? Prism.tokenize(children, Prism.languages[language])
+                : [];
+            replaceToken(tokens)
         }).catch((e) => {
             console.warn(`Failed to load highlighter for language: ${language}`)
             console.error(e);
@@ -103,17 +114,17 @@ export const Code = ({ language, title, children }: any) => {
         <CodeBlockContainer>
             <ToolBar>
                 <ToolBarTitle>
-                    <Icon name={language || `gear`} height={20} width={20} />
+                    <Icon role="img" noTitle name={language || `gear`} height={20} width={20} />
                     <FileName>{title}</FileName>
                 </ToolBarTitle>
-                <CopyIcon onClick={copyCode}>
-                    <Icon onClick={copyCode} noTitle name="copy" height={18} width={18} />
+                <CopyIcon onClick={onCopy}>
+                    <Icon fill={copied ? "var(--color-greentext)": "var(--color-text-primary)"} title="Click or tap to copy" onClick={onCopy} name={copied? "check" : "copy"} height={18} width={18} />
                 </CopyIcon>
             </ToolBar>
             <Pre style={{ borderBottomLeftRadius: `5px`, borderBottomRightRadius: `5px` }} ref={codeRef} className={`language-${language}`}>
                 {data.length ? data.map(tokenToReactNode) : children}
             </Pre>
-
+            <Snackbar toggled={copied}>copied!</Snackbar>
         </CodeBlockContainer>
     );
 }

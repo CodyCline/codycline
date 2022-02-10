@@ -2,6 +2,8 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Icon } from "./Icon";
 
+import hoverSound from "../../public/assets/sfx/hover.mp3";
+import useSound from "use-sound";
 
 const TagContainer: any = styled.button`
     font-size: var(--font-size-sm);
@@ -32,20 +34,21 @@ const TagText:any = styled.span`
 
 
 export const IconTag = ({ children, link, icon }: any) => {
+    const [play, { stop }] = useSound(hoverSound, { soundEnabled: false });
     return (
         <>
             {link ?
                 <Link href={link}>
-                    <TagContainer link={link}>
-                        {icon && <Icon height={18} width={18} name={icon.toLowerCase()} />}
+                    <TagContainer onMouseEnter={() => play({forceSoundEnabled: document.documentElement.dataset.volume === "on"})} onMouseLeave={() => stop()} link={link}>
+                        {icon && <Icon role="img" height={18} width={18} name={icon.toLowerCase()} />}
                         <TagText icon={icon}>
                             {children}
                         </TagText>
                     </TagContainer>
                 </Link>
                 :
-                <TagContainer>
-                    {icon && <Icon height={18} width={18} name={icon.toLowerCase()} />}
+                <TagContainer onMouseEnter={() => play({forceSoundEnabled: document.documentElement.dataset.volume === "on"})}>
+                    {icon && <Icon role="img" height={18} width={18} name={icon.toLowerCase()} />}
                     <TagText icon={icon}>
                         {children}
                     </TagText>

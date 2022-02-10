@@ -10,21 +10,23 @@ tags:
 
 # Intro 
 
-Here's a simple footnote,[^1] and here's a longer one.[^bignote]
+Here's a simple footnote,[^1] and here's a longer one.[^2]
 
 A todo list 
 
 * Fix compiler bug
 * Add support for closures
 * Really cool stuff
+  
 
-
-A n ordered list 
 1. Build the mainframe
-2. Wire the world
-3. Wire everythign!!!
-4. Play Skyrim
 
+2. Wire the world
+
+3. Wire everythign!!!
+
+4. Play Skyrim
+  
 ```cmake:cmakelists.txt
 [requires]
 poco/1.9.4
@@ -56,7 +58,7 @@ Indent
 
 
 [^1]: This is the first footnote.
-[^bignote]: Here's one with multiple paragraphs and code.
+[^2]: Here's one with multiple paragraphs and code.
 
     Indent paragraphs to include them in the footnote.
 
