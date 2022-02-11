@@ -118,7 +118,7 @@ export const Code = ({ language, title, children }: any) => {
                     <FileName>{title}</FileName>
                 </ToolBarTitle>
                 <CopyIcon onClick={onCopy}>
-                    <Icon fill={copied ? "var(--color-greentext)": "var(--color-text-primary)"} title="Click or tap to copy" onClick={onCopy} name={copied? "check" : "copy"} height={18} width={18} />
+                    <Icon fill={copied ? "var(--color-greentext)": "var(--color-text-default)"} title="Click or tap to copy" onClick={onCopy} name={copied? "check" : "copy"} height={18} width={18} />
                 </CopyIcon>
             </ToolBar>
             <Pre style={{ borderBottomLeftRadius: `5px`, borderBottomRightRadius: `5px` }} ref={codeRef} className={`language-${language}`}>

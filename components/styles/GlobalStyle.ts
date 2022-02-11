@@ -42,8 +42,8 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-default: #374151; 
 		--color-text-primary: #0366d6;
 		--color-text-secondary: #916BBF;
-		--color-bg-primary: #fff;
-		--color-fg-primary: #e3e3e3;
+		--color-bg-primary: #ffffff;
+		--color-fg-primary: #f0f0f0;
 		
 		--color-bg-theme-toggle: ${lighten(.27, "#3487da")};
 		--color-shadow-theme-toggle: #3487da;

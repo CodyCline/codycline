@@ -43,6 +43,7 @@ const admonitionIconFill = (type: AdmonitionType) => {
 
 const AdmonitionTitle = styled.h3`
     margin-bottom: .5rem;
+    display: inline-flex;
     ${truncate(1, "vertical")}
 `
 
@@ -53,9 +54,10 @@ const AdmonitionIcon = styled.span`
 
 const AdmonitionText = styled.span`
     margin-left: 3rem;
+    font-size: 20px;
 `
 
-const AdmonitionBody:any = styled.article`
+const AdmonitionBody: any = styled.article`
     display: flex; 
     flex-direction: column;
     margin: 36px 0;
@@ -63,6 +65,7 @@ const AdmonitionBody:any = styled.article`
     border: 1px solid var(--color-border);
     border-radius: 5px;
     padding: 1em;
+    overflow: hidden;
     transition: .25s ease-in-out;
     ${(props: any) => {
         const type: AdmonitionType = props.type;
@@ -117,7 +120,7 @@ const AdmonitionBody:any = styled.article`
                         color: var(--color-dark-purple);
                     }
                 `
-            default: 
+            default:
                 return `
                     background: var(--color-fg-aux);
                 `
@@ -127,13 +130,13 @@ const AdmonitionBody:any = styled.article`
 
 
 
- export const Admonition = ({ children, type, title }: any) => {
-    
+export const Admonition = ({ children, type, title }: any) => {
+
     return (
         <AdmonitionBody type={type}>
             <AdmonitionTitle>
                 <AdmonitionIcon>
-                    <Icon fill={admonitionIconFill(type)}  height={32} width={32} name={admonitionIcon(type as AdmonitionType)}/>
+                    <Icon fill={admonitionIconFill(type)} height={32} width={32} name={admonitionIcon(type as AdmonitionType)} />
                 </AdmonitionIcon>
                 {title}
             </AdmonitionTitle>

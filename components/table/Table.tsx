@@ -125,7 +125,7 @@ export const TableCell = (props: any) => {
     return (
         <CellWrapper
             {...props}
-            title="Click to copy cell"
+            title="Double click to copy cell"
             ref={cellRef}
             onDoubleClick={copy}
             tabIndex={props.tabIndex}
@@ -208,7 +208,7 @@ export const TableBase = ({ data, columns }: any) => {
                 </TableBody>
             </Table>
         </TableWrapper>
-        <Snackbar toggled={copied}>copied</Snackbar>
+        <Snackbar toggled={copied}>copied!</Snackbar>
 
         </>
     );
