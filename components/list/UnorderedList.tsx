@@ -15,16 +15,14 @@ export const UnorderedList = styled.ul`
     }
 
     ${ListItem}::before {
-        content: "(-)";
+        content: "(!)";
         position: absolute;
         color: var(--color-text-secondary); /* Change the color */
         font-weight: bold; /* If you want it to be bold */
-        display: inline-block; /* Needed to add space between the bullet and the text */
         width: var(--size); 
         height: var(--size);
         left: calc(-1 * var(--size));
         text-align: center;
-        line-height: calc(var(--size) - var(--border-width));
     }
 `
 

@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import { darken, lighten } from "polished";
 import "prism-theme-vars/base.css";
-import "katex/dist/katex.min.css";
-import { cssVar, darken, lighten } from "polished";
 
 //Use these 
 // # Colors #32c8f5

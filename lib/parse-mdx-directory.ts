@@ -6,9 +6,7 @@ import { getAllFilesRecursively } from "./utils/files";
 import { formatSlug } from "./utils/format-slug";
 import { serialize } from "next-mdx-remote/serialize";
 // Remark packages
-import remarkFootnotes from "remark-footnotes"
 import remarkGfm  from "remark-gfm";
-import remarkMath from "remark-math";
 import remarkTocHeadings from "./utils/toc-headings";
 import markdown from "remark-parse";
 import emoji from "remark-emoji";
@@ -16,7 +14,6 @@ import emoji from "remark-emoji";
 import rehypeSlug from "rehype-slug";
 import imageMetadata from "./image-metadata";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeKatex from "rehype-katex"
 import rehypeCitation from "rehype-citation"
 //Scans through a folder of files with .mdx or .md extensions and returns
 //An array of objects containing the rawContent, frontmatter, and file Stats
@@ -60,17 +57,14 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
         // https://github.com/mdx-js/mdx/blob/master/packages/mdx/index.js
         mdxOptions: {
             remarkPlugins: [
-                markdown,
                 remarkGfm,
                 [remarkTocHeadings, { exportRef: toc }],
-                remarkMath,
                 emoji,
 
             ],
             rehypePlugins: [
                 rehypeSlug,
                 rehypeAutolinkHeadings,
-                rehypeKatex,
                 imageMetadata,
                 [
                     rehypeCitation,

@@ -62,34 +62,52 @@ const component = () => {
 }
 ```
 
-<Admonition type="note" title="A quick note ...">
+
+<tabs>
+<tab title="C++">
+Hello World
+
+```cpp
+    int main () {
+        std::cout <<>>
+    }
+```
+</tab>
+<tab title="C++">
+    Hello World
+</tab>
+</tabs>
+  
+<admonition type="note" title="A quick note ...">
     A note from the author
-</Admonition>
+</admonition>
 
-<Admonition type="tip" title="Productivity Tip">
+<admonition type="tip" title="Productivity Tip">
     Use macros to type check your code and prevent redundant typings
-</Admonition>
+</admonition>
 
-<Admonition type="info" title="A quick note ...">
+<admonition type="info" title="A quick note ...">
     Hello
-</Admonition>
+</admonition>
 
-<Admonition type="experimental" title="A quick note ...">
+<admonition type="experimental" title="A quick note ...">
     Caution! This feature is an experimental feature and may cause unintended side-effects in your codebase. 
-</Admonition>
+</admonition>
 
-<Admonition type="caution" title="A quick note ...">
+<admonition type="caution" title="A quick note ...">
     Warning 
-</Admonition>
+</admonition>
 
-<Admonition type="danger" title="Danger!!!">
+<admonition type="danger" title="Danger!!!">
     If you are not careful doing the following below can cause irreversible memory corruption to your machine! Proceed with extreme caution
-</Admonition>
+</admonition>
 
-<Admonition type="fatal" title="Your final warning!!!">
+<admonition type="fatal" title="Your final warning!!!">
     Do not replicate below for malicious or otherwise nefarious purposes! Doing so may put you in jeopardy of legal, criminal and financial punishment.
-</Admonition>
+</admonition>
+  
 
+  
 ```rust:main.rs
 #[derive(Debug)]
 pub enum State {
@@ -109,16 +127,15 @@ impl From<&'a str> for State {
 }
 ```
 
-<Bookmark href="https://pkg.go.dev"/>
+<spoiler title="hello">
+You spoiled me 
 
-<Bookmark href="https://slack.com/"/>
+# hello
 
-<Bookmark href="https://discord.gg/">
-<Bookmark href="https://nuget.com"/>
-
-<Spoiler title="hello">
-    You spoiled me
-</Spoiler>
+```rust
+console.warn("WORKING?!");
+```
+</spoiler>
 
 Concurrent mode in react is an experimental feature [according to their website](https://reactjs.org/)
 

@@ -10,10 +10,11 @@ import { ListItem } from "../components/list/ListItem";
 import { UnorderedList } from "../components/list/UnorderedList";
 import { Bookmark, Link } from "./ui/Link";
 import { Admonition } from "./Admonition";
+import { Tab, Tabs } from "./Tabs";
 
 const mdxComponents = {
-    code: (props:any) => { 
-        const separate: string[] = props.className.includes(":")? props.className.split(`:`) : [props.className];
+    code: (props:any) => {
+        const separate: string[] = props.className?.includes(":")? props.className.split(`:`) : [props.className];
         const language: string | null = separate[0].split(`language-`).join(``);
         const title: string | null = separate[1] ? separate[1].split(``).join(``) : null;
         return (
@@ -34,9 +35,15 @@ const mdxComponents = {
     ul: UnorderedList,
     li: ListItem,
     blockquote: Quote,
-    spoiler: Spoiler,
+    spoiler: (props:any) => {
+        return (
+            <Spoiler {...props}>{props.children}</Spoiler>
+        )
+    },
     bookmark: Bookmark,
-    admonition: Admonition
+    admonition: Admonition,
+    tab: Tab,
+    tabs: Tabs,
 }
 
 export const MdxRenderer = ({ source }: any) => (
