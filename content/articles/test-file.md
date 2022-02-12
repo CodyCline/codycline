@@ -99,7 +99,20 @@ Hello World
 </admonition>
 
 <admonition type="danger" title="Danger!!!">
-    If you are not careful doing the following below can cause irreversible memory corruption to your machine! Proceed with extreme caution
+
+
+```csharp
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Azure.Cosmos;
+using Xunit;
+
+namespace Microsoft.Bot.Builder.Azure.Tests
+{
+}
+```
 </admonition>
 
 <admonition type="fatal" title="Your final warning!!!">
@@ -107,7 +120,6 @@ Hello World
 </admonition>
   
 
-  
 ```rust:main.rs
 #[derive(Debug)]
 pub enum State {

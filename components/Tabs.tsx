@@ -10,7 +10,8 @@ const TabsContainer = styled.section`
 const TabItem: any = styled.li`
     cursor: pointer;
     padding: 10px 25px;
-    background: var(--color-fg-primary);
+    background: var(--prism-background);
+
 
     border-top: 1px solid var(--color-border);
     border-right: 1px solid var(--color-border);
@@ -20,6 +21,9 @@ const TabItem: any = styled.li`
     ${(props: any) => props.isActive && `
         color: var(--color-text-secondary);
         border-bottom: 1px solid var(--color-text-secondary);
+        background: var(--color-fg-primary);
+        // margin-bottom: 1px;
+
     `}
 
     &:first-child {
@@ -36,9 +40,11 @@ const TabsBody = styled.div`
     background: var(--prism-background);
     border: 1px solid var(--color-border);
     min-height: 30vh;
+    border-top-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 10px 25px;
+    font-size: 20px;
 `
 
 const TabsHeader = styled.ul`
@@ -71,23 +77,14 @@ export const Tabs = ({ children }: any) => {
     return (
         <TabsContainer>
             <TabsHeader>
-                {React.Children.map(children, (child: any, idx: number) => {
-                    // if(typeof child === "string") {
-                    //     return;
-                    // } else {
-                    //     return (
-                            
-                    //     );
-                    // }
-                    return (
-                        <Tab
-                                key={idx}
-                                title={child?.props?.title}
-                                onClick={() => setActiveTab(idx)}
-                                isActive={activeTab == idx}
-                            />
-                    )
-                })}
+                {React.Children.map(children, (child: any, idx: number) => (
+                    <Tab
+                        key={idx}
+                        title={child?.props?.title}
+                        onClick={() => setActiveTab(idx)}
+                        isActive={activeTab == idx}
+                    />
+                ))}
             </TabsHeader>
             <TabsBody>
                 {React.Children.count(children) <= 1 

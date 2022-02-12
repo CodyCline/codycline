@@ -5,24 +5,28 @@ import { ListItem } from "./ListItem";
 
 export const UnorderedList = styled.ul`
     list-style: none;
-    --size: 2rem;
+    --size: 20px;
     --border-width: 1px;
 
-    padding-left: calc(var(--size) - var(--border-width));
+    margin: 0;
+    padding: 0;
 
     ${ListItem} {
-        position: relative;
+        display: flex;
+        align-items: baseline;        
     }
 
     ${ListItem}::before {
         content: "(!)";
-        position: absolute;
+        margin-right: .5em;
         color: var(--color-text-secondary); /* Change the color */
         font-weight: bold; /* If you want it to be bold */
-        width: var(--size); 
+        width: var(--size);
         height: var(--size);
         left: calc(-1 * var(--size));
-        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
     }
 `
 

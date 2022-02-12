@@ -35,11 +35,7 @@ const mdxComponents = {
     ul: UnorderedList,
     li: ListItem,
     blockquote: Quote,
-    spoiler: (props:any) => {
-        return (
-            <Spoiler {...props}>{props.children}</Spoiler>
-        )
-    },
+    spoiler: Spoiler,
     bookmark: Bookmark,
     admonition: Admonition,
     tab: Tab,
