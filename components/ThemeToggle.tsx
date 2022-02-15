@@ -48,7 +48,6 @@ const ThemeToggle = () => {
 	}, [activeTheme]);
 
 	const [playThemeSound] = useSound(lightSound, {
-		
 		soundEnabled: false,
 	});
 	const [playDarkTheme] = useSound(darkSound, {
@@ -63,9 +62,9 @@ const ThemeToggle = () => {
 			title={`Change to ${inactiveTheme} mode`}
 			type="button"
 			onClick={() => {
-				activeTheme === "dark" 
-					? playThemeSound({forceSoundEnabled: document.documentElement.dataset.volume === "on"})
-					: playDarkTheme({forceSoundEnabled: document.documentElement.dataset.volume === "on"})
+				activeTheme === "dark"
+					? playThemeSound({ forceSoundEnabled: document.documentElement.dataset.volume === "on" })
+					: playDarkTheme({ forceSoundEnabled: document.documentElement.dataset.volume === "on" })
 				setActiveTheme(inactiveTheme);
 			}}
 		>
@@ -81,18 +80,19 @@ export default ThemeToggle;
 
 
 export const MotionToggle = ({ theme }: any) => {
-	const [activeMotion, setActiveMotion] = useState<any>(true);
-	const inactiveSetting: any = activeMotion ? "on" : "off";
+	const [activeMotion, setActiveMotion] = useState<any>("on");
+	const inactiveSetting: any = activeMotion === "on" ? "off" : "on";
 	return (
 		<ToggleButton
-			aria-label={`Toggle webstite animations ${inactiveSetting}`}
+			aria-label={`Toggle website animations ${inactiveSetting}`}
 			title={`Toggle website animations ${inactiveSetting}`}
-			// hoverColor="--color-motion-toggle"
-			onClick={() => setActiveMotion(!activeMotion)}
+			hoverColor="var(--color-shadow-motion-toggle)"
+			backgroundColor={activeMotion === "on" ? `var(--color-bg-motion-toggle-on)` : `var(--color-bg-motion-toggle-off)`}
+			onClick={() => setActiveMotion(inactiveSetting)}
 		>
-			{activeMotion
-				? <Image height={18} width={18} src={stopMotion} />
-				: <Image height={18} width={18} src={motion} />
+			{activeMotion === "on"
+				? <Image height={18} width={18} src={motion} />
+				: <Image height={18} width={18} src={stopMotion} />
 			}
 		</ToggleButton>
 	)

@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { darken, lighten } from "polished";
+import { darken, desaturate, lighten, saturate } from "polished";
 import "prism-theme-vars/base.css";
 
 //Use these 
@@ -46,7 +46,15 @@ const GlobalStyle = createGlobalStyle`
 		
 		--color-bg-theme-toggle: ${lighten(.27, "#3487da")};
 		--color-shadow-theme-toggle: #3487da;
-		
+
+		--color-shadow-motion-toggle: #d65f33;
+		--color-bg-motion-toggle-on: ${lighten(.27, "#d65f33")};
+		--color-bg-motion-toggle-off: ${desaturate(.1, "#d65f33")};
+
+		--color-shadow-volume-toggle: #33d69d;
+		--color-bg-volume-toggle-on: ${lighten(.27, "#33d69d")};
+		--color-bg-volume-toggle-off: ${desaturate(.1, "#33d69d")}; 
+
 		--color-border: #d9d9d9;
 		--color-fg-aux: #f7f7f7;
 		--color-link: #4c4ce6;
@@ -54,7 +62,6 @@ const GlobalStyle = createGlobalStyle`
 		--color-text-inline-code: #9d00ec;
 		
 		--color-bg-inline-code: #f6f7f6;
-		--color-motion-toggle: red;
 		--color-bg-greentext: #fff9f5;
 		--color-border-greentext: #d9bfb7;
 		
@@ -63,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
 		--color-bg-admonition-experimental: ${lighten(.5, "#ddb100")};
 		--color-bg-admonition-caution: ${lighten(.45, "#e25e21")};
 		--color-bg-admonition-danger: ${lighten(.68, "#8B0000")};
-		--color-bg-admonition-fatal: ${lighten(.6, "#763053")};
+		--color-bg-admonition-critical: ${lighten(.6, "#763053")};
 
 		--prism-foreground: #393a34;
 		--prism-background: #fbfbfb;
@@ -97,13 +104,20 @@ const GlobalStyle = createGlobalStyle`
 		
 		--color-bg-theme-toggle: ${darken(.34, "#ffb454")};
 		--color-shadow-theme-toggle: #ffb454;
+
+		--color-shadow-motion-toggle: #ad4e42; 
+		--color-bg-motion-toggle-on: ${darken(.27, "#ad4e42")};
+		--color-bg-motion-toggle-off: ${desaturate(.1, "#ad4e42")};
+
+		--color-shadow-volume-toggle: #42ad88;
+		--color-bg-volume-toggle-on: ${darken(.27, "#42ad88")};
+		--color-bg-volume-toggle-off: ${desaturate(.1, "#42ad88")};
 		
 		--color-border: #383a3d;
 		--color-link: #0096cf;
 		--color-link-hover: ${darken(.3, "#0096cf")};
 		--color-text-inline-code: #ffb454;
 		--color-bg-inline-code: #1d1f21;
-		--color-motion-toggle: #ca6c9a;
 		--color-bg-greentext: #382213;
 		--color-border-greentext: #7e7567;
 
@@ -112,7 +126,7 @@ const GlobalStyle = createGlobalStyle`
 		--color-bg-admonition-experimental: ${darken(.38, "#ddb100")};
 		--color-bg-admonition-caution: ${darken(.4, "#e25e21")};
 		--color-bg-admonition-danger: ${darken(.19, "#8B0000")};
-		--color-bg-admonition-fatal: ${darken(.25, "#763053")};
+		--color-bg-admonition-critical: ${darken(.25, "#763053")};
 
 		--prism-scheme: dark;
 		--prism-foreground: #d4cfbf;
@@ -159,7 +173,6 @@ const GlobalStyle = createGlobalStyle`
 		font-family: var(--font-family-default);
 
 		-webkit-text-size-adjust: 100%;
-		// line-height: 1.7;
 		font-size: 16px;
 
 		background: var(--color-bg-primary);
@@ -189,6 +202,10 @@ const GlobalStyle = createGlobalStyle`
 
 	#root, #__next {
 		isolation: isolate;
+	}
+
+	body:not(canvas) {
+		overflow-x: hidden;
 	}
 
 `

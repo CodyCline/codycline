@@ -6,27 +6,21 @@ import { generateRssFeed } from "../lib/generate-rss";
 import { generateSitemap } from "../lib/generate-sitemap";
 import { Icon } from "../components/ui/Icon";
 import { Tab, Tabs } from "../components/Tabs";
+import { Answer, Prompt, Quiz } from "../components/Quiz";
 
 const Home = () => {
     return (
         <div>
-            <h1>Hello</h1>
-            <ul>
-                <li>
-                    posts
-                </li>
-            </ul>
-            <Tabs>
-                <Tab title="Hello World">
-                    Hello
-                </Tab>
-                <Tab title="Hello World">
-                    Other hello
-                </Tab>
-            </Tabs>
-            <Image src="/content/build_it.gif" height={30} width={30}/>
+            <Quiz>
+                <Prompt>
+                    The term Raii stands for
+                </Prompt>
+                <Answer correct>Resource acquisition is initialization</Answer>
+                <Answer>Resource Allocator Indeterminite Interface</Answer>
+                <Answer>Runtime Allocater Interface Input</Answer>
+                <Answer>Runtime Acquisition Is Infinite</Answer>
+            </Quiz>
             <IconTag icon="tf">4chan</IconTag>
-            <Icon height={50} width={50} name="chef"/>
             <IconTag icon="llvm">llvm</IconTag>
             <IconTag icon="cookbook">assembly</IconTag>
             <IconTag icon="patch">patch 2.2</IconTag>

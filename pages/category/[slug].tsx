@@ -17,7 +17,6 @@ const CategoryPage = ({ articles, snippets, projects }: any) => {
     const router = useRouter();
     const { slug } = router.query;
     const currentCategory = slug?.toString().replace(/./, c => c.toUpperCase())
-    console.log(currentCategory);
     return (
         <div>
             <TagSeo

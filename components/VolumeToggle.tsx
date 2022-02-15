@@ -22,8 +22,8 @@ const VolumeToggle = () => {
 
   return (
     <ToggleButton
-      hoverColor="var(--color-shadow-theme-toggle)"
-      backgroundColor="var(--color-bg-theme-toggle)"
+      hoverColor="var(--color-shadow-volume-toggle)"
+      backgroundColor={volume === "on" ? `var(--color-bg-volume-toggle-on)` : `var(--color-bg-volume-toggle-off)`}
       aria-label={`Turn website sounds ${inactiveSetting}`}
       title={`Turn website sounds ${inactiveSetting}`}
       type="button"

@@ -11,6 +11,8 @@ import { UnorderedList } from "../components/list/UnorderedList";
 import { Bookmark, Link } from "./ui/Link";
 import { Admonition } from "./Admonition";
 import { Tab, Tabs } from "./Tabs";
+import { Answer, Prompt, Quiz } from "./Quiz";
+import { Hr } from "./ui/Hr";
 
 const mdxComponents = {
     code: (props:any) => {
@@ -34,12 +36,16 @@ const mdxComponents = {
     ol: OrderedList,
     ul: UnorderedList,
     li: ListItem,
+    hr: Hr,
     blockquote: Quote,
     spoiler: Spoiler,
     bookmark: Bookmark,
     admonition: Admonition,
     tab: Tab,
     tabs: Tabs,
+    quiz: Quiz,
+    answer: Answer,
+    prompt: Prompt,
 }
 
 export const MdxRenderer = ({ source }: any) => (

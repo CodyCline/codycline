@@ -20,12 +20,11 @@ export const OrderedList = styled.ol`
     }
 
     & ${ListItem}::before {
+        content: counter(list-counter);
         display: inline-flex;
         justify-content: center;
         align-items: center;
         margin-right: .5em;
-
-        content: counter(list-counter);
         color: var(--color-text-secondary);
         font-weight: bold;
         width: var(--size); 

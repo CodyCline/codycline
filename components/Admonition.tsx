@@ -10,7 +10,7 @@ enum AdmonitionType {
     EXPERIMENTAL = "experimental",
     CAUTION = "caution",
     DANGER = "danger",
-    FATAL = "fatal",
+    CRITICAL = "critical",
 }
 
 
@@ -22,7 +22,7 @@ const admonitionIcon = (type: AdmonitionType) => {
         case AdmonitionType.EXPERIMENTAL: return `beaker`;
         case AdmonitionType.CAUTION: return `warning`;
         case AdmonitionType.DANGER: return `fire`;
-        case AdmonitionType.FATAL: return `skull`;
+        case AdmonitionType.CRITICAL: return `skull`;
         default: return `pinned`;
     }
 }
@@ -36,7 +36,7 @@ const admonitionIconFill = (type: AdmonitionType) => {
         case AdmonitionType.EXPERIMENTAL: return `var(--color-yellow)`;
         case AdmonitionType.CAUTION: return `var(--color-orange)`;
         case AdmonitionType.DANGER: return `var(--color-red)`;
-        case AdmonitionType.FATAL: return `var(--color-dark-purple)`;
+        case AdmonitionType.CRITICAL: return `var(--color-dark-purple)`;
         default: return `var(--color-text-primary)`;
     }
 }
@@ -112,9 +112,9 @@ const AdmonitionBody: any = styled.article`
                         color: var(--color-red);
                     }
                 `
-            case AdmonitionType.FATAL: //Strongest of warnings will be a dark purple 
+            case AdmonitionType.CRITICAL: //Strongest of warnings will be a dark purple 
                 return `
-                    background: var(--color-bg-admonition-fatal);
+                    background: var(--color-bg-admonition-critical);
                     border-color: var(--color-dark-purple);
                     & ${AdmonitionTitle} {
                         color: var(--color-dark-purple);

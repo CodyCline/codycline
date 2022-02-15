@@ -64,7 +64,24 @@ const component = () => {
 
 
 <tabs>
-<tab title="C++">
+<tab title="Csharp" icon="csharp">
+Hello World
+
+```csharp
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.Azure.Cosmos;
+using Xunit;
+
+namespace Microsoft.Bot.Builder.Azure.Tests
+{
+}
+```
+
+</tab>
+<tab title="C++" icon="c++">
 Hello World
 
 ```cpp
@@ -72,9 +89,17 @@ Hello World
         std::cout <<>>
     }
 ```
+    
 </tab>
-<tab title="C++">
-    Hello World
+<tab icon="rust" title="Rust">
+  
+Ensure this implementation uses 2018 edition!
+
+```rs
+fn main() -> Result<Ip4addr> {
+    println!("FOO");
+}
+```
 </tab>
 </tabs>
   
@@ -101,21 +126,10 @@ Hello World
 <admonition type="danger" title="Danger!!!">
 
 
-```csharp
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.Azure.Cosmos;
-using Xunit;
-
-namespace Microsoft.Bot.Builder.Azure.Tests
-{
-}
-```
+Danger
 </admonition>
 
-<admonition type="fatal" title="Your final warning!!!">
+<admonition type="critical" title="Your final warning!!!">
     Do not replicate below for malicious or otherwise nefarious purposes! Doing so may put you in jeopardy of legal, criminal and financial punishment.
 </admonition>
   

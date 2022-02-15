@@ -2,22 +2,63 @@
 title: Rust closures
 description: What the heck are closures in rust?!
 published: 2022-1-02T21:30:35.394Z
-tags: 
-- rust
-- vscode
-- docker
+tags:
+  - rust
+  - vscode
+  - docker
 ---
 
-# Intro 
+# Intro
 
 Here's a simple footnote,[^1] and here's a longer one.[^2]
 
-A todo list 
+A todo list
 
-* Fix compiler bug
-* Add support for closures
-* Really cool stuff
+- Fix compiler bug
+- Add support for closures
+- Really cool stuff
   
+  
+# Question 1
+
+```rust:main.rs
+fn main() {
+    println!("hello");
+}
+```
+
+<quiz>
+<prompt>
+
+### Question 1
+The acronym RAII stands for ...
+
+
+</prompt>
+    <answer correct>Resource acquisition is initialization</answer>
+    <answer>Resource Allocator Indeterminite Interface `r` </answer>
+    <answer>Runtime Allocater Interface Input</answer>
+    <answer>Runtime Acquisition Is Infinite</answer>
+</quiz>
+
+<quiz>
+<prompt>
+
+### Question 2
+
+Given the following code below, what will the output be?
+
+```rust
+fn main() {
+    println!("Hello World");
+}
+```
+</prompt>
+    <answer correct>Hello World</answer>
+    <answer>0x48656c6c6f20576f726c640a</answer>
+    <answer >Idk</answer>
+    <answer>What?</answer>
+</quiz>
 
 1. Build the mainframe
 
@@ -26,7 +67,7 @@ A todo list
 3. Wire everythign!!!
 
 4. Play Skyrim
-  
+
 ```cmake:cmakelists.txt
 [requires]
 poco/1.9.4
@@ -49,21 +90,11 @@ cmake
  target_link_libraries(md5 ${CONAN_LIBS})
 ```
 
-
 This is an example of multiple definitions for a single term.
 
 Indent
-: (*noun*) A whitespace to align text in a beautiful way.
-: (*verb*) To add whitespace to make ugly code beautiful.
-
+: (_noun_) A whitespace to align text in a beautiful way.
+: (_verb_) To add whitespace to make ugly code beautiful.
 
 [^1]: This is the first footnote.
 [^2]: Here's one with multiple paragraphs and code.
-
-    Indent paragraphs to include them in the footnote.
-
-    `{ my code }`
-
-    Add as many paragraphs as you like.
-
-

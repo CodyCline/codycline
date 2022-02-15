@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Icon } from "./ui/Icon";
 
 
 const TabsContainer = styled.section`
@@ -20,9 +21,8 @@ const TabItem: any = styled.li`
 
     ${(props: any) => props.isActive && `
         color: var(--color-text-secondary);
-        border-bottom: 1px solid var(--color-text-secondary);
+        border-bottom: 2px solid var(--color-text-secondary);
         background: var(--color-fg-primary);
-        // margin-bottom: 1px;
 
     `}
 
@@ -60,20 +60,27 @@ const TabTitle = styled.h4`
     margin-block-end: 0;
 `;
 
-const ActiveTabBar = styled.div`
+const IconContainer = styled.span`
+    margin-right: 1em;
 `
 
 export const Tab = (props: any) => {
     return (
         <TabItem {...props} onClick={props.onClick} isActive={props.isActive}>
-            <TabTitle>{props.title}</TabTitle>
+            <TabTitle>
+                {props.icon &&
+                    <IconContainer>
+                        <Icon name={props.icon} width={20} height={20}/>
+                    </IconContainer>
+                }
+                {props.title}
+            </TabTitle>
         </TabItem>
     )
 }
 
 export const Tabs = ({ children }: any) => {
     const [activeTab, setActiveTab] = React.useState<number>(0);
-    console.log(children)
     return (
         <TabsContainer>
             <TabsHeader>
@@ -81,6 +88,7 @@ export const Tabs = ({ children }: any) => {
                     <Tab
                         key={idx}
                         title={child?.props?.title}
+                        icon={child?.props?.icon}
                         onClick={() => setActiveTab(idx)}
                         isActive={activeTab == idx}
                     />

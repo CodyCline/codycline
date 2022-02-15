@@ -46,7 +46,6 @@ export const Layout = ({ children }:any) => {
                         </NavItem>
                         <NavItem >
                             <VolumeToggle/>
-                            {/* <MotionToggle/> */}
                         </NavItem>
                         <NavItem>
                             <ThemeToggle/>

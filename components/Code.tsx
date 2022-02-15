@@ -24,7 +24,6 @@ const Pre = styled.pre`
     overflow: auto;
     border: 1px solid var(--color-border);
     border-top: none;
-    // border-radius: 5px;
 
 
 `
