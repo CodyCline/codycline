@@ -1,8 +1,3 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
 <h1 align="center">
   Portfolio Website
 </h1>
@@ -19,58 +14,44 @@ Portfolio website and blog with developer-focused content 🛸
 A quick look at the top-level files and directories you'll see in this Gatsby project.
 
     ├── node_modules
-    ├── __mocks__
+    ├── components
     ├── content
-    ├── static
-      ├── blog
-      └── projects
-    ├── src
+    ├── public
       ├── assets
-      ├── components
-      ├── pages
-      ├── styles
-      ├── templates
-      ├── types
-      └── utils
+        ├── icons
+        ├── img
+        └── sfx
+      ├── content
+      └── rss
+    ├── pages
+    ├── types
+    └── utils
     ├── functions
     ├── .github
       └── workflows
     ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── jest.config.js
-    ├── jest-pre-process.js
-    ├── setup-test-env.js
-    ├── loadershim.js
+    ├── .eslintrc.json
+    ├── next.config.js
     ├── LICENSE
+    ├── APP_README.md
     ├── package-lock.json
     ├── package.json
     └── README.md
 
 
-1.  **`/src`**: Contains all of the code related to the front-end presentation of the site (the browser).
-    1.  **`/assets`**: Static files such as logos, fonts, pictures.
+1. The following contains all of the code related to the front-end presentation of the site (the browser).
+    1.  **`/public`**: Static files which contain icons, images, sfx, logos, rss
     2. **`/components`**: Core part of the project which contain elements that make up the website.
-    3. **`/pages`**: Individual static pages such as home page, 404, etc.
-    4. **`/styles`**: CSS and Sass modules which define color schemes, variables for the whole project.
-    5. **`/templates`**: Defines dynamic pages such as blog posts.
-    6. **`/types`**: Typescript definitions for all components.
-    7. **`/utils`**: Miscellaneous or higher-order-functions (HOC).
+    3. **`/pages`**: Individual static pages such as home page, 404, etc
+    4. **`/lib`**: Core functions of website which load content, generate rss feed, etc.
+    5. **`/types`**: Typescript definitions for all components.
+    6. **`/utils`**: Miscellaneous or higher-order-functions (HOC).
 
 2.  **`/content`**: Markdown files for blog posts projects, snippets
 
-3. **`tests`**: The following files are used for testing.
-  1. **`jest.config.js`**: Main configuration file for testing.
-  2. **`jest-pre-process.js`**: Config file
-  3. **`setup-test-env.js`**: Config file
-  4. **`loadershim.js`**: Config file
-  5. **`__mocks__`**: Used for mocking modules and APIs
-  6. **``**: Where test files and snapshots live.
+3. **`/tests`**: TODO
 
-4.  **`/functions`**: Serverless functions which handles HTTP security headers, etc.
+4.  **`/functions`**: Serverless functions which handles HTTP security headers, backend functions
 
 5.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
@@ -78,17 +59,9 @@ A quick look at the top-level files and directories you'll see in this Gatsby pr
 
 7.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-8.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.com/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+8.  **`next.config.js`**: For custom advanced configuration of Next.js apps. [Reference](https://nextjs.org/docs/api-reference/next.config.js/introduction)
 
-9.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site such as title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.com/docs/gatsby-config/) for more detail).
-
-10.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.com/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
-
-11.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.com/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
-
-12. **`create-XXX-pages.js`**: These files configure dynamic pages for separate types of content such as blog posts or tag pages. More information on the [Gatsby create pages API](https://www.gatsbyjs.com/docs/creating-and-modifying-pages/)
-
-13.  **`LICENSE`**: This Gatsby starter is licensed under the 0BSD license. This means that you can see this file as a placeholder and replace it with your own license.
+13.  **`LICENSE`**: Licensed under the 0BSD license. 
 
 14. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
@@ -137,4 +110,41 @@ Uses Jest for unit testing, snapshots, and graphql tests. React testing library 
 ## TODO
 
 ## 💫 Deploy
+
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
 

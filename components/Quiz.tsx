@@ -8,31 +8,58 @@ import styled from "styled-components"
 import { truncate } from "./styles/Truncate"
 import Confetti from "react-confetti";
 import { scrollbar } from "./styles/Scrollbar";
+import { media } from "./styles/Media";
+
+
 const QuizWrapper = styled.div`
     margin: 36px 0;
 `;
 
-const QuizContainer = styled.section`
+const QuizContainer:any = styled.section`
     background: var(--prism-background);
     border-radius: 5px;
     margin: 0 auto;
     padding: 0 2em;
     border: 1px solid var(--color-border);
+
+    ${(props:any) => {
+        if (props.answered) {
+            if (props.correct) {
+                //Show correct 
+                return `
+                    border-color: var(--color-greentext);
+                `
+            } else if (!props.correct && props.selected) {
+                return `
+                    border-color: var(--color-red);
+                `
+            }
+        }
+    }}
+
     overflow-x: auto;
     ${scrollbar()}
 `
 
 const OptionContainer = styled.ul`
-    display: flex; 
-    flex-direction: column;
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
     margin: 0 0 1em 0;
     padding: 0;
+    padding-bottom: 2em;
     list-style: none;
     min-width: 300px;
+
+    ${media.phone`
+        grid-template-columns: 1fr;
+    `}
+    ${media.tablet`
+        grid-template-columns: 1fr;
+    `}
 `;
 
 const AnswerWrapper: any = styled.li`
-    margin: .75em 0;
     padding: .25em;
     font-size: 20px;
     background: var(--color-fg-primary);
@@ -122,11 +149,11 @@ export const Quiz = ({ children }: any) => {
                     style={{ top: "inherit", left: "inherit", bottom: "inherit", right: "inherit" }}
                 />
                 }
-                <QuizContainer>
+                <QuizContainer selected={selected} answered={answered} correct={isCorrect}>
                     {React.Children.map((children), (child: any, idx: number) => {
                         if (child.props.mdxType === "prompt" || child.type.name === "Prompt") {
                             return (
-                                <Prompt>{child.props.children}</Prompt>
+                                <Prompt key={idx}>{child.props.children}</Prompt>
                             )
                         }
                     })}
