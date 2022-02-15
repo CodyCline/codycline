@@ -73,48 +73,6 @@ A quick look at the top-level files and directories you'll see in this Gatsby pr
 
 ## 🚀 Quick start
 
-1.  **Start developing.**
-
-    Navigate into directory and start it up.
-
-    ```shell
-    cd codycline/
-    npx gatsby develop #or npm start
-    ```
-
-2.  **Open the source code and start editing!**
-
-    Your site is now running at `http://localhost:8000`!
-
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
-
-    Open the `my-blog-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
-
-## Testing
-
-Uses Jest for unit testing, snapshots, and graphql tests. React testing library is used for stateless components.
-
-1.  **Run test suite.**
-
-    Navigate into directory and start it up.
-
-    ```shell
-    cd codycline/
-    npm install
-    npm run build
-    npm test
-    #If snapshots fail run
-    npm test -- -u
-    ```
-
-## TODO
-
-## 💫 Deploy
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
 
 First, run the development server:
 
@@ -126,20 +84,8 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Testing
+TODO
 
 ## Deploy on Vercel
 
