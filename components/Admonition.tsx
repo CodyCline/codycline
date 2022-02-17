@@ -1,7 +1,5 @@
-import dynamic from "next/dynamic";
 import styled from "styled-components";
 import { Icon } from "./ui/Icon";
-import { useRef } from "react";
 import { truncate } from "./styles/Truncate";
 enum AdmonitionType {
     NOTE = "note",

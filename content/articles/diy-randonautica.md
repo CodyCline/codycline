@@ -1,7 +1,7 @@
 ---
 title: Create your own Randonautica web app
 description: Walkthrough on how to build a web app that gives you random locations to ... explore?
-hero: /content/randonautica.webp
+hero: /content/Hyrule_Castle_Town_Market.png
 featured: 0
 draft: false
 published: 2021-12-26T21:30:35.394Z

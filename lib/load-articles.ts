@@ -4,6 +4,7 @@ import { Article, HeroImage } from "../types/post";
 import { parseMdxDirectory, parseSingleMdxFile } from "./parse-mdx-directory";
 
 import { sizeOf } from "./image-metadata";
+import { pixelateImage } from "./pixelate-image";
 
 
 export async function loadAllArticles(): Promise<Article[]> {
@@ -48,6 +49,7 @@ export async function loadAllArticles(): Promise<Article[]> {
             //If there is an image attached to frontmatter load it and get dimensions
             const imagePath = path.join(process.cwd(), "public", matterData.hero);
             const res = await sizeOf(imagePath);
+            const pixelatedImage = await pixelateImage(imagePath);
             if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
 
             if (res.width && res.height) {
@@ -55,6 +57,7 @@ export async function loadAllArticles(): Promise<Article[]> {
                     height: res.height,
                     width: res.width,
                     src: matterData.hero,
+                    blurDataURL: pixelatedImage
                 }
                 article.hero = heroImage;
             }
@@ -75,7 +78,7 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
         ? mdxPath
         : mdPath
 
-    
+
     const articleData = await parseSingleMdxFile(source);
     const matterData = articleData as {
         title: string;
@@ -113,7 +116,7 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
         const VALID_BLUR_EXT = ["jpeg", "png", "webp"];
         //If there is an image attached to frontmatter load it and get dimensions
         const imagePath = path.join(process.cwd(), "public", matterData.hero);
-
+        const pixelatedImage = await pixelateImage(imagePath, 0.959);
         const res = await sizeOf(imagePath);
         if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
 
@@ -137,7 +140,7 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
                 height: res.height,
                 width: res.width,
                 src: matterData.hero,
-                // blurDataURL: blurredImageURL,
+                blurDataURL: pixelatedImage,
             }
             article.hero = heroImage;
         }

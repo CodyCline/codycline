@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codycline.com</id>
     <title>Cody Cline</title>
-    <updated>2022-02-15T20:32:08.948Z</updated>
+    <updated>2022-02-17T05:47:00.185Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Cody Cline</name>
@@ -13,7 +13,7 @@
     <link rel="self" href="https://codycline.com/atom"/>
     <subtitle>Developer blog and portfolio with code-focused content.</subtitle>
     <icon>http://example.com/favicon.ico</icon>
-    <rights>All rights reserved Tue Feb 15 2022 12:32:08 GMT-0800 (Pacific Standard Time)</rights>
+    <rights>All rights reserved Wed Feb 16 2022 21:47:00 GMT-0800 (Pacific Standard Time)</rights>
     <category term="python"/>
     <category term="mystery"/>
     <category term="react"/>
@@ -31,7 +31,7 @@
         <title type="html"><![CDATA[Create your own Randonautica web app]]></title>
         <id>https://codycline.com/article/diy-randonautica</id>
         <link href="https://codycline.com/article/diy-randonautica"/>
-        <updated>2022-02-10T04:56:19.177Z</updated>
+        <updated>2022-02-15T21:08:48.139Z</updated>
         <summary type="html"><![CDATA[Walkthrough on how to build a web app that gives you random locations to ... explore?]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -44,7 +44,7 @@
         <title type="html"><![CDATA[Tackling the Google Foobar Challenge]]></title>
         <id>https://codycline.com/article/google-foobar-challenge</id>
         <link href="https://codycline.com/article/google-foobar-challenge"/>
-        <updated>2022-02-10T04:56:19.177Z</updated>
+        <updated>2022-02-15T21:08:48.139Z</updated>
         <summary type="html"><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -57,7 +57,7 @@
         <title type="html"><![CDATA[Tackling the Google Foobar Challenge]]></title>
         <id>https://codycline.com/article/test-file</id>
         <link href="https://codycline.com/article/test-file"/>
-        <updated>2022-02-10T04:56:19.177Z</updated>
+        <updated>2022-02-15T21:08:48.139Z</updated>
         <summary type="html"><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -83,7 +83,7 @@
         <title type="html"><![CDATA[C++ containers]]></title>
         <id>https://codycline.com/snippet/develop-cc-container</id>
         <link href="https://codycline.com/snippet/develop-cc-container"/>
-        <updated>2022-02-10T04:56:19.177Z</updated>
+        <updated>2022-02-15T21:08:48.139Z</updated>
         <summary type="html"><![CDATA[Develop powerful C/C++ in a docker environment]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -96,7 +96,7 @@
         <title type="html"><![CDATA[Rust closures]]></title>
         <id>https://codycline.com/snippet/rust-closure</id>
         <link href="https://codycline.com/snippet/rust-closure"/>
-        <updated>2022-02-10T04:56:19.177Z</updated>
+        <updated>2022-02-15T21:08:48.139Z</updated>
         <summary type="html"><![CDATA[What the heck are closures in rust?!]]></summary>
         <author>
             <name>Cody Cline</name>

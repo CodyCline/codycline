@@ -84,6 +84,7 @@ const ReadButton = styled.button`
 
 export const ArticleCard = ({ title, description, image, onClick, tags, permaLink, date, }: any) => {
     const firstThreeTags = tags.slice(0, 4);
+
     return (
         <BlogListContainer onClick={onClick}>
             {image &&
@@ -120,8 +121,9 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
                     )}
                 </SubItem>
             </SubContent>
-
+            
         </BlogListContainer>
+
     );
 }
 

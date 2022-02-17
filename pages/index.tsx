@@ -7,25 +7,18 @@ import { generateSitemap } from "../lib/generate-sitemap";
 import { Icon } from "../components/ui/Icon";
 import { Tab, Tabs } from "../components/Tabs";
 import { Answer, Prompt, Quiz } from "../components/Quiz";
+import dynamic from "next/dynamic";
+import background from "../public/assets/img/background.jpg";
+const ParticleBackground: any = dynamic((): any => import("../components/ParticleBackground"), {
+    ssr: false,
+});
 
 const Home = () => {
     return (
-        <div>
-            <Quiz>
-                <Prompt>
-                    The term Raii stands for
-                </Prompt>
-                <Answer correct>Resource acquisition is initialization</Answer>
-                <Answer>Resource Allocator Indeterminite Interface</Answer>
-                <Answer>Runtime Allocater Interface Input</Answer>
-                <Answer>Runtime Acquisition Is Infinite</Answer>
-            </Quiz>
-            <IconTag icon="tf">4chan</IconTag>
-            <IconTag icon="llvm">llvm</IconTag>
-            <IconTag icon="cookbook">assembly</IconTag>
-            <IconTag icon="patch">patch 2.2</IconTag>
-            
-        </div>
+        <>
+            <ParticleBackground src={background.src} />
+
+        </>
     )
 }
 
