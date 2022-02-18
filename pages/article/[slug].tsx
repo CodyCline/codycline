@@ -5,16 +5,13 @@ import { IconTag } from '../../components/ui/Tag';
 import { MdxRenderer } from "../../components/Mdx";
 import { loadArticleBySlug } from "../../lib/load-articles";
 import { Article } from "../../types/post";
-import imageMetadata from "../../lib/image-metadata";
 
 import { eDateFormat } from "../../lib/utils/format-date";
 import { siteMetadata } from "../../site-metadata";
 import { ContentSeo } from "../../components/Seo";
 import { formatSlug } from "../../lib/utils/format-slug";
 import{  Progressbar }from "../../components/ui/Progressbar";
-import { useEffect, useRef } from "react";
-import { StyledComponent } from "styled-components";
-// import dynamic from "next/dynamic";
+import { useRef } from "react";
 
 const ArticleContent = ({ article }:any) => {
     const ref = useRef<any>();
@@ -26,11 +23,12 @@ const ArticleContent = ({ article }:any) => {
                 authorDetails={siteMetadata.author}
                 {...article}
             />
-            <ContentHero src={article.hero?.src}/>
+            {article.hero && <ContentHero src={article.hero.src}/> }
             <ContentBodyWrapper ref={ref}>
+                
+                <ContentHeader>{article.title}</ContentHeader>
                 <span title={article.published.toString()}>Published: {eDateFormat(article.published)}</span>
                 <span title={article.updated.toString()}> Last Updated: {eDateFormat(article.published)}</span>
-                <ContentHeader>{article.title}</ContentHeader>
                 <MdxRenderer source={article.___rawContent}/>
                 <ContentTags>
                     {article.tags && article.tags.map((tag:string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}

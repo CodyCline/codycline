@@ -49,14 +49,15 @@ export async function loadAllProjects(): Promise<Project[]> {
             //If there is an image attached to frontmatter load it and get dimensions
             const imagePath = path.join(process.cwd(), "public", matterData.hero);
             const res = await sizeOf(imagePath);
-            const pixelatedImage = await pixelateImage(imagePath);
+            const pixelatedImage = await pixelateImage(imagePath, 0.999);
             if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
 
             if (res.width && res.height) {
                 const heroImage: HeroImage = {
                     height: res.height,
                     width: res.width,
-                    src: pixelatedImage,
+                    src: matterData.hero,
+                    blurDataURL: pixelatedImage,
                 }
                 project.hero = heroImage;
             }
@@ -116,13 +117,14 @@ export async function loadProjectBySlug(slug: string): Promise<Project> {
         const imagePath = path.join(process.cwd(), "public", matterData.hero);
         const res = await sizeOf(imagePath);
         if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
-        const pixelatedImage = await pixelateImage(imagePath, 0.969);
+        const pixelatedImage = await pixelateImage(imagePath, 0.999);
 
         if (res.width && res.height) {
             const heroImage: HeroImage = {
                 height: res.height,
                 width: res.width,
-                src: pixelatedImage,
+                src: matterData.hero,
+                blurDataURL: pixelatedImage,
             }
             project.hero = heroImage;
         }

@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { IconTag } from "./ui/Tag";
 import { media } from "./styles/Media";
 import { truncate } from "./styles/Truncate";
-import r from "../public/assets/clang.jpg";
 import { eDateFormat } from "../lib/utils/format-date";
+import router from "next/router";
 
 
 export const ArticleList = styled.div`
@@ -88,9 +88,7 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
     return (
         <BlogListContainer onClick={onClick}>
             {image &&
-                <Link href={permaLink}>
-                    <Image objectFit="cover" blurDataURL={image.blurDataURL} height="100%" width={200} src={image.src} />
-                </Link>
+                <Image onClick={() => router.push(permaLink)} objectFit="cover" blurDataURL={image.blurDataURL} height="100%" width={200} src={image.src} />
             }
 
 
@@ -121,7 +119,7 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
                     )}
                 </SubItem>
             </SubContent>
-            
+
         </BlogListContainer>
 
     );

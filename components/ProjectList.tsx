@@ -5,6 +5,7 @@ import { truncate } from "./styles/Truncate";
 import { ProjectType } from "../types/post";
 import Link from "next/link";
 import { hostToIconName } from "../utils/hostname-icon";
+import router from "next/router";
 
 export const ProjectList = styled.div`
     display: grid;
@@ -111,7 +112,7 @@ export const ProjectCard = ({ image, title, type, ciLink = "https://github.com/c
 
     return (
         <ProjectCardContainer>
-            <Image objectFit="cover" width={image.width} height={400} src={image.src} />
+            <Image onClick={() => router.push(permaLink)} objectFit="cover" width={image.width} height={400} src={image.src} />
             <CardBadge>
                 <Icon height={36} width={36} name={firstTag} />
             </CardBadge>

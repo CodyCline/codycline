@@ -5,10 +5,9 @@ import ParticleImage, {
     ParticleForce
 } from "react-particle-image";
 import styled from "styled-components";
+import { media } from "./styles/Media";
 
 const ParticleBackground = ({ src }: any) => {
-    const round = (n: number, step: any, hue = 1) => Math.ceil((n / step) * hue) * step;
-    const STEP = 210;
     const particleOptions: ParticleOptions = {
         filter: ({ x, y, image }) => {
             // Get pixel
@@ -16,17 +15,7 @@ const ParticleBackground = ({ src }: any) => {
             // Make a particle for this pixel if blue > 52 (range 0-255)
             return pixel.b < 216
         },
-        color: ({ x, y, image }) => {
-            const pixel = image.get(x, y);
-            //Remove most color and grayscale everything
-            return `rgba(
-				${round(pixel.r, STEP)}, 
-				${round(pixel.g, STEP)}, 
-				${round(pixel.b, STEP)}, 
-				1
-			)`;
-            // return `rgba(255, 255, 255, 1)`;
-        },
+        color: () => "#777777",
         radius: ({ x, y, image }) => {
             const pixel = image.get(x, y);
             const magnitude = (pixel.r + pixel.g + pixel.b) * 3;
@@ -48,33 +37,54 @@ const ParticleBackground = ({ src }: any) => {
                 height={Number(window.innerHeight)}
                 scale={6}
                 entropy={20}
-                maxParticles={8000}
+                maxParticles={6000}
                 particleOptions={particleOptions}
                 backgroundColor="inherit"
-                className="background"
             />
         </BgWrapper>
     )
 }
 
 
-const BgWrapper = styled.main`
-	position: fixed;
-	top: 10vh;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: -1;
 
-`
 export default ParticleBackground;
 
-// @import "../../styles/index.scss";
+const BgWrapper = styled.section`
+    width: 100%;
+    height: 100%;
+    margin: 1em auto;
+    position: absolute;
+    z-index: -1;
+`
 
-// .background {
-// 	@include themed() {
-// 		background: t("bg");
-// 	}
+const spacer = styled.div
 
-// }
+export const LandingWrapper = styled.div`
+    display: grid;
+    place-items: center;
+    margin: 1em auto;
+    z-index: 999;
+    width: 60%;
+    padding: 25vh 0 50vh 0;
+    ${media.tablet`width: 75%; padding: 10vh 0 25vh 0`}
+    ${media.phone`width: 90%; padding: 5vh 0 5vh 0`}
+`
 
+
+export const LandingCard = styled.div`
+    color: var(--color-text-default);
+    background: var(--color-fg-aux);
+`
+
+export const LandingTitle = styled.h1`
+    font-size: var(--font-size-lg);
+    color: var(--color-text-default);
+    margin: 1em;
+    background: var(--color-fg-aux);
+`
+
+export const LandingSummary = styled.p`
+    font-weight: bold;
+    padding: 1em;
+    font-size: var(--font-size-md);
+`

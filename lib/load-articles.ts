@@ -49,7 +49,7 @@ export async function loadAllArticles(): Promise<Article[]> {
             //If there is an image attached to frontmatter load it and get dimensions
             const imagePath = path.join(process.cwd(), "public", matterData.hero);
             const res = await sizeOf(imagePath);
-            const pixelatedImage = await pixelateImage(imagePath);
+            const pixelatedImage = await pixelateImage(imagePath, 0.999);
             if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
 
             if (res.width && res.height) {
@@ -111,31 +111,13 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
 
 
     if (matterData.hero) {
-        const BLUR_IMG_SIZE = 8;
-        const BLUR_QUALITY = 70;
-        const VALID_BLUR_EXT = ["jpeg", "png", "webp"];
         //If there is an image attached to frontmatter load it and get dimensions
         const imagePath = path.join(process.cwd(), "public", matterData.hero);
-        const pixelatedImage = await pixelateImage(imagePath, 0.959);
+        const pixelatedImage = await pixelateImage(imagePath, 0.999);
         const res = await sizeOf(imagePath);
         if (!res) throw Error(`Invalid image with src "${matterData.hero}"`);
 
         if (res.width && res.height) {
-            // const imageBlurExt: any = imagePath.match(/\.(png|webp|jpg|jpeg)$/);
-            // const dimension = res.width >= res.height ? "width" : "height";
-            // const extension = imageBlurExt[1].replace("jpg", "jpeg");
-            // const content = await readFileSync(imagePath);
-            // const resizedImage = await resizeImage(
-            //     content,
-            //     dimension,
-            //     BLUR_IMG_SIZE,
-            //     extension,
-            //     BLUR_QUALITY
-            // );
-
-            // const blurredImageURL = `data:image/${extension};base64,${resizedImage.toString(
-            //     "base64"
-            // )}`;
             const heroImage: HeroImage = {
                 height: res.height,
                 width: res.width,

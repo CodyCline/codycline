@@ -23,11 +23,11 @@ const ProjectPage = ({ project }: any) => {
                 {...project}
             />
             <Progressbar target={ref}/>
-            <ContentHero src={project.hero?.src}/>
+            {project.hero && <ContentHero src={project.hero.src}/> }
             <ContentBodyWrapper ref={ref}>
+                <ContentHeader>{project.title}</ContentHeader>
                 <span title={project.published.toString()}>Published: {eDateFormat(project.published)}</span>
                 <span title={project.updated.toString()}> Last Updated: {eDateFormat(project.published)}</span>
-                <ContentHeader>{project.title}</ContentHeader>
                 <MdxRenderer source={project.___rawContent}/>
                 {project.updated && <span>{project.updated.toISOString()}</span>}
                 <ContentTags>

@@ -23,9 +23,10 @@ const SnippetsPage = ({ snippet }: any) => {
             <Progressbar target={ref} />
             <ContentBodyWrapper ref={ref}>
 
+                
+                <ContentHeader>{snippet.title}</ContentHeader>
                 <span title={snippet.published.toString()}>Published: {eDateFormat(snippet.published)}</span>
                 <span title={snippet.updated.toString()}> Last Updated: {eDateFormat(snippet.published)}</span>
-                <ContentHeader>{snippet.title}</ContentHeader>
                 <MdxRenderer source={snippet.___rawContent} />
                 <ContentTags>
                     {snippet.tags && snippet.tags.map((tag: string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
