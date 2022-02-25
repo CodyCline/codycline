@@ -36,7 +36,7 @@ const Header = styled.h3`
     cursor: pointer;
     color: var(--color-text-secondary);
     margin-block-start: 0;
-    transition: 1s ease-in-out;
+    transition: var(--transition-seconds-default) ease-in-out;
     ${truncate(2, "vertical")}
     &:hover {
         text-decoration: dotted underline;

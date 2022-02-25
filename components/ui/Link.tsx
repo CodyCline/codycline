@@ -64,7 +64,7 @@ const BookmarkContainer = styled.div`
 	border-radius: 5px;
 	background: var(--color-fg-aux);
 	padding: 1em;
-	transition: .25s ease-in-out;
+	transition: var(--transition-seconds-default) ease-in-out;
 	&:hover {
 		border: 1px solid var(--color-link);
 		background: var(--color-link-hover);

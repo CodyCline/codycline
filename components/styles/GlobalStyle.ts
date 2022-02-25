@@ -34,6 +34,27 @@ const GlobalStyle = createGlobalStyle`
 		--prism-font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
 	}
 
+	html,
+	html[data-volume="on"] {
+		--test-volume: green;
+	}
+
+	html,
+	html[data-volume="off"] {
+		--test-volume: blue;
+	}
+
+	html[data-motion="no-preference"] {
+		--transition-seconds-default: 0.25s;
+		--transition-seconds-primary: 0.5s;
+		--transition-seconds-normal: 1s;	
+	}
+
+	html[data-motion="reduce"] {
+		--transition-seconds-default: 0s;
+		--transition-seconds-primary: 0s;
+		--transition-seconds-normal: 0s;
+	}
 
 	
 	html,
@@ -163,6 +184,8 @@ const GlobalStyle = createGlobalStyle`
 		margin: 0;
 	}
 
+	
+
 	html,
 	body {
 		line-height: 1.5;
@@ -177,7 +200,7 @@ const GlobalStyle = createGlobalStyle`
 
 		background: var(--color-bg-primary);
 		color: var(--color-text-default);
-		transition: .20s ease-in-out;
+		transition: var(--transition-seconds-default) ease-in-out;
 	}
 	img, picture, video, canvas, svg {
 		display: block;

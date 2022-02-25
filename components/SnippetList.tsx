@@ -18,7 +18,7 @@ const SnippetContainer = styled.section`
 overflow: hidden;
     display: flex;
     position: relative;
-    transition: .25s ease-in-out;
+    transition: var(--transition-seconds-default) ease-in-out;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;

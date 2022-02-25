@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { Icon } from "./ui/Icon";
 
 const SpoilerContainer = styled.section`
-    transition: 1s ease-in-out;
+    transition: var(--transition-seconds-normal) ease-in-out;
     margin: 36px 0;
     font-size: 20px;
 

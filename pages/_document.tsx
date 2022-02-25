@@ -30,21 +30,22 @@ class MyDocument extends Document {
 
     render() {
         const setInitialTheme = `
-            function getUserPreference() {
+            function getThemePreference() {
                 if(window.localStorage.getItem("theme")) {
                     return window.localStorage.getItem("theme")
                 }
                 if (window.matchMedia("(prefers-color-scheme: dark").matches) {
                     return "dark";
                 }
+                //This is done on purpose because the dark theme looks better
                 if (window.matchMedia("(prefers-color-scheme: light").matches) {
-                    return "light";
+                    return "dark";
                 } else {
                     return "dark";
                 }
             }
             
-            document.documentElement.dataset.theme = getUserPreference();
+            document.documentElement.dataset.theme = getThemePreference();
         `;
         const setInitialVolume = `
             function getSoundPreference() {
@@ -56,12 +57,32 @@ class MyDocument extends Document {
             }
             document.documentElement.dataset.volume = getSoundPreference();
         `;
+
+        const setInitialAnimation = `
+            function getMotionPreference() {
+                if(window.localStorage.getItem("motion")) {
+                    return window.localStorage.getItem("motion")
+                }
+                if (window.matchMedia("(prefers-reduced-motion: no-preference").matches) {
+                    return "no-preference";
+                }
+                if (window.matchMedia("(prefers-color-scheme: reduce").matches) {
+                    return "reduce";
+                } else {
+                    return "no-preference";
+                }
+            }
+            
+            document.documentElement.dataset.motion = getMotionPreference();
+        
+        `
         return (
             <Html>
                 <Head />
                 <body>
                     <script dangerouslySetInnerHTML={{ __html: setInitialTheme }} />
                     <script dangerouslySetInnerHTML={{ __html: setInitialVolume }} />
+                    <script dangerouslySetInnerHTML={{ __html: setInitialAnimation }} />
                     <Main />
                     <div id="__portal"/> 
                     <NextScript />

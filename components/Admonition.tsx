@@ -64,7 +64,7 @@ const AdmonitionBody: any = styled.article`
     border-radius: 5px;
     padding: 1em;
     overflow: hidden;
-    transition: .25s ease-in-out;
+    transition: var(--transition-seconds-default) ease-in-out;
     ${(props: any) => {
         const type: AdmonitionType = props.type;
         switch (type) {

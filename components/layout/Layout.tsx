@@ -5,7 +5,6 @@ import { NavBar } from "./Navbar";
 import { MobileNav } from "./Mobilenav";
 import { useMatchMedia } from "../../utils/use-match-media";
 
-import { MotionToggle } from "../ThemeToggle";
 import { Footer, FooterItem, FooterItems, FooterLink } from "./Footer";
 import styled from "styled-components";
 import { Icon } from "../ui/Icon";
@@ -19,6 +18,10 @@ const VolumeToggle:any = dynamic(():any => import("../VolumeToggle"), {
     ssr: false,
 });
 
+
+const MotionToggle: any = dynamic((): any => import("../MotionToggle"), {
+    ssr: false,
+});
 
 
 const LayoutWrapper = styled.main`

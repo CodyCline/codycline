@@ -1,15 +1,9 @@
-
-import { IconTag } from "../components/ui/Tag";
-
 import { generateRssFeed } from "../lib/generate-rss";
 import { generateSitemap } from "../lib/generate-sitemap";
 import dynamic from "next/dynamic";
 import background from "../public/assets/img/background.jpg";
 import { LandingCard, LandingSummary, LandingTitle, LandingWrapper } from "../components/Landing";
 import { siteMetadata } from "../site-metadata";
-const Portal: any = dynamic((): any => import("../components/ui/Portal"), {
-    ssr: false,
-});
 const ParticleBackground: any = dynamic((): any => import("../components/Landing"), {
     ssr: false,
 });

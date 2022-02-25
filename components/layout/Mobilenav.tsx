@@ -6,6 +6,8 @@ import dynamic from "next/dynamic";
 import { NavItem, NavLink } from "./Navbar";
 import { useOnClickOutside } from "../../utils/use-on-outside";
 import ThemeToggle from "../ThemeToggle";
+import VolumeToggle from "../VolumeToggle";
+import MotionToggle from "../MotionToggle";
 
 const Portal: any = dynamic((): any => import("../ui/Portal"), {
     ssr: false,
@@ -50,6 +52,12 @@ export const MobileNav = () => {
                             <SideNavControls>
                                 <NavItem>
                                     <ThemeToggle />
+                                </NavItem>
+                                <NavItem>
+                                    <VolumeToggle />
+                                </NavItem>
+                                <NavItem>
+                                    <MotionToggle />
                                 </NavItem>
                             </SideNavControls>
                         </SideNav>

@@ -19,7 +19,7 @@ const TagContainer: any = styled.button`
     border-radius: .725rem;
     display: inline-flex;
     align-items: center;
-    transition: .2s ease-in-out;
+    transition: var(--transition-seconds-default) ease-in-out;
     cursor: ${(props:any) => props.link && "pointer"};
     &:hover {
         border-color: white;

@@ -28,7 +28,7 @@ const ProjectCardContainer = styled.article`
     padding: 1em;
     overflow: hidden;
     cursor: pointer;
-    transition: .3s ease-in-out;
+    transition: var(--transition-seconds-default) ease-in-out;
     &:hover {
         background: var(--color-fg-primary);
     }

@@ -73,6 +73,8 @@ export const LandingWrapper = styled.div`
 
 export const LandingCard = styled.div`
     color: var(--color-text-default);
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px var(--color-fg-aux);
     background: var(--color-fg-aux);
 `
 
@@ -80,6 +82,9 @@ export const LandingTitle = styled.h1`
     font-size: var(--font-size-lg);
     color: var(--color-text-default);
     margin: 1em;
+    padding: 10px;
+    box-shadow: 0 0 10px 2px var(--color-fg-aux);
+    border-radius: 5px;
     background: var(--color-fg-aux);
 `
 
