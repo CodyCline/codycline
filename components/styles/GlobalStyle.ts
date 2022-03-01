@@ -47,12 +47,14 @@ const GlobalStyle = createGlobalStyle`
 	html[data-motion="no-preference"] {
 		--transition-seconds-default: 0.25s;
 		--transition-seconds-primary: 0.5s;
+		--transition-seconds-fast: 0.1s;
 		--transition-seconds-normal: 1s;	
 	}
 
 	html[data-motion="reduce"] {
 		--transition-seconds-default: 0s;
 		--transition-seconds-primary: 0s;
+		--transition-seconds-fast: 0s;
 		--transition-seconds-normal: 0s;
 	}
 

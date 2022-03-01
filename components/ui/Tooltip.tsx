@@ -1,24 +1,14 @@
 import dynamic from "next/dynamic";
-import { useRef, useState } from "react";
-import ReactToolTip from "react-tooltip";
-import styled from "styled-components";
-import { useOnClickOutside } from "../../utils/use-on-outside";
+import styled, { css } from "styled-components";
+import { slideInBottom, slideInRight } from "../styles/Animations";
 const Portal: any = dynamic((): any => import("../ui/Portal"), {
     ssr: false,
 });
 
 
-export const Tooltip = styled(ReactToolTip)`
-    background-color: white !important;
-    color: black !important;
-    box-shadow: 0px 2px 20px lightgray;
-    &:after {
-        border-top-color: white !important;
-    }
-`;
 
 
-export const SnackbarContainer = styled.span`
+export const SnackbarContainer:any = styled.span`
     background: var(--color-fg-primary);
     bottom: 1em;
     left: 1em;
@@ -26,7 +16,7 @@ export const SnackbarContainer = styled.span`
     border-radius: .5em;
     border: 1px solid var(--color-border);
 
-
+    animation: ${slideInBottom} var(--transition-seconds-fast) linear;
     z-index: 1400;
     position: fixed;
     display: flex;

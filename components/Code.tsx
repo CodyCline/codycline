@@ -1,11 +1,12 @@
 import React, { useEffect, ReactNode, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Icon } from "./ui/Icon";
 import { scrollbar } from "./styles/Scrollbar";
 import Prism, { Token } from 'prismjs';
 import useSound from "use-sound";
 import { Snackbar } from "./ui/Tooltip";
 import copySound from "../public/assets/sfx/copy.mp3";
+import { slideInAnimation } from "./styles/Animations";
 
 export interface CodeProps {
     language: string
@@ -16,7 +17,6 @@ export interface CodeProps {
 
 const CodeBlockContainer = styled.section`
     margin: 36px 0;
-
 `
 
 const Pre = styled.pre`
@@ -24,9 +24,8 @@ const Pre = styled.pre`
     overflow: auto;
     border: 1px solid var(--color-border);
     border-top: none;
-
-
 `
+
 
 const ToolBar = styled.ul`
     display: flex;
@@ -48,9 +47,12 @@ const ToolBarTitle = styled.li`
     margin-left: 2px;
 `
 
-const CopyIcon = styled.li`
+const CopyIcon:any = styled.li`
     cursor: pointer;
     margin-left: auto;
+    ${(props:any) => props.copied && css`
+        animation: ${slideInAnimation} var(--transition-seconds-primary);
+    `}
 `;
 
 export const InlineCode = styled.code`
@@ -116,7 +118,7 @@ export const Code = ({ language, title, children }: any) => {
                     <Icon role="img" noTitle name={language || `gear`} height={20} width={20} />
                     <FileName>{title}</FileName>
                 </ToolBarTitle>
-                <CopyIcon onClick={onCopy}>
+                <CopyIcon copied={copied} key={copied} onClick={onCopy}>
                     <Icon fill={copied ? "var(--color-greentext)": "var(--color-text-default)"} title="Click or tap to copy" onClick={onCopy} name={copied? "check" : "copy"} height={18} width={18} />
                 </CopyIcon>
             </ToolBar>

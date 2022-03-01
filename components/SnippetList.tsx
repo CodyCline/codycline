@@ -4,12 +4,15 @@ import { Icon } from "./ui/Icon";
 import Link from "next/link";
 import { eDateFormat } from "../lib/utils/format-date";
 import { truncate } from "./styles/Truncate";
+import { slideInLeft } from "./styles/Animations";
  
 
 export const SnippetList = styled.section`
     margin: 2em auto;
     width: 80%;
     padding-bottom: 10vh;
+    animation: ${slideInLeft} var(--transition-seconds-primary);
+
 
 `
 

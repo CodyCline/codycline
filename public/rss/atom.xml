@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codycline.com</id>
     <title>Cody Cline</title>
-    <updated>2022-02-25T21:49:17.526Z</updated>
+    <updated>2022-03-01T20:10:36.425Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Cody Cline</name>
@@ -13,7 +13,7 @@
     <link rel="self" href="https://codycline.com/atom"/>
     <subtitle>Developer blog and portfolio with code-focused content.</subtitle>
     <icon>http://example.com/favicon.ico</icon>
-    <rights>All rights reserved Fri Feb 25 2022 13:49:17 GMT-0800 (Pacific Standard Time)</rights>
+    <rights>All rights reserved Tue Mar 01 2022 12:10:36 GMT-0800 (Pacific Standard Time)</rights>
     <category term="python"/>
     <category term="mystery"/>
     <category term="react"/>

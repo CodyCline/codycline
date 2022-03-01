@@ -1,6 +1,5 @@
-import React, { createRef, useEffect, useRef } from "react";
-import ReactDOM from "react-dom";
-import styled from "styled-components";
+import React, { useRef } from "react";
+import styled, { css } from "styled-components";
 import { Icon } from "../ui/Icon";
 import dynamic from "next/dynamic";
 import { NavItem, NavLink } from "./Navbar";
@@ -8,6 +7,7 @@ import { useOnClickOutside } from "../../utils/use-on-outside";
 import ThemeToggle from "../ThemeToggle";
 import VolumeToggle from "../VolumeToggle";
 import MotionToggle from "../MotionToggle";
+import { slideInRight, slideOutRight } from "../styles/Animations";
 
 const Portal: any = dynamic((): any => import("../ui/Portal"), {
     ssr: false,
@@ -30,7 +30,7 @@ export const MobileNav = () => {
             </SideNavButton>
             <Portal>
                 {toggled &&
-                    <ModalContainer ref={ref}>
+                    <ModalContainer key={toggled} ref={ref}>
                         <SideNav>
 
                             <SideNavLinks>
@@ -70,16 +70,19 @@ export const MobileNav = () => {
 
 
 
-const ModalContainer = styled.aside`
-    position: absolute;
+const ModalContainer:any = styled.aside`
+    position: fixed;
     top: 0;
     right: 0;
+    bottom: 0;
     padding: 16px 16px 16px 32px;
-    width: 70%;
+    width: 60vw;
     height: 100%;
     z-index: 999;
     background: var(--color-fg-primary);
+    animation: ${slideInRight} var(--transition-seconds-default);
 `;
+
 
 const SideNavLinks = styled.div`
 

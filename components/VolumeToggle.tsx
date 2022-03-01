@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import useSound from 'use-sound';
-import { ToggleButton } from "./ThemeToggle";
+import { IconShim, ToggleButton } from "./ThemeToggle";
 import volumeOn from "../public/assets/img/volume_on.png";
 import volumeOff from "../public/assets/img/volume_off.png";
 import muteSound from "../public/assets/sfx/mute.mp3";
@@ -32,10 +32,12 @@ const VolumeToggle = () => {
         setVolume(inactiveSetting);
       }}
     >
+      <IconShim key={volume}>
       {volume === "on"
         ? <Image height={18} width={18} src={volumeOn} />
         : <Image height={18} width={18} src={volumeOff} />
       }
+      </IconShim>
     </ToggleButton>
   );
 };

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ToggleButton } from "./ThemeToggle";
+import { IconShim, ToggleButton } from "./ThemeToggle";
 import useSound from 'use-sound';
 import motion from "../public/assets/img/motion.png";
 import stopMotion from "../public/assets/img/stop_motion.png";
@@ -37,10 +37,12 @@ const MotionToggle = () => {
                 setReducedMotion(inactiveSetting);
             }}
         >
+            <IconShim key={prefersReducedMotion}>
             {prefersReducedMotion === "reduce"
                 ? <Image height={18} width={18} src={motion} />
                 : <Image height={18} width={18} src={stopMotion} />
             }
+            </IconShim>
         </ToggleButton>
     )
 }

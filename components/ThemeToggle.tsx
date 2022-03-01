@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import useSound from 'use-sound';
-import { fadeInAnimation } from "./styles/Animations";
+import { fadeInAnimation, slideInAnimation } from "./styles/Animations";
 import moon from "../public/assets/img/moon.png";
 import sun from "../public/assets/img/sun.png";
 import darkSound from "../public/assets/sfx/theme_dark.mp3";
@@ -40,7 +40,7 @@ export const ToggleButton: any = styled.button`
 	},
 `;
 
-export const IconShim = styled.span`
+export const IconShim:any = styled.span`
 	animation: ${fadeInAnimation} var(--transition-seconds-primary) linear; 
 `
 

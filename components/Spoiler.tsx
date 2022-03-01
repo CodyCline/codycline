@@ -1,13 +1,15 @@
 import {useState} from "react";
-
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import { fadeInAnimation, rotateBackwards, rotateForwards, rotateInCenter, slideInBottom, slideInLeft, slideInRight } from "./styles/Animations";
+import { truncate } from "./styles/Truncate";
 import { Icon } from "./ui/Icon";
+import toggleSound from "../public/assets/sfx/theme_light.mp3";
+import useSound from "use-sound";
 
 const SpoilerContainer = styled.section`
     transition: var(--transition-seconds-normal) ease-in-out;
     margin: 36px 0;
     font-size: 20px;
-
 `
 
 const SpoilerHeader:any = styled.ul`
@@ -32,9 +34,10 @@ const SpoilerHeader:any = styled.ul`
     cursor: pointer;
 `;
 const SpoilerHeaderItem = styled.li`
+    ${truncate(1, "vertical")}
 `;
 
-const SpoilerBody = styled.div`
+const SpoilerBody:any = styled.div`
     padding: 25px;
     background: var(--prism-background);
     border-right: 1px solid var(--color-border);
@@ -46,26 +49,43 @@ const SpoilerBody = styled.div`
     height: auto;
 `;
 
+const SpoilerAnimation:any = styled.div`
+    animation: ${fadeInAnimation} var(--transition-seconds-default) forwards;
+`
+
+const IconAnimation:any = styled.div`
+
+    ${(props:any) => props.toggled 
+        ? css`animation: ${rotateBackwards} var(--transition-seconds-default) forwards;`
+        : css`animation: ${rotateForwards} var(--transition-seconds-default) forwards;`}
+`
 
 export const Spoiler = ({children, title} : any) => {
     const [toggled, toggleSpoiler] = useState<boolean>(false);
+    const [playToggleSound] = useSound(toggleSound, {
+		soundEnabled: false,
+	});
     const onToggle = () => {
         toggleSpoiler(!toggled);
+        playToggleSound({ forceSoundEnabled: document.documentElement.dataset.volume === "on" })
     }
     return (
         <SpoilerContainer>
             <SpoilerHeader onClick={onToggle} toggled={toggled}>
                 <SpoilerHeaderItem>{title}</SpoilerHeaderItem>
                 <SpoilerHeaderItem>
-                    <Icon width={24} height={24} name={toggled? `chevron-down`: `chevron-up`}/>
+                    <IconAnimation key={toggled} toggled={toggled}>
+                        <Icon width={24} height={24} name="chevron-up"/>
+                    </IconAnimation>
                 </SpoilerHeaderItem>
             </SpoilerHeader>
-            {toggled &&
-                <SpoilerBody>
-                    {children}
-                </SpoilerBody>
-                
-            }
+            <SpoilerAnimation toggled={toggled} key={toggled}>
+                {toggled &&
+                    <SpoilerBody>
+                        {children}
+                    </SpoilerBody>
+                }
+            </SpoilerAnimation>
         </SpoilerContainer>
     )
 }

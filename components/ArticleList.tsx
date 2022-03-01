@@ -7,6 +7,7 @@ import { media } from "./styles/Media";
 import { truncate } from "./styles/Truncate";
 import { eDateFormat } from "../lib/utils/format-date";
 import router from "next/router";
+import { fadeInAnimation, slideInAnimation, slideInLeft, slideInRight } from "./styles/Animations";
 
 
 export const ArticleList = styled.div`
@@ -18,6 +19,7 @@ export const ArticleList = styled.div`
     margin: auto;
     padding-bottom: 10vh;
     width: 80%;
+    animation: ${slideInLeft} var(--transition-seconds-primary);
 `
 
 

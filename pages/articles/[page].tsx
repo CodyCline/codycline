@@ -68,8 +68,6 @@ function ArticlePages({ articles, pagination }: Content) {
                 title={`articles - ${siteMetadata.headerTitle}`} 
                 description={siteMetadata.description} 
             />
-            <h1>Blog Posts</h1>
-            
             <ArticleList>
                 {articles && articles.map((article: Article) => {
                     const { hero, slug, title, tags, description, updated, created, permaLink } = article;

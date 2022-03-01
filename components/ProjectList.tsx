@@ -6,6 +6,7 @@ import { ProjectType } from "../types/post";
 import Link from "next/link";
 import { hostToIconName } from "../utils/hostname-icon";
 import router from "next/router";
+import { slideInLeft } from "./styles/Animations";
 
 export const ProjectList = styled.div`
     display: grid;
@@ -18,6 +19,8 @@ export const ProjectList = styled.div`
     width: 80%;
     padding-bottom: 10vh;
     grid-gap: 32px;
+    animation: ${slideInLeft} var(--transition-seconds-primary);
+
 `;
 
 const ProjectCardContainer = styled.article`
