@@ -31,7 +31,7 @@ const ToolBar = styled.ul`
     display: flex;
     flex-direction: row;
     margin: 0;
-    padding: 10px 25px 10px 25px;
+    padding: 10px 15px 10px 15px;
 
     list-style: none;
     background: var(--color-fg-primary);
@@ -105,11 +105,15 @@ export const Code = ({ language, title, children }: any) => {
                 ? Prism.tokenize(children, Prism.languages[language])
                 : [];
             replaceToken(tokens)
-        }).catch((e) => {
+        }).catch((error) => {
+            const tokens: Array<string | Token> = Prism.languages[`clike`]
+                ? Prism.tokenize(children, Prism.languages[`clike`])
+                : [];
+            replaceToken(tokens);
             console.warn(`Failed to load highlighter for language: ${language}`)
-            console.error(e);
+            console.error(error);
         })
-    }, [children]);
+    }, [children, language]);
     //If the array with tokens is empty, print the code from props, otherwise render our beauty.
     return (
         <CodeBlockContainer>

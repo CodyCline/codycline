@@ -39,7 +39,7 @@ const PaginationThumb = ({ href, icon, title, disabled }: any) => (
                 <Icon noTitle name={icon} height={24} width={24} />
             </PageButton>
             :
-            <Link href={href}>
+            <Link href={href} passHref>
                 <PageButton>
                     <Icon title={title} name={icon} height={24} width={24} />
                 </PageButton>

@@ -67,9 +67,9 @@ const AnswerWrapper: any = styled.li`
     list-style: none;
     text-align: center;
     border: 1px solid var(--color-border);
-    ${(props: any) => props.answered ? "cursor: not-allowed" : "cursor: pointer"};
+    ${({answered}:any) => answered ? "cursor: not-allowed" : "cursor: pointer"};
     &:hover {
-        ${(props: any) => !props.answered && "background: var(--color-fg-aux); "}
+        ${({answered}:any) => !answered && "background: var(--color-fg-aux); "}
     }
 
     ${(props: any) => {
@@ -143,7 +143,7 @@ export const Quiz = ({ children }: any) => {
         <>
             <QuizWrapper ref={quizRef}>
                 {confetti && <Confetti
-                    gravity={0.5}
+                    gravity={0.2}
                     width={quizRef.current?.clientWidth}
                     height={quizRef.current?.clientHeight}
                     style={{ top: "inherit", left: "inherit", bottom: "inherit", right: "inherit" }}
@@ -151,7 +151,7 @@ export const Quiz = ({ children }: any) => {
                 }
                 <QuizContainer selected={selected} answered={answered} correct={isCorrect}>
                     {React.Children.map((children), (child: any, idx: number) => {
-                        if (child.props.mdxType === "prompt" || child.type.name === "Prompt") {
+                        if (child?.type?.name === "Prompt") {
                             return (
                                 <Prompt key={idx}>{child.props.children}</Prompt>
                             )
@@ -159,7 +159,7 @@ export const Quiz = ({ children }: any) => {
                     })}
                     <OptionContainer>
                         {React.Children.map((children), (child: any, idx: number) => {
-                            if (child.props.mdxType === "answer" || child.type.name === "Answer") {
+                            if (child?.type?.name === "Answer") {
                                 return (
                                     <Answer
                                         key={idx}

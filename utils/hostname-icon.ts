@@ -36,6 +36,9 @@ export const hostToIconName = (link: URL) => {
         case `typescript.org`: return `typescript`;
         case `www.gnome.org`: return `gnome`;
         case `www.gnome-look.org`: return `gnome`;
+        case `rust-lang.org`: return `rust`;
+        case `play.rust-lang.org`: return `rust`;
+        case `doc.rust-lang.org`: return `rust`;
         case `archlinux.org`: return `archlinux`;
         case `canonical.org`: return `canonical`;
         case `ubuntu.com`: return `ubuntu`;

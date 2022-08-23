@@ -1,6 +1,6 @@
 import { PathLike, Stats, statSync } from "fs";
 import path from "path";
-import { readdir, readFile } from "fs/promises";
+import { readFile } from "fs/promises";
 import matter from "gray-matter";
 import { getAllFilesRecursively } from "./utils/files";
 import { formatSlug } from "./utils/format-slug";
@@ -8,9 +8,8 @@ import { serialize } from "next-mdx-remote/serialize";
 // Remark packages
 import remarkGfm  from "remark-gfm";
 import remarkTocHeadings from "./utils/toc-headings";
-import markdown from "remark-parse";
 import emoji from "remark-emoji";
-// Rehype packages
+// Rehype packagesrm -
 import rehypeSlug from "rehype-slug";
 import imageMetadata from "./image-metadata";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -49,7 +48,7 @@ export async function parseSingleMdxFile(filePath: PathLike): Promise<object> {
     const stats: Stats = statSync(filePath);
     const { data: frontmatter, content } = matter(fileContents);
 
-    let toc = [];
+    let toc:string[] = [];
 
     const mdxSource = await serialize(content, {
         // made available to the arguments of any custom mdx component

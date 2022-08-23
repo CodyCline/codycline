@@ -135,7 +135,7 @@ export const ProjectCard = ({ image, title, type, ciLink = "https://github.com/c
             <CardActionBar>
                 {
                     allLinks.map((link: URL) => (
-                        <Link key={link.href} passHref href={link.href}>
+                        <Link key={link.href} passHref={false} href={link.href}>
                             <a target="_blank" rel="noopener noreferrer" href={link.href}>
                                 <CardActionItem>
                                     <Icon title={`View project on ${link.hostname}`} height={24} width={24} name={hostToIconName(link)} />

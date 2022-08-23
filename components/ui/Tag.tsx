@@ -38,7 +38,7 @@ export const IconTag = ({ children, link, icon }: any) => {
     return (
         <>
             {link ?
-                <Link href={link}>
+                <Link passHref href={link}>
                     <TagContainer onMouseEnter={() => play({forceSoundEnabled: document.documentElement.dataset.volume === "on"})} onMouseLeave={() => stop()} link={link}>
                         {icon && <Icon role="img" height={18} width={18} name={icon.toLowerCase()} />}
                         <TagText icon={icon}>

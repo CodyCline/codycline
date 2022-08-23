@@ -129,7 +129,6 @@ const AdmonitionBody: any = styled.article`
 
 
 export const Admonition = ({ children, type, title }: any) => {
-
     return (
         <AdmonitionBody type={type}>
             <AdmonitionTitle>

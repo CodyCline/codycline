@@ -17,7 +17,9 @@ A todo list
 - Fix compiler bug
 - Add support for closures
 - Really cool stuff
-  
+
+<Admonition>
+</Admonition>  
   
 # Question 1
 
@@ -27,22 +29,86 @@ fn main() {
 }
 ```
 
-<quiz>
-<prompt>
+<Bookmark href="https://rust-lang.org/learn"/>
+
+<Admonition type="note" title="A quick note ...">
+    A note from the author
+</Admonition>
+
+<Admonition type="tip" title="Productivity Tip">
+    Use macros to type check your code and prevent redundant typings
+</Admonition>
+
+<Admonition type="info" title="A quick note ...">
+    Hello
+</Admonition>
+
+<Admonition type="experimental" title="A quick note ...">
+    Caution! This feature is an experimental feature and may cause unintended side-effects in your codebase. 
+</Admonition>
+
+<Admonition type="caution" title="A quick note ...">
+    Warning 
+</Admonition>
+
+<Admonition type="danger" title="Danger!!!">
+
+
+Danger
+</Admonition>
+
+<Admonition type="critical" title="Your final warning!!!">
+    Do not replicate below for malicious or otherwise nefarious purposes! Doing so may put you in jeopardy of legal, criminal and financial punishment.
+</Admonition>
+  
+
+```rust:main.rs
+#[derive(Debug)]
+pub enum State {
+    Start,
+    Transient,
+    Closed,
+}
+
+impl From<&'a str> for State {
+    fn from(s: &'a str) -> Self {
+        match s {
+            "start" => State::Start,
+            "closed" => State::Closed,
+            _ => unreachable!(),
+        }
+    }
+}
+```
+
+<Spoiler title="hello">
+    You spoiled me 
+
+    # hello
+
+    ```rust
+    console.warn("WORKING?!");
+    ```
+</Spoiler>
+
+
+<Quiz>
+<Prompt>
 
 ### Question 1
 The acronym RAII stands for ...
 
 
-</prompt>
-    <answer correct>Resource acquisition is initialization</answer>
-    <answer>Resource Allocator Indeterminite Interface `r` </answer>
-    <answer>Runtime Allocater Interface Input</answer>
-    <answer>Runtime Acquisition Is Infinite</answer>
-</quiz>
 
-<quiz>
-<prompt>
+</Prompt>
+    <Answer correct>Resource acquisition is initialization</Answer>
+    <Answer>Resource Allocator Indeterminite Interface</Answer>
+    <Answer>Runtime Allocater Interface Input</Answer>
+    <Answer>Runtime Acquisition Is Infinite</Answer>
+</Quiz>
+
+<Quiz>
+<Prompt>
 
 ### Question 2
 
@@ -53,12 +119,12 @@ fn main() {
     println!("Hello World");
 }
 ```
-</prompt>
-    <answer correct>Hello World</answer>
-    <answer>0x48656c6c6f20576f726c640a</answer>
-    <answer >Idk</answer>
-    <answer>What?</answer>
-</quiz>
+</Prompt>
+    <Answer correct>Hello World</Answer>
+    <Answer>0x48656c6c6f20576f726c640a</Answer>
+    <Answer >Idk</Answer>
+    <Answer>What?</Answer>
+</Quiz>
 
 1. Build the mainframe
 

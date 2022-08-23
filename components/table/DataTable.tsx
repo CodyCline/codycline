@@ -14,7 +14,7 @@ export const DataTable = ({src} : any) => {
                 accessor: (key),
             });
         })
-    ), []);
+    ), [first]);
 
     return (
         <TableBase data={src} columns={columns}/>

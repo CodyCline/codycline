@@ -12,7 +12,7 @@ export const MarkdownTable = (props:any) => {
                 accessor: (child.props.children).toLowerCase(),
             });
         })), 
-        []
+        [theadData]
     );
 
     const data = () => {

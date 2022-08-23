@@ -17,7 +17,6 @@ tags:
 > Ask not what your country can do for you, but what you can do for your country.
 > -- John Fitzgerald Kennedy
 
-$$y_i = \mathbf{x}'_i \beta + u_i$$
 
 | Operating System | Inner x64 Debug | Inner x64 Release | Outer x64 Debug |
 | :--------------: | :-------------: | :---------------: | :-------------: |
@@ -33,7 +32,6 @@ Hi there! Hello! `inline codeeee`
 
 :wave: :+1: :us: :ca:
 
-This is inline math: $T_n = a + (n-1)d$
 
 ## Block math
 
@@ -45,16 +43,7 @@ This is a block of math:
 some content
 :::
 
-$$
-\mathbf{Y} = \left[\begin{array}
-  {c}
-  y_1 \\
-  . \\
-  . \\
-  . \\
-  y_n
-\end{array}\right]
-$$
+
 
 ```jsx
 const component = () => {
@@ -63,8 +52,8 @@ const component = () => {
 ```
 
 
-<tabs>
-<tab title="Csharp" icon="csharp">
+<Tabs>
+<Tab title="Csharp" icon="csharp">
 Hello World
 
 ```csharp
@@ -80,18 +69,12 @@ namespace Microsoft.Bot.Builder.Azure.Tests
 }
 ```
 
-</tab>
-<tab title="C++" icon="c++">
-Hello World
 
-```cpp
-    int main () {
-        std::cout <<>>
-    }
-```
-    
-</tab>
-<tab icon="rust" title="Rust">
+</Tab>
+    <Tab title="C++" icon="c++">
+        Hello World
+    </Tab>
+<Tab icon="rust" title="Rust">
   
 Ensure this implementation uses 2018 edition!
 
@@ -100,68 +83,9 @@ fn main() -> Result<Ip4addr> {
     println!("FOO");
 }
 ```
-</tab>
-</tabs>
-  
-<admonition type="note" title="A quick note ...">
-    A note from the author
-</admonition>
+</Tab>
+</Tabs>
 
-<admonition type="tip" title="Productivity Tip">
-    Use macros to type check your code and prevent redundant typings
-</admonition>
-
-<admonition type="info" title="A quick note ...">
-    Hello
-</admonition>
-
-<admonition type="experimental" title="A quick note ...">
-    Caution! This feature is an experimental feature and may cause unintended side-effects in your codebase. 
-</admonition>
-
-<admonition type="caution" title="A quick note ...">
-    Warning 
-</admonition>
-
-<admonition type="danger" title="Danger!!!">
-
-
-Danger
-</admonition>
-
-<admonition type="critical" title="Your final warning!!!">
-    Do not replicate below for malicious or otherwise nefarious purposes! Doing so may put you in jeopardy of legal, criminal and financial punishment.
-</admonition>
-  
-
-```rust:main.rs
-#[derive(Debug)]
-pub enum State {
-    Start,
-    Transient,
-    Closed,
-}
-
-impl From<&'a str> for State {
-    fn from(s: &'a str) -> Self {
-        match s {
-            "start" => State::Start,
-            "closed" => State::Closed,
-            _ => unreachable!(),
-        }
-    }
-}
-```
-
-<spoiler title="hello">
-You spoiled me 
-
-# hello
-
-```rust
-console.warn("WORKING?!");
-```
-</spoiler>
 
 Concurrent mode in react is an experimental feature [according to their website](https://reactjs.org/)
 

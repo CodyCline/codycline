@@ -30,6 +30,7 @@ module.exports = withSuperjson()({
     return config;
   },
   experimental: {
+    
   },
   images: {
     domains: ["github.com", "img.shields.io", "via.placeholder.com" ],

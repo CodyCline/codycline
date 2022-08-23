@@ -10,14 +10,20 @@ const Svg:any = styled.svg`
     fill: ${(props:any) => props.fill || `var(--color-text-default)`};
 `
 
+const IWrapper:any = styled.i`
+    height: ${({height}:any) => height + `px`};
+    width: ${({width}:any) => width + `px`};
+    vertical-align: middle;
+    display: inline-block;
+`
 
-export const Icon = ({ name, fill, title, noTitle, height, width, className, role }: any) => {
+export const Icon = ({ name, fill, title, noTitle, height, width, className, role, style }: any) => {
     const iconLib: any = { ...standardIcons, ...codeIcons, ...brandIcons };
     const currentIcon = iconLib[name];
     const exists = iconLib[name] !== undefined && typeof window !== undefined;
 
     return (
-        <i role={role} title={noTitle ? `` : `${title || name}`} style={{ height: `${height}px`, width: `${width}px`, verticalAlign: `middle`, display: `inline-block` }}>
+        <IWrapper role={role} title={noTitle ? `` : `${title || name}`} height={height} width={width}>
             <Svg
                 fill={fill}
                 className={className}
@@ -37,7 +43,7 @@ export const Icon = ({ name, fill, title, noTitle, height, width, className, rol
                     })
                 }
             </Svg>
-        </i>
+        </IWrapper>
     );
 }
 
