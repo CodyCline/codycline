@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codycline.com</id>
     <title>Cody Cline</title>
-    <updated>2022-03-01T20:10:36.425Z</updated>
+    <updated>2022-08-23T17:11:03.568Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Cody Cline</name>
@@ -13,7 +13,7 @@
     <link rel="self" href="https://codycline.com/atom"/>
     <subtitle>Developer blog and portfolio with code-focused content.</subtitle>
     <icon>http://example.com/favicon.ico</icon>
-    <rights>All rights reserved Tue Mar 01 2022 12:10:36 GMT-0800 (Pacific Standard Time)</rights>
+    <rights>All rights reserved Tue Aug 23 2022 10:11:03 GMT-0700 (Pacific Daylight Time)</rights>
     <category term="python"/>
     <category term="mystery"/>
     <category term="react"/>
@@ -31,7 +31,7 @@
         <title type="html"><![CDATA[Create your own Randonautica web app]]></title>
         <id>https://codycline.com/article/diy-randonautica</id>
         <link href="https://codycline.com/article/diy-randonautica"/>
-        <updated>2022-02-18T00:07:03.466Z</updated>
+        <updated>2022-03-16T21:39:51.988Z</updated>
         <summary type="html"><![CDATA[Walkthrough on how to build a web app that gives you random locations to ... explore?]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -44,7 +44,7 @@
         <title type="html"><![CDATA[Tackling the Google Foobar Challenge]]></title>
         <id>https://codycline.com/article/google-foobar-challenge</id>
         <link href="https://codycline.com/article/google-foobar-challenge"/>
-        <updated>2022-02-18T00:07:03.466Z</updated>
+        <updated>2022-03-16T21:39:51.988Z</updated>
         <summary type="html"><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -57,7 +57,7 @@
         <title type="html"><![CDATA[Tackling the Google Foobar Challenge]]></title>
         <id>https://codycline.com/article/test-file</id>
         <link href="https://codycline.com/article/test-file"/>
-        <updated>2022-02-18T00:07:03.466Z</updated>
+        <updated>2022-03-16T21:39:51.988Z</updated>
         <summary type="html"><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></summary>
         <author>
             <name>Cody Cline</name>

@@ -4,6 +4,14 @@ import { Paragraph } from "../ui/Typography";
 import { ListItem } from "./ListItem";
 
 
+export const OrdersedList = styled.ol`
+    counter-reset: list-counter;
+    --size: 20px;
+    --border-width: 1px;
+    margin: 0;
+    padding: 0;
+`
+
 export const OrderedList = styled.ol`
     list-style: none;
     counter-reset: list-counter;
@@ -16,22 +24,19 @@ export const OrderedList = styled.ol`
         counter-increment: list-counter;
         display: flex;
         align-items: baseline;
+        &:not(:last-child) p {
+            margin-bottom: 0;
+        }
         
     }
 
     & ${ListItem}::before {
-        content: counter(list-counter);
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
+        content: counter(list-counter) ".";
         margin-right: .5em;
         color: var(--color-text-secondary);
         font-weight: bold;
-        width: var(--size); 
-        height: var(--size);
-        border-radius: 50%;
-        border: var(--border-width) solid var(--color-text-secondary);
     }
 `
+
 
 
