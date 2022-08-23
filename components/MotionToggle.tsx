@@ -39,8 +39,8 @@ const MotionToggle = () => {
         >
             <IconShim key={prefersReducedMotion}>
             {prefersReducedMotion === "reduce"
-                ? <Image height={18} width={18} src={motion} />
-                : <Image height={18} width={18} src={stopMotion} />
+                ? <Image alt="motion on" height={18} width={18} src={motion} />
+                : <Image alt="motion off" height={18} width={18} src={stopMotion} />
             }
             </IconShim>
         </ToggleButton>

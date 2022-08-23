@@ -176,10 +176,10 @@ export const TableBase = ({ data, columns }: any) => {
         <>
         <TableWrapper>
             <Table  {...getTableProps()}>
-                {headerGroups.map(headerRow => (
-                    <Row {...headerRow.getHeaderGroupProps()}>
-                        {headerRow.headers.map((headerCell: any) => (
-                            <HeaderCell {...headerCell.getHeaderProps()}>
+                {headerGroups.map((headerRow, idx) => (
+                    <Row {...headerRow.getHeaderGroupProps()} key={idx}>
+                        {headerRow.headers.map((headerCell: any, idx) => (
+                            <HeaderCell {...headerCell.getHeaderProps()} key={idx}>
                                 {headerCell.render(`Header`)}
                                 <Resizer
                                     {...headerCell.getResizerProps()}
@@ -192,13 +192,13 @@ export const TableBase = ({ data, columns }: any) => {
                 {/* Body elements tbody */}
                 <TableBody {...getTableBodyProps()}>
                     {/* Table rows */}
-                    {rows.map((row) => {
+                    {rows.map((row, idx) => {
                         prepareRow(row);
                         return (
-                            <Row {...row.getRowProps()} >
+                            <Row {...row.getRowProps()} key={idx}>
                                 {/* Table cells */}
                                 {row.cells.map((cell, id: number) => (
-                                    <TableCell onCopy={onCopy} tabIndex={id} {...cell.getCellProps()}>
+                                    <TableCell {...cell.getCellProps()} onCopy={onCopy} tabIndex={id} key={id}>
                                         {cell.render("Cell")}
                                     </TableCell>
                                 ))}

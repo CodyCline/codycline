@@ -90,10 +90,8 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
     return (
         <BlogListContainer onClick={onClick}>
             {image &&
-                <Image onClick={() => router.push(permaLink)} objectFit="cover" blurDataURL={image.blurDataURL} height="100%" width={200} src={image.src} />
+                <Image alt="cover" onClick={() => router.push(permaLink)} objectFit="cover" blurDataURL={image.blurDataURL} height="100%" width={200} src={image.src} />
             }
-
-
             <SubContent>
                 <SubItem>
                     <Header>

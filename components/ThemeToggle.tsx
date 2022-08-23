@@ -75,8 +75,8 @@ const ThemeToggle = () => {
 		>
 		<IconShim key={activeTheme}>
 			{activeTheme === `dark`
-				? <Image height={18} width={18} src={moon} />
-				: <Image height={18} width={18} src={sun} />
+				? <Image alt="toggle light" height={18} width={18} src={moon} />
+				: <Image alt="toggle dark" height={18} width={18} src={sun} />
 			}
 		</IconShim>
 		</ToggleButton>

@@ -57,7 +57,6 @@ const BgWrapper = styled.section`
     z-index: -1;
 `
 
-const spacer = styled.div
 
 export const LandingWrapper = styled.div`
     display: grid;

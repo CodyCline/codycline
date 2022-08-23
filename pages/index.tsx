@@ -15,7 +15,7 @@ const Home = () => {
         <>  
             <ParticleBackground src={background.src} />
             <LandingWrapper>
-                <LandingTitle>Hello, I'm {siteMetadata.author.name}</LandingTitle>
+                <LandingTitle>Hello, I&apos;m {siteMetadata.author.name}</LandingTitle>
                 <LandingCard>
                     <LandingSummary>{siteMetadata.author.summary}</LandingSummary>
                 </LandingCard>

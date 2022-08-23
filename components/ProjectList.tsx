@@ -115,11 +115,11 @@ export const ProjectCard = ({ image, title, type, ciLink = "https://github.com/c
 
     return (
         <ProjectCardContainer>
-            <Image onClick={() => router.push(permaLink)} objectFit="cover" width={image.width} height={400} src={image.src} />
+            <Image alt="cover" onClick={() => router.push(permaLink)} objectFit="cover" width={image.width} height={400} src={image.src} />
             <CardBadge>
                 <Icon height={36} width={36} name={firstTag} />
             </CardBadge>
-            <Link href={permaLink}>
+            <Link passHref href={permaLink}>
                 <CardTitle>
                     <Icon height={24} width={24} fill="var(--color-text-secondary)" name={projectTypeIcon(type as ProjectType)} />
                     <p>{title}</p>
@@ -136,7 +136,7 @@ export const ProjectCard = ({ image, title, type, ciLink = "https://github.com/c
                 {
                     allLinks.map((link: URL) => (
                         <Link key={link.href} passHref href={link.href}>
-                            <a target="_blank" href={link.href}>
+                            <a target="_blank" rel="noopener noreferrer" href={link.href}>
                                 <CardActionItem>
                                     <Icon title={`View project on ${link.hostname}`} height={24} width={24} name={hostToIconName(link)} />
                                 </CardActionItem>

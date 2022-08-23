@@ -20,7 +20,7 @@ const metadata = {
 
 module.exports = withSuperjson()({
   reactStrictMode: true,
-  webpack(config, options) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.mp3$/,
       use: {
@@ -29,12 +29,9 @@ module.exports = withSuperjson()({
     });
     return config;
   },
-  metadata: metadata,
   experimental: {
-    // Enables the styled-components SWC transform
-    styledComponents: true
   },
   images: {
-    domains: ["via.placeholder.com", "github.com", "img.shields.io"],
+    domains: ["github.com", "img.shields.io", "via.placeholder.com" ],
   },
 });

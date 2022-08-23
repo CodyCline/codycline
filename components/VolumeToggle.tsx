@@ -34,8 +34,8 @@ const VolumeToggle = () => {
     >
       <IconShim key={volume}>
       {volume === "on"
-        ? <Image height={18} width={18} src={volumeOn} />
-        : <Image height={18} width={18} src={volumeOff} />
+        ? <Image alt="volume on" height={18} width={18} src={volumeOn} />
+        : <Image alt="volume off" height={18} width={18} src={volumeOff} />
       }
       </IconShim>
     </ToggleButton>
