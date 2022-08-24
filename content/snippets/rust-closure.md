@@ -10,9 +10,13 @@ tags:
 
 # Intro
 
-Here's a simple footnote,[^1] and here's a longer one.[^2]
+Here's a simple footnote,[^1] and `wtd` here's a longer one.[^2]
 
 A todo list
+
+:::tip What you''lll learn
+DSasfsafas
+:::
 
 - Fix compiler bug
 - Add support for closures

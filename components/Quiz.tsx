@@ -143,7 +143,7 @@ export const Quiz = ({ children }: any) => {
         <>
             <QuizWrapper ref={quizRef}>
                 {confetti && <Confetti
-                    gravity={0.2}
+                    gravity={0.5}
                     width={quizRef.current?.clientWidth}
                     height={quizRef.current?.clientHeight}
                     style={{ top: "inherit", left: "inherit", bottom: "inherit", right: "inherit" }}

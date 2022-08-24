@@ -16,19 +16,24 @@ import { Answer, Prompt, Quiz } from "./Quiz";
 import { Hr } from "./ui/Hr";
 
 const mdxComponents = {
-    code: (props:any) => {
-        const separate: string[] = props.className?.includes(":")? props.className.split(`:`) : [props.className];
-        const language: string | null = separate[0]?.split(`language-`).join(``);
-        const title: string | null = separate[1] ? separate[1].split(``).join(``) : null;
-        return (
-            <Code 
-                language={language} 
-                title={title} 
-                {...props}
-            />
-        )
+    code: ({className, ...props}:any) => {
+        const match = /language-(\w+)/.exec(className || '')
+        
+        if(match) {
+            const separate: string[] = className?.includes(":")? className.split(`:`) : [className];
+            const language: string | null = separate[0]?.split(`language-`).join(``);
+            const title: string | null = separate[1] ? separate[1].split(``).join(``) : null;
+            return (
+                <Code 
+                    language={language} 
+                    title={title} 
+                    {...props}
+                />
+            )
+        } else {
+            return <InlineCode {...props}/>
+        }
     },
-    inlineCode: InlineCode,
     img: (props:any) => <MdxImg {...props} layout="responsive" />,
     p: Paragraph,
     a: Link,

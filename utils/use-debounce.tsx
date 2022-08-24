@@ -20,11 +20,3 @@ export const useDebounce = (value:any, delay:number = 1000) => {
 
     return debouncedValue;
 }
-
-export const debounce = (callback:any, delay:number) => {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => callback(...args), delay);
-    }
-}
