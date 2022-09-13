@@ -2,7 +2,7 @@ import { ContentTags, ContentTitle } from "../components/ContentTemplate";
 import { PageSeo } from "../components/Seo";
 import { Icon } from "../components/ui/Icon";
 import { IconTag } from "../components/ui/Tag";
-import { loadAllCategories } from "../lib/load-categories";
+import { loadAllCategories } from "../lib/loadCategories";
 import { siteMetadata } from "../site-metadata";
 
 

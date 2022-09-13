@@ -1,5 +1,3 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
-
 
 export interface HeroImage {
     src: string;
@@ -7,18 +5,19 @@ export interface HeroImage {
     height: number | undefined;
     blurDataURL?: string;
 }
+
 interface MarkdownDocument {
     title: string;
     description: string;
     published: Date;
     created: Date;
     updated?: Date;
+    href: URL | string;
     tags: string[];
     slug: string;
     draft: boolean;
     featured: number;
-    permaLink: string;
-    ___rawContent: string;
+    content: string;
 }
 
 export enum ProjectType {
@@ -45,8 +44,10 @@ export interface Snippet extends MarkdownDocument {}
 
 export interface Project extends MarkdownDocument {
     hero?: HeroImage;
+    version?: number;
+    
     links: string[] | URL[]; //Links to github, etc.
-    buildLink?: URL | string;
+    badge?: URL | string;
     type: ProjectType;
 }
 

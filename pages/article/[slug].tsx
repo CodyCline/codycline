@@ -3,13 +3,13 @@ import path from "path";
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
 import { MdxRenderer } from "../../components/Mdx";
-import { loadArticleBySlug } from "../../lib/load-articles";
+import { loadArticleBySlug } from "../../lib/loadArticles";
 import { Article } from "../../types/post";
 
-import { eDateFormat } from "../../lib/utils/format-date";
+import { eDateFormat } from "../../lib/utils/formatDate";
 import { siteMetadata } from "../../site-metadata";
 import { ContentSeo } from "../../components/Seo";
-import { formatSlug } from "../../lib/utils/format-slug";
+import { formatSlug } from "../../lib/utils/formatSlug";
 import{  Progressbar }from "../../components/ui/Progressbar";
 import { useRef } from "react";
 
@@ -29,7 +29,7 @@ const ArticleContent = ({ article }:any) => {
                 <ContentHeader>{article.title}</ContentHeader>
                 <span title={article.published.toString()}>Published: {eDateFormat(article.published)}</span>
                 <span title={article.updated.toString()}> Last Updated: {eDateFormat(article.published)}</span>
-                <MdxRenderer source={article.___rawContent}/>
+                <MdxRenderer source={article.content}/>
                 <ContentTags>
                     {article.tags && article.tags.map((tag:string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
                 </ContentTags>

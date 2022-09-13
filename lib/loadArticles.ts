@@ -1,9 +1,9 @@
 import path from "path";
 import { existsSync, readFileSync } from "fs";
 import { Article, HeroImage } from "../types/post";
-import { parseMdxDirectory, parseSingleMdxFile } from "./parse-mdx-directory";
+import { parseMdxDirectory, parseSingleMdxFile } from "./parseMdx";
 
-import { sizeOf } from "./image-metadata";
+import { sizeOf } from "./imageMetadata";
 import { pixelateImage } from "./pixelate-image";
 
 
@@ -32,7 +32,7 @@ export async function loadAllArticles(): Promise<Article[]> {
         const article: Article = {
             title: matterData.title!,
             description: matterData.description,
-            permaLink: `/article/${matterData.slug}`,
+            href: `/article/${matterData.slug}`,
             slug: matterData.slug,
             featured: matterData.featured || 0,
             draft: matterData.draft,
@@ -41,7 +41,7 @@ export async function loadAllArticles(): Promise<Article[]> {
             created: matterData.created!,
             published: matterData.published!,
             updated: matterData.updated!,
-            ___rawContent: matterData.content,
+            content: matterData.content,
         }
 
 
@@ -97,7 +97,7 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
     const article: Article = {
         title: matterData.title!,
         description: matterData.description,
-        permaLink: `/article/${matterData.slug}`,
+        href: `/article/${matterData.slug}`,
         slug: matterData.slug,
         featured: matterData.featured || 0,
         draft: matterData.draft,
@@ -106,7 +106,7 @@ export async function loadArticleBySlug(slug: string): Promise<Article> {
         created: matterData.created!,
         published: new Date(matterData.published!),
         updated: matterData.updated!,
-        ___rawContent: matterData.content,
+        content: matterData.content,
     }
 
 

@@ -7,7 +7,9 @@ published: 2021-12-26T21:30:35.394Z
 links:
 - https://www.npmjs.com/package/paypal-button-react
 - https://github.com/codycline/paypal-react.git
-ci_link: null
+
+badge: null
+version: 0.3
 tags: 
 - react
 - paypal

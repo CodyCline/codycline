@@ -4,10 +4,10 @@ import { ContentTitle } from "../../components/ContentTemplate";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { TagSeo } from "../../components/Seo";
 import { Snippet, SnippetList } from "../../components/SnippetList";
-import { loadAllArticles } from "../../lib/load-articles";
-import { loadAllCategories } from "../../lib/load-categories";
-import { loadAllProjects } from "../../lib/load-projects";
-import { loadAllSnippets } from "../../lib/load-snippets";
+import { loadAllArticles } from "../../lib/loadArticles";
+import { loadAllCategories } from "../../lib/loadCategories";
+import { loadAllProjects } from "../../lib/loadProjects";
+import { loadAllSnippets } from "../../lib/loadSnippets";
 import { siteMetadata } from "../../site-metadata";
 import { Article, Project, Snippet as Snp } from "../../types/post";
 
@@ -28,7 +28,7 @@ const CategoryPage = ({ articles, snippets, projects }: any) => {
             </ContentTitle>
             <ArticleList>
                 {articles && articles.map((article: Article) => {
-                    const { hero, slug, title, tags, description, updated, created, permaLink } = article;
+                    const { hero, slug, title, tags, description, updated, created, href } = article;
                     return (
                         <ArticleCard
                             key={slug}
@@ -37,7 +37,7 @@ const CategoryPage = ({ articles, snippets, projects }: any) => {
                             description={description}
                             tags={tags}
                             date={updated || created}
-                            permaLink={permaLink}
+                            href={href}
                         />
                     )
                 })
@@ -52,9 +52,10 @@ const CategoryPage = ({ articles, snippets, projects }: any) => {
                             title={project.title}
                             description={project.description}
                             links={project.links}
-                            permaLink={project.permaLink}
+                            href={project.href}
                             type={project.type}
-                            buildLink={null}
+                            badge={null}
+                            version={null}
                             tags={project.tags}
 
                         />
@@ -68,7 +69,7 @@ const CategoryPage = ({ articles, snippets, projects }: any) => {
                             key={snippet.slug}
                             title={snippet.title}
                             description={snippet.description}
-                            permaLink={snippet.permaLink}
+                            href={snippet.href}
                             date={snippet.updated! || snippet.created}
                             tags={snippet.tags}
                         />

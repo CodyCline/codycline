@@ -1,6 +1,6 @@
 import { Snippet, SnippetList } from "../../components/SnippetList";
 import type { Snippet as Snp } from "../../types/post";
-import { loadAllSnippets } from "../../lib/load-snippets";
+import { loadAllSnippets } from "../../lib/loadSnippets";
 import { Pagination } from "../../components/Pagination";
 import { readdirSync } from "fs";
 import path from "path";
@@ -65,7 +65,7 @@ const SnippetPages = ({ snippets, pagination }: any) => (
                         key={snippet.slug}
                         title={snippet.title}
                         description={snippet.description}
-                        permaLink={snippet.permaLink}
+                        href={snippet.href}
                         date={snippet.updated! || snippet.created}
                         tags={snippet.tags}
                     />

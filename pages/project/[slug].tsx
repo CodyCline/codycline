@@ -4,17 +4,17 @@ import { MdxRenderer } from '../../components/Mdx';
 import { ContentBodyWrapper, ContentHeader, ContentHero, ContentTags } from '../../components/ContentTemplate';
 import { IconTag } from '../../components/ui/Tag';
 import { Project } from '../../types/post';
-import { loadProjectBySlug } from '../../lib/load-projects';
-import imageMetadata from '../../lib/image-metadata';
+import { loadProjectBySlug } from '../../lib/loadProjects';
 import { siteMetadata } from '../../site-metadata';
 import { ContentSeo } from '../../components/Seo';
-import { formatSlug } from '../../lib/utils/format-slug';
-import { eDateFormat } from "../../lib/utils/format-date";
+import { formatSlug } from '../../lib/utils/formatSlug';
+import { eDateFormat } from "../../lib/utils/formatDate";
 import { useRef } from "react";
 import { Progressbar } from "../../components/ui/Progressbar";
 
 const ProjectPage = ({ project }: any) => {
     const ref = useRef<any>()
+    const { published, updated, content, hero, title, tags }: Project = project;
     return (
         <>
             <ContentSeo
@@ -23,16 +23,16 @@ const ProjectPage = ({ project }: any) => {
                 {...project}
             />
             <Progressbar target={ref}/>
-            {project.hero && <ContentHero src={project.hero.src}/> }
+            {hero && <ContentHero src={hero.src}/> }
             <ContentBodyWrapper ref={ref}>
-                <ContentHeader>{project.title}</ContentHeader>
-                <span title={project.published.toString()}>Published: {eDateFormat(project.published)}</span>
-                <span title={project.updated.toString()}> Last Updated: {eDateFormat(project.published)}</span>
-                <MdxRenderer source={project.___rawContent}/>
-                {project.updated && <span>{project.updated.toISOString()}</span>}
+                <ContentHeader>{title}</ContentHeader>
+                <span title={published.toString()}>Published: {eDateFormat(published)}</span>
+                <span title={updated!.toString()}> Last Updated: {eDateFormat(updated!)}</span>
+                <MdxRenderer source={content}/>
+                {project.updated && <span>{updated!.toISOString()}</span>}
                 <ContentTags>
-                    {project.tags &&
-                        project.tags.map((tag: string, i: number) =>
+                    {tags &&
+                        tags.map((tag: string, i: number) =>
                             <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>
                         )
                     }

@@ -1,5 +1,5 @@
 import path from "path";
-import { parseMdxDirectory } from "./parse-mdx-directory";
+import { parseMdxDirectory } from "./parseMdx";
 
 
 //Load all categories parses through all content and 

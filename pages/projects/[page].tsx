@@ -6,7 +6,7 @@ import { ContentTitle } from "../../components/ContentTemplate";
 import { Pagination } from "../../components/Pagination";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { PageSeo } from "../../components/Seo";
-import { loadAllProjects } from "../../lib/load-projects";
+import { loadAllProjects } from "../../lib/loadProjects";
 import { siteMetadata } from "../../site-metadata";
 import { Project } from "../../types/post";
 
@@ -60,16 +60,17 @@ function ProjectPages({ projects, pagination }: any) {
             />
             <ContentTitle header="Projects"> all projects </ContentTitle>
             <ProjectList>
-                {projects &&  projects.map((project: Project) => (
+                {projects.map((project: Project) => (
                         <ProjectCard
                             image={project.hero}
                             key={project.slug}
                             title={project.title}
                             description={project.description}
                             links={project.links}
-                            permaLink={project.permaLink}
+                            href={project.href}
                             type={project.type}
-                            buildLink={null}
+                            badge={null}
+                            version={project.version}
                             tags={project.tags}
 
                         />

@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import Image, { ImageProps } from "next/image";
+import Image from "next/image";
 import styled from "styled-components";
 import { IconTag } from "./ui/Tag";
 import { media } from "./styles/Media";
 import { truncate } from "./styles/Truncate";
-import { eDateFormat } from "../lib/utils/format-date";
+import { eDateFormat } from "../lib/utils/formatDate";
 import router from "next/router";
-import { fadeInAnimation, slideInAnimation, slideInLeft, slideInRight } from "./styles/Animations";
+import { slideInLeft} from "./styles/Animations";
 
 
 export const ArticleList = styled.div`
@@ -84,18 +84,18 @@ const ReadButton = styled.button`
 
 
 
-export const ArticleCard = ({ title, description, image, onClick, tags, permaLink, date, }: any) => {
+export const ArticleCard = ({ title, description, image, onClick, tags, href, date, }: any) => {
     const firstThreeTags = tags.slice(0, 4);
 
     return (
         <BlogListContainer onClick={onClick}>
             {image &&
-                <Image alt="cover" onClick={() => router.push(permaLink)} objectFit="cover" blurDataURL={image.blurDataURL} height="100%" width={200} src={image.src} />
+                <Image alt="cover" onClick={() => router.push(href)} objectFit="cover" blurDataURL={image.blurDataURL} height="100%" width={200} src={image.src} />
             }
             <SubContent>
                 <SubItem>
                     <Header>
-                        <Link href={permaLink}>
+                        <Link href={href}>
                             {title}
                         </Link>
                     </Header>
@@ -105,7 +105,7 @@ export const ArticleCard = ({ title, description, image, onClick, tags, permaLin
                 </SubItem>
                 <SubItem>
                     <Summary>
-                        <Link href={permaLink}>{description}</Link>
+                        <Link href={href}>{description}</Link>
                     </Summary>
                 </SubItem>
                 {/* <SubItem>

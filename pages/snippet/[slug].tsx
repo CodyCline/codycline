@@ -4,11 +4,11 @@ import { ContentBodyWrapper, ContentHeader, ContentTags } from '../../components
 import { MdxRenderer } from '../../components/Mdx';
 import { IconTag } from '../../components/ui/Tag';
 import { Snippet } from '../../types/post';
-import { loadSnippetBySlug } from '../../lib/load-snippets';
-import { eDateFormat } from '../../lib/utils/format-date';
+import { loadSnippetBySlug } from '../../lib/loadSnippets';
+import { eDateFormat } from '../../lib/utils/formatDate';
 import { ContentSeo } from '../../components/Seo';
 import { siteMetadata } from '../../site-metadata';
-import { formatSlug } from '../../lib/utils/format-slug';
+import { formatSlug } from '../../lib/utils/formatSlug';
 import { Progressbar } from "../../components/ui/Progressbar";
 import { useRef } from "react";
 const SnippetsPage = ({ snippet }: any) => {
@@ -27,7 +27,7 @@ const SnippetsPage = ({ snippet }: any) => {
                 <ContentHeader>{snippet.title}</ContentHeader>
                 <span title={snippet.published.toString()}>Published: {eDateFormat(snippet.published)}</span>
                 <span title={snippet.updated.toString()}> Last Updated: {eDateFormat(snippet.published)}</span>
-                <MdxRenderer source={snippet.___rawContent} />
+                <MdxRenderer source={snippet.content} />
                 <ContentTags>
                     {snippet.tags && snippet.tags.map((tag: string, i: number) => <IconTag key={i} link={`/category/${tag}`} icon={tag}>{tag}</IconTag>)}
                 </ContentTags>

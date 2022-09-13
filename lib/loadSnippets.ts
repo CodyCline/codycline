@@ -1,7 +1,7 @@
 import { existsSync } from 'fs';
 import path from 'path';
 import { Snippet } from '../types/post';
-import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
+import { parseMdxDirectory, parseSingleMdxFile } from './parseMdx';
 //
 
 export async function loadAllSnippets(): Promise<Snippet[]> {
@@ -32,10 +32,10 @@ export async function loadAllSnippets(): Promise<Snippet[]> {
             featured: matterData.featured || 0,
             updated: matterData.updated!,
             slug: matterData.slug,
-            permaLink: `/snippet/${matterData.slug}`,
+            href: `/snippet/${matterData.slug}`,
             tags: matterData.tags || [],
             description: matterData.description,
-            ___rawContent: matterData.content,
+            content: matterData.content,
         }
         return snippet;
     })
@@ -73,10 +73,10 @@ export async function loadSnippetBySlug(slug: string) : Promise<Snippet> {
         featured: matterData.featured || 0,
         updated: matterData.updated!,
         slug: matterData.slug,
-        permaLink: `/snippet/${matterData.slug}`,
+        href: `/snippet/${matterData.slug}`,
         tags: matterData.tags || [],
         description: matterData.description,
-        ___rawContent: matterData.content,
+        content: matterData.content,
     }
     return snippet;
 }

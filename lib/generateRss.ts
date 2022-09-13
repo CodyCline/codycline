@@ -1,8 +1,8 @@
 import { Feed, Item } from "feed";
-import { loadAllArticles } from "./load-articles";
-import { loadAllProjects } from "./load-projects";
-import { loadAllSnippets } from "./load-snippets";
-import { loadAllCategories } from "./load-categories";
+import { loadAllArticles } from "./loadArticles";
+import { loadAllProjects } from "./loadProjects";
+import { loadAllSnippets } from "./loadSnippets";
+import { loadAllCategories } from "./loadCategories";
 
 import { siteMetadata } from "../site-metadata";
 import { Article, Project, Snippet } from "../types/post";

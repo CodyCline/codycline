@@ -1,5 +1,5 @@
-import { generateRssFeed } from "../lib/generate-rss";
-import { generateSitemap } from "../lib/generate-sitemap";
+import { generateRssFeed } from "../lib/generateRss";
+import { generateSitemap } from "../lib/generateSitemap";
 import dynamic from "next/dynamic";
 import background from "../public/assets/img/background.jpg";
 import { LandingCard, LandingSummary, LandingTitle, LandingWrapper } from "../components/Landing";

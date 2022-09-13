@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://codycline.com</id>
     <title>Cody Cline</title>
-    <updated>2022-08-24T03:10:17.035Z</updated>
+    <updated>2022-09-13T21:37:31.334Z</updated>
     <generator>awesome</generator>
     <author>
         <name>Cody Cline</name>
@@ -13,16 +13,18 @@
     <link rel="self" href="https://codycline.com/atom"/>
     <subtitle>Developer blog and portfolio with code-focused content.</subtitle>
     <icon>http://example.com/favicon.ico</icon>
-    <rights>All rights reserved Tue Aug 23 2022 20:10:17 GMT-0700 (Pacific Daylight Time)</rights>
+    <rights>All rights reserved Tue Sep 13 2022 14:37:31 GMT-0700 (Pacific Daylight Time)</rights>
     <category term="python"/>
-    <category term="mystery"/>
-    <category term="react"/>
+    <category term="cargo"/>
+    <category term="luarocks"/>
+    <category term="owasp"/>
     <category term="algorithms"/>
     <category term="c++"/>
     <category term="rust"/>
     <category term="llvm"/>
     <category term="cmake"/>
     <category term="csharp"/>
+    <category term="react"/>
     <category term="paypal"/>
     <category term="javascript"/>
     <category term="vscode"/>
@@ -31,7 +33,7 @@
         <title type="html"><![CDATA[Create your own Randonautica web app]]></title>
         <id>https://codycline.com/article/diy-randonautica</id>
         <link href="https://codycline.com/article/diy-randonautica"/>
-        <updated>2022-03-16T21:39:51.988Z</updated>
+        <updated>2022-08-24T03:13:44.127Z</updated>
         <summary type="html"><![CDATA[Walkthrough on how to build a web app that gives you random locations to ... explore?]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -44,7 +46,7 @@
         <title type="html"><![CDATA[Tackling the Google Foobar Challenge]]></title>
         <id>https://codycline.com/article/google-foobar-challenge</id>
         <link href="https://codycline.com/article/google-foobar-challenge"/>
-        <updated>2022-03-16T21:39:51.988Z</updated>
+        <updated>2022-08-24T03:13:44.127Z</updated>
         <summary type="html"><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -57,7 +59,7 @@
         <title type="html"><![CDATA[Tackling the Google Foobar Challenge]]></title>
         <id>https://codycline.com/article/test-file</id>
         <link href="https://codycline.com/article/test-file"/>
-        <updated>2022-03-16T21:39:51.988Z</updated>
+        <updated>2022-08-24T03:13:44.127Z</updated>
         <summary type="html"><![CDATA[A comprehensive walkthrough of Google's secret code challenge]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -70,7 +72,7 @@
         <title type="html"><![CDATA[React PayPal]]></title>
         <id>https://codycline.com/project/react-paypal</id>
         <link href="https://codycline.com/project/react-paypal"/>
-        <updated>2022-02-10T04:56:19.177Z</updated>
+        <updated>2022-08-24T03:13:44.127Z</updated>
         <summary type="html"><![CDATA[Package to remove the pain of integrating Paypal in your react app]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -83,7 +85,7 @@
         <title type="html"><![CDATA[C++ containers]]></title>
         <id>https://codycline.com/snippet/develop-cc-container</id>
         <link href="https://codycline.com/snippet/develop-cc-container"/>
-        <updated>2022-02-15T21:08:48.139Z</updated>
+        <updated>2022-08-24T03:13:44.127Z</updated>
         <summary type="html"><![CDATA[Develop powerful C/C++ in a docker environment]]></summary>
         <author>
             <name>Cody Cline</name>
@@ -96,7 +98,7 @@
         <title type="html"><![CDATA[Rust closures]]></title>
         <id>https://codycline.com/snippet/rust-closure</id>
         <link href="https://codycline.com/snippet/rust-closure"/>
-        <updated>2022-02-15T21:08:48.139Z</updated>
+        <updated>2022-08-24T03:13:44.127Z</updated>
         <summary type="html"><![CDATA[What the heck are closures in rust?!]]></summary>
         <author>
             <name>Cody Cline</name>

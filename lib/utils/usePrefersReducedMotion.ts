@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 
 
 export function usePrefersReducedMotion() {
-    const QUERY = '(prefers-reduced-motion: no-preference)';
+    const QUERY = `(prefers-reduced-motion: no-preference)`;
 
     const [prefersReducedMotion, setPrefersReducedMotion] = useState(
         !window.matchMedia(QUERY)
@@ -14,7 +14,6 @@ export function usePrefersReducedMotion() {
 
     const listener = useCallback(
         (event: any) => {
-            console.log(`match event`, event)
             setPrefersReducedMotion(!event.matches);
         }, [setPrefersReducedMotion]
     );

@@ -61,6 +61,10 @@ const CardTitle = styled.div`
     display: inline-flex;
     align-items: center;
     color: var(--color-text-secondary);
+    font-weight: bold;
+    &:hover {
+        text-decoration: dotted underline;
+    }
     
     font-weight: 700;
     margin-top: 1rem;
@@ -107,27 +111,27 @@ const CiStatusWrapper = styled.div`
     vertical-align: middle 
 `
 
-export const ProjectCard = ({ image, title, type, ciLink = "https://github.com/codycline/codycline/workflows/aws_ci/badge.svg", tags, links, description, permaLink }: any) => {
-    const firstTag = tags && tags[0];
+export const ProjectCard = ({ image, title, type, version, badge, tags, links, description, href }: any) => {
+    const firstTag = tags[0];
     const allLinks = links && links.map((link: string) => {
         return new URL(link);
     })
 
     return (
         <ProjectCardContainer>
-            <Image alt="cover" onClick={() => router.push(permaLink)} objectFit="cover" width={image.width} height={400} src={image.src} />
+            <Image alt="cover" onClick={() => router.push(href)} objectFit="cover" width={image.width} height={400} src={image.src} />
             <CardBadge>
                 <Icon height={36} width={36} name={firstTag} />
             </CardBadge>
-            <Link passHref href={permaLink}>
+            <Link passHref href={href}>
                 <CardTitle>
                     <Icon height={24} width={24} fill="var(--color-text-secondary)" name={projectTypeIcon(type as ProjectType)} />
                     <p>{title}</p>
-                    {/* <span>version</span> */}
+                    {version && <span>{version}</span>}
                 </CardTitle>
             </Link>
             <CardSummary>
-                <Link href={permaLink}>
+                <Link href={href}>
                     {description}
                 </Link>
             </CardSummary>
@@ -138,23 +142,22 @@ export const ProjectCard = ({ image, title, type, ciLink = "https://github.com/c
                         <Link key={link.href} passHref={false} href={link.href}>
                             <a target="_blank" rel="noopener noreferrer" href={link.href}>
                                 <CardActionItem>
-                                    <Icon title={`View project on ${link.hostname}`} height={24} width={24} name={hostToIconName(link)} />
+                                    <Icon title={`Visit ${link.hostname}`} height={24} width={24} name={hostToIconName(link)} />
                                 </CardActionItem>
                             </a>
                         </Link>
                     ))
                 }
-                {ciLink &&
+                {badge &&
                     <CardActionItem right>
                         <CiStatusWrapper>
                             <Image
                                 title="ci status"
-                                unoptimized
                                 alt="ci status"
                                 objectFit="scale-down"
                                 height={25}
                                 width="100%"
-                                src={ciLink}
+                                src={badge}
                             />
                         </CiStatusWrapper>
                     </CardActionItem>

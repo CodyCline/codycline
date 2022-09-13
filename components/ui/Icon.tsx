@@ -16,12 +16,11 @@ const IWrapper:any = styled.i`
     vertical-align: middle;
     display: inline-block;
 `
+const iconLib: any = { ...standardIcons, ...codeIcons, ...brandIcons };
 
 export const Icon = ({ name, fill, title, noTitle, height, width, className, role, style }: any) => {
-    const iconLib: any = { ...standardIcons, ...codeIcons, ...brandIcons };
     const currentIcon = iconLib[name];
     const exists = iconLib[name] !== undefined && typeof window !== undefined;
-
     return (
         <IWrapper role={role} title={noTitle ? `` : `${title || name}`} height={height} width={width}>
             <Svg

@@ -1,5 +1,5 @@
 import { ArticleList, ArticleCard } from "../../components/ArticleList";
-import { loadAllArticles } from "../../lib/load-articles";
+import { loadAllArticles } from "../../lib/loadArticles";
 import type { GetServerSidePropsContext, GetStaticProps } from 'next';
 import { Article } from "../../types/post";
 import { readdirSync } from "fs";
@@ -70,7 +70,7 @@ function ArticlePages({ articles, pagination }: Content) {
             />
             <ArticleList>
                 {articles && articles.map((article: Article) => {
-                    const { hero, slug, title, tags, description, updated, created, permaLink } = article;
+                    const { hero, slug, title, tags, description, updated, created, href } = article;
                         return (
                             <ArticleCard
                                 key={slug}
@@ -79,7 +79,7 @@ function ArticlePages({ articles, pagination }: Content) {
                                 description={description}
                                 tags={tags}
                                 date={updated || created}
-                                permaLink={permaLink}
+                                href={href}
                             />
                         );
                     })

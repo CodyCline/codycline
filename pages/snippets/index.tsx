@@ -1,6 +1,6 @@
 import { Snippet, SnippetList } from "../../components/SnippetList";
 import type { Snippet as Snp } from "../../types/post";
-import { loadAllSnippets } from "../../lib/load-snippets";
+import { loadAllSnippets } from "../../lib/loadSnippets";
 import { Pagination } from "../../components/Pagination";
 import { PageSeo } from "../../components/Seo";
 import { siteMetadata } from "../../site-metadata";
@@ -24,7 +24,7 @@ const SnippetsIndex = ({ snippets, pagination }: any) => (
                         key={snippet.slug}
                         title={snippet.title}
                         description={snippet.description}
-                        permaLink={snippet.permaLink}
+                        href={snippet.href}
                         date={snippet.updated! || snippet.created}
                         tags={snippet.tags}
                     />

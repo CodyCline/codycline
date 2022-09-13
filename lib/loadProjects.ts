@@ -1,7 +1,7 @@
 import path from 'path';
 import { HeroImage, Project, ProjectType } from '../types/post';
-import { parseMdxDirectory, parseSingleMdxFile } from './parse-mdx-directory';
-import { sizeOf } from './image-metadata';
+import { parseMdxDirectory, parseSingleMdxFile } from './parseMdx';
+import { sizeOf } from './imageMetadata';
 import { existsSync } from 'fs';
 import { pixelateImage } from './pixelate-image';
 
@@ -10,6 +10,7 @@ export async function loadAllProjects(): Promise<Project[]> {
     const projectData = await parseMdxDirectory(projectsPath);
 
     const allProjects = projectData.map(async (fileData: object) => {
+        //Extract raw properties from the file and cast to type
         const matterData = fileData as {
             title: string;
             description: string;
@@ -18,11 +19,13 @@ export async function loadAllProjects(): Promise<Project[]> {
             slug: string;
             created: Date;
             updated: Date | null;
+            version: number | null;
             hero: string;
             links: string[] | URL[];
             draft: boolean;
             featured?: number;
-            ci_link?: URL | string;
+            href: URL | string;
+            badge?: URL | string;
             content: string;
             type: string;
         }
@@ -38,12 +41,12 @@ export async function loadAllProjects(): Promise<Project[]> {
             slug: matterData.slug,
             hero: null!,
             type: matterData.type.toUpperCase() as ProjectType,
-            buildLink: matterData.ci_link,
+            badge: matterData.badge,
             links: matterData.links,
-            permaLink: `/project/${matterData.slug}`,
+            href: `/project/${matterData.slug}`,
             tags: matterData.tags || [],
             description: matterData.description,
-            ___rawContent: matterData.content,
+            content: matterData.content,
         }
         if (matterData.hero) {
             //If there is an image attached to frontmatter load it and get dimensions
@@ -88,8 +91,9 @@ export async function loadProjectBySlug(slug: string): Promise<Project> {
         hero: string;
         links: string[] | URL[];
         draft: boolean;
+        version: number;
         featured?: number;
-        ci_link?: URL | string;
+        badge?: URL | string;
         content: string;
         type: string;
     }
@@ -105,12 +109,12 @@ export async function loadProjectBySlug(slug: string): Promise<Project> {
         slug: matterData.slug,
         hero: null!,
         type: matterData.type.toUpperCase() as ProjectType,
-        buildLink: matterData.ci_link,
+        badge: matterData.badge,
         links: matterData.links,
-        permaLink: `/project/${matterData.slug}`,
+        href: `/project/${matterData.slug}`,
         tags: matterData.tags || [],
         description: matterData.description,
-        ___rawContent: matterData.content,
+        content: matterData.content,
     }
     if (matterData.hero) {
         //If there is an image attached to frontmatter load it and get dimensions

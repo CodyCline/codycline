@@ -7,8 +7,9 @@ draft: false
 published: 2021-12-26T21:30:35.394Z
 tags: 
 - python
-- mystery
-- react
+- cargo
+- luarocks
+- owasp
 ---
 
 If you haven't caught up with the social media craze, an app there's been taking 

@@ -2,7 +2,7 @@ import { ContentTitle } from "../../components/ContentTemplate";
 import { Pagination } from "../../components/Pagination";
 import { ProjectCard, ProjectList } from "../../components/ProjectList";
 import { PageSeo } from "../../components/Seo";
-import { loadAllProjects } from "../../lib/load-projects";
+import { loadAllProjects } from "../../lib/loadProjects";
 import { siteMetadata } from "../../site-metadata";
 import { Project } from "../../types/post";
 
@@ -24,11 +24,12 @@ const ProjectsIndex = ({ projects, pagination }: any) => (
                         image={project.hero}
                         key={project.slug}
                         title={project.title}
+                        version={project.version}
                         description={project.description}
                         links={project.links}
-                        permaLink={project.permaLink}
+                        href={project.href}
                         type={project.type}
-                        buildLink={null}
+                        badge={project.badge}
                         tags={project.tags}
 
                     />

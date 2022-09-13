@@ -3,15 +3,15 @@ import path from "path";
 import { readFile } from "fs/promises";
 import matter from "gray-matter";
 import { getAllFilesRecursively } from "./utils/files";
-import { formatSlug } from "./utils/format-slug";
+import { formatSlug } from "./utils/formatSlug";
 import { serialize } from "next-mdx-remote/serialize";
 // Remark packages
 import remarkGfm  from "remark-gfm";
-import remarkTocHeadings from "./utils/toc-headings";
+import remarkTocHeadings from "./utils/tocHeadings";
 import emoji from "remark-emoji";
 // Rehype packagesrm -
 import rehypeSlug from "rehype-slug";
-import imageMetadata from "./image-metadata";
+import imageMetadata from "./imageMetadata";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeCitation from "rehype-citation"
 //Scans through a folder of files with .mdx or .md extensions and returns

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "./styles/Media";
 import { Icon } from "./ui/Icon";
 import Link from "next/link";
-import { eDateFormat } from "../lib/utils/format-date";
+import { eDateFormat } from "../lib/utils/formatDate";
 import { truncate } from "./styles/Truncate";
 import { slideInLeft } from "./styles/Animations";
  
@@ -64,19 +64,19 @@ const SnippetDate = styled.div`
     color: gray;
 `;
 
-export const Snippet = ({ tags, title, description, permaLink, date }: any) => {
+export const Snippet = ({ tags, title, description, href, date }: any) => {
     const firstTag = tags && tags[0];
     return (
         <SnippetContainer>
             <SnippetIcon>
                 <Icon height={24} width={24} name={tags && firstTag} />
                 <SnippetTitle>
-                    <Link href={permaLink}>{title}</Link>
+                    <Link href={href}>{title}</Link>
                 </SnippetTitle>
             </SnippetIcon>
 
             <SnippetDescription>
-                <Link href={permaLink}>
+                <Link href={href}>
                     {description}
                 </Link>
             </SnippetDescription>
