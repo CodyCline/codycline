@@ -5,8 +5,13 @@ description: "A comprehensive walkthrough of Google's secret code challenge"
 hero: /content/logo.jpg
 published: 2021-12-26T21:30:35.394Z
 tags: 
-- python
-- algorithms
+- word
+- excel
+- powerpoint
+- elixir
+- swc
+- cljs
+- clojure
 ---
 
 
