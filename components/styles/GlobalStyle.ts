@@ -22,9 +22,10 @@ const GlobalStyle = createGlobalStyle`
 		--color-metallic: #6e6b5e;
 		--color-greentext: #789922;
 		--color-blue: #3487da;
-		--color-yellow: rgb(221, 177, 0);
+		--color-yellow: #ddb100;
 		--color-orange: #ff7f00;
 		--color-red: #8B0000;
+		--color-pink: #e31b79;
 		--color-purple: #5b4fff;
 		--color-dark-purple: #763053;
 		
@@ -32,16 +33,6 @@ const GlobalStyle = createGlobalStyle`
 		--prism-font-size: 18px;
 		--prism-block-radius: 0;
 		--prism-font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
-	}
-
-	html,
-	html[data-volume="on"] {
-		--test-volume: green;
-	}
-
-	html,
-	html[data-volume="off"] {
-		--test-volume: blue;
 	}
 
 	html[data-motion="no-preference"] {

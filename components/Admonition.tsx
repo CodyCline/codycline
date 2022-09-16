@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Icon } from "./ui/Icon";
 import { truncate } from "./styles/Truncate";
+
 enum AdmonitionType {
     NOTE = "note",
     TIP = "tip",

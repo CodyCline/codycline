@@ -12,3 +12,11 @@ export const Title = styled.h1`
     margin-bottom: 30px;
     line-height: 1.2;
 `
+
+
+export const Header2 = styled.h2`
+    font-size: 28px;
+    margin-bottom: 20px;
+    line-height: 1.0;
+    color: var(--color-pink);
+`

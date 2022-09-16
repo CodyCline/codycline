@@ -75,7 +75,7 @@ export const Spoiler = ({children, title} : any) => {
                 <SpoilerHeaderItem>{title}</SpoilerHeaderItem>
                 <SpoilerHeaderItem>
                     <IconAnimation key={toggled} toggled={toggled}>
-                        <Icon width={24} height={24} name="chevron-up"/>
+                        <Icon width={24} height={24} name="chevron-up" title="click to toggle"/>
                     </IconAnimation>
                 </SpoilerHeaderItem>
             </SpoilerHeader>

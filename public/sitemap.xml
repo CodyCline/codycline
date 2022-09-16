@@ -56,6 +56,27 @@
     ><loc>https://codycline.com/category/owasp</loc
     ><changefreq>daily</changefreq><priority>0.7</priority></url
   ><url
+    ><loc>https://codycline.com/category/word</loc><changefreq>daily</changefreq
+    ><priority>0.7</priority></url
+  ><url
+    ><loc>https://codycline.com/category/excel</loc
+    ><changefreq>daily</changefreq><priority>0.7</priority></url
+  ><url
+    ><loc>https://codycline.com/category/powerpoint</loc
+    ><changefreq>daily</changefreq><priority>0.7</priority></url
+  ><url
+    ><loc>https://codycline.com/category/elixir</loc
+    ><changefreq>daily</changefreq><priority>0.7</priority></url
+  ><url
+    ><loc>https://codycline.com/category/swc</loc><changefreq>daily</changefreq
+    ><priority>0.7</priority></url
+  ><url
+    ><loc>https://codycline.com/category/cljs</loc><changefreq>daily</changefreq
+    ><priority>0.7</priority></url
+  ><url
+    ><loc>https://codycline.com/category/clojure</loc
+    ><changefreq>daily</changefreq><priority>0.7</priority></url
+  ><url
     ><loc>https://codycline.com/category/algorithms</loc
     ><changefreq>daily</changefreq><priority>0.7</priority></url
   ><url
