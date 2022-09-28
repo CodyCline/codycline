@@ -18,7 +18,6 @@ const VolumeToggle:any = dynamic(():any => import("../VolumeToggle"), {
     ssr: false,
 });
 
-
 const MotionToggle: any = dynamic((): any => import("../MotionToggle"), {
     ssr: false,
 });

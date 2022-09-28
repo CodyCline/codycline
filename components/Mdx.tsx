@@ -14,6 +14,11 @@ import { Admonition } from "./Admonition";
 import { Tab, Tabs } from "./Tabs";
 import { Answer, Prompt, Quiz } from "./Quiz";
 import { Hr } from "./ui/Hr";
+import dynamic from "next/dynamic";
+
+
+const CodeSandbox = dynamic(():any => import("./embed/CodeSandbox"), { ssr: false })
+
 
 const mdxComponents = {
     code: ({className, ...props}:any) => {
@@ -47,6 +52,7 @@ const mdxComponents = {
     Spoiler: Spoiler,
     Bookmark: Bookmark,
     Admonition: Admonition,
+    CodeSandbox: CodeSandbox, 
     Tab: Tab,
     Tabs: Tabs,
     Quiz: Quiz,

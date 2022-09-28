@@ -44,7 +44,8 @@ export const hostToIconName = (link: URL) => {
         case `ubuntu.com`: return `ubuntu`;
         case `gentoo.org`: return `gentoo`;
         case `kubernetes.io`: return `kubernetes`;
-
+        case `jfrog.com`: return `jfrog`;
+        case `academy.jfrog.com`: return `jfrog`;
 
         //TODO!
         //Search engines

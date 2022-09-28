@@ -6,7 +6,6 @@ import motion from "../public/assets/img/motion.png";
 import stopMotion from "../public/assets/img/stop_motion.png";
 import animationActive from "../public/assets/sfx/animation_on.mp3";
 import animationInactive from "../public/assets/sfx/animation_off.mp3";
-import { usePrefersReducedMotion } from "../lib/utils/use-prefers-reduced-motion";
 
 const MotionToggle = () => {
     const [prefersReducedMotion, setReducedMotion] = useState<any>(document.documentElement.dataset.motion);
